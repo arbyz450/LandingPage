@@ -7,3 +7,4 @@ calibration_preview*.png
 recordings/
 templates/units/*/
 data/events/*.jsonl
+reports/run*.log

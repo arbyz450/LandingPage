@@ -85,7 +85,7 @@ Everything below was asked for in the first session or discovered while building
 - [x] **Google Play Games on PC**: already the supported target (window capture + window-message/mouse clicks).
       Note: Google's *developer emulator* build of Google Play Games exposes ADB (localhost:6520) — try it for
       mouse-free ADB input on that platform.
-- [x] **Shareable phone app** (scaffolded, NOT yet compiled; first CI run will show what to fix): `android/` — Chaquopy (Python engine in the APK), MediaProjection screen capture,
+- [x] **Shareable phone app**: `android/` builds in CI (APK artifact on every push touching android/, or run the workflow by hand) — Chaquopy (Python engine in the APK), MediaProjection screen capture,
       AccessibilityService taps, floating overlay with top plays, GitHub Actions workflow that builds the APK as a
       downloadable artifact. Sideload only (not Play Store), expect a build-fix pass since it can't be compiled here.
       Also add a one-file Windows build (PyInstaller spec + bat) of the PC app as a download to send.
@@ -97,5 +97,7 @@ Everything below was asked for in the first session or discovered while building
 - [x] Engine rules from new puzzles: no swarms into a splash escort, protect-your-troops value, death-blast units scare swarms.
 - [x] Side-bias check of the simulator: 47.5% for side 0 over 240 mirrored games (no first-mover bias).
 - [ ] When `knowledge/mechanics_verified.json` lands (research agent), wire champion abilities / evo effects into notes and counters.
-- [ ] Trigger the Android workflow (push touches android/) and read the first CI log; fix Gradle/Chaquopy issues.
+- [x] Android APK builds in CI (run #10/#11 green). Download: GitHub → Actions → "Android APK" → latest run → artifact
+      `cr-stockfish-debug-apk` (zip with app-debug.apk). Sideload it; grant overlay + accessibility + screen capture.
+      Embedded Python is 3.8 with numpy 1.19.5 / OpenCV 4.5.1 (the only Android wheels Chaquopy carries). Not yet run on a phone.
 - [ ] On your PC: `python -m crsf go` → send calibration_frame.png; then arm autoplay in dry run for one training match.

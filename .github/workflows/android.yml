@@ -4,10 +4,8 @@ on:
   push:
     paths:
       - "cr-stockfish/android/**"
-      - "cr-stockfish/crsf/**"
-      - "cr-stockfish/knowledge/**"
       - ".github/workflows/android.yml"
-  workflow_dispatch:
+  workflow_dispatch:   # run it by hand (Actions tab -> Android APK -> Run workflow) to bundle the latest engine
 
 jobs:
   build:

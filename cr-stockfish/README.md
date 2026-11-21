@@ -161,9 +161,11 @@ ClashRoyaleBuildABot's MIT-licensed `units_M_480x352.onnx`) detectors.
   project: the same Python engine runs inside the app (Chaquopy), the screen
   is captured with MediaProjection, taps go through an Accessibility service,
   and a floating overlay shows the plays. `.github/workflows/android.yml`
-  builds the debug APK on every push so you can download it from the Actions
-  tab and send it. It has not been compiled yet (no Android SDK in the build
-  environment), so expect a fix-up pass. Details in `docs/PHONE_APP.md`.
+  builds the debug APK (green as of the first CI iteration): GitHub → Actions
+  → "Android APK" → latest run → artifact `cr-stockfish-debug-apk`. Sideload
+  the APK inside it. The embedded Python is 3.8 with numpy 1.19 and OpenCV 4.5
+  (the Android wheels Chaquopy provides). It has not been run on a phone yet,
+  so the first on-device session is a shakedown. Details in `docs/PHONE_APP.md`.
 - **Android, phone + PC:** works today with no app: `crsf play --emulator phone`
   (USB) or `--connect <ip>:5555` (Wi-Fi ADB).
 - **Windows one-file build:** `build_windows.bat` produces `dist/crsf_gui.exe`

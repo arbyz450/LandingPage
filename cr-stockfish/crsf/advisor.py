@@ -169,14 +169,20 @@ class Advisor:
                 anchored = find_game_frame_by_anchors(raw)
                 if anchored is not None:
                     self.frame_bbox = anchored
+                    self._anchor_t = now
                 elif self.frame_bbox is None:
                     self.frame_bbox = find_game_frame(raw)
                 self._frame_detect_t = now
             frame = crop_game_frame(raw, self.frame_bbox)
         else:
             frame = raw
+            self._anchor_t = time.time()
         rep = VisionReport(frame_bbox=self.frame_bbox)
         rep.elixir = read_elixir(frame, self.layout)
+        # A dark strip reads as "0 elixir"; on a loading screen or menu that is not a HUD.
+        # Trust a zero only when the arena anchors (green field + purple bar) were seen recently.
+        if rep.elixir == 0.0 and time.time() - getattr(self, "_anchor_t", 0.0) > 30.0:
+            rep.elixir = None
         self._frame_ok = rep.elixir is not None
         if len(self.matcher):
             rep.hand, rep.next_card = read_hand(frame, self.layout, self.matcher)

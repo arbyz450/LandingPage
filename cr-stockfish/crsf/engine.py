@@ -59,6 +59,8 @@ BRIDGE_ZONES = ("bridge_left", "bridge_right")
 DEF_ZONES = ("def_left", "def_right", "def_center")
 KITE_ZONES = ("kite_left", "kite_right")
 
+DEATH_DAMAGE_CARDS = {"giant_skeleton": 0.35, "goblin_demolisher": 0.5, "ice_golem": 0.7}   # swarm multiplier vs death blasts
+
 TOWER_VALUE_PRINCESS = 7.0   # elixir-equivalent of a full princess tower
 TOWER_VALUE_KING = 12.0
 TOWER_DAMAGE_PER_SEC = 110.0  # princess tower dps at level 11 (approx.)
@@ -307,6 +309,8 @@ def counter_score(db: CardDB, defender: Card, u: Unit) -> float:
     score = ratio / (1.0 + ratio)
 
     # Categorical adjustments
+    if att.key in DEATH_DAMAGE_CARDS and defender.is_swarm:
+        score *= DEATH_DAMAGE_CARDS[att.key]      # its death blast erases the swarm
     if att.is_swarm and not defender.splash and defender.count < 3 and defender.hit_speed > 0.8:
         score *= 0.55
     if att.is_swarm and defender.splash:
@@ -424,15 +428,23 @@ class Engine:
         """Counter score with curated knowledge blended over the duel model."""
         model = counter_score(self.db, defender, u)
         cur = self.k.curated_counter(defender.key, u.card)
-        if cur is None:
-            return model
-        return max(0.0, min(1.0, 0.35 * model + 0.65 * cur[0]))
+        score = model if cur is None else 0.35 * model + 0.65 * cur[0]
+        if u.card in DEATH_DAMAGE_CARDS and defender.is_swarm and not defender.is_spell:
+            score *= DEATH_DAMAGE_CARDS[u.card]      # hard rule: never swarm a death blast
+        if u.side == "opp" and self._flag_of(u.card):
+            score *= 0.85                             # evolutions / heroes are harder to answer
+        return max(0.0, min(1.0, score))
+
+    def _flag_of(self, card: str) -> Optional[str]:
+        st = getattr(self, "_state", None)
+        return st.opp.flags.get(card) if st is not None else None
 
     # ----- public ---------------------------------------------------------
     def analyse(self, state: GameState, top_n: int = 5) -> Analysis:
         db = self.db
+        self._state = state
         mine = state.my_units()
-        threats = [(u, threat_weight(db, u, mine)) for u in state.opp_units()]
+        threats = [(u, threat_weight(db, u, mine) * (1.2 if state.opp.flags.get(u.card) else 1.0)) for u in state.opp_units()]
         threats.sort(key=lambda t: -t[1])
         recs: List[Recommendation] = []
         base_w = self.w
@@ -542,6 +554,10 @@ class Engine:
         # 1. Defense ----------------------------------------------------------
         defense = 0.0
         prevented = 0.0
+        protect = 0.0
+        mine = state.my_units()
+        # A swarm defender is a liability when a splash unit escorts the push in that lane.
+        splash_lanes = {u.lane for u, _ in threats if db.get(u.card).splash and not db.get(u.card).is_building}
         for idx, (u, tw) in enumerate(threats):
             if card.is_spell:
                 if mv.zone != f"unit:{state.units.index(u)}":
@@ -568,15 +584,25 @@ class Engine:
                 elif dy > 6:
                     lf *= max(0.25, 1.2 - dy / 16.0)   # the defender has to walk there first
             urgency = min(1.0, tw / max(0.3, elixir_value(db, u)))   # ~proximity: far-away units are not defence yet
+            if card.is_swarm and not card.is_spell and u.lane in splash_lanes and not db.get(u.card).splash:
+                cs *= 0.4          # the escort's splash will erase the swarm before it works
             gain = cs * lf * elixir_value(db, u) * urgency
             defense += gain
             prevented += cs * lf * expected_tower_damage(db, u) * urgency
+            # Protecting my own units: an enemy that is killing my troop is worth stopping.
+            for m in mine:
+                if m.lane == u.lane and abs(m.y - u.y) <= 3.0 and db.get(u.card).can_target(db.get(m.card)):
+                    protect += 0.5 * cs * lf * elixir_value(db, m)
+                    break
             if gain >= 0.8:
                 reasons.append(f"counters {db.get(u.card).name} ({cs:.0%})")
         if card.is_spell and defense == 0 and mv.zone and mv.zone.startswith("unit:"):
             reasons.append("does nothing useful to that unit")
         comps["defense"] = w.defense * defense
         comps["prevented"] = w.tower_damage_prevented * prevented
+        comps["protect"] = w.defense * protect
+        if protect >= 0.8:
+            reasons.append("protects your troops")
 
         # 1b. Knowledge / learned placement bonus -------------------------------
         kb, kb_reasons = self._placement_bonus(state, mv, card, threats)
@@ -904,6 +930,8 @@ class Engine:
         my_arch = self.k.detect_archetype(state.my_deck) if state.my_deck else None
         if o.elixir >= 9.5:
             notes.append("Opponent is at 10 elixir: they are leaking. Expect a big play; keep your counters ready.")
+        if o.flags:
+            notes.append("Opp upgrades: " + ", ".join(f"{f} {self.db.get(c).name}" for c, f in o.flags.items() if self.db.find(c)) + " (counted as harder to answer)")
         if opp_arch:
             notes.append(f"Opp archetype: {opp_arch.id}. {opp_arch.how_to_beat}".strip())
             mu = self.k.matchup(my_arch.id if my_arch else None, opp_arch.id)

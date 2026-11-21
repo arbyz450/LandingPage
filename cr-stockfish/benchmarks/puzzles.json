@@ -1,30 +1,1047 @@
 {
-  "_doc": "Positions with pro-consensus answers. 'accept' lists acceptable cards; optional 'lane', 'cls' (back|def|bridge|kite|spell), 'zone_prefix', or 'wait'. Run: python -m crsf bench",
-  "puzzles": [
-    {"name": "punish opposite lane when golem drops in back", "state": {"my_elixir": 8, "hand": ["hog_rider","ice_spirit","fireball","musketeer"], "opp": {"elixir": 1}, "units": [{"card":"golem","side":"opp","x":3.5,"y":29}]}, "accept": ["hog_rider"], "lane": "right"},
-    {"name": "balloon at the bridge: anti-air in the pocket, not at the bridge", "state": {"my_elixir": 6, "hand": ["musketeer","zap","giant","mini_pekka"], "units": [{"card":"balloon","side":"opp","x":14.5,"y":16.5}]}, "accept": ["musketeer"], "lane": "right", "not_cls": ["bridge"]},
-    {"name": "skeleton army on my side: log it", "state": {"my_elixir": 5, "hand": ["log","knight","hog_rider","musketeer"], "units": [{"card":"skeleton_army","side":"opp","x":3.5,"y":11}]}, "accept": ["log"]},
-    {"name": "minion horde on my tower: arrows", "state": {"my_elixir": 5, "hand": ["arrows","knight","hog_rider","ice_golem"], "units": [{"card":"minion_horde","side":"opp","x":3.5,"y":8}]}, "accept": ["arrows"]},
-    {"name": "x-bow locked on my tower: tank it with giant at the bridge", "state": {"my_elixir": 7, "hand": ["giant","zap","archers","skeletons"], "units": [{"card":"x_bow","side":"opp","x":3.5,"y":17}]}, "accept": ["giant"], "lane": "left"},
-    {"name": "0:00 opening with 5 elixir: wait", "state": {"time_left": 179, "my_elixir": 5, "hand": ["hog_rider","ice_spirit","fireball","musketeer"]}, "wait": true},
-    {"name": "hog at the bridge: cannon in the centre", "state": {"my_elixir": 6, "hand": ["cannon","fireball","hog_rider","musketeer"], "units": [{"card":"hog_rider","side":"opp","x":3.5,"y":15.5}]}, "accept": ["cannon"], "not_cls": ["bridge","back"]},
-    {"name": "goblins from a barrel on my tower: zap/log", "state": {"my_elixir": 6, "hand": ["zap","giant","musketeer","mini_pekka"], "units": [{"card":"goblins","side":"opp","x":3.5,"y":7}]}, "accept": ["zap"]},
-    {"name": "overtime, behind on tower HP, rocket the low tower", "state": {"time_left": 40, "overtime": true, "my_elixir": 9, "hand": ["rocket","ice_spirit","knight","skeletons"], "opp": {"elixir": 8}, "towers": {"my_left": 600, "opp_left": 1100}}, "accept": ["rocket"], "zone_prefix": "tower:"},
-    {"name": "sparky walking in: electro wizard on it", "state": {"my_elixir": 7, "hand": ["electro_wizard","giant","valkyrie","fireball"], "units": [{"card":"sparky","side":"opp","x":3.5,"y":13}]}, "accept": ["electro_wizard","fireball"]},
-    {"name": "lava hound at their back, I hold the answers: don't panic, pressure opposite", "state": {"my_elixir": 9, "hand": ["hog_rider","musketeer","inferno_dragon","log"], "opp": {"elixir": 2}, "units": [{"card":"lava_hound","side":"opp","x":3.5,"y":29}]}, "accept": ["hog_rider"], "lane": "right"},
-    {"name": "prince charging my tower: guards", "state": {"my_elixir": 5, "hand": ["guards","hog_rider","fireball","musketeer"], "units": [{"card":"prince","side":"opp","x":3.5,"y":12}]}, "accept": ["guards"]},
-    {"name": "tower at 150 HP with fireball in hand: finish it", "state": {"my_elixir": 6, "hand": ["fireball","knight","hog_rider","ice_spirit"], "towers": {"opp_right": 150}}, "accept": ["fireball"], "zone_prefix": "tower:right"},
-    {"name": "mega knight jumps the bridge: pekka or inferno", "state": {"my_elixir": 8, "hand": ["pekka","zap","bats","inferno_tower"], "units": [{"card":"mega_knight","side":"opp","x":14.5,"y":14}]}, "accept": ["pekka","inferno_tower"], "lane_any": ["right","center"]},
-    {"name": "royal giant at the bridge: inferno tower / mini pekka", "state": {"my_elixir": 7, "hand": ["inferno_tower","mini_pekka","zap","archers"], "units": [{"card":"royal_giant","side":"opp","x":14.5,"y":16}]}, "accept": ["inferno_tower","mini_pekka"]},
-    {"name": "10 elixir, opponent at 10 too, unknown deck: cycle a cheap card, not the hog", "state": {"my_elixir": 10, "hand": ["hog_rider","ice_spirit","fireball","musketeer"], "opp": {"elixir": 10, "unknown_slots": 8}}, "accept": ["ice_spirit","musketeer"]},
-    {"name": "elite barbarians charging: skeleton army behind tower", "state": {"my_elixir": 5, "hand": ["skeleton_army","hog_rider","fireball","ice_golem"], "units": [{"card":"elite_barbarians","side":"opp","x":3.5,"y":14}]}, "accept": ["skeleton_army"]},
-    {"name": "3 elixir vs 9: don't start anything", "state": {"my_elixir": 3, "hand": ["hog_rider","ice_spirit","fireball","musketeer"], "opp": {"elixir": 9, "known_deck": ["golem","night_witch","baby_dragon","lightning"], "predicted_hand": ["golem","night_witch","baby_dragon","lightning"], "unknown_slots": 4}}, "wait": true},
-    {"name": "golem with night witch on my side: inferno tower, keep skarmy", "state": {"my_elixir": 7, "hand": ["inferno_tower","skeleton_army","log","hog_rider"], "units": [{"card":"golem","side":"opp","x":3.5,"y":12},{"card":"night_witch","side":"opp","x":3.5,"y":14}]}, "accept": ["inferno_tower"]},
-    {"name": "graveyard skeletons on my tower: valkyrie on the tower", "state": {"my_elixir": 6, "hand": ["valkyrie","hog_rider","fireball","ice_spirit"], "units": [{"card":"skeletons","side":"opp","x":3.0,"y":6.5,"count":6},{"card":"knight","side":"opp","x":3.5,"y":9}]}, "accept": ["valkyrie"], "lane": "left"},
-    {"name": "witch alone crossing: fireball value", "state": {"my_elixir": 6, "hand": ["fireball","giant","skeletons","zap"], "units": [{"card":"witch","side":"opp","x":14.5,"y":14}]}, "accept": ["fireball","giant"]},
-    {"name": "defended with surviving knight, 7 elixir, opp low: counter-push hog", "state": {"my_elixir": 7, "hand": ["hog_rider","ice_spirit","fireball","musketeer"], "opp": {"elixir": 2, "known_deck": ["giant","witch","zap","skeleton_army"], "predicted_hand": ["zap","skeleton_army"], "out_of_hand": ["giant","witch"], "unknown_slots": 4}, "units": [{"card":"knight","side":"me","x":3.5,"y":13,"hp_frac":0.6}]}, "accept": ["hog_rider"], "lane": "left"},
-    {"name": "9 elixir single, nothing on the board: golem at the back", "state": {"time_left": 150, "my_elixir": 9, "hand": ["golem","night_witch","baby_dragon","lightning"], "opp": {"elixir": 6}}, "accept": ["golem"], "cls": "back"},
-    {"name": "inferno dragon vs my golem push: zap it", "state": {"my_elixir": 4, "hand": ["zap","night_witch","baby_dragon","lightning"], "units": [{"card":"golem","side":"me","x":3.5,"y":22},{"card":"inferno_dragon","side":"opp","x":3.5,"y":24}]}, "accept": ["zap","lightning"]},
-    {"name": "wall breakers at the bridge: skeletons / log", "state": {"my_elixir": 5, "hand": ["skeletons","log","hog_rider","musketeer"], "units": [{"card":"wall_breakers","side":"opp","x":14.5,"y":16}]}, "accept": ["skeletons","log"]}
-  ]
+ "_doc": "Positions with pro-consensus answers. 'accept' lists acceptable cards; optional 'lane', 'cls' (back|def|bridge|kite|spell), 'zone_prefix', or 'wait'. Run: python -m crsf bench",
+ "puzzles": [
+  {
+   "name": "punish opposite lane when golem drops in back",
+   "state": {
+    "my_elixir": 8,
+    "hand": [
+     "hog_rider",
+     "ice_spirit",
+     "fireball",
+     "musketeer"
+    ],
+    "opp": {
+     "elixir": 1
+    },
+    "units": [
+     {
+      "card": "golem",
+      "side": "opp",
+      "x": 3.5,
+      "y": 29
+     }
+    ]
+   },
+   "accept": [
+    "hog_rider"
+   ],
+   "lane": "right"
+  },
+  {
+   "name": "balloon at the bridge: anti-air in the pocket, not at the bridge",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "musketeer",
+     "zap",
+     "giant",
+     "mini_pekka"
+    ],
+    "units": [
+     {
+      "card": "balloon",
+      "side": "opp",
+      "x": 14.5,
+      "y": 16.5
+     }
+    ]
+   },
+   "accept": [
+    "musketeer"
+   ],
+   "lane": "right",
+   "not_cls": [
+    "bridge"
+   ]
+  },
+  {
+   "name": "skeleton army on my side: log it",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "log",
+     "knight",
+     "hog_rider",
+     "musketeer"
+    ],
+    "units": [
+     {
+      "card": "skeleton_army",
+      "side": "opp",
+      "x": 3.5,
+      "y": 11
+     }
+    ]
+   },
+   "accept": [
+    "log"
+   ]
+  },
+  {
+   "name": "minion horde on my tower: arrows",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "arrows",
+     "knight",
+     "hog_rider",
+     "ice_golem"
+    ],
+    "units": [
+     {
+      "card": "minion_horde",
+      "side": "opp",
+      "x": 3.5,
+      "y": 8
+     }
+    ]
+   },
+   "accept": [
+    "arrows"
+   ]
+  },
+  {
+   "name": "x-bow locked on my tower: tank it with giant at the bridge",
+   "state": {
+    "my_elixir": 7,
+    "hand": [
+     "giant",
+     "zap",
+     "archers",
+     "skeletons"
+    ],
+    "units": [
+     {
+      "card": "x_bow",
+      "side": "opp",
+      "x": 3.5,
+      "y": 17
+     }
+    ]
+   },
+   "accept": [
+    "giant"
+   ],
+   "lane": "left"
+  },
+  {
+   "name": "0:00 opening with 5 elixir: wait",
+   "state": {
+    "time_left": 179,
+    "my_elixir": 5,
+    "hand": [
+     "hog_rider",
+     "ice_spirit",
+     "fireball",
+     "musketeer"
+    ]
+   },
+   "wait": true
+  },
+  {
+   "name": "hog at the bridge: cannon in the centre",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "cannon",
+     "fireball",
+     "hog_rider",
+     "musketeer"
+    ],
+    "units": [
+     {
+      "card": "hog_rider",
+      "side": "opp",
+      "x": 3.5,
+      "y": 15.5
+     }
+    ]
+   },
+   "accept": [
+    "cannon"
+   ],
+   "not_cls": [
+    "bridge",
+    "back"
+   ]
+  },
+  {
+   "name": "goblins from a barrel on my tower: zap/log",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "zap",
+     "giant",
+     "musketeer",
+     "mini_pekka"
+    ],
+    "units": [
+     {
+      "card": "goblins",
+      "side": "opp",
+      "x": 3.5,
+      "y": 7
+     }
+    ]
+   },
+   "accept": [
+    "zap"
+   ]
+  },
+  {
+   "name": "overtime, behind on tower HP, rocket the low tower",
+   "state": {
+    "time_left": 40,
+    "overtime": true,
+    "my_elixir": 9,
+    "hand": [
+     "rocket",
+     "ice_spirit",
+     "knight",
+     "skeletons"
+    ],
+    "opp": {
+     "elixir": 8
+    },
+    "towers": {
+     "my_left": 600,
+     "opp_left": 1100
+    }
+   },
+   "accept": [
+    "rocket"
+   ],
+   "zone_prefix": "tower:"
+  },
+  {
+   "name": "sparky walking in: electro wizard on it",
+   "state": {
+    "my_elixir": 7,
+    "hand": [
+     "electro_wizard",
+     "giant",
+     "valkyrie",
+     "fireball"
+    ],
+    "units": [
+     {
+      "card": "sparky",
+      "side": "opp",
+      "x": 3.5,
+      "y": 13
+     }
+    ]
+   },
+   "accept": [
+    "electro_wizard",
+    "fireball"
+   ]
+  },
+  {
+   "name": "lava hound at their back, I hold the answers: don't panic, pressure opposite",
+   "state": {
+    "my_elixir": 9,
+    "hand": [
+     "hog_rider",
+     "musketeer",
+     "inferno_dragon",
+     "log"
+    ],
+    "opp": {
+     "elixir": 2
+    },
+    "units": [
+     {
+      "card": "lava_hound",
+      "side": "opp",
+      "x": 3.5,
+      "y": 29
+     }
+    ]
+   },
+   "accept": [
+    "hog_rider"
+   ],
+   "lane": "right"
+  },
+  {
+   "name": "prince charging my tower: guards",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "guards",
+     "hog_rider",
+     "fireball",
+     "musketeer"
+    ],
+    "units": [
+     {
+      "card": "prince",
+      "side": "opp",
+      "x": 3.5,
+      "y": 12
+     }
+    ]
+   },
+   "accept": [
+    "guards"
+   ]
+  },
+  {
+   "name": "tower at 150 HP with fireball in hand: finish it",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "fireball",
+     "knight",
+     "hog_rider",
+     "ice_spirit"
+    ],
+    "towers": {
+     "opp_right": 150
+    }
+   },
+   "accept": [
+    "fireball"
+   ],
+   "zone_prefix": "tower:right"
+  },
+  {
+   "name": "mega knight jumps the bridge: pekka or inferno",
+   "state": {
+    "my_elixir": 8,
+    "hand": [
+     "pekka",
+     "zap",
+     "bats",
+     "inferno_tower"
+    ],
+    "units": [
+     {
+      "card": "mega_knight",
+      "side": "opp",
+      "x": 14.5,
+      "y": 14
+     }
+    ]
+   },
+   "accept": [
+    "pekka",
+    "inferno_tower"
+   ],
+   "lane_any": [
+    "right",
+    "center"
+   ]
+  },
+  {
+   "name": "royal giant at the bridge: inferno tower / mini pekka",
+   "state": {
+    "my_elixir": 7,
+    "hand": [
+     "inferno_tower",
+     "mini_pekka",
+     "zap",
+     "archers"
+    ],
+    "units": [
+     {
+      "card": "royal_giant",
+      "side": "opp",
+      "x": 14.5,
+      "y": 16
+     }
+    ]
+   },
+   "accept": [
+    "inferno_tower",
+    "mini_pekka"
+   ]
+  },
+  {
+   "name": "10 elixir, opponent at 10 too, unknown deck: cycle a cheap card, not the hog",
+   "state": {
+    "my_elixir": 10,
+    "hand": [
+     "hog_rider",
+     "ice_spirit",
+     "fireball",
+     "musketeer"
+    ],
+    "opp": {
+     "elixir": 10,
+     "unknown_slots": 8
+    }
+   },
+   "accept": [
+    "ice_spirit",
+    "musketeer"
+   ]
+  },
+  {
+   "name": "elite barbarians charging: skeleton army behind tower",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "skeleton_army",
+     "hog_rider",
+     "fireball",
+     "ice_golem"
+    ],
+    "units": [
+     {
+      "card": "elite_barbarians",
+      "side": "opp",
+      "x": 3.5,
+      "y": 14
+     }
+    ]
+   },
+   "accept": [
+    "skeleton_army"
+   ]
+  },
+  {
+   "name": "3 elixir vs 9: don't start anything",
+   "state": {
+    "my_elixir": 3,
+    "hand": [
+     "hog_rider",
+     "ice_spirit",
+     "fireball",
+     "musketeer"
+    ],
+    "opp": {
+     "elixir": 9,
+     "known_deck": [
+      "golem",
+      "night_witch",
+      "baby_dragon",
+      "lightning"
+     ],
+     "predicted_hand": [
+      "golem",
+      "night_witch",
+      "baby_dragon",
+      "lightning"
+     ],
+     "unknown_slots": 4
+    }
+   },
+   "wait": true
+  },
+  {
+   "name": "golem with night witch on my side: inferno tower, keep skarmy",
+   "state": {
+    "my_elixir": 7,
+    "hand": [
+     "inferno_tower",
+     "skeleton_army",
+     "log",
+     "hog_rider"
+    ],
+    "units": [
+     {
+      "card": "golem",
+      "side": "opp",
+      "x": 3.5,
+      "y": 12
+     },
+     {
+      "card": "night_witch",
+      "side": "opp",
+      "x": 3.5,
+      "y": 14
+     }
+    ]
+   },
+   "accept": [
+    "inferno_tower"
+   ]
+  },
+  {
+   "name": "graveyard skeletons on my tower: valkyrie on the tower",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "valkyrie",
+     "hog_rider",
+     "fireball",
+     "ice_spirit"
+    ],
+    "units": [
+     {
+      "card": "skeletons",
+      "side": "opp",
+      "x": 3.0,
+      "y": 6.5,
+      "count": 6
+     },
+     {
+      "card": "knight",
+      "side": "opp",
+      "x": 3.5,
+      "y": 9
+     }
+    ]
+   },
+   "accept": [
+    "valkyrie"
+   ],
+   "lane": "left"
+  },
+  {
+   "name": "witch alone crossing: fireball value",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "fireball",
+     "giant",
+     "skeletons",
+     "zap"
+    ],
+    "units": [
+     {
+      "card": "witch",
+      "side": "opp",
+      "x": 14.5,
+      "y": 14
+     }
+    ]
+   },
+   "accept": [
+    "fireball",
+    "giant"
+   ]
+  },
+  {
+   "name": "defended with surviving knight, 7 elixir, opp low: counter-push hog",
+   "state": {
+    "my_elixir": 7,
+    "hand": [
+     "hog_rider",
+     "ice_spirit",
+     "fireball",
+     "musketeer"
+    ],
+    "opp": {
+     "elixir": 2,
+     "known_deck": [
+      "giant",
+      "witch",
+      "zap",
+      "skeleton_army"
+     ],
+     "predicted_hand": [
+      "zap",
+      "skeleton_army"
+     ],
+     "out_of_hand": [
+      "giant",
+      "witch"
+     ],
+     "unknown_slots": 4
+    },
+    "units": [
+     {
+      "card": "knight",
+      "side": "me",
+      "x": 3.5,
+      "y": 13,
+      "hp_frac": 0.6
+     }
+    ]
+   },
+   "accept": [
+    "hog_rider"
+   ],
+   "lane": "left"
+  },
+  {
+   "name": "9 elixir single, nothing on the board: golem at the back",
+   "state": {
+    "time_left": 150,
+    "my_elixir": 9,
+    "hand": [
+     "golem",
+     "night_witch",
+     "baby_dragon",
+     "lightning"
+    ],
+    "opp": {
+     "elixir": 6
+    }
+   },
+   "accept": [
+    "golem"
+   ],
+   "cls": "back"
+  },
+  {
+   "name": "inferno dragon vs my golem push: zap it",
+   "state": {
+    "my_elixir": 4,
+    "hand": [
+     "zap",
+     "night_witch",
+     "baby_dragon",
+     "lightning"
+    ],
+    "units": [
+     {
+      "card": "golem",
+      "side": "me",
+      "x": 3.5,
+      "y": 22
+     },
+     {
+      "card": "inferno_dragon",
+      "side": "opp",
+      "x": 3.5,
+      "y": 24
+     }
+    ]
+   },
+   "accept": [
+    "zap",
+    "lightning"
+   ]
+  },
+  {
+   "name": "wall breakers at the bridge: skeletons / log",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "skeletons",
+     "log",
+     "hog_rider",
+     "musketeer"
+    ],
+    "units": [
+     {
+      "card": "wall_breakers",
+      "side": "opp",
+      "x": 14.5,
+      "y": 16
+     }
+    ]
+   },
+   "accept": [
+    "skeletons",
+    "log"
+   ]
+  },
+  {
+   "name": "hog + goblins at bridge: log the goblins, tower handles hog chip",
+   "state": {
+    "my_elixir": 4,
+    "hand": [
+     "log",
+     "knight",
+     "fireball",
+     "musketeer"
+    ],
+    "units": [
+     {
+      "card": "hog_rider",
+      "side": "opp",
+      "x": 3.5,
+      "y": 13
+     },
+     {
+      "card": "goblins",
+      "side": "opp",
+      "x": 3.5,
+      "y": 12.5
+     }
+    ]
+   },
+   "accept": [
+    "log",
+    "knight",
+    "musketeer"
+   ]
+  },
+  {
+   "name": "x-bow being placed at bridge with 10 elixir vs me at 4: don't panic-play, wait 1 beat",
+   "state": {
+    "my_elixir": 2,
+    "hand": [
+     "giant",
+     "zap",
+     "archers",
+     "skeletons"
+    ],
+    "opp": {
+     "elixir": 6
+    },
+    "units": [
+     {
+      "card": "x_bow",
+      "side": "opp",
+      "x": 3.5,
+      "y": 17
+     }
+    ]
+   },
+   "accept": [
+    "skeletons",
+    "archers"
+   ]
+  },
+  {
+   "name": "miner on my tower: knight/skeletons on it, not fireball",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "skeletons",
+     "fireball",
+     "hog_rider",
+     "musketeer"
+    ],
+    "units": [
+     {
+      "card": "miner",
+      "side": "opp",
+      "x": 3.0,
+      "y": 7
+     }
+    ]
+   },
+   "accept": [
+    "skeletons"
+   ]
+  },
+  {
+   "name": "pekka at bridge with 7 elixir: inferno tower or skarmy",
+   "state": {
+    "my_elixir": 7,
+    "hand": [
+     "skeleton_army",
+     "inferno_tower",
+     "hog_rider",
+     "zap"
+    ],
+    "units": [
+     {
+      "card": "pekka",
+      "side": "opp",
+      "x": 14.5,
+      "y": 15
+     }
+    ]
+   },
+   "accept": [
+    "skeleton_army",
+    "inferno_tower"
+   ]
+  },
+  {
+   "name": "sparky + giant at bridge: electro wizard first",
+   "state": {
+    "my_elixir": 8,
+    "hand": [
+     "electro_wizard",
+     "skeleton_army",
+     "inferno_tower",
+     "zap"
+    ],
+    "units": [
+     {
+      "card": "giant",
+      "side": "opp",
+      "x": 3.5,
+      "y": 15
+     },
+     {
+      "card": "sparky",
+      "side": "opp",
+      "x": 3.5,
+      "y": 16.5
+     }
+    ]
+   },
+   "accept": [
+    "electro_wizard",
+    "inferno_tower",
+    "zap"
+   ]
+  },
+  {
+   "name": "bats on my musketeer defence: zap them",
+   "state": {
+    "my_elixir": 4,
+    "hand": [
+     "zap",
+     "giant",
+     "hog_rider",
+     "valkyrie"
+    ],
+    "units": [
+     {
+      "card": "bats",
+      "side": "opp",
+      "x": 3.5,
+      "y": 10
+     },
+     {
+      "card": "musketeer",
+      "side": "me",
+      "x": 4.0,
+      "y": 9
+     }
+    ]
+   },
+   "accept": [
+    "zap"
+   ]
+  },
+  {
+   "name": "balloon + lava hound crossing: inferno dragon on balloon lane",
+   "state": {
+    "my_elixir": 8,
+    "hand": [
+     "inferno_dragon",
+     "musketeer",
+     "giant",
+     "log"
+    ],
+    "units": [
+     {
+      "card": "lava_hound",
+      "side": "opp",
+      "x": 3.5,
+      "y": 17
+     },
+     {
+      "card": "balloon",
+      "side": "opp",
+      "x": 3.5,
+      "y": 16
+     }
+    ]
+   },
+   "accept": [
+    "inferno_dragon",
+    "musketeer"
+   ],
+   "lane": "left"
+  },
+  {
+   "name": "ram rider at bridge: cannon / knight pull",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "cannon",
+     "knight",
+     "fireball",
+     "archers"
+    ],
+    "units": [
+     {
+      "card": "ram_rider",
+      "side": "opp",
+      "x": 14.5,
+      "y": 15.5
+     }
+    ]
+   },
+   "accept": [
+    "cannon",
+    "knight"
+   ]
+  },
+  {
+   "name": "double elixir, 10 elixir, golem deck vs me: start golem at the back",
+   "state": {
+    "time_left": 50,
+    "my_elixir": 10,
+    "hand": [
+     "golem",
+     "baby_dragon",
+     "lightning",
+     "tornado"
+    ],
+    "opp": {
+     "elixir": 7
+    }
+   },
+   "accept": [
+    "golem",
+    "baby_dragon"
+   ],
+   "cls": "back"
+  },
+  {
+   "name": "they just fireballed my musketeer, 6 elixir, hog in hand, opp at 2: hog now",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "hog_rider",
+     "ice_spirit",
+     "log",
+     "cannon"
+    ],
+    "opp": {
+     "elixir": 2,
+     "known_deck": [
+      "fireball",
+      "giant",
+      "witch",
+      "zap"
+     ],
+     "predicted_hand": [
+      "giant",
+      "witch",
+      "zap"
+     ],
+     "out_of_hand": [
+      "fireball"
+     ],
+     "unknown_slots": 4
+    },
+    "time_left": 120
+   },
+   "accept": [
+    "hog_rider"
+   ],
+   "cls": "bridge"
+  },
+  {
+   "name": "goblin barrel deck vs me with log in hand, nothing on board: hold the log",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "log",
+     "knight",
+     "hog_rider",
+     "musketeer"
+    ],
+    "opp": {
+     "elixir": 8,
+     "known_deck": [
+      "goblin_barrel",
+      "princess",
+      "goblin_gang",
+      "inferno_tower",
+      "rocket",
+      "knight",
+      "ice_spirit",
+      "log"
+     ],
+     "predicted_hand": [
+      "goblin_barrel",
+      "princess",
+      "goblin_gang",
+      "rocket"
+     ],
+     "unknown_slots": 0
+    }
+   },
+   "not_card": [
+    "log"
+   ]
+  },
+  {
+   "name": "elite barbarians + rage incoming: pekka/skarmy, never ice spirit alone",
+   "state": {
+    "my_elixir": 7,
+    "hand": [
+     "pekka",
+     "ice_spirit",
+     "zap",
+     "archers"
+    ],
+    "units": [
+     {
+      "card": "elite_barbarians",
+      "side": "opp",
+      "x": 3.5,
+      "y": 14
+     }
+    ]
+   },
+   "accept": [
+    "pekka"
+   ]
+  },
+  {
+   "name": "night witch alone crossing: fireball or musketeer, not skarmy",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "fireball",
+     "skeleton_army",
+     "musketeer",
+     "hog_rider"
+    ],
+    "units": [
+     {
+      "card": "night_witch",
+      "side": "opp",
+      "x": 14.5,
+      "y": 15
+     }
+    ]
+   },
+   "accept": [
+    "fireball",
+    "musketeer",
+    "skeleton_army"
+   ]
+  },
+  {
+   "name": "last 10s regulation, ahead one tower, opp pushing: defend, don't rocket cycle",
+   "state": {
+    "time_left": 10,
+    "my_elixir": 8,
+    "hand": [
+     "rocket",
+     "knight",
+     "ice_spirit",
+     "cannon"
+    ],
+    "opp": {
+     "elixir": 3
+    },
+    "units": [
+     {
+      "card": "hog_rider",
+      "side": "opp",
+      "x": 3.5,
+      "y": 14
+     }
+    ]
+   },
+   "accept": [
+    "cannon",
+    "knight"
+   ]
+  },
+  {
+   "name": "giant skeleton walking at my tower: kite with ice golem / knight, don't swarm",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "ice_golem",
+     "skeleton_army",
+     "knight",
+     "log"
+    ],
+    "units": [
+     {
+      "card": "giant_skeleton",
+      "side": "opp",
+      "x": 3.5,
+      "y": 12
+     }
+    ]
+   },
+   "accept": [
+    "ice_golem",
+    "knight"
+   ]
+  }
+ ]
 }

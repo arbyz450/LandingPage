@@ -87,6 +87,7 @@ class OpponentInfo:
     predicted_hand: List[str] = field(default_factory=list)   # cards believed to be in hand now
     out_of_hand: List[str] = field(default_factory=list)      # last 4 distinct cards played
     unknown_slots: int = 8                                    # deck slots not yet identified
+    flags: Dict[str, str] = field(default_factory=dict)       # card -> "evo" | "hero"
 
 
 @dataclass
@@ -145,6 +146,7 @@ class GameState:
                 "predicted_hand": list(self.opp.predicted_hand),
                 "out_of_hand": list(self.opp.out_of_hand),
                 "unknown_slots": self.opp.unknown_slots,
+                "flags": dict(self.opp.flags),
             },
             "towers": {k: {"hp": t.hp, "max_hp": t.max_hp, "alive": t.alive} for k, t in self.towers.items()},
             "units": [
@@ -169,6 +171,7 @@ class GameState:
             predicted_hand=list(o.get("predicted_hand", [])),
             out_of_hand=list(o.get("out_of_hand", [])),
             unknown_slots=int(o.get("unknown_slots", 8 - len(o.get("known_deck", [])))),
+            flags=dict(o.get("flags", {})),
         )
         towers = default_towers()
         for k, tv in d.get("towers", {}).items():

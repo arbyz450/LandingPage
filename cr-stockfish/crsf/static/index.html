@@ -307,7 +307,8 @@ function renderCounter(c){
   if(!c.opp_cards)return;
   $('ccnext').textContent=c.opp_next_back?('next back: '+c.opp_next_back):(c.opp_unknown?c.opp_unknown+' unknown':'');
   $('cctable').innerHTML=c.opp_cards.map(r=>{const st=r.state==='hand'?'IN HAND':r.state==='back'?('back in '+r.plays_until+(r.plays_until===1?' play':' plays')):'unknown';
-    return `<tr><td><b>${esc(r.name)}</b></td><td style="color:var(--purple)">${r.cost??''}</td><td><span class="st ${r.state}">${st}</span></td><td style="color:var(--muted)">${r.times_played?r.times_played+'x':''}</td></tr>`}).join('');
+    const badge=r.flag?`<span class="st" style="background:#4b2a6b;color:#e2b8ff;margin-left:6px">${r.flag.toUpperCase()}</span>`:'';
+    return `<tr><td><b>${esc(r.name)}</b>${badge}</td><td style="color:var(--purple)">${r.cost??''}</td><td><span class="st ${r.state}">${st}</span></td><td style="color:var(--muted)">${r.times_played?r.times_played+'x':''}</td></tr>`}).join('');
   $('ccel').textContent=`~${c.opp_elixir} (could be as low as ${c.opp_elixir_low})`;
   $('ccelbar').querySelector('i').style.width=(c.opp_elixir*10)+'%';$('ccelbar').querySelector('span').textContent='~'+c.opp_elixir;
   const leak=$('ccleak');if(c.opp_leaking_s>=2){leak.style.display='block';leak.textContent=`LEAKING: at 10 elixir for ${c.opp_leaking_s}s. Punish or expect a big play.`}else leak.style.display='none';

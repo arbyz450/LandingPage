@@ -83,6 +83,9 @@ def bench_score(weights: Optional[Weights], puzzles_path: Path) -> int:
         if pz.get("wait"):
             ok += best.move.is_wait
             continue
+        if pz.get("not_card"):
+            ok += best.move.is_wait or best.move.card not in pz["not_card"]
+            continue
         if best.move.is_wait or best.move.card not in pz["accept"]:
             continue
         if pz.get("lane") and best.move.lane != pz["lane"]:

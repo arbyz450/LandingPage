@@ -85,3 +85,17 @@ def test_trade_ledger():
     assert l.lead() == -3.0 and l.lead(since=30) == -4.0
     tr = l.trades()
     assert len(tr) == 1 and tr[0]["net"] == 1.0 and tr[0]["opp_card"] == "skeleton_army"
+
+
+def test_evo_hero_flags_through_advisor():
+    from crsf.advisor import Advisor
+    adv = Advisor(detect_units=False)
+    msg = adv.command("d evo knight, hero musketeer, giant, zap")
+    assert "evo Knight" in msg and "hero Musketeer" in msg
+    assert adv.opp.flags == {"knight": "evo", "musketeer": "hero"}
+    adv.command("o evo skeletons")
+    assert adv.opp.flags["skeletons"] == "evo"
+    info = adv.opp.info()
+    assert info.flags["knight"] == "evo"
+    rows = {r["card"]: r for r in adv.counter_panel()["opp_cards"] if r["card"]}
+    assert rows["knight"]["flag"] == "evo"

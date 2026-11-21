@@ -306,7 +306,8 @@ class Advisor:
         rest = rest.strip()
         try:
             if op in ("o", "opp"):
-                card = self._resolve(rest)
+                card, flag = self._resolve_flagged(rest)
+                self._flag(card, flag)
                 self.opp.record_play(card, self.clock.elapsed())
                 self.ledger.add("opp", card, self.db.get(card).cost, self.clock.elapsed())
                 n = self.label_recent_enemy(card)
@@ -318,9 +319,15 @@ class Advisor:
                     self.ledger.opp_plays.pop()
                 return f"undid {self.db.get(c).name}" if c else "nothing to undo"
             if op in ("d", "deck"):
-                deck = [self._resolve(c) for c in rest.replace(";", ",").split(",") if c.strip()]
+                deck = []
+                for part in rest.replace(";", ",").split(","):
+                    if part.strip():
+                        card, flag = self._resolve_flagged(part)
+                        self._flag(card, flag)
+                        deck.append(card)
                 self.opp.cycle.set_deck(deck)
-                return f"opponent deck set ({len(deck)} cards)"
+                tagged = ", ".join(f"{f} {self.db.get(c).name}" for c, f in self.opp.flags.items() if c in deck)
+                return f"opponent deck set ({len(deck)} cards{'; ' + tagged if tagged else ''})"
             if op in ("m", "mydeck"):
                 deck = [self._resolve(c) for c in rest.replace(";", ",").split(",") if c.strip()]
                 self.me.set_deck(deck)
@@ -370,7 +377,8 @@ class Advisor:
         el = self.opp.elixir
         rows = []
         for r in self.opp.cycle.status():
-            rows.append({**r, "name": name(r["card"]) or "?", "cost": (db.get(r["card"]).cost if r["card"] and db.find(r["card"]) else None)})
+            rows.append({**r, "name": name(r["card"]) or "?", "cost": (db.get(r["card"]).cost if r["card"] and db.find(r["card"]) else None),
+                         "flag": self.opp.flags.get(r["card"]) if r["card"] else None})
         nxt = self.opp.cycle.next_card()
         elapsed = self.clock.elapsed()
         my_rows = []
@@ -385,6 +393,19 @@ class Advisor:
             "lead_total": round(self.ledger.lead(), 1), "lead_30s": round(self.ledger.lead(since=elapsed - 30), 1),
             "trades": self.ledger.trades(), "my_cards": my_rows, "my_next_back": name(self.me.next_card()),
         }
+
+    def _resolve_flagged(self, text: str) -> Tuple[str, Optional[str]]:
+        """'evo knight' -> ('knight', 'evo'); 'hero musketeer' -> ('musketeer', 'hero')."""
+        t = text.strip()
+        low = t.lower()
+        for prefix, flag in (("evo ", "evo"), ("evolved ", "evo"), ("evolution ", "evo"), ("hero ", "hero")):
+            if low.startswith(prefix):
+                return self._resolve(t[len(prefix):]), flag
+        return self._resolve(t), None
+
+    def _flag(self, card: str, flag: Optional[str]) -> None:
+        if flag:
+            self.opp.flags[card] = flag
 
     def _resolve(self, text: str) -> str:
         text = text.strip()

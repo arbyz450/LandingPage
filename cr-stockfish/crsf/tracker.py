@@ -9,7 +9,7 @@ with card ordering.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from .cards import CardDB, default_db
 from .state import OpponentInfo
@@ -201,6 +201,7 @@ class OpponentTracker:
         self.db = db or default_db()
         self.cycle = CycleTracker()
         self.elixir = ElixirEstimator()
+        self.flags: Dict[str, str] = {}      # card -> "evo" | "hero"
 
     def record_play(self, card: str, elapsed: float = 0.0) -> None:
         c = self.db.get(card)
@@ -220,6 +221,7 @@ class OpponentTracker:
     def reset(self) -> None:
         self.cycle.reset()
         self.elixir.reset()
+        self.flags.clear()
 
     def info(self) -> OpponentInfo:
         return OpponentInfo(
@@ -228,4 +230,5 @@ class OpponentTracker:
             predicted_hand=self.cycle.predicted_hand(),
             out_of_hand=self.cycle.out_of_hand(),
             unknown_slots=self.cycle.unknown_slots,
+            flags=dict(self.flags),
         )

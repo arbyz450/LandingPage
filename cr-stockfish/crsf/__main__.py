@@ -450,6 +450,10 @@ def cmd_bench(args) -> int:
         why = []
         if pz.get("wait"):
             ok = best.move.is_wait
+        elif pz.get("not_card"):
+            ok = best.move.is_wait or best.move.card not in pz["not_card"]
+            if not ok:
+                why.append(f"card {best.move.card}")
         else:
             if best.move.is_wait or best.move.card not in pz["accept"]:
                 ok = False

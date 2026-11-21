@@ -17,7 +17,8 @@ from .state import GameState
 
 @dataclass
 class AutoplayConfig:
-    min_score: float = 0.6         # never play a move the engine values below this
+    min_score: float = 0.6         # play when the move is worth at least this in absolute terms...
+    min_margin: float = 1.2        # ...or at least this much better than waiting (e.g. at 10 elixir)
     urgent_score: float = 2.5      # play immediately (no stability wait) above this
     stable_frames: int = 2         # otherwise require the same move N frames in a row
     elixir_margin: float = 0.3     # require elixir >= cost + margin (bar read jitter)
@@ -55,9 +56,10 @@ class AutoPlayer:
         key = self._key(best)
         self._streak = self._streak + 1 if key == self._last_key else 1
         self._last_key = key
-        if best.score < self.config.min_score:
+        margin = best.score - an.wait_score
+        if best.score < self.config.min_score and margin < self.config.min_margin:
             return None
-        if best.score < self.config.urgent_score and self._streak < self.config.stable_frames:
+        if best.score < self.config.urgent_score and margin < self.config.urgent_score and self._streak < self.config.stable_frames:
             return None
         from .cards import default_db
         card = default_db().get(best.move.card)

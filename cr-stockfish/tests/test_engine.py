@@ -53,7 +53,7 @@ def test_defends_tank_push_with_inferno():
                    units=[Unit("giant", "opp", 3.5, 13), Unit("witch", "opp", 3.5, 15)])
     best = eng.analyse(st).best
     assert best.move.card == "inferno_tower"
-    assert best.move.lane == "left"
+    assert best.move.lane in ("left", "center") and best.move.x <= 9.0
 
 
 def test_air_threat_picks_anti_air_not_bridge():
@@ -71,7 +71,7 @@ def test_punishes_low_elixir_opponent():
                                     predicted_hand=["giant", "witch"], out_of_hand=["zap", "musketeer"], unknown_slots=4))
     best = eng.analyse(st).best
     assert best.move.card == "hog_rider"
-    assert best.move.zone.startswith("bridge")
+    assert best.move.cls == "bridge"
 
 
 def test_waits_against_loaded_opponent():

@@ -22,9 +22,9 @@ OPP_TOWER_POS = {"left": (3.5, 25.5), "right": (14.5, 25.5), "king": (9.0, 29.5)
 
 
 def lane_of_x(x: float) -> str:
-    if x < 7.5:
+    if x <= 7.5:
         return "left"
-    if x > 10.5:
+    if x >= 10.5:
         return "right"
     return "center"
 

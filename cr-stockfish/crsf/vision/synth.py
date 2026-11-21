@@ -48,10 +48,17 @@ def draw_card(w: int = 96, h: int = 120, key: str = "knight", greyed: bool = Fal
 
 def make_frame(layout: Layout, width: int = 540, height: int = 960, elixir: float = 6.4,
                hand: Optional[List[str]] = None, next_card: Optional[str] = None,
-               greyed: Optional[List[bool]] = None, letterbox: int = 0) -> np.ndarray:
-    """A fake 9:16 game frame; ``letterbox`` adds black bars on both sides."""
+               greyed: Optional[List[bool]] = None, letterbox: int = 0, desktop: int = 0) -> np.ndarray:
+    """A fake 9:16 game frame.
+
+    ``letterbox`` adds black bars on both sides (emulator style); ``desktop``
+    embeds the frame in a bright desktop with a grey sidebar on the left
+    (Google Play Games on PC style).
+    """
     frame = np.zeros((height, width, 3), dtype=np.uint8)
-    frame[:] = (90, 140, 70)                       # arena green
+    frame[:] = (70, 60, 50)                        # HUD: dark blue-brown
+    ax0, ay0, ax1, ay1 = layout.pixels("arena", width, height)
+    cv2.rectangle(frame, (0, 0), (width, ay1 + int(0.08 * height)), (90, 140, 70), -1)   # arena + grass/trees reach the frame edges
     hand = hand or ["knight", "musketeer", "fireball", "skeleton_army"]
     greyed = greyed or [False] * 4
     # elixir bar
@@ -73,5 +80,10 @@ def make_frame(layout: Layout, width: int = 540, height: int = 960, elixir: floa
     if letterbox:
         out = np.zeros((height, width + 2 * letterbox, 3), dtype=np.uint8)
         out[:, letterbox:letterbox + width] = frame
+        return out
+    if desktop:
+        out = np.full((height + 2 * desktop, width + 3 * desktop, 3), (120, 170, 210), dtype=np.uint8)   # sky-blue desktop
+        out[:, :desktop] = (40, 40, 40)                                                                  # grey sidebar
+        out[desktop:desktop + height, 2 * desktop:2 * desktop + width] = frame
         return out
     return frame

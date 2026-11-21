@@ -1,0 +1,3423 @@
+{
+ "coordinate_system": {
+  "x": "0 left edge .. 18 right edge (player view)",
+  "y": "0 player king back edge .. 32 opponent king back edge; river y=16, bridges x 3.5 and 14.5",
+  "player_towers": {
+   "left": [
+    3.5,
+    6.5
+   ],
+   "right": [
+    14.5,
+    6.5
+   ],
+   "king": [
+    9,
+    2.5
+   ]
+  },
+  "opponent_towers": {
+   "left": [
+    3.5,
+    25.5
+   ],
+   "right": [
+    14.5,
+    25.5
+   ],
+   "king": [
+    9,
+    29.5
+   ]
+  },
+  "convention": "Lane-mirrored placements are given for the LEFT lane with lane 'either'; defensive placements assume the attacker comes down the LEFT lane. '4-3 plant' = 4 tiles below the river, 3 tiles inside the princess tower = (7.5, 12)."
+ },
+ "mechanics": [
+  {
+   "name": "king_tower_activation",
+   "description": "Getting the King Tower to start firing early (it normally only wakes when a princess tower falls or it is damaged by a troop). An activated King adds a third tower's DPS to every defence for the rest of the match.",
+   "how": "Pull or lure an attacker into the King's range so it hits the King: Tornado on Hog/Balloon/Miner/Goblin Barrel toward the gap between princess and King, Fisherman hooking from in front of the King, cheap troops placed so enemy splash (Valkyrie, Bowler, Dark Prince, Executioner arrows, Electro Wizard spawn zap) spills onto the King. Spells never activate it.",
+   "cards": [
+    "tornado",
+    "fisherman",
+    "ice_spirit",
+    "skeletons",
+    "bats",
+    "electro_wizard",
+    "bomb_tower",
+    "tesla"
+   ],
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://theriagames.com/?p=66611",
+    "https://xboxplay.games/clash-royale/how-to-complete-the-kingfisher-puzzle-in-clash-royale-77133",
+    "https://clashroyale.fandom.com/wiki/Fisherman",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "pig_push",
+   "description": "Deploying a second unit simultaneously beside a Hog Rider (or other building-targeter) so the push-apart deploy physics nudges the Hog inward, making it run diagonally across the river to the inside of the lane.",
+   "how": "Place Hog on the inner bridge tile, then Ice Spirit/Skeletons/Ice Golem a tile behind and inside on the same frame. The Hog slides toward the centre, often bypassing a 4-3 building's pull, avoiding Tornado-to-King lines, or reaching the inside tower face where ground defenders are late. Do not pig push when the opponent's Tornado is in hand: a pushed Hog can be dragged to the King (RoyaleAPI tile H25).",
+   "cards": [
+    "hog_rider",
+    "ice_spirit",
+    "skeletons",
+    "ice_golem",
+    "goblin_gang",
+    "mega_minion",
+    "battle_ram",
+    "ram_rider",
+    "royal_giant"
+   ],
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://clashroyale.fandom.com/wiki/Deck:Hog_Beatdown",
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "kiting",
+   "description": "Using a cheap troop to drag a melee attacker off its path, across the arena or into the range of both princess towers plus the King, buying tower shots for little elixir.",
+   "how": "Place the kite unit where the attacker will retarget onto it (within its sight range) and so that chasing it walks the attacker toward the centre or opposite lane. Ice Golem is the best kiter (slow, ignores troops, death nova). Skeletons/Ice Spirit/Bats kite one or two swings. The farther inside you place the kite, the more towers shoot.",
+   "cards": [
+    "ice_golem",
+    "skeletons",
+    "ice_spirit",
+    "bats",
+    "knight",
+    "goblins",
+    "electro_spirit",
+    "heal_spirit"
+   ],
+   "sources": [
+    "https://www.sportskeeda.com/esports/what-kiting-clash-royale-and-how-to-do-it",
+    "https://sportskeeda.com/esports/how-use-ice-golem-clash-royale",
+    "https://clashroyale.fandom.com/wiki/Glossary",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "building_pull_4_3",
+   "description": "Planting a defensive building 4 tiles below the river and ~3 tiles inside the princess tower ('4-3 plant'): building-targeting troops lock onto it, walk into range of both princess towers and get pulled away from the tower they wanted.",
+   "how": "Against Hog, Ram, Giant, Royal Hogs: 4-3 (x 7.5, y 12 for the left lane). Against Royal Giant and Golem go deeper (5-2 / in front of King) so the tank walks into both towers; against Earthquake decks offset the plant so EQ cannot cover tower + building. 5+ tiles from the river lets a Hog connect first; 3 tiles from the river lets a Musketeer snipe it. Buildings pull Balloon/Lava Hound too: place them forward and central.",
+   "cards": [
+    "tesla",
+    "cannon",
+    "inferno_tower",
+    "bomb_tower",
+    "tombstone",
+    "goblin_cage",
+    "furnace",
+    "goblin_hut",
+    "barbarian_hut",
+    "mortar",
+    "x_bow"
+   ],
+   "sources": [
+    "https://trophycoach.com/guides/how-to-counter-hog-cycle-deck",
+    "https://trophycoach.com/guides/beating-hog-cycle-premium-guide",
+    "https://sportskeeda.com/esports/how-use-cannon-clash-royale",
+    "https://www.sportskeeda.com/esports/how-use-building-cards-clash-royale",
+    "https://theriagames.com/?p=66976",
+    "https://ddocs.royaleapi.com/strategy/musketeer.html",
+    "https://clashroyale.fandom.com/wiki/Musketeer",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "split_lane",
+   "description": "Pressuring both lanes at once (or forcing the opponent to) so a single defensive building/splash unit cannot answer everything.",
+   "how": "Royal Hogs, Three Musketeers, Archers, Wall Breakers and Skeleton Army split when deployed on the centre line (x 9). Split when the opponent has one building or one splash answer and both their towers are healthy. Defensively: identify the bigger threat, spend there, answer the smaller side with the tower plus a 1-2 elixir card, or put one building in the centre that covers both lanes.",
+   "cards": [
+    "royal_hogs",
+    "three_musketeers",
+    "archers",
+    "wall_breakers",
+    "skeleton_army",
+    "goblin_gang",
+    "royal_recruits",
+    "minions"
+   ],
+   "sources": [
+    "https://sportskeeda.com/esports/how-split-lane-push-clash-royale",
+    "https://sportskeeda.com/esports/how-handle-split-lane-pushes-clash-royale",
+    "https://trophycoach.com/guides/how-to-play-royal-hogs-deck",
+    "https://www.redbull.com/gb-en/classic-clash-royale-decks",
+    "https://clashroyale.fandom.com/wiki/Deck:Musketeers_Ram",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "spell_prediction",
+   "description": "Casting a spell where the opponent's unit will be, not where it is: pre-placing Log/Zap/Arrows/Fireball on the tile the opponent habitually drops a defender or a barrel.",
+   "how": "Read repeated placements (same tower corner for Goblin Barrel, Skeleton Army on the bridge-side of a Hog, Musketeer on the tower corner). Account for spell travel time: Fireball/Arrows ~1s, Log rolls 10 tiles forward from its cast tile, Zap/Earthquake instant. Prediction Fireball on the 'support slot' 2 tiles behind a tank at the bridge, Log so it reaches the tower as the barrel opens.",
+   "cards": [
+    "fireball",
+    "log",
+    "zap",
+    "arrows",
+    "poison",
+    "rocket",
+    "giant_snowball",
+    "barbarian_barrel",
+    "royal_delivery",
+    "earthquake"
+   ],
+   "sources": [
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k",
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "counter_push",
+   "description": "Converting surviving defenders into an attack by adding a tank in front of them or a win condition behind them, so the elixir already spent on defence keeps working.",
+   "how": "After defending inside your side, drop Giant/Knight/Mega Knight at the bridge in front of the surviving Musketeer/Wizard, or Hog/Balloon/Battle Ram behind the surviving tank as it crosses the bridge. Never counter-push with badly damaged units that a spell finishes; let them die and save elixir instead.",
+   "cards": [
+    "giant",
+    "knight",
+    "mega_knight",
+    "hog_rider",
+    "balloon",
+    "battle_ram",
+    "sparky",
+    "pekka",
+    "golden_knight",
+    "skeleton_king"
+   ],
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-mega-knight-clash-royale",
+    "https://clashroyale.fandom.com/wiki/Deck:Megaknight_Control",
+    "https://sportskeeda.com/esports/how-use-sparky-clash-royale",
+    "https://sportskeeda.com/esports/how-handle-split-lane-pushes-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "elixir_counting",
+   "description": "Approximately tracking the opponent's elixir (1 per 2.8s single, 1.4s double, 0.93s triple; cap 10) to know when a push is safe and when they must leak.",
+   "how": "Track big spends (5+ elixir) and the 10 cap: an opponent who just played an 8-elixir Golem has at most 2 for 6 seconds. Punish the opposite lane during that window. Keep 3-4 elixir in reserve after playing your own 5-cost card so the opposite-lane answer exists.",
+   "cards": [
+    "elixir_collector",
+    "hog_rider",
+    "miner",
+    "wall_breakers",
+    "goblin_barrel",
+    "royal_giant"
+   ],
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "https://www.reddit.com/r/ClashRoyale/comments/1gw6u59/think_like_a_pro_the_complete_guide_to_elixir",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "overtime_tiebreak",
+   "description": "If no tower falls in overtime, all towers take equal damage until the one with the lowest HP dies; that player loses. Tower level does not matter.",
+   "how": "Late in overtime, chip the lowest enemy tower with spell cycle (Rocket/Fireball/Log/Zap) and protect your own lowest tower with buildings/kites. Count spell damage versus the HP gap; a 2-elixir Log/Zap on the tower can decide a tie. Swap to defending the weakest tower only, ignore the healthier one.",
+   "cards": [
+    "rocket",
+    "fireball",
+    "log",
+    "zap",
+    "arrows",
+    "poison",
+    "lightning",
+    "miner",
+    "princess",
+    "dart_goblin"
+   ],
+   "sources": [
+    "https://gamingonphone.com/guides/clash-royale-tiebreaker-tips-and-strategies",
+    "https://devtrackers.gg/clash-royale/p/a23074d0-official-what-we-ve-been-up-to-13th-september-2019",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "pocket_play",
+   "description": "Once an opponent's princess tower falls, that whole side of their half becomes deployable ('the pocket'). Troops placed there skip the walk and defenders must be dropped under King fire.",
+   "how": "Up a couple of elixir with a clear board or leftover defenders, drop Golem/Giant/Hog/Electro Giant 5-7 tiles into the pocket on the open side, support one tile behind. Place units outside the King's 7-tile reach initially so they tank the princess tower first. Defensively, the 'pocket' is where an opponent's leftover push lands: pre-place buildings between King and remaining tower.",
+   "cards": [
+    "golem",
+    "giant",
+    "hog_rider",
+    "electro_giant",
+    "royal_giant",
+    "mega_knight",
+    "pekka",
+    "elixir_golem",
+    "goblin_giant"
+   ],
+   "sources": [
+    "https://royaleapi.com/blog/clan-wars-2v2-guide-golem",
+    "https://gamingpromax.com/clash-royale-golem-deck/",
+    "https://clashroyale.fandom.com/wiki/Deck:The_Tower_Shredder",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "cycle_positioning",
+   "description": "Cheap cards played at the very back (behind the King) to cycle to the win condition while keeping the card useful: it arrives in time to defend or support.",
+   "how": "Skeletons/Ice Spirit/Ice Golem/Archers behind the King (x 9, y 0.5) at 10 elixir; Musketeer/Archers behind a princess tower so they are already in position when the next Hog goes. Never cycle at the bridge: a 1-elixir card at the back still forces a response or supports.",
+   "cards": [
+    "skeletons",
+    "ice_spirit",
+    "ice_golem",
+    "archers",
+    "electro_spirit",
+    "heal_spirit",
+    "fire_spirit",
+    "little_prince"
+   ],
+   "sources": [
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k",
+    "https://theriagames.com/guide/clash-royale-hog-rider-guide/",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "tank_support_spacing",
+   "description": "Keeping support troops 2-3 tiles behind a tank (not on the same tile) so one Fireball/Poison cannot hit both, and so the tank absorbs tower/building aggro first.",
+   "how": "Deploy the tank behind the King, add support as the tank reaches the bridge so the distance is set by the tank's walk. Against Lightning keep ranged support spread laterally (Musketeer on one tower corner, Baby Dragon on the other). Three Musketeers behind the King so a single Fireball cannot hit all three.",
+   "cards": [
+    "giant",
+    "golem",
+    "lava_hound",
+    "musketeer",
+    "witch",
+    "night_witch",
+    "baby_dragon",
+    "electro_wizard",
+    "magic_archer",
+    "three_musketeers"
+   ],
+   "sources": [
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "https://mobi.gg/en/tips/clash-royale-baloon-guide",
+    "https://theriagames.com/?p=102441",
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "defend_inside",
+   "description": "Defending close to your own towers (not at the bridge) so the towers shoot, the King can activate and surviving defenders are already positioned for the counter-push; the exception is bridge-spam where you must hold the bridge.",
+   "how": "Let Giants/Golems/PEKKAs cross the bridge before committing; place answers between the attacker and the tower at y 9-12, offset to the inside (x 5-7) so both princess towers contribute. Against swarm-support pushes defend 1-2 tiles behind the point of impact so splash lands on the swarm, not the tower.",
+   "cards": [
+    "knight",
+    "valkyrie",
+    "mini_pekka",
+    "musketeer",
+    "hunter",
+    "skeleton_army",
+    "guards",
+    "baby_dragon"
+   ],
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-counter-p-e-k-k-a-bridge-spam-deck-clash-royale",
+    "https://sportskeeda.com/esports/how-counter-bridge-spam-decks-clash-royale",
+    "https://clashroyale.fandom.com/wiki/Magic_Archer",
+    "knowledge"
+   ]
+  },
+  {
+   "name": "chip_and_spell_cycle",
+   "description": "Winning on tower HP through repeated low-cost, hard-to-stop damage (Princess at the bridge, Miner, Mortar, Goblin Drill, Goblin Barrel) and finishing with Rocket/Fireball/Log cycles.",
+   "how": "Keep 2-3 cheap chip plays rotating; out-cycle the opponent's one answer (e.g. Log) and barrel/drill when it is out. Once the tower is in spell range (Rocket ~ 2x tower damage, Fireball, Log), stop committing troops and cycle spells safely from the back while defending with everything else.",
+   "cards": [
+    "princess",
+    "miner",
+    "mortar",
+    "goblin_drill",
+    "goblin_barrel",
+    "rocket",
+    "fireball",
+    "log",
+    "dart_goblin",
+    "x_bow"
+   ],
+   "sources": [
+    "https://royaletracker.gg/guides/rocket-cycle-deck-clash-royale",
+    "https://clashfordummies.com/2017/03/14/rocket-tips-guide-and-strategy-for-clash-royale",
+    "https://www.148apps.com/clash-royale/how-to-use-rocket-effectively-in-clash-royale",
+    "https://trophycoach.com/guides/how-to-play-mortar-cycle-deck",
+    "knowledge"
+   ]
+  }
+ ],
+ "placements": [
+  {
+   "card": "hog_rider",
+   "situation": "offense",
+   "label": "hog at the bridge",
+   "condition": "Opponent low on elixir or building out of cycle; standard fast pressure.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "tesla",
+    "cannon"
+   ],
+   "note": "Bridge tile: shortest walk, hits tower in ~3s; follow with a spell for defenders.",
+   "sources": [
+    "https://theriagames.com/guide/clash-royale-hog-rider-guide/",
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "hog_rider",
+   "situation": "offense",
+   "label": "pig push hog (inner bridge tile)",
+   "condition": "Opponent has a 4-3 building or always defends the outer side; no Tornado in their cycle.",
+   "x": 4.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "tesla",
+    "cannon",
+    "tombstone"
+   ],
+   "note": "Deploy Ice Spirit/Skeletons at (5.5,14) on the same frame; Hog slides inward across the river.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://clashroyale.fandom.com/wiki/Deck:Hog_Beatdown",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "hog_rider",
+   "situation": "offense",
+   "label": "hog behind tank",
+   "condition": "Tank (Giant/Ice Golem) already crossing the bridge; opponent's building is on cooldown.",
+   "x": 3.5,
+   "y": 13.0,
+   "lane": "either",
+   "vs": [
+    "inferno_tower",
+    "mini_pekka"
+   ],
+   "note": "Tank must get a head start so it takes building/tower aggro before the Hog arrives.",
+   "sources": [
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "hog_rider",
+   "situation": "offense",
+   "label": "hog in the pocket",
+   "condition": "One enemy princess tower is down and you are 2+ elixir ahead.",
+   "x": 5.5,
+   "y": 22.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Skips the walk; defenders must be dropped under King fire. Keep outside King's 7-tile reach at drop.",
+   "sources": [
+    "https://royaleapi.com/blog/clan-wars-2v2-guide-golem",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "hog_rider",
+   "situation": "offense",
+   "label": "hog opposite lane punish",
+   "condition": "Opponent dumped 8+ elixir (Golem/3M/pump) in the other lane.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "golem",
+    "three_musketeers"
+   ],
+   "note": "Open lane: they cannot defend without abandoning their push; add Fireball on the defender.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "giant",
+   "situation": "offense",
+   "label": "giant behind king (beatdown)",
+   "condition": "Double elixir or 10 elixir with opponent passive; building a big push.",
+   "x": 7.5,
+   "y": 0.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Slow walk lets you stack support 2-3 tiles behind; opponent must come to you.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale",
+    "https://gamingpromax.com/clash-royale-golem-deck/",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "giant",
+   "situation": "counter_push",
+   "label": "giant at bridge in front of defenders",
+   "condition": "You just defended with Musketeer/Wizard that survived at y 8-11.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "inferno_tower"
+   ],
+   "note": "Giant tanks for the survivors; back it with Zap/Fireball on the defender.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-mega-knight-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "giant",
+   "situation": "offense",
+   "label": "giant behind princess tower",
+   "condition": "Single elixir, moderate push; want tower cover while support is added.",
+   "x": 3.5,
+   "y": 3.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Arrives at the bridge in ~10s giving time to add Musketeer/Witch behind.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "golem",
+   "situation": "offense",
+   "label": "golem behind king corner",
+   "condition": "Double elixir or 10 elixir after a clean defence; standard beatdown opener.",
+   "x": 7.5,
+   "y": 0.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Walks the longest path, support lands at the bridge as he crosses; opposite-lane punishment is the risk.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale",
+    "https://www.exitlag.com/blog/golem-clash-royale-guide-decks-strategy/",
+    "https://gamingpromax.com/clash-royale-golem-deck/",
+    "https://royaleapi.com/blog/clan-wars-2v2-guide-golem"
+   ]
+  },
+  {
+   "card": "golem",
+   "situation": "offense",
+   "label": "golem in the pocket",
+   "condition": "One tower down, up a couple of elixir, clear board or leftover defenders.",
+   "x": 5.5,
+   "y": 21.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Only with a lead; follow quickly with Night Witch/Baby Dragon one tile behind.",
+   "sources": [
+    "https://royaleapi.com/blog/clan-wars-2v2-guide-golem",
+    "https://gamingpromax.com/clash-royale-golem-deck/"
+   ]
+  },
+  {
+   "card": "royal_giant",
+   "situation": "offense",
+   "label": "royal giant at the bridge",
+   "condition": "Opponent out of building/Inferno; double elixir or after defending.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "inferno_tower",
+    "pekka",
+    "mini_pekka"
+   ],
+   "note": "RG outranges towers from y~13; bridge drop locks fast. Add Fisherman/Hunter behind.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-royal-giant-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "royal_giant",
+   "situation": "offense",
+   "label": "royal giant from mid-side",
+   "condition": "Single elixir with support in hand; needs walk time to add a mini tank.",
+   "x": 4.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Middle of your side, not the back: shorter walk, still time for Mother Witch/Fisherman behind.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-royal-giant-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "royal_giant",
+   "situation": "offense",
+   "label": "royal giant pocket lock",
+   "condition": "One tower down; RG can lock the King/remaining tower from the pocket.",
+   "x": 6.0,
+   "y": 23.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Keep RG just outside their remaining tower's 7-tile range at drop so it locks on the first target you choose.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "x_bow",
+   "situation": "offense",
+   "label": "offensive x-bow (river, inside)",
+   "condition": "Opponent has no tank in hand / just spent; Tesla and cycle cards ready.",
+   "x": 5.5,
+   "y": 14.5,
+   "lane": "either",
+   "vs": [
+    "royal_giant",
+    "hog_rider",
+    "golem"
+   ],
+   "note": "Range 11.5 reaches the princess tower; one tile inside the bridge so defenders cannot hit it from the bridge tile.",
+   "sources": [
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k",
+    "https://theriagames.com/?p=77975",
+    "https://timesaver.gg/blog/xbow-deck-clash-royale"
+   ]
+  },
+  {
+   "card": "x_bow",
+   "situation": "defense",
+   "label": "defensive x-bow (pull plant)",
+   "condition": "Heavy tank push coming; need a pull plus DPS instead of an offensive lock.",
+   "x": 7.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "golem",
+    "giant",
+    "hog_rider"
+   ],
+   "note": "Pulls building-targeters into both towers while shooting; Tesla 4-3 in front of it.",
+   "sources": [
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k",
+    "https://sportskeeda.com/esports/how-defend-x-bow-mortar-decks-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "mortar",
+   "situation": "offense",
+   "label": "offensive mortar (river, inside)",
+   "condition": "Opponent passive or just committed elsewhere; siege chip.",
+   "x": 5.5,
+   "y": 14.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "lava_hound",
+    "royal_giant"
+   ],
+   "note": "Reaches the tower (11.5) while forcing their win condition to walk through your defence.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/mortar.html",
+    "https://ddocs.royaleapi.com/strategy/mortar-predator.html",
+    "https://trophycoach.com/guides/how-to-play-mortar-cycle-deck"
+   ]
+  },
+  {
+   "card": "mortar",
+   "situation": "offense",
+   "label": "mortar at the bridge (outer)",
+   "condition": "Opponent defends with troops at the river; wants a longer pull on their Hog.",
+   "x": 3.5,
+   "y": 14.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider"
+   ],
+   "note": "Longer pull on building-targeters and harder to reach for melee defenders.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/mortar-predator.html",
+    "https://www.touchtapplay.com/how-to-use-mortar-in-clash-royale-guide-and-tips/"
+   ]
+  },
+  {
+   "card": "mortar",
+   "situation": "defense",
+   "label": "defensive mortar in front of king",
+   "condition": "Opponent has a tank at the bridge; mortar as building pull plus splash.",
+   "x": 9.0,
+   "y": 8.0,
+   "lane": "center",
+   "vs": [
+    "golem",
+    "giant",
+    "royal_hogs"
+   ],
+   "note": "3-4 tiles in front of the King covers both lanes; arcs over their mini tank.",
+   "sources": [
+    "https://trophycoach.com/guides/how-to-play-mortar-cycle-deck",
+    "https://trophycoach.com/guides/how-to-counter-mortar-cycle-deck"
+   ]
+  },
+  {
+   "card": "balloon",
+   "situation": "offense",
+   "label": "balloon behind tank at bridge",
+   "condition": "Tank (Lava Hound/Giant/Lumberjack) is at the bridge drawing tower aggro.",
+   "x": 3.5,
+   "y": 13.5,
+   "lane": "either",
+   "vs": [
+    "tesla",
+    "musketeer"
+   ],
+   "note": "Balloon must reach the tower while the tank is still soaking shots; too early and the tower kills it.",
+   "sources": [
+    "https://gamingpromax.com/clash-royale-lavaloon-deck/",
+    "https://clashroyalearena99.blogspot.com/2016/07/ultimate-guide-to-using-balloon.html",
+    "https://mobi.gg/en/tips/clash-royale-baloon-guide"
+   ]
+  },
+  {
+   "card": "balloon",
+   "situation": "offense",
+   "label": "balloon on the outer edge",
+   "condition": "Opponent keeps a building central (Tesla/Cannon at 4-3).",
+   "x": 0.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "tesla",
+    "cannon"
+   ],
+   "note": "Edge path stays outside a central building's 6-tile pull; death bomb still lands on tower.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "balloon",
+   "situation": "offense",
+   "label": "balloon rush at the bridge",
+   "condition": "Opponent just spent 7+ elixir in the other lane or their air answer is out of cycle.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "mega_minion"
+   ],
+   "note": "Pair with Rage/Freeze on arrival; Lumberjack dropped first for the rage.",
+   "sources": [
+    "https://mobi.gg/en/tips/clash-royale-baloon-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "lava_hound",
+   "situation": "offense",
+   "label": "lava hound back corner",
+   "condition": "Opening or single elixir; wants max walk time to add Balloon/Mega Minion.",
+   "x": 2.0,
+   "y": 4.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Bottom-outside of the crown tower; Balloon added when Hound reaches the river.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Deck:Lavalooloo",
+    "https://www.sportskeeda.com/esports/how-counterplay-lavaloon-decks-clash-royale",
+    "https://gamingpromax.com/clash-royale-lavaloon-deck/"
+   ]
+  },
+  {
+   "card": "lava_hound",
+   "situation": "offense",
+   "label": "lava hound double-elixir (next to tower)",
+   "condition": "Double elixir; faster cycle, support already in hand.",
+   "x": 2.0,
+   "y": 7.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Same side but level with the tower: shorter walk, still time for Balloon behind.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Deck:Lavalooloo"
+   ]
+  },
+  {
+   "card": "graveyard",
+   "situation": "offense",
+   "label": "graveyard on tower inner-front corner",
+   "condition": "Opponent's splash defender is out or will be Poisoned/Tornadoed; tank already at tower.",
+   "x": 4.5,
+   "y": 24.5,
+   "lane": "either",
+   "vs": [
+    "valkyrie",
+    "baby_dragon"
+   ],
+   "note": "Spawn rim hugs the tower; one tile off can halve skeletons reaching it. Poison on top.",
+   "sources": [
+    "https://trophycoach.com/guides/graveyard-poison-control-bible",
+    "https://theriagames.com/?p=76404",
+    "https://gamingpromax.com/clash-royale-graveyard-deck/"
+   ]
+  },
+  {
+   "card": "graveyard",
+   "situation": "offense",
+   "label": "graveyard outer edge vs poison/defender",
+   "condition": "Opponent defends with a unit placed inside or Poisons centre-tower every time.",
+   "x": 2.0,
+   "y": 25.5,
+   "lane": "either",
+   "vs": [
+    "poison",
+    "valkyrie",
+    "knight"
+   ],
+   "note": "Shift outward so skeletons spawn beside the tower away from their defender.",
+   "sources": [
+    "https://theriagames.com/?p=76404",
+    "https://trophycoach.com/guides/how-to-counter-graveyard-deck"
+   ]
+  },
+  {
+   "card": "graveyard",
+   "situation": "offense",
+   "label": "graveyard deep (behind tower)",
+   "condition": "Opponent always drops a defender in front of the tower; King inactive.",
+   "x": 3.5,
+   "y": 27.0,
+   "lane": "either",
+   "vs": [
+    "knight",
+    "valkyrie"
+   ],
+   "note": "Skeletons come from behind; keep within 1.5 tiles of the tower or strays activate the King.",
+   "sources": [
+    "https://theriagames.com/?p=76404",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "miner",
+   "situation": "offense",
+   "label": "miner safe side (outer front corner)",
+   "condition": "Opponent has Tornado or likes placing defenders behind the tower.",
+   "x": 1.5,
+   "y": 24.5,
+   "lane": "either",
+   "vs": [
+    "tornado"
+   ],
+   "note": "Tornado-proof tile: cannot be dragged to the King; predictable, so vary it.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Miner",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html"
+   ]
+  },
+  {
+   "card": "miner",
+   "situation": "offense",
+   "label": "miner on inner side (danger side)",
+   "condition": "Opponent has no Tornado and defends on the outer side; want the Miner to tank for Wall Breakers/Bats.",
+   "x": 5.0,
+   "y": 25.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Closer to King range: never when Tornado is in cycle; good for tanking spear goblins/bats.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Miner",
+    "https://www.sportskeeda.com/esports/how-use-miner-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "miner",
+   "situation": "offense",
+   "label": "miner on the pump",
+   "condition": "Opponent placed Elixir Collector; miner alone nearly breaks even.",
+   "x": 9.0,
+   "y": 30.5,
+   "lane": "center",
+   "vs": [
+    "elixir_collector"
+   ],
+   "note": "Place on the collector's near side; King shots are the cost.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Elixir_Collector",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "miner",
+   "situation": "defense",
+   "label": "miner on support troop",
+   "condition": "Enemy Musketeer/Wizard/Princess standing behind their tank near your tower.",
+   "x": 3.5,
+   "y": 11.0,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "wizard",
+    "princess",
+    "sparky"
+   ],
+   "note": "Drop on the support, not the tank; distracts and kills chip units for 3 elixir.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-miner-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "goblin_barrel",
+   "situation": "offense",
+   "label": "barrel on tower centre",
+   "condition": "Opponent's Log/Zap just used (bait landed).",
+   "x": 3.5,
+   "y": 25.5,
+   "lane": "either",
+   "vs": [],
+   "note": "All 3 goblins swing immediately; only when their small spell is out.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "https://mobi.gg/en/tips/clash-royale-goblin-barrel-guide",
+    "https://clasher.us/clash-royale/card/Goblin_Barrel"
+   ]
+  },
+  {
+   "card": "goblin_barrel",
+   "situation": "offense",
+   "label": "barrel outer corner (anti-tornado)",
+   "condition": "Opponent has Tornado or always Logs the centre.",
+   "x": 2.0,
+   "y": 24.5,
+   "lane": "either",
+   "vs": [
+    "tornado",
+    "log"
+   ],
+   "note": "Outside corner keeps goblins out of Tornado-to-King range and off the standard Log line.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-goblin-barrels-clash-royale",
+    "https://www.reddit.com/r/ClashRoyale/comments/5fgwaf/"
+   ]
+  },
+  {
+   "card": "goblin_barrel",
+   "situation": "offense",
+   "label": "barrel behind tower",
+   "condition": "Opponent pre-places Valkyrie/Knight in front of the tower.",
+   "x": 3.5,
+   "y": 27.0,
+   "lane": "either",
+   "vs": [
+    "valkyrie",
+    "knight",
+    "log"
+   ],
+   "note": "Max 2 tiles behind: further back and the goblins walk to the King and activate it.",
+   "sources": [
+    "https://www.reddit.com/r/ClashRoyale/comments/5fgwaf/",
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale"
+   ]
+  },
+  {
+   "card": "goblin_drill",
+   "situation": "offense",
+   "label": "drill on tower outer-front corner",
+   "condition": "Opponent's splash answer is out or they are low on elixir.",
+   "x": 2.0,
+   "y": 24.0,
+   "lane": "either",
+   "vs": [
+    "valkyrie",
+    "bomber"
+   ],
+   "note": "Goblins pop next to the tower, away from King; vary tiles each cycle.",
+   "sources": [
+    "https://gamingpromax.com/clash-royale-goblin-drill-deck/",
+    "https://trophycoach.com/guides/how-to-counter-goblin-drill-deck",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "goblin_drill",
+   "situation": "offense",
+   "label": "drill behind tower",
+   "condition": "Opponent always defends the front; drill the back so defenders must be dropped near their King.",
+   "x": 3.5,
+   "y": 27.5,
+   "lane": "either",
+   "vs": [
+    "knight",
+    "valkyrie"
+   ],
+   "note": "Forces awkward answers; drill itself tanks tower shots longer from behind.",
+   "sources": [
+    "https://gamingpromax.com/clash-royale-goblin-drill-deck/",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "ram_rider",
+   "situation": "offense",
+   "label": "ram rider at the bridge",
+   "condition": "Opponent's swarm/building just used; bridge spam tempo.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "tornado"
+   ],
+   "note": "Charges across the bridge; Log at the bridge one second later clears skeletons.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Deck:Ram_Rider_Princess_Bridge_Spam",
+    "https://sportskeeda.com/esports/how-counter-bridge-spam-decks-clash-royale"
+   ]
+  },
+  {
+   "card": "battle_ram",
+   "situation": "offense",
+   "label": "battle ram one tile behind bridge",
+   "condition": "Opponent has no building up; want the charge to land on the tower.",
+   "x": 3.5,
+   "y": 13.5,
+   "lane": "either",
+   "vs": [
+    "tesla",
+    "cannon"
+   ],
+   "note": "Needs 3 tiles to charge; starting a tile back guarantees double damage on contact.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Battle_Ram",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "battle_ram",
+   "situation": "counter_push",
+   "label": "battle ram behind surviving tank",
+   "condition": "Knight/Valkyrie survived defence and is walking across the bridge.",
+   "x": 3.5,
+   "y": 13.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Ram behind the mini tank so the tank eats the swarm and the ram connects.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "wall_breakers",
+   "situation": "offense",
+   "label": "wall breakers at the bridge",
+   "condition": "Opponent's Log/Zap/Arrows is out, or Miner is already tanking at the tower.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "log",
+    "zap"
+   ],
+   "note": "Fast: 2 seconds to the tower; Miner first on the tower's front tile to tank.",
+   "sources": [
+    "https://trophycoach.com/guides/miner-wall-breakers-pro-guide",
+    "https://sportskeeda.com/esports/how-counter-wall-breakers-clash-royale"
+   ]
+  },
+  {
+   "card": "wall_breakers",
+   "situation": "offense",
+   "label": "wall breakers split",
+   "condition": "Opponent defends with one building/one splash card; both lanes healthy.",
+   "x": 9.0,
+   "y": 14.5,
+   "lane": "center",
+   "vs": [
+    "tesla",
+    "valkyrie"
+   ],
+   "note": "Centre of the river line splits them one per lane; evolution pairs split too.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-counter-wall-breakers-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "royal_hogs",
+   "situation": "offense",
+   "label": "royal hogs split (centre)",
+   "condition": "Opponent has one building or one splash troop; both their towers healthy.",
+   "x": 9.0,
+   "y": 13.0,
+   "lane": "center",
+   "vs": [
+    "tesla",
+    "valkyrie"
+   ],
+   "note": "Two go each lane; pair with Earthquake on the building side.",
+   "sources": [
+    "https://trophycoach.com/guides/how-to-play-royal-hogs-deck",
+    "https://www.sportskeeda.com/esports/how-use-royal-hogs-clash-royale",
+    "https://royaletracker.gg/guides/hog-eq-deck-clash-royale"
+   ]
+  },
+  {
+   "card": "royal_hogs",
+   "situation": "offense",
+   "label": "royal hogs one lane at bridge",
+   "condition": "Elixir advantage; opponent's splash out of cycle.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "valkyrie",
+    "bomb_tower"
+   ],
+   "note": "Four on one tower when the counter is gone; Earthquake their building.",
+   "sources": [
+    "https://trophycoach.com/guides/how-to-play-royal-hogs-deck"
+   ]
+  },
+  {
+   "card": "elixir_golem",
+   "situation": "offense",
+   "label": "elixir golem at the bridge with support",
+   "condition": "Battle Healer/Night Witch in hand; opponent's Inferno/Pekka used.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "inferno_tower",
+    "pekka"
+   ],
+   "note": "Fast tank; healer and witch dropped 2 tiles behind on the same side.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "elixir_golem",
+   "situation": "offense",
+   "label": "elixir golem behind king",
+   "condition": "Double elixir, building the full healer push.",
+   "x": 7.5,
+   "y": 0.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Gives time to stack Battle Healer + Electro Dragon; watch opposite-lane punish.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "electro_giant",
+   "situation": "offense",
+   "label": "electro giant at bridge (double elixir)",
+   "condition": "Opponent's Inferno Tower/Dragon is out; have Lightning/Tornado for resets.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "inferno_tower",
+    "inferno_dragon",
+    "pekka"
+   ],
+   "note": "Reflects melee damage; Bowler/Baby Dragon 2 tiles behind to clear pullers.",
+   "sources": [
+    "https://timesaver.gg/blog/how-to-counter-electro-giant-clash-royale",
+    "https://trophycoach.com/guides/how-to-counter-electro-giant-deck"
+   ]
+  },
+  {
+   "card": "electro_giant",
+   "situation": "offense",
+   "label": "electro giant pocket",
+   "condition": "One tower down and up 2 elixir.",
+   "x": 5.5,
+   "y": 22.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Locks the King/remaining tower fast; Lightning any Inferno placed deep.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "goblin_giant",
+   "situation": "offense",
+   "label": "goblin giant behind princess tower",
+   "condition": "Sparky/Witch in hand; want spear goblins alive when crossing.",
+   "x": 3.5,
+   "y": 3.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Sparky 2 tiles behind; spear goblins pop out and shred swarms.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "mega_knight",
+   "situation": "defense",
+   "label": "mega knight spawn-splash on support",
+   "condition": "Enemy ground support (Musketeer/Wizard/Royal Hogs/Battle Ram) clustered at y 10-12.",
+   "x": 3.5,
+   "y": 11.0,
+   "lane": "either",
+   "vs": [
+    "royal_hogs",
+    "battle_ram",
+    "musketeer",
+    "wizard",
+    "skeleton_army"
+   ],
+   "note": "Spawn damage must land on them; then he pulls the push inward.",
+   "sources": [
+    "https://trophycoach.com/guides/mega-knight-guide",
+    "https://www.sportskeeda.com/esports/best-defensive-strategies-mega-knight-clash-royale",
+    "https://www.sportskeeda.com/esports/how-use-mega-knight-clash-royale"
+   ]
+  },
+  {
+   "card": "mega_knight",
+   "situation": "counter_push",
+   "label": "mega knight at bridge after defence",
+   "condition": "Just defended; opponent low and your support (Bats/Inferno Dragon) survives.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Never solo: a 3-elixir Knight stops a lone bridge MK. Support one tile behind.",
+   "sources": [
+    "https://trophycoach.com/guides/mega-knight-guide",
+    "https://clashroyale.fandom.com/wiki/Deck:Megaknight_Control"
+   ]
+  },
+  {
+   "card": "pekka",
+   "situation": "defense",
+   "label": "pekka on tank path inside tower",
+   "condition": "Golem/Giant/Mega Knight has crossed the bridge.",
+   "x": 4.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "golem",
+    "giant",
+    "mega_knight",
+    "elite_barbarians"
+   ],
+   "note": "Let the tank cross first; inside placement keeps her between tank and tower for the counter-push.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-counter-p-e-k-k-a-bridge-spam-deck-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "pekka",
+   "situation": "counter_push",
+   "label": "pekka bridge spam with support",
+   "condition": "Pekka survived defence with HP; opponent's Inferno is out.",
+   "x": 3.5,
+   "y": 14.0,
+   "lane": "either",
+   "vs": [
+    "inferno_tower",
+    "inferno_dragon"
+   ],
+   "note": "Bandit/Battle Ram/Electro Wizard on the same side; Zap the Inferno.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-counter-p-e-k-k-a-bridge-spam-deck-clash-royale",
+    "https://sportskeeda.com/esports/how-counter-bridge-spam-decks-clash-royale"
+   ]
+  },
+  {
+   "card": "three_musketeers",
+   "situation": "offense",
+   "label": "3M split behind king",
+   "condition": "10 elixir after pump; opponent's Fireball/Rocket just used.",
+   "x": 9.0,
+   "y": 0.5,
+   "lane": "center",
+   "vs": [
+    "fireball",
+    "rocket",
+    "lightning"
+   ],
+   "note": "Centre line behind the King splits 2/1; one Fireball cannot hit all three.",
+   "sources": [
+    "https://theriagames.com/?p=102441",
+    "https://clashroyale.fandom.com/wiki/Deck:Musketeers_Ram",
+    "https://www.redbull.com/gb-en/classic-clash-royale-decks"
+   ]
+  },
+  {
+   "card": "three_musketeers",
+   "situation": "offense",
+   "label": "3M on the pump (one lane)",
+   "condition": "Opponent out of Rocket; elixir lead; want to overload one lane.",
+   "x": 3.5,
+   "y": 3.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Behind the tower with Battle Ram/Bandit added at the bridge for the split pressure.",
+   "sources": [
+    "https://theriagames.com/?p=102441",
+    "https://trophycoach.com/guides/how-to-counter-three-musketeers-deck"
+   ]
+  },
+  {
+   "card": "sparky",
+   "situation": "offense",
+   "label": "sparky behind giant/goblin giant",
+   "condition": "Tank already walking at y 8-12; opponent's Zap/E-Wiz used.",
+   "x": 3.5,
+   "y": 8.0,
+   "lane": "either",
+   "vs": [
+    "electro_wizard",
+    "zap"
+   ],
+   "note": "2-3 tiles behind the tank so Fireball cannot hit both.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Deck:Giant_Sparky",
+    "https://sportskeeda.com/esports/how-use-sparky-clash-royale"
+   ]
+  },
+  {
+   "card": "sparky",
+   "situation": "defense",
+   "label": "sparky behind crown tower",
+   "condition": "Opponent is building a ground push; want a charged shot on arrival.",
+   "x": 3.5,
+   "y": 4.0,
+   "lane": "either",
+   "vs": [
+    "pekka",
+    "golem",
+    "giant"
+   ],
+   "note": "Fully charged by the time the tank reaches the tower; Tornado/Fisherman drags targets into the line.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Deck:Sparky_Push_Deck",
+    "https://sportskeeda.com/esports/how-use-sparky-clash-royale"
+   ]
+  },
+  {
+   "card": "skeleton_barrel",
+   "situation": "offense",
+   "label": "skeleton barrel at the bridge behind tank",
+   "condition": "Tank at the bridge; opponent's small spell out.",
+   "x": 3.5,
+   "y": 14.0,
+   "lane": "either",
+   "vs": [
+    "log",
+    "zap",
+    "arrows"
+   ],
+   "note": "Death-spawns 8 skeletons at the tower; pair with Wall Breakers/Goblin Barrel to overload spells.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "tesla",
+   "situation": "defense",
+   "label": "tesla 4-3 plant",
+   "condition": "Opponent's Hog/Ram/Giant expected; pre-plant or reactive before Hog reaches the bridge.",
+   "x": 7.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "battle_ram",
+    "ram_rider",
+    "giant",
+    "royal_hogs",
+    "balloon"
+   ],
+   "note": "4 tiles below river, 3 inside the tower: pulls into both towers, out of bridge sniping.",
+   "sources": [
+    "https://trophycoach.com/guides/how-to-counter-hog-cycle-deck",
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k",
+    "https://theriagames.com/?p=77975",
+    "https://www.sportskeeda.com/esports/how-use-building-cards-clash-royale"
+   ]
+  },
+  {
+   "card": "tesla",
+   "situation": "defense",
+   "label": "tesla centre vs balloon/split",
+   "condition": "Balloon or Royal Hogs may go either lane; Tesla hidden pulls air.",
+   "x": 9.0,
+   "y": 11.0,
+   "lane": "center",
+   "vs": [
+    "balloon",
+    "royal_hogs",
+    "lava_hound"
+   ],
+   "note": "Centre covers both lanes; stays underground until a target is within 5.5 tiles.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-building-cards-clash-royale",
+    "https://sportskeeda.com/esports/how-counter-hog-rider-clash-royale"
+   ]
+  },
+  {
+   "card": "tesla",
+   "situation": "defense",
+   "label": "tesla offset vs earthquake",
+   "condition": "Opponent runs Hog + Earthquake.",
+   "x": 8.5,
+   "y": 11.0,
+   "lane": "either",
+   "vs": [
+    "earthquake",
+    "hog_rider"
+   ],
+   "note": "4+ tiles from the tower hitbox so one Earthquake cannot cover both tower and Tesla.",
+   "sources": [
+    "https://royaletracker.gg/guides/hog-eq-deck-clash-royale",
+    "https://trophycoach.com/guides/how-to-play-hog-earthquake-deck",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "cannon",
+   "situation": "defense",
+   "label": "cannon 4-3 vs hog",
+   "condition": "Hog/Ram/Wall Breakers incoming; cheapest pull.",
+   "x": 7.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "battle_ram",
+    "wall_breakers",
+    "royal_hogs"
+   ],
+   "note": "Classic anti-Hog spot; Hog gets 0-1 hits on tower while both towers shoot.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-cannon-clash-royale",
+    "https://trophycoach.com/guides/how-to-counter-hog-cycle-deck",
+    "https://sportskeeda.com/esports/how-counter-hog-rider-clash-royale"
+   ]
+  },
+  {
+   "card": "cannon",
+   "situation": "defense",
+   "label": "cannon in front of king",
+   "condition": "Late game or 2v2; opponent splits or you need to cover both lanes with one building.",
+   "x": 9.0,
+   "y": 8.0,
+   "lane": "center",
+   "vs": [
+    "hog_rider",
+    "giant",
+    "royal_hogs"
+   ],
+   "note": "3-4 tiles in front of the King; longer pull, both princess towers plus King (if active) shoot.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-cannon-clash-royale",
+    "https://sportskeeda.com/esports/how-handle-split-lane-pushes-clash-royale"
+   ]
+  },
+  {
+   "card": "inferno_tower",
+   "situation": "defense",
+   "label": "inferno vs golem/giant (deep plant)",
+   "condition": "Golem/Giant/Lava Hound push; want max lock time inside tower cover.",
+   "x": 7.5,
+   "y": 9.5,
+   "lane": "either",
+   "vs": [
+    "golem",
+    "giant",
+    "lava_hound",
+    "pekka",
+    "mega_knight"
+   ],
+   "note": "1-2 tiles from King, 5 from river: tank walks through both towers; Zap/Lightning reset is the risk.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/inferno-tower.html",
+    "https://sportskeeda.com/esports/how-use-inferno-tower-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "inferno_tower",
+   "situation": "defense",
+   "label": "inferno vs electro giant (next to king)",
+   "condition": "Electro Giant at the bridge.",
+   "x": 8.0,
+   "y": 7.0,
+   "lane": "either",
+   "vs": [
+    "electro_giant",
+    "royal_giant"
+   ],
+   "note": "Deep next to the King: beyond E-Giant's 3-tile zap, both towers shoot while he walks.",
+   "sources": [
+    "https://timesaver.gg/blog/how-to-counter-electro-giant-clash-royale",
+    "https://trophycoach.com/guides/how-to-counter-electro-giant-deck"
+   ]
+  },
+  {
+   "card": "inferno_tower",
+   "situation": "defense",
+   "label": "inferno 4-2 plant (lightning-safe with musketeer)",
+   "condition": "Giant + Musketeer push; opponent has Lightning.",
+   "x": 8.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "giant",
+    "lightning"
+   ],
+   "note": "4x2 plant plus Musketeer at the tower corner: Lightning cannot hit both.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/musketeer.html"
+   ]
+  },
+  {
+   "card": "bomb_tower",
+   "situation": "defense",
+   "label": "bomb tower 4-2 vs ground swarm/hog",
+   "condition": "Hog with Goblin Gang/Skeletons support, or Royal Hogs; ground-only push.",
+   "x": 8.5,
+   "y": 11.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "royal_hogs",
+    "goblin_gang",
+    "skeleton_army",
+    "graveyard"
+   ],
+   "note": "Splash kills support while pulling the Hog; death bomb finishes swarms.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-building-cards-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "tombstone",
+   "situation": "defense",
+   "label": "tombstone 4-2 / 5-2 centre",
+   "condition": "Hog/Giant/Wall Breakers; want spawner pull and skeleton distraction.",
+   "x": 8.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "giant",
+    "wall_breakers",
+    "prince"
+   ],
+   "note": "Centre of your side draws win conditions into both towers; skeletons chip tanks.",
+   "sources": [
+    "https://theriagames.com/?p=66976",
+    "https://sportskeeda.com/esports/how-counter-wall-breakers-clash-royale"
+   ]
+  },
+  {
+   "card": "goblin_cage",
+   "situation": "defense",
+   "label": "goblin cage in front of the hog",
+   "condition": "Hog/Ram Rider already across the bridge.",
+   "x": 3.5,
+   "y": 11.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "ram_rider",
+    "battle_ram"
+   ],
+   "note": "Directly in the rider's path so the Brawler attacks immediately instead of chasing.",
+   "sources": [
+    "https://theriagames.com/?p=66976",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "goblin_cage",
+   "situation": "defense",
+   "label": "goblin cage centre plant",
+   "condition": "Pre-placing against Giant/Golem or split hogs.",
+   "x": 8.5,
+   "y": 11.5,
+   "lane": "either",
+   "vs": [
+    "giant",
+    "golem",
+    "royal_hogs"
+   ],
+   "note": "Standard centre plant; Brawler counter-pushes when it breaks.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "furnace",
+   "situation": "defense",
+   "label": "furnace 4-3 vs hog/swarm",
+   "condition": "Hog with ground swarm support; fire spirits splash on arrival.",
+   "x": 7.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "goblin_gang",
+    "skeleton_army",
+    "royal_hogs"
+   ],
+   "note": "Spirits jump on swarms; building pull still redirects the Hog.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "furnace",
+   "situation": "offense",
+   "label": "furnace near the bridge (chip)",
+   "condition": "Opponent has no Earthquake/Fireball to answer; passive matchup.",
+   "x": 4.5,
+   "y": 13.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Spirits reach the tower each wave; forces responses or chips.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "goblin_hut",
+   "situation": "defense",
+   "label": "goblin hut lane plant",
+   "condition": "Hog/Giant push expected; want pull plus spear goblin chip.",
+   "x": 6.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "giant",
+    "royal_giant"
+   ],
+   "note": "Pulls building-targeters; spear goblins defend and then walk to chip.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "barbarian_hut",
+   "situation": "defense",
+   "label": "barbarian hut 4-3",
+   "condition": "Heavy ground push expected (Golem/Giant/Pekka).",
+   "x": 7.5,
+   "y": 11.0,
+   "lane": "either",
+   "vs": [
+    "golem",
+    "giant",
+    "pekka",
+    "hog_rider"
+   ],
+   "note": "Big footprint pull; barbarians spawn in front of the tank's path.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "elixir_collector",
+   "situation": "cycle",
+   "label": "pump behind king",
+   "condition": "Opponent has no Miner/Graveyard/Rocket cycle; standard beatdown pump.",
+   "x": 7.5,
+   "y": 0.5,
+   "lane": "either",
+   "vs": [
+    "miner",
+    "rocket"
+   ],
+   "note": "Out of Rocket+tower value; Miner on it costs them King shots.",
+   "sources": [
+    "https://clashroyalearena99.blogspot.com/2016/07/the-best-elixir-collector-placements.html",
+    "https://clashroyale.fandom.com/wiki/Elixir_Collector",
+    "https://clasher.us/clash-royale/card/Elixir_Collector"
+   ]
+  },
+  {
+   "card": "elixir_collector",
+   "situation": "cycle",
+   "label": "pump in front of king (between towers)",
+   "condition": "Opponent has Miner/Goblin Barrel but no Rocket/Lightning.",
+   "x": 9.0,
+   "y": 6.5,
+   "lane": "center",
+   "vs": [
+    "miner",
+    "goblin_barrel",
+    "hog_rider"
+   ],
+   "note": "All three towers cover it; a Hog pulled to it activates the King.",
+   "sources": [
+    "https://clashroyalearena99.blogspot.com/2016/07/the-best-elixir-collector-placements.html",
+    "https://clashroyale.fandom.com/wiki/Elixir_Collector"
+   ]
+  },
+  {
+   "card": "elixir_collector",
+   "situation": "cycle",
+   "label": "pump behind princess tower",
+   "condition": "Opponent has no Miner; want it out of Rocket+King value.",
+   "x": 3.5,
+   "y": 3.0,
+   "lane": "either",
+   "vs": [
+    "rocket",
+    "fireball"
+   ],
+   "note": "Fireball/Rocket on it only hits the tower, never the King; vulnerable to Graveyard decks.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Elixir_Collector",
+    "https://clashroyalearena99.blogspot.com/2016/07/the-best-elixir-collector-placements.html"
+   ]
+  },
+  {
+   "card": "knight",
+   "situation": "defense",
+   "label": "knight on hog path inside tower",
+   "condition": "Hog/Ram crossing the bridge; no building in hand.",
+   "x": 4.0,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "battle_ram",
+    "ram_rider",
+    "bandit"
+   ],
+   "note": "Body-blocks and redirects into tower shots; survives for the counter-push.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-knight-clash-royale",
+    "https://sportskeeda.com/esports/how-counter-hog-rider-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "knight",
+   "situation": "defense",
+   "label": "knight tanking support",
+   "condition": "Enemy Musketeer/Wizard/Magic Archer behind a tank; tank handled by tower/building.",
+   "x": 3.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "wizard",
+    "magic_archer",
+    "electro_wizard"
+   ],
+   "note": "Drop on the support, not the tank; 3 elixir soaks and kills 4-5 elixir ranged units.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-knight-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "knight",
+   "situation": "offense",
+   "label": "knight at bridge in front of x-bow/princess",
+   "condition": "Protecting an offensive X-Bow/Princess/Musketeer at the river.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "mini_pekka",
+    "bandit",
+    "goblins"
+   ],
+   "note": "Stands on the bridge tile absorbing the first answer.",
+   "sources": [
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k"
+   ]
+  },
+  {
+   "card": "valkyrie",
+   "situation": "defense",
+   "label": "valkyrie in front of tower vs graveyard",
+   "condition": "Graveyard dropped on your tower.",
+   "x": 3.5,
+   "y": 8.5,
+   "lane": "either",
+   "vs": [
+    "graveyard",
+    "skeleton_army",
+    "goblin_gang"
+   ],
+   "note": "Front-centre of the tower: spins through skeletons spawning on both sides.",
+   "sources": [
+    "https://trophycoach.com/guides/how-to-counter-graveyard-deck",
+    "https://sportskeeda.com/esports/clash-royale-valkyrie-guide-attack-defense"
+   ]
+  },
+  {
+   "card": "valkyrie",
+   "situation": "defense",
+   "label": "valkyrie on swarm support behind tank",
+   "condition": "Giant/Golem with Witch/Goblins behind at the bridge.",
+   "x": 3.5,
+   "y": 12.5,
+   "lane": "either",
+   "vs": [
+    "witch",
+    "goblin_gang",
+    "skeleton_army",
+    "night_witch"
+   ],
+   "note": "Drop behind the tank onto the support; splash clears it, she then walks to the tank.",
+   "sources": [
+    "https://sportskeeda.com/esports/clash-royale-valkyrie-guide-attack-defense"
+   ]
+  },
+  {
+   "card": "valkyrie",
+   "situation": "defense",
+   "label": "valkyrie central pull vs solo attacker",
+   "condition": "Solo Prince/Hog/Bandit; want to drag it inward.",
+   "x": 6.0,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "prince",
+    "hog_rider",
+    "dark_prince"
+   ],
+   "note": "Central spot changes its path and activates both princess towers.",
+   "sources": [
+    "https://sportskeeda.com/esports/clash-royale-valkyrie-guide-attack-defense"
+   ]
+  },
+  {
+   "card": "mini_pekka",
+   "situation": "defense",
+   "label": "mini pekka on hog",
+   "condition": "Hog crossing; building out of cycle.",
+   "x": 3.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "giant",
+    "royal_giant",
+    "battle_ram"
+   ],
+   "note": "Directly in the path at the tower front: 2 hits kill a Hog before the second swing.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-counter-hog-rider-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "mini_pekka",
+   "situation": "defense",
+   "label": "mini pekka behind the tank",
+   "condition": "Giant/Royal Giant locked on a building or tower.",
+   "x": 4.5,
+   "y": 9.0,
+   "lane": "either",
+   "vs": [
+    "giant",
+    "royal_giant",
+    "golem"
+   ],
+   "note": "Place behind the tank once it is locked so it does not retarget her and support is already dead.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "musketeer",
+   "situation": "defense",
+   "label": "musketeer inside tower (anti-air/hog)",
+   "condition": "Hog, Balloon or Lava Hound coming down the lane.",
+   "x": 6.0,
+   "y": 9.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "balloon",
+    "lava_hound",
+    "baby_dragon"
+   ],
+   "note": "Inside and behind the tower line: both towers plus Musketeer shoot, out of bridge Fireball.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/musketeer.html",
+    "https://sportskeeda.com/esports/how-use-musketeer-clash-royale"
+   ]
+  },
+  {
+   "card": "musketeer",
+   "situation": "defense",
+   "label": "musketeer behind tower (fireball-safe)",
+   "condition": "Opponent has Fireball/Poison/Lightning for tower + Musketeer value.",
+   "x": 3.5,
+   "y": 2.5,
+   "lane": "either",
+   "vs": [
+    "fireball",
+    "poison",
+    "lightning"
+   ],
+   "note": "Two tiles behind the tower: a tower-centred Fireball/Poison does not reach her.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/musketeer.html",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "https://clashroyale.fandom.com/wiki/Musketeer"
+   ]
+  },
+  {
+   "card": "musketeer",
+   "situation": "defense",
+   "label": "musketeer behind king (both lanes)",
+   "condition": "Unsure which lane the Balloon/Hog goes; cycling.",
+   "x": 9.0,
+   "y": 0.5,
+   "lane": "center",
+   "vs": [
+    "balloon",
+    "hog_rider"
+   ],
+   "note": "Covers either tower from the back; also starts a push behind a Giant.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-musketeer-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "electro_wizard",
+   "situation": "defense",
+   "label": "e-wiz spawn zap on hog/balloon",
+   "condition": "Hog/Balloon/Ram about to reach the tower.",
+   "x": 3.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "balloon",
+    "battle_ram",
+    "sparky",
+    "inferno_dragon"
+   ],
+   "note": "Spawn zap stuns and resets charges; chains to two targets.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "electro_wizard",
+   "situation": "defense",
+   "label": "e-wiz behind tower vs inferno/sparky push",
+   "condition": "Giant + Sparky/Inferno Dragon approaching.",
+   "x": 3.5,
+   "y": 4.0,
+   "lane": "either",
+   "vs": [
+    "sparky",
+    "inferno_dragon",
+    "inferno_tower"
+   ],
+   "note": "Behind the tower so the tank does not reach him; resets every lock.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "ice_golem",
+   "situation": "defense",
+   "label": "ice golem kite into king range",
+   "condition": "Pekka/Mini Pekka/Elite Barbs/Prince crossed into the lane at y 11-13.",
+   "x": 6.5,
+   "y": 8.0,
+   "lane": "either",
+   "vs": [
+    "pekka",
+    "mini_pekka",
+    "elite_barbarians",
+    "prince",
+    "lumberjack",
+    "bandit"
+   ],
+   "note": "Attacker chases toward the centre: both princess towers and King shoot; death nova slows.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/what-kiting-clash-royale-and-how-to-do-it",
+    "https://sportskeeda.com/esports/how-use-ice-golem-clash-royale"
+   ]
+  },
+  {
+   "card": "ice_golem",
+   "situation": "defense",
+   "label": "ice golem cross-lane kite",
+   "condition": "Melee attacker at the tower you want to peel off completely.",
+   "x": 9.0,
+   "y": 9.0,
+   "lane": "center",
+   "vs": [
+    "pekka",
+    "elite_barbarians",
+    "mega_knight"
+   ],
+   "note": "Centre drop pulls it across to the other tower's range; costs 2 for 6-8 elixir of walk.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/what-kiting-clash-royale-and-how-to-do-it"
+   ]
+  },
+  {
+   "card": "ice_golem",
+   "situation": "offense",
+   "label": "ice golem in front of hog",
+   "condition": "Opponent defends Hog with Skeletons/Goblins/Guards.",
+   "x": 3.5,
+   "y": 14.0,
+   "lane": "either",
+   "vs": [
+    "skeletons",
+    "goblin_gang",
+    "guards"
+   ],
+   "note": "Tanks and death nova clears swarms; Hog placed one tile behind.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Deck:Hog_Beatdown",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "skeletons",
+   "situation": "defense",
+   "label": "skeletons surround hog at the tower",
+   "condition": "Hog reaching the tower front.",
+   "x": 3.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "prince",
+    "mini_pekka",
+    "bandit"
+   ],
+   "note": "3 skeletons each take a swing; Hog loses 1-2 hits for 1 elixir.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-counter-hog-rider-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "skeletons",
+   "situation": "defense",
+   "label": "skeletons pull to centre",
+   "condition": "Prince/Mini Pekka/Pekka heading down the lane at y 12-14.",
+   "x": 7.0,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "prince",
+    "mini_pekka",
+    "pekka",
+    "elite_barbarians"
+   ],
+   "note": "Placed inside: the attacker retargets and walks into both towers.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/what-kiting-clash-royale-and-how-to-do-it"
+   ]
+  },
+  {
+   "card": "skeletons",
+   "situation": "defense",
+   "label": "skeletons on miner",
+   "condition": "Miner surfaces on your tower.",
+   "x": 4.5,
+   "y": 8.5,
+   "lane": "either",
+   "vs": [
+    "miner",
+    "mighty_miner"
+   ],
+   "note": "Dropped onto the Miner at the tower edge; tower plus skeletons kill it before 2 hits.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Miner"
+   ]
+  },
+  {
+   "card": "skeletons",
+   "situation": "cycle",
+   "label": "skeletons behind king (cycle)",
+   "condition": "Need to cycle to the win condition; no immediate threat.",
+   "x": 9.0,
+   "y": 0.5,
+   "lane": "center",
+   "vs": [],
+   "note": "Safest 1-elixir cycle; still in position to pull a surprise push.",
+   "sources": [
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k"
+   ]
+  },
+  {
+   "card": "ice_spirit",
+   "situation": "defense",
+   "label": "ice spirit freeze on hog at tower",
+   "condition": "Hog about to hit the tower, tower almost killing it.",
+   "x": 3.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "battle_ram",
+    "goblin_barrel"
+   ],
+   "note": "1.5s freeze equals one full tower cycle; also resets Inferno Dragon/Sparky.",
+   "sources": [
+    "https://sportskeeda.com/esports/best-tips-use-ice-spirit-clash-royale"
+   ]
+  },
+  {
+   "card": "ice_spirit",
+   "situation": "offense",
+   "label": "ice spirit pig push",
+   "condition": "Hog placed on the inner bridge tile this frame.",
+   "x": 5.5,
+   "y": 14.0,
+   "lane": "either",
+   "vs": [
+    "tesla",
+    "cannon"
+   ],
+   "note": "One tile behind and inside the Hog; pushes him toward the centre across the river.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://clashroyale.fandom.com/wiki/Deck:Hog_Beatdown"
+   ]
+  },
+  {
+   "card": "guards",
+   "situation": "defense",
+   "label": "guards vs pekka/mini pekka",
+   "condition": "Pekka/Mini Pekka/Prince walking at the tower.",
+   "x": 3.5,
+   "y": 11.0,
+   "lane": "either",
+   "vs": [
+    "pekka",
+    "mini_pekka",
+    "prince",
+    "bandit",
+    "lumberjack"
+   ],
+   "note": "Shields eat big single hits; placed just in front of the tower so they surround.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "skeleton_army",
+   "situation": "defense",
+   "label": "skarmy on tank inside tower",
+   "condition": "Giant/Pekka/Golem crossed the bridge; no splash support visible.",
+   "x": 3.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "giant",
+    "pekka",
+    "golem",
+    "mega_knight",
+    "royal_giant"
+   ],
+   "note": "Never at the bridge; inside the tower so Zap/Log answers happen under tower fire.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-counter-p-e-k-k-a-bridge-spam-deck-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "goblin_gang",
+   "situation": "defense",
+   "label": "goblin gang on hog",
+   "condition": "Hog or Ram reaching the tower; opponent's Log just used.",
+   "x": 3.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "battle_ram",
+    "ram_rider",
+    "prince"
+   ],
+   "note": "Stabs surround while spears finish; 3 for 4 trade.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-counter-hog-rider-clash-royale"
+   ]
+  },
+  {
+   "card": "bats",
+   "situation": "defense",
+   "label": "bats on balloon / lava pups",
+   "condition": "Balloon or Lava Hound over your side with no splash support.",
+   "x": 3.5,
+   "y": 11.0,
+   "lane": "either",
+   "vs": [
+    "balloon",
+    "lava_hound",
+    "giant",
+    "sparky"
+   ],
+   "note": "Under the Balloon's path so they engage before it reaches the tower; dies to any splash.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-counterplay-lavaloon-decks-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "minions",
+   "situation": "defense",
+   "label": "minions on hog at tower",
+   "condition": "Hog reaching the tower; opponent's Arrows/Zap out.",
+   "x": 3.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "balloon",
+    "giant",
+    "sparky"
+   ],
+   "note": "Drop on top as it arrives; air units cannot be hit by Valkyrie/Mega Knight.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "mega_minion",
+   "situation": "defense",
+   "label": "mega minion vs balloon",
+   "condition": "Balloon/Lava Hound/Baby Dragon in the lane.",
+   "x": 3.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "balloon",
+    "lava_hound",
+    "baby_dragon",
+    "hog_rider"
+   ],
+   "note": "Fireball-safe air DPS placed under the Balloon's path.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-counterplay-lavaloon-decks-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "archers",
+   "situation": "cycle",
+   "label": "archers split behind king",
+   "condition": "Cycling; want one archer each lane for chip/air defence.",
+   "x": 9.0,
+   "y": 0.5,
+   "lane": "center",
+   "vs": [
+    "minions",
+    "bats",
+    "balloon"
+   ],
+   "note": "Centre line behind the King splits them; each walks up a lane.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-split-lane-push-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "archers",
+   "situation": "defense",
+   "label": "archers inside tower vs air",
+   "condition": "Minions/Balloon/Lava pups over the tower.",
+   "x": 6.0,
+   "y": 8.5,
+   "lane": "either",
+   "vs": [
+    "minions",
+    "balloon",
+    "lava_hound"
+   ],
+   "note": "Inside so both towers plus archers shoot and a bridge Fireball misses.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "firecracker",
+   "situation": "defense",
+   "label": "firecracker behind tower",
+   "condition": "Swarm or Hog push; want knockback kiting from range.",
+   "x": 2.5,
+   "y": 3.5,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "minions",
+    "hog_rider"
+   ],
+   "note": "Behind the tower: knockback keeps her away from melee while splash lands on the swarm.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "hunter",
+   "situation": "defense",
+   "label": "hunter point-blank on hog/giant",
+   "condition": "Hog, Giant or Royal Giant at the tower front.",
+   "x": 3.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "giant",
+    "royal_giant",
+    "balloon",
+    "mega_knight"
+   ],
+   "note": "All pellets must hit: drop directly on the target's path 1 tile ahead.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "hunter",
+   "situation": "defense",
+   "label": "hunter under balloon path",
+   "condition": "Balloon crossing the bridge.",
+   "x": 3.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "balloon",
+    "lava_hound"
+   ],
+   "note": "Point blank under the Balloon before it reaches the tower; two shots kill.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "fisherman",
+   "situation": "defense",
+   "label": "fisherman in front of king (activation)",
+   "condition": "Hog/Ram/Royal Giant/Miner enters your side; King not yet active.",
+   "x": 9.0,
+   "y": 5.0,
+   "lane": "center",
+   "vs": [
+    "hog_rider",
+    "royal_giant",
+    "battle_ram",
+    "miner",
+    "balloon"
+   ],
+   "note": "Hook (7 tiles) drags the target next to the King; it swings on the King and activates it.",
+   "sources": [
+    "https://xboxplay.games/clash-royale/how-to-complete-the-kingfisher-puzzle-in-clash-royale-77133",
+    "https://clashroyale.fandom.com/wiki/Fisherman"
+   ]
+  },
+  {
+   "card": "fisherman",
+   "situation": "defense",
+   "label": "fisherman inside lane vs royal giant",
+   "condition": "Royal Giant locked from the bridge.",
+   "x": 6.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "royal_giant",
+    "musketeer",
+    "sparky"
+   ],
+   "note": "Hooks RG forward into both towers and off the tower it locked.",
+   "sources": [
+    "https://trophycoach.com/guides/how-to-counter-royal-giant-fisherman-deck",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "magic_archer",
+   "situation": "offense",
+   "label": "magic archer bridge diagonal",
+   "condition": "Opponent's defenders at the river or their tower corner.",
+   "x": 5.5,
+   "y": 14.5,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "musketeer"
+   ],
+   "note": "Arrows pierce 11 tiles: shooting a troop in line with the tower also hits the tower.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Magic_Archer",
+    "https://mobi.gg/en/tips/clash-royale-magic-archer-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "magic_archer",
+   "situation": "defense",
+   "label": "magic archer behind tower line",
+   "condition": "Ground swarm push coming down the lane.",
+   "x": 6.0,
+   "y": 7.5,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "royal_hogs"
+   ],
+   "note": "Inside and back: arrows line up along the lane through the whole push.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Magic_Archer"
+   ]
+  },
+  {
+   "card": "dart_goblin",
+   "situation": "defense",
+   "label": "dart goblin inside tower",
+   "condition": "Balloon/Minions/Lava pups over the lane; want cheap ranged DPS.",
+   "x": 5.5,
+   "y": 8.0,
+   "lane": "either",
+   "vs": [
+    "balloon",
+    "minions",
+    "lava_hound",
+    "goblin_barrel"
+   ],
+   "note": "Inside spot: out of bridge Log, still reaches units at the tower.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "dart_goblin",
+   "situation": "offense",
+   "label": "dart goblin behind tank at bridge",
+   "condition": "Tank at the bridge; opponent's Log out.",
+   "x": 3.5,
+   "y": 13.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Follows the tank and chips the tower from 6.5 range before melee reaches it.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "princess",
+   "situation": "offense",
+   "label": "princess at the bridge",
+   "condition": "Opponent's Log/Arrows out; want tower chip and spell bait.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "log",
+    "arrows"
+   ],
+   "note": "9-tile range reaches the tower from the bridge tile; forces a spell or 300+ chip.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "princess",
+   "situation": "defense",
+   "label": "princess behind tower vs swarm",
+   "condition": "Minion Horde/Goblin Gang/Skeleton Army on your side.",
+   "x": 3.5,
+   "y": 3.0,
+   "lane": "either",
+   "vs": [
+    "minion_horde",
+    "goblin_gang",
+    "skeleton_army",
+    "bats"
+   ],
+   "note": "Splash from behind the tower, out of Fireball-with-tower range.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "bandit",
+   "situation": "counter_push",
+   "label": "bandit at bridge dash",
+   "condition": "Opponent low after defending; dash onto a lone support.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "wizard",
+    "princess"
+   ],
+   "note": "Dash (3.5-6 tiles) from the bridge lands on defenders or tower; invulnerable while dashing.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-counter-bridge-spam-decks-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "bandit",
+   "situation": "defense",
+   "label": "bandit dash onto support",
+   "condition": "Enemy Musketeer/Wizard 4-6 tiles from her drop.",
+   "x": 5.0,
+   "y": 9.0,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "wizard",
+    "electro_wizard"
+   ],
+   "note": "Place 4-6 tiles from the target so the first move is a dash hit.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "lumberjack",
+   "situation": "defense",
+   "label": "lumberjack on support behind tank",
+   "condition": "Giant/Golem with Witch/Wizard behind at y 11-13.",
+   "x": 3.5,
+   "y": 12.5,
+   "lane": "either",
+   "vs": [
+    "witch",
+    "wizard",
+    "musketeer",
+    "night_witch"
+   ],
+   "note": "Kills support fast; his death Rage buffs your counter-push troops.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "lumberjack",
+   "situation": "offense",
+   "label": "lumberjack in front of balloon",
+   "condition": "Balloon push; opponent's Arrows/Fireball used.",
+   "x": 3.5,
+   "y": 15.0,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "archers"
+   ],
+   "note": "Tanks, dies, drops Rage on the Balloon as it arrives.",
+   "sources": [
+    "https://mobi.gg/en/tips/clash-royale-baloon-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "night_witch",
+   "situation": "defense",
+   "label": "night witch behind tower vs ground push",
+   "condition": "Giant/Golem/Pekka push; want bats to stream in safely.",
+   "x": 3.5,
+   "y": 4.0,
+   "lane": "either",
+   "vs": [
+    "giant",
+    "golem",
+    "pekka",
+    "mega_knight"
+   ],
+   "note": "Behind the tower: bats fly over to the tank while she stays out of splash.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "night_witch",
+   "situation": "offense",
+   "label": "night witch behind golem",
+   "condition": "Golem reaching the bridge; opponent's Poison/Arrows used.",
+   "x": 3.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "poison",
+    "arrows"
+   ],
+   "note": "2-3 tiles behind the Golem so Poison cannot cover both.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale",
+    "https://www.exitlag.com/blog/golem-clash-royale-guide-decks-strategy/"
+   ]
+  },
+  {
+   "card": "witch",
+   "situation": "defense",
+   "label": "witch inside tower vs swarm push",
+   "condition": "Skeleton Army/Goblin Gang/Graveyard support.",
+   "x": 5.0,
+   "y": 8.5,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "graveyard",
+    "goblin_gang"
+   ],
+   "note": "Inside and behind the tower edge; skeletons stream out in front of her.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "baby_dragon",
+   "situation": "defense",
+   "label": "baby dragon in front of tower vs graveyard",
+   "condition": "Graveyard on your tower or Minions/Bats incoming.",
+   "x": 3.5,
+   "y": 8.0,
+   "lane": "either",
+   "vs": [
+    "graveyard",
+    "minions",
+    "bats",
+    "goblin_barrel",
+    "skeleton_army"
+   ],
+   "note": "Splash hits skeletons spawning around the tower; Tornado to clump.",
+   "sources": [
+    "https://royaletracker.gg/guides/splashyard-deck-clash-royale",
+    "https://trophycoach.com/guides/how-to-counter-graveyard-deck"
+   ]
+  },
+  {
+   "card": "baby_dragon",
+   "situation": "offense",
+   "label": "baby dragon behind golem",
+   "condition": "Golem at the bridge; want air splash cover.",
+   "x": 3.5,
+   "y": 12.5,
+   "lane": "either",
+   "vs": [
+    "minions",
+    "skeleton_army",
+    "bats"
+   ],
+   "note": "2 tiles behind the Golem clearing swarms; Fireball-safe.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale"
+   ]
+  },
+  {
+   "card": "inferno_dragon",
+   "situation": "defense",
+   "label": "inferno dragon on tank behind tower edge",
+   "condition": "Golem/Giant/Pekka/Mega Knight locked on tower or building.",
+   "x": 5.0,
+   "y": 6.0,
+   "lane": "either",
+   "vs": [
+    "golem",
+    "giant",
+    "pekka",
+    "mega_knight",
+    "electro_giant"
+   ],
+   "note": "Behind the tower corner so support cannot reach it; Zap reset is the risk.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "phoenix",
+   "situation": "defense",
+   "label": "phoenix on balloon/air",
+   "condition": "Balloon/Lava Hound or a melee tank at the tower.",
+   "x": 4.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "balloon",
+    "lava_hound",
+    "giant",
+    "hog_rider"
+   ],
+   "note": "Egg respawn tanks a second time; place where the egg is covered by tower fire.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "monk",
+   "situation": "defense",
+   "label": "monk in front of tower vs ranged push",
+   "condition": "Royal Giant/Musketeer/Sparky push locked on the tower.",
+   "x": 3.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "royal_giant",
+    "sparky",
+    "musketeer",
+    "magic_archer"
+   ],
+   "note": "Ability reflects projectiles; stand between shooter and tower.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "little_prince",
+   "situation": "cycle",
+   "label": "little prince behind king",
+   "condition": "Cycling or pre-defending both lanes cheaply.",
+   "x": 7.5,
+   "y": 0.5,
+   "lane": "either",
+   "vs": [
+    "balloon",
+    "hog_rider"
+   ],
+   "note": "Ramps damage from the back; Guardian ability places the knockback where needed.",
+   "sources": [
+    "https://sportskeeda.com/mobile-games/all-champion-cards-clash-royale-ranked",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "archer_queen",
+   "situation": "defense",
+   "label": "archer queen inside tower",
+   "condition": "Hog/Balloon/Graveyard push; opponent has Fireball.",
+   "x": 5.5,
+   "y": 9.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "balloon",
+    "graveyard",
+    "minions"
+   ],
+   "note": "Inside spot; cloak as their spell is cast to dodge damage and shred.",
+   "sources": [
+    "https://sportskeeda.com/mobile-games/all-champion-cards-clash-royale-ranked",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "golden_knight",
+   "situation": "defense",
+   "label": "golden knight dash chain into swarm",
+   "condition": "Skeleton Army/Goblin Gang/Royal Hogs on your side.",
+   "x": 3.5,
+   "y": 10.0,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "royal_hogs",
+    "wall_breakers"
+   ],
+   "note": "Drop 2-3 tiles from the swarm and activate: dashes chain through every unit.",
+   "sources": [
+    "https://sportskeeda.com/mobile-games/all-champion-cards-clash-royale-ranked",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "skeleton_king",
+   "situation": "defense",
+   "label": "skeleton king on tank path",
+   "condition": "Giant/Golem/Mega Knight push with ground support.",
+   "x": 3.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "giant",
+    "golem",
+    "mega_knight",
+    "skeleton_army"
+   ],
+   "note": "Collect souls from dying support, then summon skeletons to swarm the tank.",
+   "sources": [
+    "https://sportskeeda.com/mobile-games/all-champion-cards-clash-royale-ranked",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "mighty_miner",
+   "situation": "offense",
+   "label": "mighty miner outer corner dig",
+   "condition": "Opponent's answer out; want a tower lock and bomb escape later.",
+   "x": 1.5,
+   "y": 24.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Outer corner like a Miner; ability digs back dropping a bomb on defenders.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "mighty_miner",
+   "situation": "defense",
+   "label": "mighty miner tanking at tower",
+   "condition": "Hog/Giant/Ram at the tower front.",
+   "x": 3.5,
+   "y": 10.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "giant",
+    "royal_giant"
+   ],
+   "note": "Ramping drill DPS on a tank; dig ability resets positioning.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "fireball",
+   "situation": "prediction",
+   "label": "fireball on tower + support corner",
+   "condition": "Opponent habitually drops Musketeer/Wizard on the inner tower corner when defending.",
+   "x": 4.5,
+   "y": 24.5,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "wizard",
+    "electro_wizard",
+    "witch"
+   ],
+   "note": "Centred between tower and corner tile so both take damage; cast ~1s early.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "fireball",
+   "situation": "prediction",
+   "label": "fireball support slot behind tank",
+   "condition": "Giant/Golem at the bridge and 4-5 elixir support about to be added.",
+   "x": 3.5,
+   "y": 18.0,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "witch",
+    "night_witch",
+    "wizard"
+   ],
+   "note": "2-3 tiles behind the tank's position is where support lands.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "fireball",
+   "situation": "defense",
+   "label": "fireball on 3M split (two side)",
+   "condition": "Three Musketeers just split behind their King.",
+   "x": 10.5,
+   "y": 29.0,
+   "lane": "center",
+   "vs": [
+    "three_musketeers"
+   ],
+   "note": "Hit the pair; the single one is handled by the tower and a cheap unit.",
+   "sources": [
+    "https://theriagames.com/?p=102441",
+    "https://trophycoach.com/guides/how-to-counter-three-musketeers-deck"
+   ]
+  },
+  {
+   "card": "poison",
+   "situation": "offense",
+   "label": "poison on tower + front defenders (graveyard)",
+   "condition": "Graveyard cast on the tower; opponent defends with Knight/Valk in front.",
+   "x": 3.5,
+   "y": 24.5,
+   "lane": "either",
+   "vs": [
+    "valkyrie",
+    "knight",
+    "skeleton_army",
+    "archers"
+   ],
+   "note": "Slightly in front of the tower centre: covers tower, defender slot and the spawn rim.",
+   "sources": [
+    "https://trophycoach.com/guides/graveyard-poison-control-bible",
+    "https://www.sportskeeda.com/esports/how-use-poison-card-clash-royale",
+    "https://www.touchtapplay.com/how-to-effectively-use-poison-in-clash-royale/"
+   ]
+  },
+  {
+   "card": "poison",
+   "situation": "offense",
+   "label": "poison on pump next to tower",
+   "condition": "Opponent pumped beside a princess tower.",
+   "x": 5.5,
+   "y": 25.5,
+   "lane": "either",
+   "vs": [
+    "elixir_collector"
+   ],
+   "note": "Hits pump and tower; never centre it where it also reaches the King.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Elixir_Collector",
+    "https://clasher.us/clash-royale/card/Elixir_Collector"
+   ]
+  },
+  {
+   "card": "poison",
+   "situation": "defense",
+   "label": "poison on lava pups / swarm at tower",
+   "condition": "Lava Hound popped or Minion Horde over your tower.",
+   "x": 3.5,
+   "y": 9.0,
+   "lane": "either",
+   "vs": [
+    "lava_hound",
+    "minion_horde",
+    "bats",
+    "graveyard"
+   ],
+   "note": "Slightly in front of the tower; slow kills pups before they chip.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-poison-card-clash-royale",
+    "https://www.sportskeeda.com/esports/how-counterplay-lavaloon-decks-clash-royale"
+   ]
+  },
+  {
+   "card": "rocket",
+   "situation": "offense",
+   "label": "rocket tower + pump",
+   "condition": "Opponent placed Elixir Collector next to a princess tower.",
+   "x": 5.0,
+   "y": 25.0,
+   "lane": "either",
+   "vs": [
+    "elixir_collector"
+   ],
+   "note": "Radius 2: centre between tower edge and pump; never when it also reaches the King.",
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Elixir_Collector",
+    "https://clashfordummies.com/2017/03/14/rocket-tips-guide-and-strategy-for-clash-royale"
+   ]
+  },
+  {
+   "card": "rocket",
+   "situation": "defense",
+   "label": "rocket on sparky/3M behind tank",
+   "condition": "Sparky or clumped Musketeers standing still behind a tank at the bridge.",
+   "x": 3.5,
+   "y": 17.5,
+   "lane": "either",
+   "vs": [
+    "sparky",
+    "three_musketeers",
+    "elixir_golem",
+    "witch"
+   ],
+   "note": "Six for seven+ elixir; wait until support bunches 1 tile behind the tank.",
+   "sources": [
+    "https://www.148apps.com/clash-royale/how-to-use-rocket-effectively-in-clash-royale",
+    "https://clashfordummies.com/2017/03/14/rocket-tips-guide-and-strategy-for-clash-royale"
+   ]
+  },
+  {
+   "card": "rocket",
+   "situation": "cycle",
+   "label": "rocket cycle on tower (overtime)",
+   "condition": "Tower under ~2 Rocket's worth of HP; defence holds.",
+   "x": 3.5,
+   "y": 25.5,
+   "lane": "either",
+   "vs": [],
+   "note": "Fire from the back only when your defence cycle is intact; tiebreak is lowest tower.",
+   "sources": [
+    "https://royaletracker.gg/guides/rocket-cycle-deck-clash-royale",
+    "https://gamingonphone.com/guides/clash-royale-tiebreaker-tips-and-strategies"
+   ]
+  },
+  {
+   "card": "lightning",
+   "situation": "offense",
+   "label": "lightning tower + inferno + support",
+   "condition": "Inferno Tower at their 4-3 plant with Musketeer near the tower.",
+   "x": 6.0,
+   "y": 22.5,
+   "lane": "either",
+   "vs": [
+    "inferno_tower",
+    "musketeer",
+    "tesla",
+    "electro_wizard"
+   ],
+   "note": "Radius 3.5 catches tower hitbox, building at (7.5,20) and support; resets Inferno.",
+   "sources": [
+    "https://www.148apps.com/clash-royale/how-to-use-lightning-effectively-in-clash-royale",
+    "https://ddocs.royaleapi.com/strategy/musketeer.html"
+   ]
+  },
+  {
+   "card": "lightning",
+   "situation": "defense",
+   "label": "lightning on 3 huts / spawners",
+   "condition": "Opponent stacked Goblin Hut/Furnace/Tombstone near each other.",
+   "x": 6.5,
+   "y": 27.0,
+   "lane": "either",
+   "vs": [
+    "goblin_hut",
+    "furnace",
+    "barbarian_hut"
+   ],
+   "note": "Three bolts, highest HP first; place over the spawner cluster.",
+   "sources": [
+    "https://www.148apps.com/clash-royale/how-to-use-lightning-effectively-in-clash-royale"
+   ]
+  },
+  {
+   "card": "log",
+   "situation": "prediction",
+   "label": "log prediction on goblin barrel",
+   "condition": "Opponent's barrel pattern is tower-centre; cast as the barrel lands.",
+   "x": 3.5,
+   "y": 4.0,
+   "lane": "either",
+   "vs": [
+    "goblin_barrel",
+    "skeleton_army",
+    "goblin_gang"
+   ],
+   "note": "Cast behind the tower: it rolls forward 10 tiles through the goblins on the tower.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "log",
+   "situation": "prediction",
+   "label": "log at the bridge vs defenders",
+   "condition": "Opponent drops Skeleton Army/Goblin Gang on your Hog at the bridge every time.",
+   "x": 3.5,
+   "y": 15.5,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "guards",
+    "princess"
+   ],
+   "note": "Rolls across the river into their defender slot and chips the tower.",
+   "sources": [
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k",
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale"
+   ]
+  },
+  {
+   "card": "log",
+   "situation": "defense",
+   "label": "log vs princess at their bridge",
+   "condition": "Princess placed on the bridge chipping your tower.",
+   "x": 3.5,
+   "y": 12.5,
+   "lane": "either",
+   "vs": [
+    "princess",
+    "dart_goblin",
+    "goblins"
+   ],
+   "note": "Starts 2 tiles short so it reaches the bridge tile mid-roll; also pushes back.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "zap",
+   "situation": "defense",
+   "label": "zap on goblin barrel landing",
+   "condition": "Barrel thrown at your tower; Log out of cycle.",
+   "x": 3.5,
+   "y": 6.5,
+   "lane": "either",
+   "vs": [
+    "goblin_barrel",
+    "skeleton_army",
+    "bats",
+    "minions"
+   ],
+   "note": "Instant: cast as the goblins appear; stuns and tower finishes.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "zap",
+   "situation": "defense",
+   "label": "zap reset inferno",
+   "condition": "Inferno Tower/Dragon locking onto your tank.",
+   "x": 7.5,
+   "y": 20.0,
+   "lane": "either",
+   "vs": [
+    "inferno_tower",
+    "inferno_dragon",
+    "sparky"
+   ],
+   "note": "Zap the building at its 4-3 plant tile as the beam reaches stage 2.",
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "card": "arrows",
+   "situation": "prediction",
+   "label": "arrows on goblin barrel / princess",
+   "condition": "Barrel incoming or Princess at their bridge; 1s delay needs prediction.",
+   "x": 3.5,
+   "y": 6.5,
+   "lane": "either",
+   "vs": [
+    "goblin_barrel",
+    "princess",
+    "minion_horde",
+    "skeleton_army"
+   ],
+   "note": "Cast as the barrel is thrown, not as it lands.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "tornado",
+   "situation": "defense",
+   "label": "tornado king activation vs hog",
+   "condition": "Hog (or pig-pushed Hog) crossing at the left; King not active.",
+   "x": 6.5,
+   "y": 5.5,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "balloon",
+    "miner",
+    "ram_rider",
+    "battle_ram"
+   ],
+   "note": "Between princess and King: the Hog swings at the King (nearest building), activating it.",
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://clashroyaletacts.blogspot.com/2017/01/an-advanced-guide-to-using-tornado.html"
+   ]
+  },
+  {
+   "card": "tornado",
+   "situation": "defense",
+   "label": "tornado king activation vs goblin barrel",
+   "condition": "Barrel thrown at tower centre; cast 1s before it lands.",
+   "x": 6.0,
+   "y": 5.0,
+   "lane": "either",
+   "vs": [
+    "goblin_barrel",
+    "graveyard"
+   ],
+   "note": "2 tiles toward the King from the barrel tile: goblins land next to the King.",
+   "sources": [
+    "https://clasher.us/clash-royale/card/Goblin_Barrel",
+    "https://ddocs.royaleapi.com/strategy/tornado.html"
+   ]
+  },
+  {
+   "card": "tornado",
+   "situation": "defense",
+   "label": "tornado onto tesla / splash",
+   "condition": "Hog with support, or clumping a push for Baby Dragon/Executioner.",
+   "x": 7.5,
+   "y": 12.0,
+   "lane": "either",
+   "vs": [
+    "hog_rider",
+    "royal_hogs",
+    "skeleton_army",
+    "graveyard"
+   ],
+   "note": "Pull onto the building or into your splash unit's range.",
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-tornado-effectively-clash-royale",
+    "https://royaletracker.gg/guides/splashyard-deck-clash-royale"
+   ]
+  },
+  {
+   "card": "earthquake",
+   "situation": "offense",
+   "label": "earthquake tower + 4-3 building",
+   "condition": "Opponent planted Tesla/Cannon at 4-3 against your Hog.",
+   "x": 5.5,
+   "y": 23.0,
+   "lane": "either",
+   "vs": [
+    "tesla",
+    "cannon",
+    "inferno_tower",
+    "tombstone"
+   ],
+   "note": "Radius 3.5 covers the plant at (7.5,20) and the tower hitbox; Hog connects.",
+   "sources": [
+    "https://royaletracker.gg/guides/hog-eq-deck-clash-royale",
+    "https://trophycoach.com/guides/how-to-play-hog-earthquake-deck",
+    "https://trophycoach.com/guides/how-to-counter-hog-cycle-deck"
+   ]
+  },
+  {
+   "card": "earthquake",
+   "situation": "defense",
+   "label": "earthquake on x-bow / mortar",
+   "condition": "Siege building placed at their river line.",
+   "x": 5.5,
+   "y": 17.5,
+   "lane": "either",
+   "vs": [
+    "x_bow",
+    "mortar",
+    "goblin_hut"
+   ],
+   "note": "Triple damage to buildings; kills the siege with tower help.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "freeze",
+   "situation": "offense",
+   "label": "freeze on tower + defenders",
+   "condition": "Hog/Balloon/Graveyard reaching the tower with defenders dropped in front.",
+   "x": 3.5,
+   "y": 24.0,
+   "lane": "either",
+   "vs": [
+    "musketeer",
+    "valkyrie",
+    "inferno_tower",
+    "skeleton_army"
+   ],
+   "note": "Front of the tower: covers tower and the defender slot; cast as the first hit lands.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "rage",
+   "situation": "offense",
+   "label": "rage covering push at tower",
+   "condition": "Lumberloon/Golem push arriving; defenders committed.",
+   "x": 3.5,
+   "y": 21.0,
+   "lane": "either",
+   "vs": [],
+   "note": "Radius 5 covers crossing troops and the tower area they will stand on.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "clone",
+   "situation": "offense",
+   "label": "clone behind push at tower",
+   "condition": "Golem/Balloon/Night Witch at the tower; opponent's spells out.",
+   "x": 3.5,
+   "y": 21.5,
+   "lane": "either",
+   "vs": [
+    "arrows",
+    "zap"
+   ],
+   "note": "Slightly behind the troops so clones spawn behind and are not instantly splashed.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "mirror",
+   "situation": "offense",
+   "label": "mirrored barrel to the other corner",
+   "condition": "First barrel baited the Log; mirror the second immediately.",
+   "x": 5.0,
+   "y": 24.5,
+   "lane": "either",
+   "vs": [
+    "log",
+    "zap"
+   ],
+   "note": "Opposite corner from the first barrel so one spell cannot cover both.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "barbarian_barrel",
+   "situation": "defense",
+   "label": "barb barrel through goblin barrel",
+   "condition": "Barrel landing on your tower; Log not in hand.",
+   "x": 3.5,
+   "y": 3.5,
+   "lane": "either",
+   "vs": [
+    "goblin_barrel",
+    "skeleton_army",
+    "goblins"
+   ],
+   "note": "Rolls 5 tiles forward through the tower; Barbarian stays to finish.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "barbarian_barrel",
+   "situation": "defense",
+   "label": "barb barrel vs princess at bridge",
+   "condition": "Princess/Dart Goblin on their bridge tile.",
+   "x": 3.5,
+   "y": 13.0,
+   "lane": "either",
+   "vs": [
+    "princess",
+    "dart_goblin",
+    "archers"
+   ],
+   "note": "Rolls across the bridge onto her; Barbarian walks on as a mini push.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "giant_snowball",
+   "situation": "defense",
+   "label": "snowball on barrel/swarm at tower",
+   "condition": "Goblin Barrel or Minions on your tower.",
+   "x": 3.5,
+   "y": 6.5,
+   "lane": "either",
+   "vs": [
+    "goblin_barrel",
+    "minions",
+    "bats",
+    "skeleton_army"
+   ],
+   "note": "Knockback plus slow buys a tower cycle; cheaper Arrows substitute.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "giant_snowball",
+   "situation": "defense",
+   "label": "snowball pushback on balloon",
+   "condition": "Balloon about to reach the tower.",
+   "x": 3.5,
+   "y": 9.0,
+   "lane": "either",
+   "vs": [
+    "balloon",
+    "hog_rider"
+   ],
+   "note": "Knocks it back and slows: one or two more tower shots.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "royal_delivery",
+   "situation": "defense",
+   "label": "royal delivery on barrel / graveyard",
+   "condition": "Goblin Barrel or Graveyard on your tower; 1s delay needs prediction.",
+   "x": 3.5,
+   "y": 7.5,
+   "lane": "either",
+   "vs": [
+    "goblin_barrel",
+    "graveyard",
+    "minions",
+    "skeleton_army"
+   ],
+   "note": "Drop before the goblins land; Recruit tanks afterward.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "void",
+   "situation": "defense",
+   "label": "void on single high-HP unit",
+   "condition": "Lone Mega Knight/Sparky/Pekka at the bridge.",
+   "x": 3.5,
+   "y": 16.0,
+   "lane": "either",
+   "vs": [
+    "mega_knight",
+    "sparky",
+    "pekka",
+    "inferno_dragon"
+   ],
+   "note": "Damage scales up with fewer targets: cast only on isolated units.",
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "card": "goblin_curse",
+   "situation": "offense",
+   "label": "goblin curse on defenders at tower",
+   "condition": "Your Golem/Giant reaches the tower and they drop swarm/defenders.",
+   "x": 3.5,
+   "y": 23.0,
+   "lane": "either",
+   "vs": [
+    "skeleton_army",
+    "guards",
+    "musketeer",
+    "valkyrie"
+   ],
+   "note": "Cursed units take more damage and become goblins on death, feeding your push.",
+   "sources": [
+    "knowledge"
+   ]
+  }
+ ]
+}

@@ -7,7 +7,7 @@ from crsf.vision.elixir import read_elixir
 from crsf.vision.hand import CardMatcher, is_greyed, read_hand
 from crsf.vision.layout import Layout
 
-from synth import CARD_STYLES, draw_card, make_frame
+from crsf.vision.synth import CARD_STYLES, draw_card, make_frame
 
 layout = Layout.load()
 
@@ -31,6 +31,22 @@ def test_find_game_frame_with_letterbox():
     assert abs(x - 370) <= 2 and abs(w - 540) <= 3 and h == 960
     cropped = crop_game_frame(frame)
     assert cropped.shape[1] in (538, 539, 540, 541, 542)
+
+
+def test_find_game_frame_on_desktop_with_sidebar():
+    frame = make_frame(layout, elixir=6.0, desktop=120)
+    x, y, w, h = find_game_frame(frame)
+    assert abs(x - 240) <= 6 and abs(y - 120) <= 8 and abs(w - 540) <= 8 and abs(h - 960) <= 12
+    cropped = crop_game_frame(frame)
+    assert abs((read_elixir(cropped, layout) or 0) - 6.0) <= 0.3
+
+
+def test_tile_mapping_roundtrip():
+    shape = (960, 540)
+    for tx, ty in ((3.5, 6.5), (9.0, 16.0), (14.5, 25.5), (0.0, 0.0), (18.0, 32.0)):
+        px, py = layout.tiles_to_pixel(shape, tx, ty)
+        bx, by = layout.arena_to_tiles(shape, px, py)
+        assert abs(bx - tx) < 0.1 and abs(by - ty) < 0.15
 
 
 def test_find_game_frame_fallback_centres_portrait():

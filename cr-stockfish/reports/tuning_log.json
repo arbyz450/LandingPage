@@ -1,0 +1,150 @@
+{
+  "final": {
+    "defense": 1.2206071245926373,
+    "tower_damage_prevented": 1.1579560843847376,
+    "offense": 1.028387301095691,
+    "support_synergy": 0.8358186588271216,
+    "build_push": 0.5845871320239134,
+    "cycle": 0.3447687492745849,
+    "leak": 2.6715091780992064,
+    "reserve": 0.651467217593212,
+    "overcommit": 1.2163829047125028,
+    "opp_response": 0.6451564721160423,
+    "spell_cycle": 0.15382515292923307,
+    "wait_bias": 0.002854013173965269
+  },
+  "log": [
+    {
+      "iter": 1,
+      "best_candidate_winrate": 0.483,
+      "games": 60,
+      "bench": 23,
+      "base_bench": 25,
+      "promoted": false,
+      "weights": {
+        "defense": 0.9348097199844472,
+        "tower_damage_prevented": 0.958686974966658,
+        "offense": 1.0247464545974079,
+        "support_synergy": 1.5375004696872163,
+        "build_push": 0.46926297201792716,
+        "cycle": 0.2748634169894943,
+        "leak": 1.9211485252384373,
+        "reserve": 0.5210398275112048,
+        "overcommit": 0.875624503050424,
+        "opp_response": 0.6177047571783096,
+        "spell_cycle": 0.10767101616438739,
+        "wait_bias": 0.06689031006790615
+      }
+    },
+    {
+      "iter": 2,
+      "best_candidate_winrate": 0.517,
+      "games": 60,
+      "bench": 25,
+      "base_bench": 25,
+      "promoted": false,
+      "weights": {
+        "defense": 1.2846737305285496,
+        "tower_damage_prevented": 1.3302809416504917,
+        "offense": 1.0695300716922895,
+        "support_synergy": 0.9477082757603303,
+        "build_push": 0.9430123156902807,
+        "cycle": 0.3265268802368574,
+        "leak": 3.4289270698660195,
+        "reserve": 0.34711164417308943,
+        "overcommit": 0.799212744025425,
+        "opp_response": 1.1338995395643205,
+        "spell_cycle": 0.15899142762047966,
+        "wait_bias": -0.1432560790239147
+      }
+    },
+    {
+      "iter": 3,
+      "best_candidate_winrate": 0.617,
+      "games": 60,
+      "bench": 25,
+      "base_bench": 25,
+      "promoted": true,
+      "weights": {
+        "defense": 1.2206071245926373,
+        "tower_damage_prevented": 1.1579560843847376,
+        "offense": 1.028387301095691,
+        "support_synergy": 0.8358186588271216,
+        "build_push": 0.5845871320239134,
+        "cycle": 0.3447687492745849,
+        "leak": 2.6715091780992064,
+        "reserve": 0.651467217593212,
+        "overcommit": 1.2163829047125028,
+        "opp_response": 0.6451564721160423,
+        "spell_cycle": 0.15382515292923307,
+        "wait_bias": 0.002854013173965269
+      }
+    },
+    {
+      "iter": 4,
+      "best_candidate_winrate": 0.633,
+      "games": 60,
+      "bench": 24,
+      "base_bench": 25,
+      "promoted": false,
+      "weights": {
+        "defense": 1.0786927380987614,
+        "tower_damage_prevented": 0.8346090413822761,
+        "offense": 0.847374861870346,
+        "support_synergy": 1.0229367639693616,
+        "build_push": 0.5726587242937923,
+        "cycle": 0.2709352485282708,
+        "leak": 3.387507371414187,
+        "reserve": 0.4820885318295194,
+        "overcommit": 1.526237655976659,
+        "opp_response": 0.6087139549740973,
+        "spell_cycle": 0.16351571150858368,
+        "wait_bias": 0.10478321401590013
+      }
+    },
+    {
+      "iter": 5,
+      "best_candidate_winrate": 0.4,
+      "games": 60,
+      "bench": 25,
+      "base_bench": 25,
+      "promoted": false,
+      "weights": {
+        "defense": 0.9799355795729858,
+        "tower_damage_prevented": 0.9646772254100391,
+        "offense": 1.0144961577551739,
+        "support_synergy": 1.0695945097138162,
+        "build_push": 0.5902253872962808,
+        "cycle": 0.44917020858741263,
+        "leak": 3.316753919855112,
+        "reserve": 0.48702903959730853,
+        "overcommit": 0.8675473730843254,
+        "opp_response": 0.8178735753873791,
+        "spell_cycle": 0.17416782964005387,
+        "wait_bias": -0.04339154166358013
+      }
+    },
+    {
+      "iter": 6,
+      "best_candidate_winrate": 0.55,
+      "games": 60,
+      "bench": 25,
+      "base_bench": 25,
+      "promoted": false,
+      "weights": {
+        "defense": 1.2229303060985472,
+        "tower_damage_prevented": 1.0096814936142995,
+        "offense": 1.1386670243206547,
+        "support_synergy": 0.8231984544084779,
+        "build_push": 0.7956755941554022,
+        "cycle": 0.2900242176138195,
+        "leak": 2.7680555741288493,
+        "reserve": 0.6212509602648593,
+        "overcommit": 1.6045613106526149,
+        "opp_response": 0.7714336447041937,
+        "spell_cycle": 0.12979394744633982,
+        "wait_bias": 0.030626247020762245
+      }
+    }
+  ]
+}

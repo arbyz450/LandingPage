@@ -135,10 +135,8 @@ class AdbActuator:
 
     def tile_pixel(self, tx: float, ty: float, frame_shape, frame_bbox) -> Tuple[int, int]:
         fx, fy, fw, fh = self._frame_geom(frame_shape, frame_bbox)
-        ax0, ay0, ax1, ay1 = self.layout.pixels("arena", fw, fh)
-        px = ax0 + (tx / 18.0) * (ax1 - ax0)
-        py = ay0 + (1.0 - ty / 32.0) * (ay1 - ay0)
-        return fx + int(round(px)), fy + int(round(py))
+        px, py = self.layout.tiles_to_pixel((fh, fw), tx, ty)
+        return fx + px, fy + py
 
     def play(self, slot: int, tx: float, ty: float, frame_shape, frame_bbox=None, label: str = "") -> dict:
         sx, sy = self.slot_pixel(slot, frame_shape, frame_bbox)
@@ -149,4 +147,41 @@ class AdbActuator:
             self.device.tap(sx, sy)
             time.sleep(self.tap_gap)
             self.device.tap(px, py)
+        return entry
+
+
+class MouseActuator(AdbActuator):
+    """Same two-tap logic, but with real mouse clicks on a window on this PC.
+
+    For targets without ADB (Google Play Games on PC, a mirrored phone window).
+    ``origin`` is the screen position of the captured frame's top-left pixel
+    (``ScreenSource.origin`` / ``WindowSource.origin``). Requires ``pyautogui``.
+    """
+
+    def __init__(self, layout: Layout, origin: Tuple[int, int] = (0, 0), dry_run: bool = False, tap_gap: float = 0.08):
+        super().__init__(device=None, layout=layout, dry_run=dry_run, tap_gap=tap_gap)
+        self.origin = origin
+        self._gui = None
+        if not dry_run:
+            import pyautogui  # optional dependency
+            pyautogui.FAILSAFE = True          # slam the mouse into a corner to abort
+            pyautogui.PAUSE = 0.0
+            self._gui = pyautogui
+
+    def play(self, slot: int, tx: float, ty: float, frame_shape, frame_bbox=None, label: str = "") -> dict:
+        sx, sy = self.slot_pixel(slot, frame_shape, frame_bbox)
+        px, py = self.tile_pixel(tx, ty, frame_shape, frame_bbox)
+        ox, oy = self.origin
+        entry = {"t": time.time(), "slot": slot, "tile": (round(tx, 1), round(ty, 1)), "slot_px": (ox + sx, oy + sy),
+                 "tile_px": (ox + px, oy + py), "label": label, "dry_run": self.dry_run}
+        self.log.append(entry)
+        if self._gui is not None:
+            before = self._gui.position()
+            self._gui.click(ox + sx, oy + sy)
+            time.sleep(self.tap_gap)
+            self._gui.click(ox + px, oy + py)
+            try:
+                self._gui.moveTo(before.x, before.y)      # give the cursor back
+            except Exception:
+                pass
         return entry

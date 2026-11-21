@@ -66,6 +66,8 @@ TOWER_DAMAGE_PER_SEC = 110.0  # princess tower dps at level 11 (approx.)
 
 @dataclass
 class Weights:
+    """Scoring weights. ``knowledge/weights.json`` (written by `crsf tune`) overrides the defaults."""
+
     defense: float = 1.0
     tower_damage_prevented: float = 1.0
     offense: float = 1.0
@@ -78,6 +80,25 @@ class Weights:
     opp_response: float = 0.8
     spell_cycle: float = 0.15
     wait_bias: float = 0.0
+
+    @classmethod
+    def load(cls, path) -> "Weights":
+        import json as _json
+        with open(path, "r", encoding="utf-8") as fh:
+            data = _json.load(fh)
+        fields = set(cls.__dataclass_fields__)
+        return cls(**{k: float(v) for k, v in data.items() if k in fields})
+
+    @classmethod
+    def default(cls) -> "Weights":
+        from .knowledge import KNOWLEDGE_DIR
+        p = KNOWLEDGE_DIR / "weights.json"
+        if p.exists():
+            try:
+                return cls.load(p)
+            except (OSError, ValueError, TypeError):
+                pass
+        return cls()
 
 
 @dataclass
@@ -152,6 +173,13 @@ class Analysis:
     eval_breakdown: Dict[str, float]
     threats: List[Tuple[Unit, float]]   # enemy units with threat weights
     notes: List[str] = field(default_factory=list)
+    wait_score: float = 0.0          # score of doing nothing (decisions are relative to this)
+    n_candidates: int = 0
+
+    @property
+    def margin(self) -> float:
+        """How much better the best move is than waiting."""
+        return (self.best.score - self.wait_score) if self.best else 0.0
 
     @property
     def best(self) -> Optional[Recommendation]:
@@ -178,8 +206,8 @@ def elixir_value(db: CardDB, u: Unit) -> float:
     return max(0.3, c.cost * max(0.1, frac))
 
 
-def threat_weight(db: CardDB, u: Unit) -> float:
-    """How urgent an enemy unit is: value x how close it is to my towers."""
+def threat_weight(db: CardDB, u: Unit, my_units: Sequence[Unit] = ()) -> float:
+    """How urgent an enemy unit is: value x how close it is to my towers (or my push)."""
     c = db.get(u.card)
     if c.targets == "none" and not c.has_role("spawner"):
         base = 0.4
@@ -194,6 +222,11 @@ def threat_weight(db: CardDB, u: Unit) -> float:
         prox = 0.5 if c.has_role("siege") and u.y >= RIVER_Y - 1 else 0.3
         if c.has_role("siege"):
             prox = 1.2   # X-Bow / Mortar locked on a tower is an emergency
+    # An enemy answering my push on their side threatens my investment.
+    for m in my_units:
+        if m.lane == u.lane and abs(m.y - u.y) <= 4.0 and c.can_target(db.get(m.card)):
+            prox = max(prox, 0.85)
+            break
     return base * elixir_value(db, u) * prox
 
 
@@ -298,9 +331,13 @@ def counter_score(db: CardDB, defender: Card, u: Unit) -> float:
 def expected_tower_damage(db: CardDB, u: Unit) -> float:
     """Elixir-equivalent of damage ``u`` would deal if left alone."""
     c = db.get(u.card)
-    if not c.can_hit_tower() or c.dps <= 0:
+    if not c.can_hit_tower():
         return 0.0
     n = unit_count(db, u)
+    if c.dps <= 0:
+        if c.damage > 0 and c.is_troop:        # one-shot units (wall breakers, skeleton barrel)
+            return min(1.2 * TOWER_VALUE_PRINCESS, 0.7 * c.damage * n / 3052.0 * TOWER_VALUE_PRINCESS)
+        return 0.0
     # Time the unit survives under tower fire while connected.
     survive = (c.hp * u.hp_frac * n) / TOWER_DAMAGE_PER_SEC
     survive = min(survive, 25.0)
@@ -380,7 +417,7 @@ def generate_moves(db: CardDB, state: GameState, knowledge: Optional[Knowledge] 
 class Engine:
     def __init__(self, db: Optional[CardDB] = None, weights: Optional[Weights] = None, knowledge: Optional[Knowledge] = None):
         self.db = db or default_db()
-        self.w = weights or Weights()
+        self.w = weights or Weights.default()
         self.k = knowledge if knowledge is not None else default_knowledge()
 
     def cs(self, defender: Card, u: Unit) -> float:
@@ -394,7 +431,8 @@ class Engine:
     # ----- public ---------------------------------------------------------
     def analyse(self, state: GameState, top_n: int = 5) -> Analysis:
         db = self.db
-        threats = [(u, threat_weight(db, u)) for u in state.opp_units()]
+        mine = state.my_units()
+        threats = [(u, threat_weight(db, u, mine)) for u in state.opp_units()]
         threats.sort(key=lambda t: -t[1])
         recs: List[Recommendation] = []
         base_w = self.w
@@ -406,10 +444,12 @@ class Engine:
         finally:
             self.w = base_w
         recs.sort(key=lambda r: -r.score)
+        wait_score = next((r.score for r in recs if r.move.is_wait), 0.0)
+        n_cand = len(recs)
         recs = self._dedupe(recs)
         ev, breakdown = self.evaluate_position(state)
         notes = self._notes(state, threats)
-        return Analysis(recs[:top_n], ev, breakdown, threats, notes)
+        return Analysis(recs[:top_n], ev, breakdown, threats, notes, wait_score=wait_score, n_candidates=n_cand)
 
     @staticmethod
     def _dedupe(recs: List[Recommendation]) -> List[Recommendation]:
@@ -522,6 +562,11 @@ class Engine:
                     lf *= 0.5      # placing at the bridge is not how you defend
                 if mv.cls == "back" and u.on_my_side and u.y > 6:
                     lf *= 0.4
+                dy = abs(u.y - mv.y)
+                if card.is_building:
+                    lf *= 1.0 if (u.on_my_side or db.get(u.card).targets == "buildings") else 0.2
+                elif dy > 6:
+                    lf *= max(0.25, 1.2 - dy / 16.0)   # the defender has to walk there first
             urgency = min(1.0, tw / max(0.3, elixir_value(db, u)))   # ~proximity: far-away units are not defence yet
             gain = cs * lf * elixir_value(db, u) * urgency
             defense += gain

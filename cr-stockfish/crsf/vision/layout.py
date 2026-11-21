@@ -21,18 +21,24 @@ TOWER_REGIONS = {
 @dataclass
 class Layout:
     regions: Dict[str, Region] = field(default_factory=dict)
+    river_frac: Optional[float] = None    # frame-height fraction of the river (tile y = 16)
 
     @classmethod
     def load(cls, path: Optional[Path] = None) -> "Layout":
         path = Path(path) if path else DEFAULT_LAYOUT_PATH
         with open(path, "r", encoding="utf-8") as fh:
             raw = json.load(fh)
-        regions = {k: tuple(float(v) for v in val) for k, val in raw.items() if not k.startswith("_")}
-        return cls(regions)
+        regions = {k: tuple(float(v) for v in val) for k, val in raw.items() if not k.startswith("_") and isinstance(val, list)}
+        lay = cls(regions)
+        lay.river_frac = float(raw.get("river_frac", 0.0)) or None
+        return lay
 
     def save(self, path: Path) -> None:
+        data = {k: list(v) for k, v in self.regions.items()}
+        if self.river_frac:
+            data["river_frac"] = self.river_frac
         with open(path, "w", encoding="utf-8") as fh:
-            json.dump({k: list(v) for k, v in self.regions.items()}, fh, indent=2)
+            json.dump(data, fh, indent=2)
 
     def has(self, name: str) -> bool:
         return name in self.regions
@@ -48,10 +54,33 @@ class Layout:
         x1, y1 = min(w, max(x0 + 1, x1)), min(h, max(y0 + 1, y1))
         return frame[y0:y1, x0:x1]
 
+    def _river_px(self, h: int, ay0: int, ay1: int) -> float:
+        return self.river_frac * h if self.river_frac else (ay0 + ay1) / 2.0
+
     def arena_to_tiles(self, frame_shape, px: float, py: float) -> Tuple[float, float]:
-        """Map a pixel in the game frame to arena tile coordinates (my king = y 0)."""
+        """Map a pixel in the game frame to arena tile coordinates (my king = y 0).
+
+        The far half of the arena is drawn taller than the near half, so the
+        vertical mapping is piecewise linear around the river (tile y = 16).
+        """
         h, w = frame_shape[:2]
         ax0, ay0, ax1, ay1 = self.pixels("arena", w, h)
         fx = (px - ax0) / max(1, ax1 - ax0)
-        fy = (py - ay0) / max(1, ay1 - ay0)
-        return 18.0 * min(1.0, max(0.0, fx)), 32.0 * (1.0 - min(1.0, max(0.0, fy)))
+        ry = self._river_px(h, ay0, ay1)
+        if py <= ry:
+            ty = 16.0 + 16.0 * (ry - py) / max(1.0, ry - ay0)
+        else:
+            ty = 16.0 * (ay1 - py) / max(1.0, ay1 - ry)
+        return 18.0 * min(1.0, max(0.0, fx)), min(32.0, max(0.0, ty))
+
+    def tiles_to_pixel(self, frame_shape, tx: float, ty: float) -> Tuple[int, int]:
+        """Inverse of ``arena_to_tiles``."""
+        h, w = frame_shape[:2]
+        ax0, ay0, ax1, ay1 = self.pixels("arena", w, h)
+        ry = self._river_px(h, ay0, ay1)
+        px = ax0 + (tx / 18.0) * (ax1 - ax0)
+        if ty >= 16.0:
+            py = ry - (ty - 16.0) / 16.0 * (ry - ay0)
+        else:
+            py = ay1 - (ty / 16.0) * (ay1 - ry)
+        return int(round(px)), int(round(py))

@@ -1,0 +1,7465 @@
+{
+ "knight": {
+  "countered_by": [
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "out-damages Knight quickly for one more elixir"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.7,
+    "note": "kills instantly, though overkill on elixir"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.7,
+    "note": "swarm surrounds single-target Knight"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.7,
+    "note": "cheap swarm overwhelms him"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "air units, Knight cannot hit back"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.7,
+    "note": "melts him on defense"
+   },
+   {
+    "card": "bats",
+    "quality": 0.6,
+    "note": "cheap air DPS, but Zap-vulnerable"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.6,
+    "note": "wins the melee 1v1"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.6,
+    "note": "close-range burst shreds him"
+   },
+   {
+    "card": "prince",
+    "quality": 0.6,
+    "note": "charge plus high damage wins trade"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.6,
+    "note": "spawn damage and splash win duel"
+   }
+  ],
+  "counters": [
+   {
+    "card": "spear_goblins",
+    "quality": 0.8,
+    "note": "tanks darts and kills all three"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.8,
+    "note": "tanks and kills glass cannon"
+   },
+   {
+    "card": "princess",
+    "quality": 0.8,
+    "note": "walks through chip and kills her"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.7,
+    "note": "tanks sparks and finishes her"
+   },
+   {
+    "card": "magic_archer",
+    "quality": 0.7,
+    "note": "cheap answer to glass cannon"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.6,
+    "note": "tanks tower while slowly killing goblins"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.6,
+    "note": "kills her if he reaches her"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.6,
+    "note": "tanks fireballs and connects"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "tanks arrows and kills both"
+   },
+   {
+    "card": "ice_wizard",
+    "quality": 0.6,
+    "note": "outlasts slow chip damage"
+   }
+  ],
+  "placement_tips": [
+   "Drop one tile in front of Hog Rider's path to tank and absorb hits.",
+   "Use as a cheap tank on counterpush with ranged support behind.",
+   "Place at the bridge to distract Prince or Mini P.E.K.K.A. before tower lock."
+  ],
+  "sources": [
+   "https://www.sportskeeda.com/esports/how-counter-knight-clash-royale",
+   "https://theriagames.com/guide/clash-royale-knight/",
+   "knowledge"
+  ]
+ },
+ "archers": {
+  "countered_by": [
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "splash kills both quickly"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "spawn damage kills both"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.7,
+    "note": "kills both, costs one more"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.7,
+    "note": "dash kills one, then the other"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "air splash, hard to kill"
+   },
+   {
+    "card": "poison",
+    "quality": 0.7,
+    "note": "kills both over time"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "tanks and kills both"
+   },
+   {
+    "card": "miner",
+    "quality": 0.6,
+    "note": "tanks and ties them up on tower"
+   },
+   {
+    "card": "prince",
+    "quality": 0.6,
+    "note": "charge kills one, finishes other"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.6,
+    "note": "splash kills both if grouped"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.6,
+    "note": "spawn zap plus hits kill both"
+   },
+   {
+    "card": "log",
+    "quality": 0.5,
+    "note": "pushes back and damages, doesn't kill alone"
+   }
+  ],
+  "counters": [
+   {
+    "card": "bats",
+    "quality": 0.8,
+    "note": "shoots bats down cheaply"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "kills minions with tower help"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.6,
+    "note": "shoots goblins with tower support"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.6,
+    "note": "pops barrel and clears skeletons"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.6,
+    "note": "clears skeletons steadily"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.5,
+    "note": "kills it with tower help"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.5,
+    "note": "chips Balloon, needs tower"
+   },
+   {
+    "card": "flying_machine",
+    "quality": 0.5,
+    "note": "trades shots, usually with tower help"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.5,
+    "note": "kites and shoots skeletons"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.4,
+    "note": "chips hound and pups"
+   }
+  ],
+  "placement_tips": [
+   "Split one per lane at the back to avoid spell value.",
+   "Place 3+ tiles behind tank, out of splash range.",
+   "Deploy behind King Tower to kite air units toward the center."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "goblins": {
+  "countered_by": [
+   {
+    "card": "log",
+    "quality": 1.0,
+    "note": "one-shots all three for equal elixir"
+   },
+   {
+    "card": "zap",
+    "quality": 0.9,
+    "note": "nearly kills all; tower finishes"
+   },
+   {
+    "card": "arrows",
+    "quality": 0.9,
+    "note": "kills all three, costs one more"
+   },
+   {
+    "card": "giant_snowball",
+    "quality": 0.9,
+    "note": "kills all for equal elixir"
+   },
+   {
+    "card": "barbarian_barrel",
+    "quality": 0.9,
+    "note": "rolls through and kills them"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.9,
+    "note": "kills all three for one elixir"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.9,
+    "note": "splash kills them instantly"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.9,
+    "note": "spawn damage kills all"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "one splash kills all"
+   },
+   {
+    "card": "royal_delivery",
+    "quality": 0.8,
+    "note": "drop kills all three"
+   },
+   {
+    "card": "princess",
+    "quality": 0.8,
+    "note": "splash kills from range"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splash kills them quickly"
+   }
+  ],
+  "counters": [
+   {
+    "card": "sparky",
+    "quality": 0.8,
+    "note": "surround; single-target Sparky can't cope"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "surround for big elixir trade"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.7,
+    "note": "surround and kill for 2 elixir"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "stops charge, kills him with tower"
+   },
+   {
+    "card": "giant",
+    "quality": 0.7,
+    "note": "cheap high DPS on tank"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.6,
+    "note": "surround at bridge to stop it"
+   },
+   {
+    "card": "golem",
+    "quality": 0.6,
+    "note": "chips tank efficiently"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.6,
+    "note": "rushes glass cannon"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.6,
+    "note": "rushes and kills her"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.6,
+    "note": "distracts and resets lock"
+   }
+  ],
+  "placement_tips": [
+   "Surround single-target melee troops so all three connect.",
+   "Place behind a tank on counterpush for cheap DPS.",
+   "Hold until Log/Zap are out of cycle."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "spear_goblins": {
+  "countered_by": [
+   {
+    "card": "zap",
+    "quality": 1.0,
+    "note": "one-shots all three for equal elixir"
+   },
+   {
+    "card": "log",
+    "quality": 1.0,
+    "note": "kills all three cheaply"
+   },
+   {
+    "card": "arrows",
+    "quality": 0.9,
+    "note": "kills all for one more elixir"
+   },
+   {
+    "card": "giant_snowball",
+    "quality": 0.9,
+    "note": "kills all for equal elixir"
+   },
+   {
+    "card": "barbarian_barrel",
+    "quality": 0.9,
+    "note": "kills them in its path"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.8,
+    "note": "splash kills all"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "splash kills all"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "one bomb kills all"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "spawn damage kills all"
+   },
+   {
+    "card": "princess",
+    "quality": 0.8,
+    "note": "outranges and splashes"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splash clears them"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.7,
+    "note": "sparks clear them"
+   }
+  ],
+  "counters": [
+   {
+    "card": "bats",
+    "quality": 0.6,
+    "note": "shoots down bats cheaply"
+   },
+   {
+    "card": "minions",
+    "quality": 0.5,
+    "note": "chips minions with tower help"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.5,
+    "note": "pops barrel from range"
+   },
+   {
+    "card": "prince",
+    "quality": 0.5,
+    "note": "cheap distraction of charge"
+   },
+   {
+    "card": "giant",
+    "quality": 0.5,
+    "note": "cheap chip DPS on tanks"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.4,
+    "note": "chips Balloon with tower"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.4,
+    "note": "helps tower clear goblins"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.4,
+    "note": "chips with tower help"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.3,
+    "note": "chips hound slowly"
+   }
+  ],
+  "placement_tips": [
+   "Place at back to split-defend; drop behind tanks for chip.",
+   "Use as a cheap distraction for Prince or Mini P.E.K.K.A.",
+   "Keep spaced from other swarms to limit spell value."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "skeletons": {
+  "countered_by": [
+   {
+    "card": "fire_spirit",
+    "quality": 0.9,
+    "note": "kills all for one elixir"
+   },
+   {
+    "card": "electro_spirit",
+    "quality": 0.9,
+    "note": "chain kills all three"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "splash kills all instantly"
+   },
+   {
+    "card": "zap",
+    "quality": 0.7,
+    "note": "kills all, costs one more"
+   },
+   {
+    "card": "log",
+    "quality": 0.7,
+    "note": "kills all, costs one more"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "spawn damage clears them"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "splash kills them"
+   },
+   {
+    "card": "ice_spirit",
+    "quality": 0.7,
+    "note": "freezes; tower finishes"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splash kills them"
+   },
+   {
+    "card": "princess",
+    "quality": 0.7,
+    "note": "splash kills from range"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.7,
+    "note": "boulder clears all"
+   },
+   {
+    "card": "giant_snowball",
+    "quality": 0.6,
+    "note": "kills all for 2"
+   }
+  ],
+  "counters": [
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "surround; huge elixir trade"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "surround kills him for 1 elixir"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.8,
+    "note": "surround and soak shots"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.7,
+    "note": "surround at bridge to stop"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "stops charge cheaply"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.7,
+    "note": "stops charge for 1 elixir"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.7,
+    "note": "distracts and resets beam"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.6,
+    "note": "distracts and resets lock"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.6,
+    "note": "distracts the charge"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "cheap DPS on tank"
+   }
+  ],
+  "placement_tips": [
+   "Place directly on top of single-target melee to surround.",
+   "Cycle at the back of King Tower when nothing is on board.",
+   "Place just past Hog/Prince to pull them toward center."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "bomber": {
+  "countered_by": [
+   {
+    "card": "minions",
+    "quality": 0.9,
+    "note": "air, Bomber can't hit back"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "cheap air kills him"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "air unit shreds him"
+   },
+   {
+    "card": "arrows",
+    "quality": 0.8,
+    "note": "kills him outright"
+   },
+   {
+    "card": "miner",
+    "quality": 0.8,
+    "note": "snipes him cheaply"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.8,
+    "note": "dash kills him"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.7,
+    "note": "kills, slight overkill"
+   },
+   {
+    "card": "knight",
+    "quality": 0.7,
+    "note": "tanks and kills"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "air splash, immune to him"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "charge one-shots him"
+   },
+   {
+    "card": "skeleton_dragons",
+    "quality": 0.7,
+    "note": "air splash kills him"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.6,
+    "note": "outranges and kills"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeleton_army",
+    "quality": 0.9,
+    "note": "one bomb clears it"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.9,
+    "note": "splash kills all six"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.9,
+    "note": "one bomb kills them"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.8,
+    "note": "instant clear"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.8,
+    "note": "one bomb kills all"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.8,
+    "note": "outranges and splashes them"
+   },
+   {
+    "card": "guards",
+    "quality": 0.8,
+    "note": "splash strips shields and kills"
+   },
+   {
+    "card": "royal_recruits",
+    "quality": 0.7,
+    "note": "splashes the line"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.7,
+    "note": "clears skeletons on tower"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.7,
+    "note": "clears goblins if pre-placed"
+   }
+  ],
+  "placement_tips": [
+   "Keep behind a tank; he dies to anything that reaches him.",
+   "Place 3-4 tiles back from swarms to splash before contact.",
+   "Never rely on him against air decks."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "minions": {
+  "countered_by": [
+   {
+    "card": "arrows",
+    "quality": 1.0,
+    "note": "kills all for equal elixir"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.9,
+    "note": "kills all, one more elixir"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "one fireball splash kills them"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "splash kills, outlasts them"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.8,
+    "note": "axe kills them"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.8,
+    "note": "sparks clear them"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.7,
+    "note": "spawn zap plus chain kills"
+   },
+   {
+    "card": "archers",
+    "quality": 0.7,
+    "note": "shoot them down"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.7,
+    "note": "chain kills them"
+   },
+   {
+    "card": "electro_spirit",
+    "quality": 0.7,
+    "note": "chain damage, tower finishes"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.7,
+    "note": "splash damage, tower finishes"
+   },
+   {
+    "card": "princess",
+    "quality": 0.7,
+    "note": "splash kills them"
+   }
+  ],
+  "counters": [
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "can't hit air; shredded"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "knight",
+    "quality": 0.8,
+    "note": "can't retaliate"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "prince",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "giant",
+    "quality": 0.8,
+    "note": "free DPS on tank"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.7,
+    "note": "kills Balloon quickly"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "can't hit air"
+   }
+  ],
+  "placement_tips": [
+   "Place on top of ground melee troops that can't hit air.",
+   "Drop slightly behind Balloon so they chase without tower damage.",
+   "Keep away from tower splash when Arrows is in hand."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "minion_horde": {
+  "countered_by": [
+   {
+    "card": "arrows",
+    "quality": 1.0,
+    "note": "kills all six for 3 elixir"
+   },
+   {
+    "card": "fireball",
+    "quality": 1.0,
+    "note": "kills all for 4 elixir"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.9,
+    "note": "splash clears them"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.9,
+    "note": "axe kills them all"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "splash kills, outlasts them"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.8,
+    "note": "sparks clear them"
+   },
+   {
+    "card": "poison",
+    "quality": 0.8,
+    "note": "kills over time"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.7,
+    "note": "chain damage clears"
+   },
+   {
+    "card": "princess",
+    "quality": 0.7,
+    "note": "splash kills"
+   },
+   {
+    "card": "royal_delivery",
+    "quality": 0.7,
+    "note": "drop plus recruit"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.7,
+    "note": "close spread shot kills"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.7,
+    "note": "softens; tower finishes"
+   }
+  ],
+  "counters": [
+   {
+    "card": "pekka",
+    "quality": 1.0,
+    "note": "can't hit air; melted"
+   },
+   {
+    "card": "giant",
+    "quality": 0.9,
+    "note": "melted for free"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "golem",
+    "quality": 0.8,
+    "note": "shredded quickly"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.8,
+    "note": "kills Balloon fast"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.8,
+    "note": "melted"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "electro_giant",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.8,
+    "note": "melted"
+   }
+  ],
+  "placement_tips": [
+   "Play only when opposing splash/spells are out of cycle.",
+   "Drop on top of tanks that can't target air.",
+   "Split across lanes to reduce spell value when defending."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "barbarians": {
+  "countered_by": [
+   {
+    "card": "valkyrie",
+    "quality": 0.9,
+    "note": "splash kills all five for 4"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.9,
+    "note": "rolls through the line"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.9,
+    "note": "spawn plus splash kills"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "outranges and splashes"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "splash kills them"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.8,
+    "note": "axe kills group"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splash, flies over them"
+   },
+   {
+    "card": "poison",
+    "quality": 0.7,
+    "note": "kills over time"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.7,
+    "note": "one shot kills group"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.7,
+    "note": "sparks whittle them"
+   },
+   {
+    "card": "mother_witch",
+    "quality": 0.7,
+    "note": "splash plus curse"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.6,
+    "note": "heavy damage; needs follow-up"
+   }
+  ],
+  "counters": [
+   {
+    "card": "hog_rider",
+    "quality": 0.8,
+    "note": "surround stops it fast"
+   },
+   {
+    "card": "prince",
+    "quality": 0.8,
+    "note": "surround kills him"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "surround kills him"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "stops ram and barbarians"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "out-trade them"
+   },
+   {
+    "card": "giant",
+    "quality": 0.7,
+    "note": "chew through tank"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.7,
+    "note": "shred him"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.7,
+    "note": "stop and kill"
+   },
+   {
+    "card": "knight",
+    "quality": 0.7,
+    "note": "overwhelm him"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.7,
+    "note": "surround and kill"
+   }
+  ],
+  "placement_tips": [
+   "Place around single-target troops to surround them.",
+   "Deploy in center to defend both lanes.",
+   "Avoid stacking with other troops to limit Fireball/Valkyrie value."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "royal_giant": {
+  "countered_by": [
+   {
+    "card": "inferno_tower",
+    "quality": 0.9,
+    "note": "melts him unless reset"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.8,
+    "note": "melts him, needs protection"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "kills him fast"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "fast kill once support cleared"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.8,
+    "note": "close-range burst"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "high DPS pair"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.7,
+    "note": "swarm him down"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.7,
+    "note": "shreds him if not splashed"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.7,
+    "note": "fast DPS"
+   },
+   {
+    "card": "mighty_miner",
+    "quality": 0.7,
+    "note": "ramps damage on him"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 0.7,
+    "note": "burst, spell-vulnerable"
+   },
+   {
+    "card": "cannon",
+    "quality": 0.6,
+    "note": "pulls him, tower chips"
+   }
+  ],
+  "counters": [
+   {
+    "card": "elixir_collector",
+    "quality": 0.8,
+    "note": "punishes pump placements"
+   },
+   {
+    "card": "cannon",
+    "quality": 0.7,
+    "note": "outranges and kills building"
+   },
+   {
+    "card": "tesla",
+    "quality": 0.7,
+    "note": "outranges when hidden distance"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.7,
+    "note": "tanks and destroys siege"
+   },
+   {
+    "card": "bomb_tower",
+    "quality": 0.7,
+    "note": "outranges it"
+   },
+   {
+    "card": "furnace",
+    "quality": 0.7,
+    "note": "destroys spawner"
+   },
+   {
+    "card": "goblin_hut",
+    "quality": 0.7,
+    "note": "destroys spawner"
+   },
+   {
+    "card": "barbarian_hut",
+    "quality": 0.7,
+    "note": "destroys hut"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.6,
+    "note": "tanks shells, kills it"
+   },
+   {
+    "card": "goblin_cage",
+    "quality": 0.6,
+    "note": "outranges cage"
+   }
+  ],
+  "placement_tips": [
+   "Place at the bridge for fast pressure; he outranges most buildings.",
+   "Build behind King Tower with support for a bigger push.",
+   "Pair with Fisherman or Lightning to answer Inferno Tower."
+  ],
+  "sources": [
+   "https://sportskeeda.com/mobile-games/best-clash-royale-decks-counter-royal-giant",
+   "https://onechilledgamer.com/clash-royale-royal-giant-guide",
+   "knowledge"
+  ]
+ },
+ "elite_barbarians": {
+  "countered_by": [
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "kills both quickly"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.8,
+    "note": "melts both"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.8,
+    "note": "swarm surrounds them"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "spawn plus splash"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "splash plus tower kills both"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.7,
+    "note": "swarm distracts and kills"
+   },
+   {
+    "card": "tornado",
+    "quality": 0.7,
+    "note": "pull to King Tower plus splash"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.7,
+    "note": "knockback, splash"
+   },
+   {
+    "card": "guards",
+    "quality": 0.7,
+    "note": "shields soak hits"
+   },
+   {
+    "card": "goblin_cage",
+    "quality": 0.7,
+    "note": "brawler plus tower"
+   },
+   {
+    "card": "tesla",
+    "quality": 0.6,
+    "note": "pulls, chips with tower"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.6,
+    "note": "trade well with tower"
+   }
+  ],
+  "counters": [
+   {
+    "card": "princess",
+    "quality": 0.8,
+    "note": "rush and kill glass cannon"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.8,
+    "note": "rushed quickly"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.7,
+    "note": "killed before she wins"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "rushed and killed"
+   },
+   {
+    "card": "archers",
+    "quality": 0.7,
+    "note": "run them down"
+   },
+   {
+    "card": "magic_archer",
+    "quality": 0.7,
+    "note": "rushed down"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.7,
+    "note": "rushed down"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.7,
+    "note": "killed fast"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "shred tanks fast"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.6,
+    "note": "shred quickly"
+   }
+  ],
+  "placement_tips": [
+   "Play at the bridge when opponent is low on elixir.",
+   "Pair with Rage or Zap to clear swarm defenses.",
+   "Use defensively against tanks, then counterpush."
+  ],
+  "sources": [
+   "https://www.sportskeeda.com/esports/how-counter-elite-barbarians-clash-royale",
+   "knowledge"
+  ]
+ },
+ "ice_spirit": {
+  "countered_by": [
+   {
+    "card": "fire_spirit",
+    "quality": 0.7,
+    "note": "kills it before freeze"
+   },
+   {
+    "card": "electro_spirit",
+    "quality": 0.7,
+    "note": "kills it first"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "tanks the freeze"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.6,
+    "note": "soak freeze cheaply"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.6,
+    "note": "soak freeze"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "shoot it down"
+   },
+   {
+    "card": "zap",
+    "quality": 0.5,
+    "note": "kills, poor trade"
+   },
+   {
+    "card": "log",
+    "quality": 0.5,
+    "note": "kills, poor trade"
+   },
+   {
+    "card": "ice_golem",
+    "quality": 0.5,
+    "note": "absorbs freeze"
+   },
+   {
+    "card": "bats",
+    "quality": 0.5,
+    "note": "absorb freeze"
+   },
+   {
+    "card": "princess",
+    "quality": 0.5,
+    "note": "kills from range"
+   },
+   {
+    "card": "arrows",
+    "quality": 0.4,
+    "note": "overkill"
+   }
+  ],
+  "counters": [
+   {
+    "card": "inferno_tower",
+    "quality": 0.8,
+    "note": "resets damage ramp"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.8,
+    "note": "resets beam"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.8,
+    "note": "resets charge"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.8,
+    "note": "freezes and kills"
+   },
+   {
+    "card": "bats",
+    "quality": 0.8,
+    "note": "freezes; tower kills"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "freezes; tower kills"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.7,
+    "note": "freezes, tower kills"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.7,
+    "note": "freezes, tower kills"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.7,
+    "note": "freezes goblins on tower"
+   },
+   {
+    "card": "prince",
+    "quality": 0.6,
+    "note": "stops charge"
+   }
+  ],
+  "placement_tips": [
+   "Place slightly ahead of a melee unit to freeze before contact.",
+   "Time it just before Inferno or Sparky locks on.",
+   "Cycle at the back when no threat is present."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "fire_spirit": {
+  "countered_by": [
+   {
+    "card": "giant",
+    "quality": 0.7,
+    "note": "tanks it for nothing"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "shrugs it off"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "tanks the hit"
+   },
+   {
+    "card": "ice_golem",
+    "quality": 0.6,
+    "note": "absorbs it"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "shoot it down"
+   },
+   {
+    "card": "electro_spirit",
+    "quality": 0.6,
+    "note": "kills it first"
+   },
+   {
+    "card": "ice_spirit",
+    "quality": 0.6,
+    "note": "freezes it first"
+   },
+   {
+    "card": "miner",
+    "quality": 0.6,
+    "note": "tanks hit"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.6,
+    "note": "dash kills it"
+   },
+   {
+    "card": "log",
+    "quality": 0.5,
+    "note": "kills, poor trade"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.5,
+    "note": "soak the hit"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.5,
+    "note": "barely dented"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeletons",
+    "quality": 1.0,
+    "note": "kills all for 1"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.9,
+    "note": "clears most of it"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.9,
+    "note": "kills all three"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.9,
+    "note": "kills all three"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "minions",
+    "quality": 0.8,
+    "note": "heavy damage; tower finishes"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.8,
+    "note": "kills most"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.8,
+    "note": "kills goblins on tower"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 0.7,
+    "note": "severe damage; tower finishes"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.7,
+    "note": "pops them early"
+   }
+  ],
+  "placement_tips": [
+   "Place 2 tiles from the swarm so it jumps onto the whole group.",
+   "Drop on Minion Horde as it deploys.",
+   "Pair with tower damage to finish Minions or Bats."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "electro_spirit": {
+  "countered_by": [
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "shrugs it off"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "ice_golem",
+    "quality": 0.6,
+    "note": "absorbs it"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "shoot it down"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.6,
+    "note": "kills it first"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.6,
+    "note": "dash kills it"
+   },
+   {
+    "card": "miner",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.5,
+    "note": "soak the hit"
+   },
+   {
+    "card": "log",
+    "quality": 0.5,
+    "note": "kills, poor trade"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.5,
+    "note": "ignores chip"
+   },
+   {
+    "card": "zap",
+    "quality": 0.4,
+    "note": "kills, poor trade"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeletons",
+    "quality": 1.0,
+    "note": "chain kills all"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.9,
+    "note": "resets for 1 elixir"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.9,
+    "note": "resets beam"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.9,
+    "note": "resets charge"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "chain kills all five"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.7,
+    "note": "chain damages all; tower finishes"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.7,
+    "note": "stuns charge"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.6,
+    "note": "chains 9; tower finishes"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.6,
+    "note": "damages all; tower finishes"
+   },
+   {
+    "card": "minions",
+    "quality": 0.6,
+    "note": "damages; tower finishes"
+   }
+  ],
+  "placement_tips": [
+   "Place where its chain reaches the largest cluster.",
+   "Use as a one-elixir Inferno or Sparky reset.",
+   "Cycle at back when safe; keep for defense otherwise."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "heal_spirit": {
+  "countered_by": [
+   {
+    "card": "poison",
+    "quality": 0.8,
+    "note": "damage over time outpaces heal"
+   },
+   {
+    "card": "knight",
+    "quality": 0.7,
+    "note": "tanks it"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "kills it on contact"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.6,
+    "note": "cheap distraction triggers it"
+   },
+   {
+    "card": "ice_golem",
+    "quality": 0.6,
+    "note": "absorbs it"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "shoot it down"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.6,
+    "note": "kills it first"
+   },
+   {
+    "card": "electro_spirit",
+    "quality": 0.6,
+    "note": "kills it first"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.6,
+    "note": "trigger it early"
+   },
+   {
+    "card": "miner",
+    "quality": 0.6,
+    "note": "triggers it harmlessly"
+   },
+   {
+    "card": "zap",
+    "quality": 0.5,
+    "note": "kills, poor trade"
+   },
+   {
+    "card": "log",
+    "quality": 0.5,
+    "note": "kills, poor trade"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeletons",
+    "quality": 0.6,
+    "note": "pops on them, heals push"
+   },
+   {
+    "card": "bats",
+    "quality": 0.6,
+    "note": "pops on them, heals push"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.5,
+    "note": "small damage plus heal"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.5,
+    "note": "small damage plus heal"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.5,
+    "note": "heals splash damage taken"
+   },
+   {
+    "card": "zap",
+    "quality": 0.4,
+    "note": "undoes spell chip on push"
+   },
+   {
+    "card": "arrows",
+    "quality": 0.4,
+    "note": "restores arrowed troops"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.4,
+    "note": "minor splash, heals troops"
+   }
+  ],
+  "placement_tips": [
+   "Place beside a damaged push to heal before splash arrives.",
+   "Use after Fireball or Poison lands to restore troops.",
+   "It jumps to nearest enemy; place close to trigger immediately."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "bats": {
+  "countered_by": [
+   {
+    "card": "zap",
+    "quality": 1.0,
+    "note": "one-shots all five"
+   },
+   {
+    "card": "electro_spirit",
+    "quality": 0.9,
+    "note": "chain kills all"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.9,
+    "note": "splash kills all"
+   },
+   {
+    "card": "arrows",
+    "quality": 0.9,
+    "note": "kills all for one more"
+   },
+   {
+    "card": "giant_snowball",
+    "quality": 0.9,
+    "note": "kills all for 2"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.9,
+    "note": "spawn zap kills all"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.9,
+    "note": "splash kills them"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "splash kills them"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.8,
+    "note": "sparks clear them"
+   },
+   {
+    "card": "princess",
+    "quality": 0.8,
+    "note": "splash kills them"
+   },
+   {
+    "card": "skeleton_dragons",
+    "quality": 0.8,
+    "note": "air splash kills"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.8,
+    "note": "chain clears them"
+   }
+  ],
+  "counters": [
+   {
+    "card": "mini_pekka",
+    "quality": 0.9,
+    "note": "can't hit air; shredded"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "knight",
+    "quality": 0.8,
+    "note": "can't retaliate"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "giant",
+    "quality": 0.8,
+    "note": "free DPS on tank"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.8,
+    "note": "can't hit air"
+   }
+  ],
+  "placement_tips": [
+   "Place directly on top of ground melee troops.",
+   "Drop slightly behind Balloon so they chase it.",
+   "Hold when Zap, Snowball or Arrows is in hand."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "zap": {
+  "countered_by": [
+   {
+    "card": "guards",
+    "quality": 0.8,
+    "note": "shields absorb it"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.6,
+    "note": "shield absorbs"
+   },
+   {
+    "card": "royal_recruits",
+    "quality": 0.6,
+    "note": "shields absorb"
+   },
+   {
+    "card": "ice_golem",
+    "quality": 0.6,
+    "note": "shrugs it off"
+   },
+   {
+    "card": "knight",
+    "quality": 0.5,
+    "note": "tanks it, no value"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.5,
+    "note": "barely hurt"
+   },
+   {
+    "card": "minions",
+    "quality": 0.5,
+    "note": "survive the zap"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.5,
+    "note": "barely hurt"
+   },
+   {
+    "card": "heal_spirit",
+    "quality": 0.5,
+    "note": "heals zap chip"
+   },
+   {
+    "card": "battle_healer",
+    "quality": 0.5,
+    "note": "heals chip"
+   },
+   {
+    "card": "rascals",
+    "quality": 0.5,
+    "note": "boy tanks it"
+   },
+   {
+    "card": "skeleton_king",
+    "quality": 0.5,
+    "note": "barely hurt"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeleton_army",
+    "quality": 1.0,
+    "note": "one-shots all"
+   },
+   {
+    "card": "bats",
+    "quality": 1.0,
+    "note": "one-shots all five"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 1.0,
+    "note": "one-shots all"
+   },
+   {
+    "card": "skeletons",
+    "quality": 1.0,
+    "note": "one-shots all"
+   },
+   {
+    "card": "sparky",
+    "quality": 1.0,
+    "note": "resets charge"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.9,
+    "note": "resets ramp"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.9,
+    "note": "resets beam"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.9,
+    "note": "kills skeletons on drop"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.8,
+    "note": "nearly kills; tower finishes"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.8,
+    "note": "kills most; tower finishes"
+   }
+  ],
+  "placement_tips": [
+   "Save for Inferno Tower or Sparky resets when those are present.",
+   "Zap swarms once they clump on your troop, not on deploy.",
+   "Combine with tower hits to finish Minions or barrel goblins."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "arrows": {
+  "countered_by": [
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "barely scratched"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.7,
+    "note": "survive easily"
+   },
+   {
+    "card": "guards",
+    "quality": 0.7,
+    "note": "shields absorb"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.7,
+    "note": "survives easily"
+   },
+   {
+    "card": "ice_golem",
+    "quality": 0.7,
+    "note": "unaffected"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.6,
+    "note": "survives"
+   },
+   {
+    "card": "battle_healer",
+    "quality": 0.6,
+    "note": "heals it back"
+   },
+   {
+    "card": "royal_recruits",
+    "quality": 0.6,
+    "note": "shields soak"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.6,
+    "note": "unaffected"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.5,
+    "note": "survives"
+   }
+  ],
+  "counters": [
+   {
+    "card": "minions",
+    "quality": 1.0,
+    "note": "kills all"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 1.0,
+    "note": "kills all six for 3"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 1.0,
+    "note": "kills all"
+   },
+   {
+    "card": "goblins",
+    "quality": 1.0,
+    "note": "kills all"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 1.0,
+    "note": "kills all"
+   },
+   {
+    "card": "princess",
+    "quality": 1.0,
+    "note": "kills her"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 1.0,
+    "note": "kills goblins mid-air"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.9,
+    "note": "kills all six"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.9,
+    "note": "kills him"
+   }
+  ],
+  "placement_tips": [
+   "Predict Goblin Barrel on the tower to kill mid-air.",
+   "Hit swarms when bunched; wait for Minion Horde to deploy.",
+   "Keep it for Princess at the bridge."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "giant_snowball": {
+  "countered_by": [
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "barely hurt"
+   },
+   {
+    "card": "guards",
+    "quality": 0.7,
+    "note": "shields absorb"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.6,
+    "note": "survives easily"
+   },
+   {
+    "card": "ice_golem",
+    "quality": 0.6,
+    "note": "unaffected"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.6,
+    "note": "survive"
+   },
+   {
+    "card": "royal_recruits",
+    "quality": 0.6,
+    "note": "shields absorb"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.6,
+    "note": "shield absorbs"
+   },
+   {
+    "card": "battle_healer",
+    "quality": 0.6,
+    "note": "heals back"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.6,
+    "note": "unaffected"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.5,
+    "note": "survives"
+   }
+  ],
+  "counters": [
+   {
+    "card": "bats",
+    "quality": 1.0,
+    "note": "kills all"
+   },
+   {
+    "card": "skeletons",
+    "quality": 1.0,
+    "note": "kills all"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 1.0,
+    "note": "kills all"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 1.0,
+    "note": "kills all"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.9,
+    "note": "kills skeletons"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.8,
+    "note": "kills most"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "damage plus tower finishes"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.7,
+    "note": "damage plus tower finishes"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.7,
+    "note": "kills it"
+   }
+  ],
+  "placement_tips": [
+   "Push Balloon or Hog back to buy extra tower shots.",
+   "Snowball Minions into tower range to finish them.",
+   "Use as a knockback stall rather than a kill spell."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "royal_delivery": {
+  "countered_by": [
+   {
+    "card": "mini_pekka",
+    "quality": 0.7,
+    "note": "kills recruit quickly"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "clears recruit"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.7,
+    "note": "kills recruit instantly"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.6,
+    "note": "kills recruit easily"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.6,
+    "note": "survives drop"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.6,
+    "note": "kills recruit from range"
+   },
+   {
+    "card": "poison",
+    "quality": 0.6,
+    "note": "kills recruit"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.6,
+    "note": "kills recruit"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.6,
+    "note": "kill recruit"
+   },
+   {
+    "card": "knight",
+    "quality": 0.5,
+    "note": "tanks the drop"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.5,
+    "note": "kills recruit"
+   },
+   {
+    "card": "log",
+    "quality": 0.5,
+    "note": "chips recruit"
+   }
+  ],
+  "counters": [
+   {
+    "card": "goblin_barrel",
+    "quality": 1.0,
+    "note": "kills goblins on landing"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.9,
+    "note": "drop clears it"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "minions",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.9,
+    "note": "kills all six"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.9,
+    "note": "kills skeletons"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.8,
+    "note": "recruit plus damage"
+   }
+  ],
+  "placement_tips": [
+   "Drop on tower when Goblin Barrel lands; predict the 1s delay.",
+   "Place recruit ahead of a push as a cheap shield.",
+   "Lead moving targets like Minions by one tile."
+  ],
+  "sources": [
+   "https://sportskeeda.com/esports/how-use-royal-delivery-clash-royale",
+   "knowledge"
+  ]
+ },
+ "mortar": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 1.0,
+    "note": "destroys it for 3 elixir"
+   },
+   {
+    "card": "minions",
+    "quality": 0.9,
+    "note": "air; Mortar can't hit back"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.9,
+    "note": "air; free kill"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "air unit kills it"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.8,
+    "note": "ignores it entirely"
+   },
+   {
+    "card": "knight",
+    "quality": 0.8,
+    "note": "tanks inside minimum range"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.8,
+    "note": "gets under minimum range"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "charges under it"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.8,
+    "note": "blow it up"
+   },
+   {
+    "card": "goblin_drill",
+    "quality": 0.8,
+    "note": "spawns on top of it"
+   },
+   {
+    "card": "miner",
+    "quality": 0.8,
+    "note": "placed on it, tanks shells"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.7,
+    "note": "air; unaffected"
+   }
+  ],
+  "counters": [
+   {
+    "card": "royal_recruits",
+    "quality": 0.7,
+    "note": "splashes the line"
+   },
+   {
+    "card": "three_musketeers",
+    "quality": 0.7,
+    "note": "splashes grouped trio"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.7,
+    "note": "splash damages group"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.6,
+    "note": "splash clears it"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.6,
+    "note": "splash clears it"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "outranges them"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.6,
+    "note": "splash kills"
+   },
+   {
+    "card": "elixir_collector",
+    "quality": 0.6,
+    "note": "chips pump in range"
+   },
+   {
+    "card": "rascals",
+    "quality": 0.6,
+    "note": "splash hits all"
+   },
+   {
+    "card": "zappies",
+    "quality": 0.6,
+    "note": "splash hits all three"
+   }
+  ],
+  "placement_tips": [
+   "Offense: 1 tile back from river, near center, to lock onto tower.",
+   "Defense: center, 4 tiles from river, to pull Hog/Giant and splash.",
+   "Protect with troops in front; it cannot hit within 3.5 tiles."
+  ],
+  "sources": [
+   "https://trophycoach.com/guides/how-to-counter-mortar-cycle-deck",
+   "https://www.sportskeeda.com/esports/how-defend-x-bow-mortar-decks-clash-royale",
+   "knowledge"
+  ]
+ },
+ "cannon": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 1.0,
+    "note": "destroys it for 3"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.9,
+    "note": "air; can't be hit"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.9,
+    "note": "air; ignored"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.8,
+    "note": "skeletons overwhelm it"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.8,
+    "note": "outranges it"
+   },
+   {
+    "card": "minions",
+    "quality": 0.8,
+    "note": "air; free"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "air; free"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "air; free"
+   },
+   {
+    "card": "flying_machine",
+    "quality": 0.8,
+    "note": "air; outranges"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.7,
+    "note": "outranges it"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.7,
+    "note": "blow it up"
+   },
+   {
+    "card": "goblin_drill",
+    "quality": 0.7,
+    "note": "drills onto it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "hog_rider",
+    "quality": 0.9,
+    "note": "pulls and kills with tower"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "royal_hogs",
+    "quality": 0.7,
+    "note": "pulls all four"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.7,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "pulls into tower range"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.6,
+    "note": "pulls and tanks"
+   },
+   {
+    "card": "prince",
+    "quality": 0.6,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.6,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.6,
+    "note": "pulls and tanks"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.6,
+    "note": "pulls and tanks"
+   }
+  ],
+  "placement_tips": [
+   "Place center, 4 tiles ahead of King Tower, to pull from either lane.",
+   "Drop reactively as Hog crosses the bridge to pull it to center.",
+   "Avoid pre-placing against Earthquake or Royal Giant decks."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "tesla": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 0.9,
+    "note": "destroys it for 3"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.8,
+    "note": "kills it"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.8,
+    "note": "kills it"
+   },
+   {
+    "card": "electro_giant",
+    "quality": 0.7,
+    "note": "zaps it while tanking"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.7,
+    "note": "skeletons overwhelm it"
+   },
+   {
+    "card": "poison",
+    "quality": 0.6,
+    "note": "kills over time"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.6,
+    "note": "tanks and kills it"
+   },
+   {
+    "card": "miner",
+    "quality": 0.6,
+    "note": "chips it"
+   },
+   {
+    "card": "golem",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.6,
+    "note": "shreds it"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "tanks it"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.6,
+    "note": "tanks it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "hog_rider",
+    "quality": 0.9,
+    "note": "pulls and kills"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.8,
+    "note": "hits air; pulls it"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "royal_hogs",
+    "quality": 0.7,
+    "note": "pulls all four"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.7,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "kills them"
+   },
+   {
+    "card": "bats",
+    "quality": 0.7,
+    "note": "kills them"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.7,
+    "note": "pops it early"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.7,
+    "note": "hiding resets beam"
+   }
+  ],
+  "placement_tips": [
+   "Place center, 4 tiles ahead of King Tower to pull both lanes.",
+   "It hides between hits; untargetable by spells while underground.",
+   "Place reactively against Balloon for air defense."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "goblin_cage": {
+  "countered_by": [
+   {
+    "card": "balloon",
+    "quality": 0.9,
+    "note": "air; brawler can't hit"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.9,
+    "note": "air; ignored"
+   },
+   {
+    "card": "earthquake",
+    "quality": 0.8,
+    "note": "destroys it for 3"
+   },
+   {
+    "card": "log",
+    "quality": 0.8,
+    "note": "kills released brawler cheaply"
+   },
+   {
+    "card": "barbarian_barrel",
+    "quality": 0.8,
+    "note": "kills brawler cheaply"
+   },
+   {
+    "card": "minions",
+    "quality": 0.8,
+    "note": "air; free"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "air; free"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "air; free"
+   },
+   {
+    "card": "knight",
+    "quality": 0.7,
+    "note": "tanks brawler"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "kills brawler"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.7,
+    "note": "kills cage"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.7,
+    "note": "outranges it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "hog_rider",
+    "quality": 0.9,
+    "note": "pulls and brawler finishes"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "royal_hogs",
+    "quality": 0.7,
+    "note": "pulls, brawler kills"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.7,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "absorbs charge, brawler kills"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "pulls it"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.6,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.6,
+    "note": "pulls and brawler helps"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.6,
+    "note": "absorbs and pulls"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.6,
+    "note": "pulls into tower"
+   }
+  ],
+  "placement_tips": [
+   "Center placement 4 tiles ahead of King Tower to pull both lanes.",
+   "Brawler spawns on destruction; counterpush with him.",
+   "Place reactively against Hog to pull and release Brawler."
+  ],
+  "sources": [
+   "https://apptrigger.com/2019/05/19/clash-royale-goblin-cage",
+   "knowledge"
+  ]
+ },
+ "rascals": {
+  "countered_by": [
+   {
+    "card": "executioner",
+    "quality": 0.9,
+    "note": "splashes all three, survives"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.9,
+    "note": "splashes all three"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "splash kills girls, boy"
+   },
+   {
+    "card": "poison",
+    "quality": 0.8,
+    "note": "kills girls, boy over time"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "splash kills girls"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "spawn kills girls"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.7,
+    "note": "kills girls, damages boy"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splash kills girls"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.7,
+    "note": "splash kills girls"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.7,
+    "note": "splash charge"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.7,
+    "note": "kills boy fast"
+   },
+   {
+    "card": "log",
+    "quality": 0.6,
+    "note": "kills girls, chips boy"
+   }
+  ],
+  "counters": [
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "girls shoot air"
+   },
+   {
+    "card": "bats",
+    "quality": 0.7,
+    "note": "girls clear them"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.6,
+    "note": "boy tanks, girls kill"
+   },
+   {
+    "card": "prince",
+    "quality": 0.6,
+    "note": "boy absorbs charge"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.6,
+    "note": "boy tanks, girls kill"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.6,
+    "note": "girls out-DPS her"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.6,
+    "note": "girls shoot it down"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "boy tanks, girls kill"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.6,
+    "note": "girls kill goblins"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.6,
+    "note": "girls clear skeletons"
+   }
+  ],
+  "placement_tips": [
+   "Place boy in front to tank, girls 2-3 tiles behind.",
+   "Defensive center placement; girls hit air and ground.",
+   "Avoid clustering with other troops against Poison or Fireball."
+  ],
+  "sources": [
+   "https://clasher.us/clash-royale/card/Rascals",
+   "knowledge"
+  ]
+ },
+ "royal_recruits": {
+  "countered_by": [
+   {
+    "card": "bowler",
+    "quality": 0.9,
+    "note": "rolls through the line"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.8,
+    "note": "axe pierces line"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "jumps and splashes"
+   },
+   {
+    "card": "poison",
+    "quality": 0.7,
+    "note": "kills them over time"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "splashes them"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splashes, flies"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "splash strips and kills"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.7,
+    "note": "one shot clears group"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.7,
+    "note": "outranges and splashes"
+   },
+   {
+    "card": "skeleton_king",
+    "quality": 0.7,
+    "note": "splash kills"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.7,
+    "note": "sparks wear them down"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.6,
+    "note": "strips shields, heavy damage"
+   }
+  ],
+  "counters": [
+   {
+    "card": "hog_rider",
+    "quality": 0.8,
+    "note": "wall stops it"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "stop charge, kill barbarians"
+   },
+   {
+    "card": "prince",
+    "quality": 0.8,
+    "note": "surround and kill"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "surround and kill"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.7,
+    "note": "surround and kill"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.7,
+    "note": "stop and kill"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.7,
+    "note": "surround after dash"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.7,
+    "note": "shields absorb blast"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "chew through"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.6,
+    "note": "surround him"
+   }
+  ],
+  "placement_tips": [
+   "Place at the back in center to split 3-3 across both lanes.",
+   "Place slightly off-center to split 4-2 toward the push lane.",
+   "Deploy as a wide wall in response to dual-lane pressure."
+  ],
+  "sources": [
+   "https://www.sportskeeda.com/esports/how-use-royal-recruits-clash-royale",
+   "knowledge"
+  ]
+ },
+ "skeleton_barrel": {
+  "countered_by": [
+   {
+    "card": "arrows",
+    "quality": 1.0,
+    "note": "kills barrel and skeletons"
+   },
+   {
+    "card": "zap",
+    "quality": 0.9,
+    "note": "kills skeletons as they drop"
+   },
+   {
+    "card": "log",
+    "quality": 0.9,
+    "note": "kills landed skeletons"
+   },
+   {
+    "card": "giant_snowball",
+    "quality": 0.9,
+    "note": "kills skeletons"
+   },
+   {
+    "card": "archers",
+    "quality": 0.8,
+    "note": "pop barrel from distance"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.8,
+    "note": "pops barrel early"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "splash clears skeletons"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "splash clears skeletons"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "kills barrel and skeletons"
+   },
+   {
+    "card": "princess",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.8,
+    "note": "clears skeletons"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.8,
+    "note": "spawn zap clears"
+   }
+  ],
+  "counters": [
+   {
+    "card": "inferno_tower",
+    "quality": 0.7,
+    "note": "skeletons distract and reset"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.7,
+    "note": "skeletons retarget it"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.7,
+    "note": "skeletons soak shots"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.6,
+    "note": "skeletons distract"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.6,
+    "note": "skeletons distract"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.6,
+    "note": "distracts siege"
+   },
+   {
+    "card": "prince",
+    "quality": 0.5,
+    "note": "skeletons distract charge"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.5,
+    "note": "can't hit air; distracted"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.5,
+    "note": "skeletons distract"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.4,
+    "note": "distracts at range"
+   }
+  ],
+  "placement_tips": [
+   "Send behind a tank or with Goblin Barrel to overload defenses.",
+   "Place at the bridge in the lane where the tower is distracted.",
+   "Follow with Zap or Log once skeletons drop onto counters."
+  ],
+  "sources": [
+   "https://sportskeeda.com/esports/how-use-skeleton-barrel-clash-royale",
+   "knowledge"
+  ]
+ },
+ "firecracker": {
+  "countered_by": [
+   {
+    "card": "arrows",
+    "quality": 0.9,
+    "note": "kills her for equal elixir"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.9,
+    "note": "kills her outright"
+   },
+   {
+    "card": "miner",
+    "quality": 0.8,
+    "note": "snipes her cheaply"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.8,
+    "note": "dash kills her"
+   },
+   {
+    "card": "royal_ghost",
+    "quality": 0.8,
+    "note": "invisibly kills her"
+   },
+   {
+    "card": "knight",
+    "quality": 0.7,
+    "note": "tanks sparks and kills"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "charge one-shots her"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.7,
+    "note": "charge kills her"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "jumps on her"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.7,
+    "note": "rushes her down"
+   },
+   {
+    "card": "log",
+    "quality": 0.6,
+    "note": "knockback plus damage, tower finishes"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.6,
+    "note": "kills her, overkill"
+   }
+  ],
+  "counters": [
+   {
+    "card": "minion_horde",
+    "quality": 0.9,
+    "note": "sparks shred horde"
+   },
+   {
+    "card": "minions",
+    "quality": 0.8,
+    "note": "sparks kill them"
+   },
+   {
+    "card": "bats",
+    "quality": 0.8,
+    "note": "sparks kill them"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.8,
+    "note": "splash kills"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.8,
+    "note": "splash kills"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.8,
+    "note": "pops and clears"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.7,
+    "note": "splash kills"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.7,
+    "note": "clears them"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.7,
+    "note": "pops them early"
+   }
+  ],
+  "placement_tips": [
+   "Place far back so recoil keeps her out of melee range.",
+   "Protect with a tank; she dies to any spell.",
+   "Avoid clustering with other spell targets."
+  ],
+  "sources": [
+   "https://www.sportskeeda.com/esports/how-use-firecracker-clash-royale",
+   "https://sportskeeda.com/esports/best-clash-royale-decks-counter-firecracker-evolution",
+   "knowledge"
+  ]
+ },
+ "skeleton_dragons": {
+  "countered_by": [
+   {
+    "card": "fireball",
+    "quality": 0.8,
+    "note": "kills both for equal elixir"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.8,
+    "note": "kills both quickly"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.8,
+    "note": "axe hits both"
+   },
+   {
+    "card": "archer_queen",
+    "quality": 0.8,
+    "note": "shreds both"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.7,
+    "note": "kills both"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.7,
+    "note": "chain hits both"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "splash kills both"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.7,
+    "note": "kills them quickly"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.7,
+    "note": "burst kills"
+   },
+   {
+    "card": "poison",
+    "quality": 0.7,
+    "note": "kills over time"
+   },
+   {
+    "card": "phoenix",
+    "quality": 0.7,
+    "note": "kills them"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.6,
+    "note": "chain hits both"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeleton_army",
+    "quality": 0.9,
+    "note": "double splash clears it"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.9,
+    "note": "cleared instantly"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "bats",
+    "quality": 0.7,
+    "note": "splash clears"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.7,
+    "note": "clears skeletons"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.7,
+    "note": "clears goblins"
+   },
+   {
+    "card": "guards",
+    "quality": 0.7,
+    "note": "splash strips shields"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.7,
+    "note": "can't hit air"
+   }
+  ],
+  "placement_tips": [
+   "Place behind tank at the back as splash support.",
+   "Place centrally to defend both lanes.",
+   "Keep away from Fireball targets."
+  ],
+  "sources": [
+   "https://trophycoach.com/guides/skeleton-dragons-buff-meta-impact",
+   "knowledge"
+  ]
+ },
+ "goblin_gang": {
+  "countered_by": [
+   {
+    "card": "log",
+    "quality": 1.0,
+    "note": "kills all six for 2"
+   },
+   {
+    "card": "zap",
+    "quality": 0.9,
+    "note": "kills most; tower finishes"
+   },
+   {
+    "card": "arrows",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "barbarian_barrel",
+    "quality": 0.9,
+    "note": "kills all in path"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.9,
+    "note": "splash kills all"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.9,
+    "note": "spawn damage clears"
+   },
+   {
+    "card": "giant_snowball",
+    "quality": 0.8,
+    "note": "kills most"
+   },
+   {
+    "card": "fire_spirit",
+    "quality": 0.8,
+    "note": "splash kills most"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "princess",
+    "quality": 0.8,
+    "note": "splash from range"
+   }
+  ],
+  "counters": [
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "surround; massive trade"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.9,
+    "note": "surround, soak shots"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.8,
+    "note": "surround stops it"
+   },
+   {
+    "card": "prince",
+    "quality": 0.8,
+    "note": "surround kills him"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "surround kills him"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "stops ram"
+   },
+   {
+    "card": "giant",
+    "quality": 0.7,
+    "note": "chew through tank"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "surround and kill"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.7,
+    "note": "rush her"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.7,
+    "note": "chip him down"
+   }
+  ],
+  "placement_tips": [
+   "Place on top of single-target troops to surround.",
+   "Deploy at bridge behind a tank for cheap pressure.",
+   "Hold until Log or Zap is used elsewhere."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "berserker": {
+  "countered_by": [
+   {
+    "card": "minions",
+    "quality": 0.9,
+    "note": "air; she can't hit back"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "air; shred her cheaply"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "air kills her"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.8,
+    "note": "swarm surrounds her"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.8,
+    "note": "swarm overwhelms"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "splash and tanks"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "spawn damage kills"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "one-shots her"
+   },
+   {
+    "card": "knight",
+    "quality": 0.7,
+    "note": "tanks and kills"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.7,
+    "note": "cheap distraction"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.7,
+    "note": "surround her"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.7,
+    "note": "kills her quickly"
+   }
+  ],
+  "counters": [
+   {
+    "card": "princess",
+    "quality": 0.8,
+    "note": "rushes glass cannon"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.8,
+    "note": "rushes and kills"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.7,
+    "note": "rushed quickly"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "rushed before splash"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.7,
+    "note": "rushed down"
+   },
+   {
+    "card": "magic_archer",
+    "quality": 0.7,
+    "note": "rushed down"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "rushed down"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.6,
+    "note": "rushed down"
+   },
+   {
+    "card": "ice_wizard",
+    "quality": 0.6,
+    "note": "rushed despite slow"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "cheap DPS on tank"
+   }
+  ],
+  "placement_tips": [
+   "Place directly on ranged glass cannons to rush them.",
+   "Use as cheap tank-killer behind a mini tank.",
+   "Keep away from swarms; she is single target."
+  ],
+  "sources": [
+   "https://www.exitlag.com/blog/berserker-clash-royale-guide/",
+   "https://thefilibusterblog.com/ultimate-guide-to-berserkers-in-clash-royale/",
+   "knowledge"
+  ]
+ },
+ "suspicious_bush": {
+  "countered_by": [
+   {
+    "card": "void",
+    "quality": 0.9,
+    "note": "only spell that fully handles it"
+   },
+   {
+    "card": "knight",
+    "quality": 0.8,
+    "note": "kills bush before goblins pop"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "kills bush and goblins"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "spawn damage kills all"
+   },
+   {
+    "card": "tombstone",
+    "quality": 0.8,
+    "note": "pulls it; skeletons kill"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.7,
+    "note": "spawn zap plus shots"
+   },
+   {
+    "card": "ice_wizard",
+    "quality": 0.7,
+    "note": "spawn damage, slows"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.7,
+    "note": "pulls and kills"
+   },
+   {
+    "card": "cannon",
+    "quality": 0.7,
+    "note": "pulls and kills"
+   },
+   {
+    "card": "tesla",
+    "quality": 0.7,
+    "note": "pulls and kills"
+   },
+   {
+    "card": "goblin_cage",
+    "quality": 0.7,
+    "note": "pulls; brawler kills"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.7,
+    "note": "splash kills bush and goblins"
+   }
+  ],
+  "counters": [
+   {
+    "card": "x_bow",
+    "quality": 0.6,
+    "note": "cheap distraction of siege"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.6,
+    "note": "cheap distraction"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.6,
+    "note": "wastes a shot"
+   },
+   {
+    "card": "elixir_collector",
+    "quality": 0.5,
+    "note": "cheap chip on pump"
+   },
+   {
+    "card": "goblin_hut",
+    "quality": 0.5,
+    "note": "cheap chip on building"
+   },
+   {
+    "card": "prince",
+    "quality": 0.5,
+    "note": "cheap distraction"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.5,
+    "note": "cheap distraction"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.5,
+    "note": "cheap distraction"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.4,
+    "note": "cheap distraction"
+   },
+   {
+    "card": "giant_skeleton",
+    "quality": 0.4,
+    "note": "distracts"
+   }
+  ],
+  "placement_tips": [
+   "Send behind a tank so it sneaks to the tower unnoticed.",
+   "Play opposite lane when opponent commits elixir.",
+   "Do not spell it on your side; goblins pop out. Use troops."
+  ],
+  "sources": [
+   "https://www.sportskeeda.com/esports/how-counter-suspicious-bush-clash-royale",
+   "https://sportskeeda.com/esports/best-ways-counter-suspicious-bush-clash-royale",
+   "knowledge"
+  ]
+ },
+ "mini_pekka": {
+  "countered_by": [
+   {
+    "card": "skeleton_army",
+    "quality": 0.9,
+    "note": "surround kills him"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.9,
+    "note": "surround kills him"
+   },
+   {
+    "card": "guards",
+    "quality": 0.9,
+    "note": "shields soak hits"
+   },
+   {
+    "card": "tombstone",
+    "quality": 0.8,
+    "note": "skeletons stall him"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.8,
+    "note": "surround for 1 elixir"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.8,
+    "note": "surround kills"
+   },
+   {
+    "card": "minions",
+    "quality": 0.8,
+    "note": "air; can't hit back"
+   },
+   {
+    "card": "bats",
+    "quality": 0.8,
+    "note": "air; shred him"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 0.8,
+    "note": "air; melted"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "wins duel"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.7,
+    "note": "swarm him"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "spawn plus duel"
+   }
+  ],
+  "counters": [
+   {
+    "card": "hog_rider",
+    "quality": 0.9,
+    "note": "two hits kill it"
+   },
+   {
+    "card": "giant",
+    "quality": 0.9,
+    "note": "shreds tank"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.9,
+    "note": "shreds him"
+   },
+   {
+    "card": "golem",
+    "quality": 0.8,
+    "note": "shreds tank"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "pops ram, kills barbs"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.8,
+    "note": "shreds him"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "kills glass cannon"
+   },
+   {
+    "card": "rune_giant",
+    "quality": 0.8,
+    "note": "shreds her"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "kills one quickly"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.7,
+    "note": "stops ram"
+   }
+  ],
+  "placement_tips": [
+   "Place one tile in front of Hog's path, in tower range, for two-hit kill.",
+   "Drop on glass cannons like Wizard or Musketeer.",
+   "Counterpush behind a tank after defending."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "musketeer": {
+  "countered_by": [
+   {
+    "card": "lightning",
+    "quality": 0.9,
+    "note": "kills her"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.9,
+    "note": "kills, overkill"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "tanks shots and kills"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "kills her quickly"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.8,
+    "note": "dash kills her"
+   },
+   {
+    "card": "prince",
+    "quality": 0.8,
+    "note": "charge kills her"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "jumps on her"
+   },
+   {
+    "card": "royal_ghost",
+    "quality": 0.8,
+    "note": "invisibly kills her"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.8,
+    "note": "rushes her"
+   },
+   {
+    "card": "knight",
+    "quality": 0.7,
+    "note": "tanks and kills"
+   },
+   {
+    "card": "miner",
+    "quality": 0.7,
+    "note": "snipes her"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.7,
+    "note": "kills her"
+   }
+  ],
+  "counters": [
+   {
+    "card": "balloon",
+    "quality": 0.9,
+    "note": "shoots it down"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "outranges and kills"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "kills it"
+   },
+   {
+    "card": "flying_machine",
+    "quality": 0.7,
+    "note": "out-trades it"
+   },
+   {
+    "card": "skeleton_dragons",
+    "quality": 0.7,
+    "note": "kills both"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.7,
+    "note": "outranges it"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.7,
+    "note": "kills before ramp"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "shoots them down"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "outranges him"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "chips tank"
+   }
+  ],
+  "placement_tips": [
+   "Place behind a tank, 3+ tiles back, out of Fireball range with tower.",
+   "Defend air at back of King Tower to kite Balloon.",
+   "Place in middle to defend both lanes."
+  ],
+  "sources": [
+   "https://148apps.com/news/1459276506",
+   "knowledge"
+  ]
+ },
+ "giant": {
+  "countered_by": [
+   {
+    "card": "inferno_tower",
+    "quality": 1.0,
+    "note": "melts him for less"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.9,
+    "note": "melts him"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.9,
+    "note": "shreds him for 4"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "shreds him"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.8,
+    "note": "swarm shreds him"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.8,
+    "note": "swarm kills him"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.8,
+    "note": "fast kill"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 0.8,
+    "note": "melts him"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.8,
+    "note": "fast DPS"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.8,
+    "note": "burst damage"
+   },
+   {
+    "card": "mighty_miner",
+    "quality": 0.8,
+    "note": "ramps on him"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.7,
+    "note": "swarm damage"
+   }
+  ],
+  "counters": [
+   {
+    "card": "x_bow",
+    "quality": 0.8,
+    "note": "tanks and kills siege"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.8,
+    "note": "tanks shells, kills it"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.7,
+    "note": "tanks for push"
+   },
+   {
+    "card": "princess",
+    "quality": 0.7,
+    "note": "absorbs chip"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.7,
+    "note": "absorbs chip"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.7,
+    "note": "absorbs sparks"
+   },
+   {
+    "card": "magic_archer",
+    "quality": 0.7,
+    "note": "absorbs pierce"
+   },
+   {
+    "card": "ice_wizard",
+    "quality": 0.7,
+    "note": "unaffected by slow"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.7,
+    "note": "absorbs bombs"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "tanks for push"
+   }
+  ],
+  "placement_tips": [
+   "Place at the back of King Tower to build support.",
+   "Drop at the bridge for quick pressure when opponent overcommits.",
+   "Drop on X-Bow or Mortar to tank and distract."
+  ],
+  "sources": [
+   "https://148apps.com/news/how-to-counter-the-giant-in-clash-royale",
+   "knowledge"
+  ]
+ },
+ "valkyrie": {
+  "countered_by": [
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "kills her quickly"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "out-damages her"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.8,
+    "note": "melts her"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.8,
+    "note": "melts her"
+   },
+   {
+    "card": "minions",
+    "quality": 0.8,
+    "note": "air; she can't hit"
+   },
+   {
+    "card": "bats",
+    "quality": 0.8,
+    "note": "air; shred her"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "air kills her"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.8,
+    "note": "burst kills her"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "charge damage"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.7,
+    "note": "fast DPS"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "out-damage her"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "wins duel"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeleton_army",
+    "quality": 1.0,
+    "note": "spin clears it"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 1.0,
+    "note": "spin clears it"
+   },
+   {
+    "card": "goblins",
+    "quality": 1.0,
+    "note": "spin kills all"
+   },
+   {
+    "card": "archers",
+    "quality": 0.9,
+    "note": "kills both"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.9,
+    "note": "spin kills all"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.9,
+    "note": "instant clear"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.9,
+    "note": "spin kills all five"
+   },
+   {
+    "card": "witch",
+    "quality": 0.9,
+    "note": "kills her and skeletons"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.8,
+    "note": "spins on skeletons"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.8,
+    "note": "clears goblins"
+   }
+  ],
+  "placement_tips": [
+   "Place on top of swarms or directly on glass cannons.",
+   "Lead a counterpush as mini-tank with ranged units behind.",
+   "Place between tank and support to splash the support."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "hog_rider": {
+  "countered_by": [
+   {
+    "card": "cannon",
+    "quality": 0.9,
+    "note": "pulls and kills with tower"
+   },
+   {
+    "card": "tesla",
+    "quality": 0.9,
+    "note": "pulls and kills"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.9,
+    "note": "two hits kill it"
+   },
+   {
+    "card": "tombstone",
+    "quality": 0.8,
+    "note": "skeletons stall it"
+   },
+   {
+    "card": "goblin_cage",
+    "quality": 0.8,
+    "note": "pulls; brawler kills"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.8,
+    "note": "melts it"
+   },
+   {
+    "card": "bomb_tower",
+    "quality": 0.8,
+    "note": "tanks and splashes"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "kills it fast"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.8,
+    "note": "surround kills"
+   },
+   {
+    "card": "fisherman",
+    "quality": 0.8,
+    "note": "hooks into King Tower range"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.8,
+    "note": "burst kills it"
+   },
+   {
+    "card": "cannon_cart",
+    "quality": 0.8,
+    "note": "high DPS, tanks"
+   }
+  ],
+  "counters": [
+   {
+    "card": "elixir_collector",
+    "quality": 0.9,
+    "note": "punishes pump"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.7,
+    "note": "rushes siege"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.7,
+    "note": "rushes siege"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "outruns to tower"
+   },
+   {
+    "card": "princess",
+    "quality": 0.6,
+    "note": "ignores chip"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.6,
+    "note": "ignores chip"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.6,
+    "note": "ignores chip"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.6,
+    "note": "too slow to kill it"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.6,
+    "note": "ignores sparks"
+   },
+   {
+    "card": "magic_archer",
+    "quality": 0.6,
+    "note": "ignores chip"
+   }
+  ],
+  "placement_tips": [
+   "Place at the bridge edge along the river for a pig push past buildings.",
+   "Pair with Ice Spirit or a predicted Fireball on common counter spots.",
+   "Send opposite lane after defending to punish heavy commitments."
+  ],
+  "sources": [
+   "https://sportskeeda.com/esports/how-counter-hog-rider-clash-royale",
+   "https://www.highgroundgaming.com/clash-royale-hog-rider-counters/",
+   "knowledge"
+  ]
+ },
+ "wizard": {
+  "countered_by": [
+   {
+    "card": "lightning",
+    "quality": 1.0,
+    "note": "kills him outright"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.9,
+    "note": "kills with tower chip"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.9,
+    "note": "kills him fast"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.9,
+    "note": "jumps on him"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.8,
+    "note": "kills, overkill"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "tanks and kills"
+   },
+   {
+    "card": "miner",
+    "quality": 0.8,
+    "note": "snipes him"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.8,
+    "note": "dash kills him"
+   },
+   {
+    "card": "prince",
+    "quality": 0.8,
+    "note": "charge kills"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "kills him"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.8,
+    "note": "rushes him"
+   },
+   {
+    "card": "royal_ghost",
+    "quality": 0.8,
+    "note": "invisibly kills"
+   }
+  ],
+  "counters": [
+   {
+    "card": "minions",
+    "quality": 1.0,
+    "note": "splash kills all"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 1.0,
+    "note": "splash kills all"
+   },
+   {
+    "card": "bats",
+    "quality": 1.0,
+    "note": "splash kills all"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 1.0,
+    "note": "splash clears"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.9,
+    "note": "splash clears"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.9,
+    "note": "splash clears"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.9,
+    "note": "splash clears"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.9,
+    "note": "splash clears"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.9,
+    "note": "kills barrel and skeletons"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.8,
+    "note": "splash wears them down"
+   }
+  ],
+  "placement_tips": [
+   "Place far behind the tank, out of Fireball-plus-tower range.",
+   "Defend at back of King Tower against air swarms.",
+   "Avoid grouping with other mid-HP troops against Lightning."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "mega_minion": {
+  "countered_by": [
+   {
+    "card": "musketeer",
+    "quality": 0.8,
+    "note": "out-ranges and kills"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "splash kills it"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.8,
+    "note": "axe kills it"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.8,
+    "note": "burst kills"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.8,
+    "note": "kills it"
+   },
+   {
+    "card": "archer_queen",
+    "quality": 0.8,
+    "note": "shreds it"
+   },
+   {
+    "card": "archers",
+    "quality": 0.7,
+    "note": "shoot it down"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.7,
+    "note": "stun and kills"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.7,
+    "note": "sparks kill it"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.7,
+    "note": "kills, overkill"
+   },
+   {
+    "card": "tesla",
+    "quality": 0.7,
+    "note": "kills it"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.7,
+    "note": "melts it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "pekka",
+    "quality": 1.0,
+    "note": "can't hit air"
+   },
+   {
+    "card": "knight",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "prince",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.9,
+    "note": "can't hit air"
+   },
+   {
+    "card": "giant",
+    "quality": 0.8,
+    "note": "chips tank freely"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.8,
+    "note": "can't hit air"
+   }
+  ],
+  "placement_tips": [
+   "Place on top of ground melee troops; they cannot retaliate.",
+   "Defend in front of the tower so it pulls to center.",
+   "Support behind Giant or Golem for air cover."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "battle_ram": {
+  "countered_by": [
+   {
+    "card": "electro_wizard",
+    "quality": 0.9,
+    "note": "stun resets charge"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.9,
+    "note": "knockback stops charge"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.9,
+    "note": "kills ram and barbarians"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "kills everything"
+   },
+   {
+    "card": "zappies",
+    "quality": 0.8,
+    "note": "stun-lock resets charge"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.8,
+    "note": "chain resets charge"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "kills barbarians"
+   },
+   {
+    "card": "cannon",
+    "quality": 0.8,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "tesla",
+    "quality": 0.8,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "tombstone",
+    "quality": 0.8,
+    "note": "skeletons stall it"
+   },
+   {
+    "card": "goblin_cage",
+    "quality": 0.8,
+    "note": "absorbs; brawler kills"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.8,
+    "note": "absorbs charge"
+   }
+  ],
+  "counters": [
+   {
+    "card": "elixir_collector",
+    "quality": 0.8,
+    "note": "punishes pump"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.7,
+    "note": "charges siege"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.7,
+    "note": "charges siege"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "ignores chip"
+   },
+   {
+    "card": "princess",
+    "quality": 0.6,
+    "note": "ignores chip"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.6,
+    "note": "too slow to kill"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.6,
+    "note": "ignores chip"
+   },
+   {
+    "card": "three_musketeers",
+    "quality": 0.6,
+    "note": "punishes 9 elixir"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.6,
+    "note": "ignores sparks"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.5,
+    "note": "too slow"
+   }
+  ],
+  "placement_tips": [
+   "Place slightly back from bridge so charge activates before tower.",
+   "Send behind a tank or with Bandit for bridge spam.",
+   "Follow with Zap or Log on swarms that pull it."
+  ],
+  "sources": [
+   "https://clashroyale.fandom.com/wiki/Battle_Ram",
+   "https://theriagames.com/?p=73758",
+   "knowledge"
+  ]
+ },
+ "flying_machine": {
+  "countered_by": [
+   {
+    "card": "fireball",
+    "quality": 1.0,
+    "note": "kills it for equal elixir"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.8,
+    "note": "out-trades it"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.8,
+    "note": "axe kills it"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.8,
+    "note": "stun and kills"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "kills it"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "out-damages it"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.8,
+    "note": "burst kills"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.8,
+    "note": "kills it"
+   },
+   {
+    "card": "archer_queen",
+    "quality": 0.8,
+    "note": "shreds it"
+   },
+   {
+    "card": "archers",
+    "quality": 0.7,
+    "note": "shoot it down"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "swarm it"
+   },
+   {
+    "card": "bats",
+    "quality": 0.7,
+    "note": "swarm it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "sparky",
+    "quality": 0.8,
+    "note": "outranges; air immune"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "can't hit air"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.7,
+    "note": "can't hit air"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "can't hit air"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "can't hit air"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "can't hit air"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.7,
+    "note": "can't hit air"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.7,
+    "note": "can't hit air"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "can't hit air"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "chips tank"
+   }
+  ],
+  "placement_tips": [
+   "Place far behind the tank to outrange defenders.",
+   "Defend behind King Tower against ground pushes.",
+   "Avoid Fireball grouping with Musketeer or tower."
+  ],
+  "sources": [
+   "https://clashroyale.fandom.com/wiki/Flying_Machine",
+   "https://gladiatorboost.com/news/dominating-the-arena-top-flying-machine-decks-in-clash-royale-how-to-shut-it-down/",
+   "knowledge"
+  ]
+ },
+ "three_musketeers": {
+  "countered_by": [
+   {
+    "card": "fireball",
+    "quality": 0.9,
+    "note": "plus Log kills all three"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.9,
+    "note": "kills all three"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.8,
+    "note": "kills grouped trio"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "splash kills if grouped"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "jump kills grouped trio"
+   },
+   {
+    "card": "poison",
+    "quality": 0.7,
+    "note": "kills over time"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.7,
+    "note": "swarms them"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.7,
+    "note": "swarms them"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.7,
+    "note": "kills one per hit"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "charge kills"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.7,
+    "note": "dash kills"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "splash kills"
+   }
+  ],
+  "counters": [
+   {
+    "card": "balloon",
+    "quality": 0.9,
+    "note": "shot down fast"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.8,
+    "note": "melted"
+   },
+   {
+    "card": "giant",
+    "quality": 0.8,
+    "note": "melted"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "shot down"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "shot down"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.8,
+    "note": "shot down before ramp"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.8,
+    "note": "melted"
+   },
+   {
+    "card": "golem",
+    "quality": 0.7,
+    "note": "melted"
+   },
+   {
+    "card": "flying_machine",
+    "quality": 0.7,
+    "note": "shot down"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.7,
+    "note": "shot down"
+   }
+  ],
+  "placement_tips": [
+   "Split them on the lane divide for 2-1 to avoid spell value.",
+   "Place at back of King Tower to split evenly.",
+   "Deploy only when opponent's big spell is out of cycle."
+  ],
+  "sources": [
+   "https://sportskeeda.com/esports/how-counter-three-musketeers-decks-clash-royale",
+   "https://trophycoach.com/guides/how-to-counter-three-musketeers-deck",
+   "knowledge"
+  ]
+ },
+ "dart_goblin": {
+  "countered_by": [
+   {
+    "card": "log",
+    "quality": 1.0,
+    "note": "kills him for 2"
+   },
+   {
+    "card": "arrows",
+    "quality": 1.0,
+    "note": "kills him"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.9,
+    "note": "kills him"
+   },
+   {
+    "card": "barbarian_barrel",
+    "quality": 0.9,
+    "note": "kills him"
+   },
+   {
+    "card": "miner",
+    "quality": 0.9,
+    "note": "snipes him"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.9,
+    "note": "dash kills"
+   },
+   {
+    "card": "royal_delivery",
+    "quality": 0.8,
+    "note": "kills him"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.8,
+    "note": "spawn zap plus shot"
+   },
+   {
+    "card": "royal_ghost",
+    "quality": 0.8,
+    "note": "invisibly kills"
+   },
+   {
+    "card": "poison",
+    "quality": 0.8,
+    "note": "kills him"
+   },
+   {
+    "card": "knight",
+    "quality": 0.7,
+    "note": "tanks and kills"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "charge kills"
+   }
+  ],
+  "counters": [
+   {
+    "card": "minions",
+    "quality": 0.6,
+    "note": "kills them"
+   },
+   {
+    "card": "bats",
+    "quality": 0.6,
+    "note": "kills them"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.6,
+    "note": "shoots goblins quickly"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.6,
+    "note": "pops it early"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "chips tank from range"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.6,
+    "note": "chips him"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.6,
+    "note": "kites and chips"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.6,
+    "note": "pops them early"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.6,
+    "note": "clears skeletons"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.6,
+    "note": "kites from range"
+   }
+  ],
+  "placement_tips": [
+   "Place at the back to chip; he outranges most troops.",
+   "Drop behind a tank, away from Log value.",
+   "Defend at back of King Tower to kite air."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "ice_golem": {
+  "countered_by": [
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "kills it quickly"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "kills it"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.7,
+    "note": "shred it"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.7,
+    "note": "shred it"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.7,
+    "note": "melts it"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.7,
+    "note": "melts it"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.7,
+    "note": "fast DPS"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "air; shred it"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.7,
+    "note": "air kills it"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.7,
+    "note": "burst kills"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "kill it fast"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "jumps on it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeleton_army",
+    "quality": 0.9,
+    "note": "death nova kills it"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.9,
+    "note": "death nova kills"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "death damage kills"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.7,
+    "note": "death nova clears wave"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.7,
+    "note": "triggers blast away from tower"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.6,
+    "note": "kites it to other lane"
+   },
+   {
+    "card": "prince",
+    "quality": 0.6,
+    "note": "kites charge"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.6,
+    "note": "kites them to center"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.6,
+    "note": "tanks shot, slows"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.6,
+    "note": "death nova clears"
+   }
+  ],
+  "placement_tips": [
+   "Kite Hog, Prince or E-Barbs by placing 2 tiles ahead toward center.",
+   "Place in front of Hog as a mini-tank; death slow hits defenders.",
+   "Place on top of Skeleton Army to kill with death nova."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "elixir_golem": {
+  "countered_by": [
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "shreds all stages"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "shreds it"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.8,
+    "note": "melts it"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.8,
+    "note": "melts it"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "splash kills blobs"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.7,
+    "note": "fast DPS"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "splash kills blobs"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.7,
+    "note": "shreds it"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.7,
+    "note": "shreds it"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.7,
+    "note": "shred it"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "shred it"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.7,
+    "note": "burst kills"
+   }
+  ],
+  "counters": [
+   {
+    "card": "x_bow",
+    "quality": 0.6,
+    "note": "tanks siege"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.6,
+    "note": "tanks shells"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "tanks for push"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.6,
+    "note": "tanks for push"
+   },
+   {
+    "card": "princess",
+    "quality": 0.6,
+    "note": "tanks chip"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.6,
+    "note": "tanks chip"
+   },
+   {
+    "card": "elixir_collector",
+    "quality": 0.6,
+    "note": "punishes pumping"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.5,
+    "note": "tanks shots"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.5,
+    "note": "tanks fireballs"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.5,
+    "note": "tanks sparks"
+   }
+  ],
+  "placement_tips": [
+   "Place at the back with Battle Healer or Night Witch behind it.",
+   "Never play it alone; it gives elixir when killed.",
+   "Keep support behind the blob; opponents often ignore the golem."
+  ],
+  "sources": [
+   "https://sportskeeda.com/esports/best-clash-royale-decks-counter-elixir-golem",
+   "knowledge"
+  ]
+ },
+ "royal_hogs": {
+  "countered_by": [
+   {
+    "card": "valkyrie",
+    "quality": 0.9,
+    "note": "spin kills all four"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.9,
+    "note": "jump kills them"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.9,
+    "note": "boulder hits all"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.9,
+    "note": "axe hits all"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.8,
+    "note": "splash kills all"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "splash kills all"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.8,
+    "note": "swarm plus tower"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.8,
+    "note": "stop and kill"
+   },
+   {
+    "card": "bomb_tower",
+    "quality": 0.8,
+    "note": "pulls and splashes"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.8,
+    "note": "splash charge"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "splash kills"
+   },
+   {
+    "card": "mother_witch",
+    "quality": 0.8,
+    "note": "splash plus curse"
+   }
+  ],
+  "counters": [
+   {
+    "card": "elixir_collector",
+    "quality": 0.8,
+    "note": "punishes pump"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.7,
+    "note": "single target vs four"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.6,
+    "note": "rush siege"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.6,
+    "note": "rush siege"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.6,
+    "note": "retargets each hog"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.6,
+    "note": "too slow for four"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "can't kill all"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.6,
+    "note": "too slow"
+   },
+   {
+    "card": "three_musketeers",
+    "quality": 0.6,
+    "note": "punishes 9 elixir"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.6,
+    "note": "too weak"
+   }
+  ],
+  "placement_tips": [
+   "Split 2-2 by placing at the back center behind King Tower.",
+   "Send all four in one lane when splash is out of cycle.",
+   "Pair with Earthquake or Fireball to clear buildings and splash troops."
+  ],
+  "sources": [
+   "https://sportskeeda.com/esports/how-counterplay-royal-hogs-clash-royale",
+   "https://trophycoach.com/guides/how-to-counter-royal-hogs-deck",
+   "knowledge"
+  ]
+ },
+ "zappies": {
+  "countered_by": [
+   {
+    "card": "fireball",
+    "quality": 1.0,
+    "note": "kills all three for 4"
+   },
+   {
+    "card": "poison",
+    "quality": 0.8,
+    "note": "kills over time"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "splash kills all"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "jump kills all"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.8,
+    "note": "axe hits all"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.8,
+    "note": "boulder hits all"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splash kills"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "splash kills"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.7,
+    "note": "kills all three"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.7,
+    "note": "kills, overkill"
+   },
+   {
+    "card": "dark_prince",
+    "quality": 0.7,
+    "note": "splash charge"
+   },
+   {
+    "card": "skeleton_king",
+    "quality": 0.7,
+    "note": "splash kills"
+   }
+  ],
+  "counters": [
+   {
+    "card": "inferno_tower",
+    "quality": 0.9,
+    "note": "perma-stun resets it"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.9,
+    "note": "perma-stun resets it"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.9,
+    "note": "stun-lock resets charge"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "stuns charge"
+   },
+   {
+    "card": "prince",
+    "quality": 0.7,
+    "note": "stuns charge"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.7,
+    "note": "stuns charge"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.6,
+    "note": "stun-lock slows it"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "stun-lock"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.6,
+    "note": "stuns it"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.6,
+    "note": "stun-lock"
+   }
+  ],
+  "placement_tips": [
+   "Place in front of a tank so they stun-lock single targets.",
+   "Place behind the tower; they deploy together.",
+   "Place within range before Inferno locks on."
+  ],
+  "sources": [
+   "https://royaleapi.com/card/zappies/matchup",
+   "knowledge"
+  ]
+ },
+ "goblin_demolisher": {
+  "countered_by": [
+   {
+    "card": "mini_pekka",
+    "quality": 0.7,
+    "note": "kills fast away from tower"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.7,
+    "note": "kills him instantly"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.7,
+    "note": "kills at range before charge"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.7,
+    "note": "burst kills"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.7,
+    "note": "knockback delays charge"
+   },
+   {
+    "card": "fisherman",
+    "quality": 0.7,
+    "note": "pulls away from buildings"
+   },
+   {
+    "card": "tornado",
+    "quality": 0.7,
+    "note": "pulls to safe spot before blast"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.7,
+    "note": "kills him"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.7,
+    "note": "fast DPS"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "tanks and kills"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.6,
+    "note": "kills him"
+   },
+   {
+    "card": "cannon",
+    "quality": 0.6,
+    "note": "absorbs blast away from tower"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeleton_army",
+    "quality": 0.8,
+    "note": "splash clears it"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.7,
+    "note": "splash plus blast"
+   },
+   {
+    "card": "guards",
+    "quality": 0.7,
+    "note": "splash strips shields"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.7,
+    "note": "charge blows up siege"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.7,
+    "note": "charge blows up siege"
+   },
+   {
+    "card": "royal_recruits",
+    "quality": 0.6,
+    "note": "splash wears down"
+   }
+  ],
+  "placement_tips": [
+   "Place behind a tank so his low-HP charge reaches a building.",
+   "On defense, kill him away from your tower to avoid the blast.",
+   "Aim his charge at enemy buildings for big damage."
+  ],
+  "sources": [
+   "https://royaleapi.com/card/goblin-demolisher",
+   "https://www.sportskeeda.com/esports/clash-royale-goblin-demolisher-ability-stats",
+   "knowledge"
+  ]
+ },
+ "fireball": {
+  "countered_by": [
+   {
+    "card": "golem",
+    "quality": 0.9,
+    "note": "barely dented"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "barely dented"
+   },
+   {
+    "card": "giant",
+    "quality": 0.8,
+    "note": "barely dented"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "shrugs it off"
+   },
+   {
+    "card": "electro_giant",
+    "quality": 0.8,
+    "note": "shrugs it off"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "survives easily"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "survives easily"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.7,
+    "note": "survives easily"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "survives"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.6,
+    "note": "survive, need follow-up"
+   },
+   {
+    "card": "battle_healer",
+    "quality": 0.6,
+    "note": "heals back"
+   },
+   {
+    "card": "ice_golem",
+    "quality": 0.6,
+    "note": "survives"
+   }
+  ],
+  "counters": [
+   {
+    "card": "flying_machine",
+    "quality": 1.0,
+    "note": "kills it for equal elixir"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 1.0,
+    "note": "kills all six"
+   },
+   {
+    "card": "zappies",
+    "quality": 1.0,
+    "note": "kills all three"
+   },
+   {
+    "card": "three_musketeers",
+    "quality": 0.9,
+    "note": "plus Log kills all"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.9,
+    "note": "kills with tower chip"
+   },
+   {
+    "card": "minions",
+    "quality": 0.9,
+    "note": "kills all"
+   },
+   {
+    "card": "archers",
+    "quality": 0.9,
+    "note": "kills both"
+   },
+   {
+    "card": "princess",
+    "quality": 0.9,
+    "note": "kills her"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.9,
+    "note": "kills him"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.9,
+    "note": "kills her"
+   }
+  ],
+  "placement_tips": [
+   "Aim to clip the tower plus support troops for value.",
+   "Predict Minion Horde or Three Musketeers deploy spots.",
+   "Hold Fireball for Musketeer or Wizard behind tanks."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "rocket": {
+  "countered_by": [
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "survives; poor trade"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.7,
+    "note": "forces wasteful trade"
+   },
+   {
+    "card": "ice_spirit",
+    "quality": 0.7,
+    "note": "cheap cycle beats it"
+   },
+   {
+    "card": "golem",
+    "quality": 0.7,
+    "note": "survives"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.7,
+    "note": "survives"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.7,
+    "note": "survives"
+   },
+   {
+    "card": "electro_giant",
+    "quality": 0.7,
+    "note": "survives"
+   },
+   {
+    "card": "giant",
+    "quality": 0.6,
+    "note": "survives"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.6,
+    "note": "cheap trade"
+   },
+   {
+    "card": "bats",
+    "quality": 0.6,
+    "note": "cheap trade"
+   },
+   {
+    "card": "miner",
+    "quality": 0.6,
+    "note": "cheap, hard to hit"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.6,
+    "note": "dash dodges"
+   }
+  ],
+  "counters": [
+   {
+    "card": "sparky",
+    "quality": 1.0,
+    "note": "one-shots it"
+   },
+   {
+    "card": "three_musketeers",
+    "quality": 0.9,
+    "note": "kills grouped trio"
+   },
+   {
+    "card": "elixir_collector",
+    "quality": 0.9,
+    "note": "kills pump"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.9,
+    "note": "kills siege"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.9,
+    "note": "kills it"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.9,
+    "note": "kills him"
+   },
+   {
+    "card": "witch",
+    "quality": 0.9,
+    "note": "kills her"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.9,
+    "note": "kills her"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.9,
+    "note": "kills him"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.9,
+    "note": "kills him"
+   }
+  ],
+  "placement_tips": [
+   "Fire so the edge clips the tower while killing the key troop.",
+   "Rocket Sparky or Three Musketeers as they deploy, before they split.",
+   "Save for finishing a low tower in double elixir; 1.4s travel time."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "earthquake": {
+  "countered_by": [
+   {
+    "card": "minions",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "bats",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "flying_machine",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "skeleton_dragons",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.8,
+    "note": "unaffected"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.7,
+    "note": "unaffected; air"
+   },
+   {
+    "card": "knight",
+    "quality": 0.6,
+    "note": "barely hurt, just slowed"
+   },
+   {
+    "card": "golem",
+    "quality": 0.6,
+    "note": "barely hurt"
+   }
+  ],
+  "counters": [
+   {
+    "card": "cannon",
+    "quality": 1.0,
+    "note": "destroyed for 3"
+   },
+   {
+    "card": "tesla",
+    "quality": 1.0,
+    "note": "destroyed for 3"
+   },
+   {
+    "card": "goblin_cage",
+    "quality": 1.0,
+    "note": "destroyed for 3"
+   },
+   {
+    "card": "elixir_collector",
+    "quality": 1.0,
+    "note": "destroyed for 3"
+   },
+   {
+    "card": "goblin_hut",
+    "quality": 1.0,
+    "note": "destroyed for 3"
+   },
+   {
+    "card": "furnace",
+    "quality": 1.0,
+    "note": "destroyed for 3"
+   },
+   {
+    "card": "barbarian_hut",
+    "quality": 1.0,
+    "note": "huge damage for 3"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.9,
+    "note": "destroyed or crippled"
+   },
+   {
+    "card": "tombstone",
+    "quality": 0.9,
+    "note": "destroyed"
+   },
+   {
+    "card": "bomb_tower",
+    "quality": 0.9,
+    "note": "destroyed"
+   }
+  ],
+  "placement_tips": [
+   "Cast on the defensive building plus tower edge for double value.",
+   "Use with Royal Hogs or Hog to clear buildings and slow defenders.",
+   "Offset slightly to catch both building and tower."
+  ],
+  "sources": [
+   "https://www.allclash.com/master-earthquake-spell-guide/",
+   "https://clashroyale.fandom.com/wiki/Deck:EQ_Cycle",
+   "knowledge"
+  ]
+ },
+ "furnace": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 1.0,
+    "note": "destroys it for 3"
+   },
+   {
+    "card": "poison",
+    "quality": 0.9,
+    "note": "kills building and spirits"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.8,
+    "note": "ignores it"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.8,
+    "note": "ignores it"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.7,
+    "note": "big damage plus tower"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.7,
+    "note": "outranges it"
+   },
+   {
+    "card": "miner",
+    "quality": 0.7,
+    "note": "chips it"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.7,
+    "note": "skeletons ignore spirits"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.7,
+    "note": "air; free"
+   },
+   {
+    "card": "goblin_drill",
+    "quality": 0.7,
+    "note": "drills onto it"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.6,
+    "note": "kills it"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.6,
+    "note": "kills it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeleton_army",
+    "quality": 0.9,
+    "note": "spirits clear it"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.9,
+    "note": "spirits clear it"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.9,
+    "note": "spirits clear it"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.9,
+    "note": "spirits clear it"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.9,
+    "note": "spirits clear it"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "spirits clear it"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.8,
+    "note": "spirits clear skeletons"
+   },
+   {
+    "card": "minions",
+    "quality": 0.7,
+    "note": "spirits kill them"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 0.7,
+    "note": "spirits hurt them"
+   },
+   {
+    "card": "goblin_barrel",
+    "quality": 0.7,
+    "note": "spirits clear goblins"
+   }
+  ],
+  "placement_tips": [
+   "Place center, 3-4 tiles ahead of King Tower to pull both lanes.",
+   "Offensive: place one tile from river so spirits chip the tower.",
+   "Avoid placing when Earthquake or Poison is in cycle."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "goblin_hut": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 1.0,
+    "note": "destroys it for 3"
+   },
+   {
+    "card": "poison",
+    "quality": 0.9,
+    "note": "kills hut and goblins"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.8,
+    "note": "outranges it"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.8,
+    "note": "ignores it"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.8,
+    "note": "ignores it"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.7,
+    "note": "big damage plus goblins"
+   },
+   {
+    "card": "miner",
+    "quality": 0.7,
+    "note": "tanks and chips"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "kills goblins, chips hut"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.7,
+    "note": "tanks goblins"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splash kills goblins"
+   },
+   {
+    "card": "princess",
+    "quality": 0.7,
+    "note": "outranges, kills goblins"
+   },
+   {
+    "card": "goblin_drill",
+    "quality": 0.7,
+    "note": "drills onto it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "battle_ram",
+    "quality": 0.7,
+    "note": "pulls ram"
+   },
+   {
+    "card": "skeleton_barrel",
+    "quality": 0.7,
+    "note": "goblins pop it"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.6,
+    "note": "pulls hog"
+   },
+   {
+    "card": "royal_hogs",
+    "quality": 0.6,
+    "note": "pulls hogs"
+   },
+   {
+    "card": "prince",
+    "quality": 0.6,
+    "note": "pulls charge"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.6,
+    "note": "pulls ram"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.6,
+    "note": "pulls them"
+   },
+   {
+    "card": "rune_giant",
+    "quality": 0.6,
+    "note": "pulls her"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.5,
+    "note": "pulls them"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.5,
+    "note": "distracts"
+   }
+  ],
+  "placement_tips": [
+   "Place one tile behind King Tower, lane side, so goblins reach the bridge.",
+   "Defensive: center 4 tiles ahead to pull win conditions.",
+   "Avoid when Earthquake or Poison is in opponent's deck."
+  ],
+  "sources": [
+   "https://148apps.com/news/how-to-counter-the-goblin-hut-in-clash-royale",
+   "knowledge"
+  ]
+ },
+ "tombstone": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 0.9,
+    "note": "destroys it"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.9,
+    "note": "ignores it"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.9,
+    "note": "ignores it"
+   },
+   {
+    "card": "poison",
+    "quality": 0.8,
+    "note": "kills it and skeletons"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.8,
+    "note": "kills it and skeletons"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.8,
+    "note": "outranges it"
+   },
+   {
+    "card": "minions",
+    "quality": 0.8,
+    "note": "air; free"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.8,
+    "note": "air; free"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.7,
+    "note": "spins through skeletons"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.7,
+    "note": "splash kills skeletons"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "splash clears"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.7,
+    "note": "splash clears"
+   }
+  ],
+  "counters": [
+   {
+    "card": "hog_rider",
+    "quality": 0.9,
+    "note": "stalled under tower"
+   },
+   {
+    "card": "prince",
+    "quality": 0.9,
+    "note": "charge stopped"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.9,
+    "note": "distracted by skeletons"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "distracted by skeletons"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.9,
+    "note": "charge absorbed"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.8,
+    "note": "stalled"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.8,
+    "note": "charge absorbed"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.8,
+    "note": "distracted"
+   },
+   {
+    "card": "giant",
+    "quality": 0.7,
+    "note": "pulled and stalled"
+   },
+   {
+    "card": "bandit",
+    "quality": 0.7,
+    "note": "dash absorbed"
+   }
+  ],
+  "placement_tips": [
+   "Center, 4 tiles ahead of King Tower, to pull both lanes.",
+   "Pre-place against Hog; skeletons stall it under tower fire.",
+   "Drop on top of Prince or Mini P.E.K.K.A. for distraction value."
+  ],
+  "sources": [
+   "https://148apps.com/news/how-to-counter-tombstone-in-clash-royale",
+   "knowledge"
+  ]
+ },
+ "bomb_tower": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 1.0,
+    "note": "destroys it for 3"
+   },
+   {
+    "card": "balloon",
+    "quality": 1.0,
+    "note": "can't hit air"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 1.0,
+    "note": "can't hit air"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.9,
+    "note": "outranges it"
+   },
+   {
+    "card": "minions",
+    "quality": 0.9,
+    "note": "air; free"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.9,
+    "note": "air; free"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.9,
+    "note": "air; free"
+   },
+   {
+    "card": "flying_machine",
+    "quality": 0.9,
+    "note": "air; free"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.9,
+    "note": "air; free"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.9,
+    "note": "air; melts it"
+   },
+   {
+    "card": "skeleton_dragons",
+    "quality": 0.9,
+    "note": "air; free"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.8,
+    "note": "outranges it"
+   }
+  ],
+  "counters": [
+   {
+    "card": "skeleton_army",
+    "quality": 1.0,
+    "note": "splash clears it"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.9,
+    "note": "splash clears"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.9,
+    "note": "splash clears"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.9,
+    "note": "splash clears"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.9,
+    "note": "splash shreds"
+   },
+   {
+    "card": "royal_hogs",
+    "quality": 0.9,
+    "note": "splash hits all"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.8,
+    "note": "pulls and tanks"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "absorbs charge"
+   },
+   {
+    "card": "graveyard",
+    "quality": 0.8,
+    "note": "splash clears"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.8,
+    "note": "splash plus tank"
+   }
+  ],
+  "placement_tips": [
+   "Center, 4 tiles ahead of King Tower to cover both lanes.",
+   "Death bomb damages attackers; let it die on top of them.",
+   "Place so splash hits swarms following a tank."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "inferno_tower": {
+  "countered_by": [
+   {
+    "card": "zap",
+    "quality": 0.9,
+    "note": "resets ramp for 2"
+   },
+   {
+    "card": "electro_spirit",
+    "quality": 0.9,
+    "note": "resets for 1"
+   },
+   {
+    "card": "electro_wizard",
+    "quality": 0.9,
+    "note": "perma-resets"
+   },
+   {
+    "card": "zappies",
+    "quality": 0.9,
+    "note": "perma-stun resets"
+   },
+   {
+    "card": "lightning",
+    "quality": 0.9,
+    "note": "reset plus big damage"
+   },
+   {
+    "card": "earthquake",
+    "quality": 0.9,
+    "note": "destroys it cheaply"
+   },
+   {
+    "card": "electro_dragon",
+    "quality": 0.8,
+    "note": "chain resets"
+   },
+   {
+    "card": "freeze",
+    "quality": 0.8,
+    "note": "freezes it for push"
+   },
+   {
+    "card": "electro_giant",
+    "quality": 0.8,
+    "note": "reflect zaps reset it"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.8,
+    "note": "distract and retarget"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.7,
+    "note": "kills it"
+   },
+   {
+    "card": "ice_spirit",
+    "quality": 0.7,
+    "note": "freeze resets"
+   }
+  ],
+  "counters": [
+   {
+    "card": "golem",
+    "quality": 1.0,
+    "note": "melted"
+   },
+   {
+    "card": "giant",
+    "quality": 1.0,
+    "note": "melted"
+   },
+   {
+    "card": "pekka",
+    "quality": 1.0,
+    "note": "melted"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 1.0,
+    "note": "melted"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.9,
+    "note": "melted"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.9,
+    "note": "melted"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.9,
+    "note": "melted"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.9,
+    "note": "melted"
+   },
+   {
+    "card": "giant_skeleton",
+    "quality": 0.9,
+    "note": "melted"
+   },
+   {
+    "card": "sparky",
+    "quality": 0.9,
+    "note": "melted"
+   }
+  ],
+  "placement_tips": [
+   "Center, 4 tiles ahead of King Tower, 1 tile toward push lane.",
+   "Place after support troops show, so reset timing is harder.",
+   "Clear distractions off it with Log or Zap."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "elixir_collector": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 1.0,
+    "note": "huge value for 3"
+   },
+   {
+    "card": "rocket",
+    "quality": 0.9,
+    "note": "kills it with chip"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.9,
+    "note": "punishes placement"
+   },
+   {
+    "card": "miner",
+    "quality": 0.8,
+    "note": "chips pump for 3"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.8,
+    "note": "tower damage plus pump"
+   },
+   {
+    "card": "poison",
+    "quality": 0.8,
+    "note": "kills it plus tower"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "punishes placement"
+   },
+   {
+    "card": "royal_hogs",
+    "quality": 0.8,
+    "note": "punishes placement"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.8,
+    "note": "punishes placement"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.8,
+    "note": "punishes placement"
+   },
+   {
+    "card": "goblin_drill",
+    "quality": 0.8,
+    "note": "drills onto it"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.7,
+    "note": "punishes"
+   }
+  ],
+  "counters": [
+   {
+    "card": "golem",
+    "quality": 0.6,
+    "note": "funds the beatdown"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.5,
+    "note": "soaks hits when placed forward"
+   },
+   {
+    "card": "giant",
+    "quality": 0.5,
+    "note": "soaks hits"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.5,
+    "note": "pulls Balloon"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.5,
+    "note": "soaks siege shots"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.5,
+    "note": "soaks shells"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.5,
+    "note": "pulls hound"
+   },
+   {
+    "card": "electro_giant",
+    "quality": 0.5,
+    "note": "soaks hits"
+   },
+   {
+    "card": "goblin_giant",
+    "quality": 0.5,
+    "note": "soaks hits"
+   },
+   {
+    "card": "hog_rider",
+    "quality": 0.4,
+    "note": "pulls hog when placed forward"
+   }
+  ],
+  "placement_tips": [
+   "Place behind King Tower, off-center, to split spell value.",
+   "Place in front of tower to tank Hog or Balloon when needed.",
+   "Only place when opponent cannot punish immediately."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "barbarian_hut": {
+  "countered_by": [
+   {
+    "card": "earthquake",
+    "quality": 1.0,
+    "note": "destroys it for 3"
+   },
+   {
+    "card": "poison",
+    "quality": 0.9,
+    "note": "kills hut and barbarians"
+   },
+   {
+    "card": "balloon",
+    "quality": 0.9,
+    "note": "ignores it"
+   },
+   {
+    "card": "lava_hound",
+    "quality": 0.9,
+    "note": "ignores it"
+   },
+   {
+    "card": "valkyrie",
+    "quality": 0.8,
+    "note": "kills barbarians"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.8,
+    "note": "splashes barbarians"
+   },
+   {
+    "card": "executioner",
+    "quality": 0.8,
+    "note": "axe clears"
+   },
+   {
+    "card": "bowler",
+    "quality": 0.8,
+    "note": "rolls through"
+   },
+   {
+    "card": "mega_knight",
+    "quality": 0.8,
+    "note": "jump clears"
+   },
+   {
+    "card": "royal_giant",
+    "quality": 0.8,
+    "note": "outranges it"
+   },
+   {
+    "card": "fireball",
+    "quality": 0.7,
+    "note": "big damage"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.7,
+    "note": "splash clears"
+   }
+  ],
+  "counters": [
+   {
+    "card": "hog_rider",
+    "quality": 0.8,
+    "note": "pulls hog; barbs kill"
+   },
+   {
+    "card": "battle_ram",
+    "quality": 0.8,
+    "note": "pulls ram; barbs kill"
+   },
+   {
+    "card": "prince",
+    "quality": 0.8,
+    "note": "barbs surround"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.7,
+    "note": "barbs surround"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "barbs trade"
+   },
+   {
+    "card": "ram_rider",
+    "quality": 0.7,
+    "note": "pulls and kills"
+   },
+   {
+    "card": "wall_breakers",
+    "quality": 0.7,
+    "note": "pulls them"
+   },
+   {
+    "card": "royal_hogs",
+    "quality": 0.6,
+    "note": "pulls; barbs chip"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.6,
+    "note": "barbs rush her"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.6,
+    "note": "barbs surround"
+   }
+  ],
+  "placement_tips": [
+   "Place behind King Tower, lane side, so barbarians stream to the bridge.",
+   "Defensive: center 4 tiles ahead to pull and spawn defenders.",
+   "Do not place when Earthquake or Poison is likely in hand."
+  ],
+  "sources": [
+   "knowledge"
+  ]
+ },
+ "battle_healer": {
+  "countered_by": [
+   {
+    "card": "minions",
+    "quality": 0.9,
+    "note": "air; she can't hit back"
+   },
+   {
+    "card": "bats",
+    "quality": 0.9,
+    "note": "air; shred her"
+   },
+   {
+    "card": "mega_minion",
+    "quality": 0.9,
+    "note": "air; kills her"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 0.9,
+    "note": "air; melts her"
+   },
+   {
+    "card": "inferno_tower",
+    "quality": 0.9,
+    "note": "out-damages heal"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.9,
+    "note": "kills her fast"
+   },
+   {
+    "card": "baby_dragon",
+    "quality": 0.8,
+    "note": "air splash"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.8,
+    "note": "melts her"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "kills her fast"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.8,
+    "note": "burst kills"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.8,
+    "note": "fast DPS"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.7,
+    "note": "swarm out-DPSes her"
+   }
+  ],
+  "counters": [
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "out-heals chip"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.6,
+    "note": "out-heals chip"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.6,
+    "note": "out-heals chip"
+   },
+   {
+    "card": "princess",
+    "quality": 0.6,
+    "note": "out-heals chip"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.6,
+    "note": "out-heals sparks"
+   },
+   {
+    "card": "skeletons",
+    "quality": 0.6,
+    "note": "kills them, heals"
+   },
+   {
+    "card": "goblins",
+    "quality": 0.6,
+    "note": "out-heals chip"
+   },
+   {
+    "card": "bomber",
+    "quality": 0.6,
+    "note": "tanks bombs, heals"
+   },
+   {
+    "card": "x_bow",
+    "quality": 0.6,
+    "note": "tanks siege, heals"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.6,
+    "note": "tanks shells"
+   }
+  ],
+  "placement_tips": [
+   "Place behind Elixir Golem or Giant to sustain the push.",
+   "Keep her near troops; heal pulse hits allies in radius.",
+   "Place away from Poison target clusters."
+  ],
+  "sources": [
+   "https://mobi.gg/en/tips/clash-royale-battle-healer-guide",
+   "https://sportskeeda.com/esports/how-use-battle-healer-clash-royale",
+   "knowledge"
+  ]
+ },
+ "rune_giant": {
+  "countered_by": [
+   {
+    "card": "inferno_tower",
+    "quality": 0.9,
+    "note": "melts her"
+   },
+   {
+    "card": "inferno_dragon",
+    "quality": 0.8,
+    "note": "melts her"
+   },
+   {
+    "card": "pekka",
+    "quality": 0.8,
+    "note": "kills her fast"
+   },
+   {
+    "card": "mini_pekka",
+    "quality": 0.8,
+    "note": "shreds her"
+   },
+   {
+    "card": "skeleton_army",
+    "quality": 0.8,
+    "note": "swarm shreds her"
+   },
+   {
+    "card": "goblin_gang",
+    "quality": 0.7,
+    "note": "swarm shreds"
+   },
+   {
+    "card": "barbarians",
+    "quality": 0.7,
+    "note": "swarm kills her"
+   },
+   {
+    "card": "elite_barbarians",
+    "quality": 0.7,
+    "note": "fast kill"
+   },
+   {
+    "card": "lumberjack",
+    "quality": 0.7,
+    "note": "fast DPS"
+   },
+   {
+    "card": "hunter",
+    "quality": 0.7,
+    "note": "burst damage"
+   },
+   {
+    "card": "mighty_miner",
+    "quality": 0.7,
+    "note": "ramps on her"
+   },
+   {
+    "card": "minion_horde",
+    "quality": 0.7,
+    "note": "melts her"
+   }
+  ],
+  "counters": [
+   {
+    "card": "x_bow",
+    "quality": 0.7,
+    "note": "tanks siege"
+   },
+   {
+    "card": "mortar",
+    "quality": 0.7,
+    "note": "tanks shells"
+   },
+   {
+    "card": "archers",
+    "quality": 0.6,
+    "note": "tanks and empowers push"
+   },
+   {
+    "card": "spear_goblins",
+    "quality": 0.6,
+    "note": "tanks chip"
+   },
+   {
+    "card": "princess",
+    "quality": 0.6,
+    "note": "tanks chip"
+   },
+   {
+    "card": "dart_goblin",
+    "quality": 0.6,
+    "note": "tanks chip"
+   },
+   {
+    "card": "firecracker",
+    "quality": 0.6,
+    "note": "tanks sparks"
+   },
+   {
+    "card": "musketeer",
+    "quality": 0.5,
+    "note": "tanks shots"
+   },
+   {
+    "card": "wizard",
+    "quality": 0.5,
+    "note": "tanks fireballs"
+   },
+   {
+    "card": "magic_archer",
+    "quality": 0.5,
+    "note": "tanks pierce"
+   }
+  ],
+  "placement_tips": [
+   "Place at the back with two damage dealers close behind to get enchanted.",
+   "Her buff does not apply to buildings; pair with troops, not siege.",
+   "Kill enchanted support first on defense; she is a weak tank alone."
+  ],
+  "sources": [
+   "https://royaleapi.com/card/rune-giant",
+   "https://supercell.com/en/games/clashroyale/blog/release-notes/balance-change-rune-giant",
+   "knowledge"
+  ]
+ }
+}

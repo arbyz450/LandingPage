@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CR Stockfish</title>
+<style>
+  :root{--bg:#0f1218;--panel:#171c26;--panel2:#1e2532;--line:#2a3344;--text:#e7ecf3;--muted:#8b97ab;--gold:#f5c542;--purple:#c158ff;--blue:#4aa3ff;--red:#ff5c5c;--green:#53d769;--font:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#1b2436 0%,var(--bg) 60%);color:var(--text);font-family:var(--font);font-size:14px}
+  header{display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--line);background:rgba(15,18,24,.85);backdrop-filter:blur(6px);position:sticky;top:0;z-index:5}
+  header h1{font-size:17px;margin:0;letter-spacing:.5px}
+  header h1 span{color:var(--gold)}
+  .pill{padding:3px 10px;border-radius:999px;font-size:12px;border:1px solid var(--line);color:var(--muted)}
+  .pill.live{border-color:var(--red);color:var(--red);box-shadow:0 0 12px rgba(255,92,92,.35)}
+  .pill.armed{border-color:var(--gold);color:var(--gold)}
+  .pill.ok{border-color:var(--green);color:var(--green)}
+  .grow{flex:1}
+  select{max-width:230px}
+  select,input[type=text],input[type=number]{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font:inherit}
+  button{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+  button:hover{border-color:var(--muted)}
+  button.primary{background:linear-gradient(180deg,#2d7ff9,#1f5fd0);border-color:#2d7ff9}
+  button.danger{background:linear-gradient(180deg,#e04848,#b63333);border-color:#e04848}
+  button.gold{background:linear-gradient(180deg,#f5c542,#d4a420);color:#1a1a1a;border-color:#f5c542;font-weight:600}
+  main{display:grid;grid-template-columns:74px 1.4fr 1fr 1fr;grid-template-rows:auto auto;gap:12px;padding:12px 16px;max-width:1500px;margin:0 auto}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-height:60px}
+  .panel h2{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+  /* eval bar */
+  .evalwrap{grid-row:1 / span 2;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .evalbar{width:34px;flex:1;min-height:420px;border-radius:10px;background:linear-gradient(180deg,#ff6b6b,#b23a3a);position:relative;overflow:hidden;border:1px solid var(--line)}
+  .evalbar .mine{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,#6fb6ff,#2d7ff9);transition:height .4s}
+  .evalnum{font-weight:700;font-size:15px}
+  .evalsub{font-size:11px;color:var(--muted);text-align:center}
+  /* plays */
+  .play{display:flex;gap:12px;align-items:center;padding:10px;border-radius:12px;background:var(--panel2);margin-bottom:8px;border:1px solid transparent}
+  .play.best{border-color:var(--gold);box-shadow:0 0 0 1px rgba(245,197,66,.25) inset}
+  .play .rank{width:26px;height:26px;border-radius:50%;background:#2a3344;display:grid;place-items:center;font-weight:700;font-size:12px}
+  .play.best .rank{background:var(--gold);color:#1a1a1a}
+  .play .what{flex:1}
+  .play .what b{font-size:15px}
+  .play .why{color:var(--muted);font-size:12px;margin-top:2px}
+  .play .score{font-weight:700;font-size:16px;min-width:56px;text-align:right}
+  .score.pos{color:var(--green)}.score.neg{color:var(--red)}
+  .bar{height:6px;border-radius:4px;background:#2a3344;overflow:hidden;margin-top:6px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,#53d769,#f5c542)}
+  /* arena */
+  svg.arena{width:100%;height:auto;display:block;border-radius:10px}
+  /* hand */
+  .hand{display:flex;gap:8px;align-items:stretch}
+  .card{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center;position:relative;min-height:64px}
+  .card.off{opacity:.45;filter:grayscale(.8)}
+  .card .cost{position:absolute;left:6px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--purple);font-size:11px;font-weight:700;display:grid;place-items:center}
+  .card .nm{margin-top:18px;font-weight:600;font-size:12.5px}
+  .card.next{flex:.6;border-style:dashed}
+  .elixir{height:16px;border-radius:8px;background:#2a1a3a;overflow:hidden;position:relative;margin-top:8px;border:1px solid #3a2a4f}
+  .elixir i{display:block;height:100%;background:linear-gradient(90deg,#8e3bd6,#d86cff);transition:width .25s}
+  .elixir.opp i{background:linear-gradient(90deg,#8e3bd6aa,#d86cffaa)}
+  .elixir span{position:absolute;left:8px;top:0;line-height:16px;font-size:11px;font-weight:700;text-shadow:0 1px 2px #000}
+  .elixir .ticks{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),#0008 calc(10% - 1px) 10%)}
+  .row{display:flex;gap:12px}
+  .row>*{flex:1}
+  .kv{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--line);font-size:13px}
+  .kv:last-child{border-bottom:0}
+  .kv .v{color:var(--text);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{padding:3px 8px;border-radius:8px;background:var(--panel2);border:1px solid var(--line);font-size:12px}
+  .chip.out{opacity:.5;text-decoration:line-through}
+  .chip.danger{border-color:var(--red);color:var(--red)}
+  .chip.win{border-color:var(--green);color:var(--green)}
+  .notes{color:var(--muted);font-size:12.5px;line-height:1.45}
+  .notes div{margin-bottom:4px}
+  /* command */
+  .cmd{display:flex;gap:8px;align-items:center;position:relative}
+  .cmd input{flex:1;font-size:14px;padding:9px 12px}
+  .suggest{position:absolute;left:0;right:0;bottom:100%;background:var(--panel2);border:1px solid var(--line);border-radius:10px;max-height:200px;overflow:auto;display:none;z-index:4}
+  .suggest div{padding:6px 10px;cursor:pointer;font-size:13px}
+  .suggest div:hover,.suggest div.sel{background:#2a3344}
+  .reply{font-size:12px;color:var(--muted);min-height:16px;margin-top:6px}
+  .quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .quick button{padding:4px 9px;font-size:12px}
+  .log{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--muted);max-height:150px;overflow:auto;line-height:1.5}
+  .log b{color:var(--text);font-weight:500}
+  .controls{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;align-items:center;font-size:12.5px}
+  .controls label{color:var(--muted)}
+  .switch{display:flex;align-items:center;gap:8px}
+  input[type=range]{width:100%}
+  .warn{font-size:11.5px;color:#ffb86b;margin-top:6px}
+  @media (max-width:1100px){main{grid-template-columns:60px 1fr 1fr}.evalwrap{grid-row:auto}}
+  @media (max-width:760px){main{grid-template-columns:1fr}.evalbar{min-height:120px;width:100%;height:24px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>CR <span>Stockfish</span></h1>
+  <span id="status" class="pill">idle</span>
+  <span id="fps" class="pill">0 fps</span>
+  <span id="clock" class="pill">--:--</span>
+  <div class="grow"></div>
+  <select id="source" title="Where the game is">
+    <option value="demo">Demo (synthetic frames)</option>
+    <option value="window">Window "Clash Royale" (Google Play Games / scrcpy)</option>
+    <option value="monitor">Whole monitor 1</option>
+    <option value="emulator">Emulator via ADB</option>
+  </select>
+  <select id="emulator" title="Emulator"><option>ldplayer</option><option>bluestacks</option><option>memu</option><option>nox</option><option>mumu</option><option value="phone">phone (USB)</option></select>
+  <select id="input" title="How clicks are sent">
+    <option value="none">Advise only (no clicks)</option>
+    <option value="winmsg">Click without moving my mouse (window messages)</option>
+    <option value="mouse">Real mouse clicks (cursor restored)</option>
+    <option value="adb">ADB taps (emulator / phone)</option>
+  </select>
+  <button id="start" class="primary">Start</button>
+  <button id="stop">Stop</button>
+</header>
+
+<main>
+  <div class="panel evalwrap">
+    <div class="evalnum" id="evalnum">0.0</div>
+    <div class="evalbar"><div class="mine" id="evalmine" style="height:50%"></div></div>
+    <div class="evalsub" id="evalsub">towers 0<br>elixir 0<br>field 0</div>
+  </div>
+
+  <section class="panel" id="playsPanel">
+    <h2>Best plays <span id="waitnote" style="float:right;text-transform:none;letter-spacing:0"></span></h2>
+    <div id="plays"></div>
+    <div class="hand" id="hand"></div>
+    <div class="elixir" id="myel"><i style="width:50%"></i><div class="ticks"></div><span>You 5.0</span></div>
+    <div class="elixir opp" id="oppel"><i style="width:50%"></i><div class="ticks"></div><span>Opponent ~5.0</span></div>
+  </section>
+
+  <section class="panel">
+    <h2>Arena</h2>
+    <svg class="arena" id="arena" viewBox="0 0 180 320"></svg>
+    <div class="notes" id="threats" style="margin-top:8px"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Opponent</h2>
+    <div class="kv"><span>Predicted hand</span><span class="v" id="opphandn"></span></div>
+    <div class="chips" id="opphand" style="margin:6px 0 10px"></div>
+    <div class="kv"><span>Cycling back</span></div>
+    <div class="chips" id="oppout" style="margin:6px 0 10px"></div>
+    <div class="kv"><span>Unknown cards</span><span class="v" id="oppunk">8</span></div>
+    <h2 style="margin-top:12px">Matchup plan</h2>
+    <div class="chips" id="planchips" style="margin-bottom:6px"></div>
+    <div class="notes" id="plan"></div>
+    <div class="notes" id="notes" style="margin-top:8px"></div>
+  </section>
+
+  <section class="panel" style="grid-column:2">
+    <h2>Command</h2>
+    <div class="cmd">
+      <div class="suggest" id="suggest"></div>
+      <input id="cmdline" type="text" placeholder="o hog  = opponent played Hog Rider   |   d giant,witch,…  = their deck   |   m hog,musk,…  = my deck   |   ? help" autocomplete="off">
+      <button id="send">Send</button>
+    </div>
+    <div class="reply" id="reply"></div>
+    <div class="quick">
+      <button data-cmd="u">Undo last</button><button data-cmd="r">New match</button><button data-cmd="c">Clear manual units</button>
+      <button data-cmd="t 3:00">Clock 3:00</button><button data-cmd="t 1:00">Clock 1:00</button><button data-cmd="t 2:00 ot">Overtime 2:00</button>
+      <button id="planbtn">Full matchup plan</button>
+    </div>
+  </section>
+
+  <section class="panel" style="grid-column:3 / span 2">
+    <h2>Autoplay</h2>
+    <div class="controls">
+      <div class="switch"><button id="arm" class="gold">Arm autoplay</button><span id="armstate" class="pill">disarmed</span></div>
+      <div class="switch"><label><input type="checkbox" id="dry" checked> Dry run (decide and log, never click)</label></div>
+      <div><label>Play when worth at least <b id="msv">0.6</b> elixir</label><input type="range" id="minscore" min="0" max="3" step="0.1" value="0.6"></div>
+      <div><label>…or at least <b id="mmv">1.2</b> better than waiting</label><input type="range" id="minmargin" min="0" max="4" step="0.1" value="1.2"></div>
+      <div class="kv"><span>Plays this session</span><span class="v" id="playcount"></span></div>
+      <div class="kv"><span>Last play</span><span class="v" id="lastplay">-</span></div>
+      <div class="kv"><span>Input</span><span class="v" id="inputv">-</span></div>
+      <div class="kv"><span>Units the classifier knows</span><span class="v" id="clf">0</span></div>
+    </div>
+    <div class="warn">Automation violates Supercell's Terms of Service. Use a secondary account. Keep Dry run on until the dry-run log shows sensible plays for a full match.</div>
+    <h2 style="margin-top:12px">Log</h2>
+    <div class="log" id="log"></div>
+  </section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+let cards=[];
+fetch('/api/cards').then(r=>r.json()).then(c=>cards=c);
+const post=(url,body)=>fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(r=>r.json());
+
+function settings(){return {source:$('source').value,emulator:$('emulator').value,input:$('input').value,window:'Clash Royale',monitor:1,fps:4}}
+$('start').onclick=async()=>{const r=await post('/api/control',{action:'start',dry_run:$('dry').checked,settings:settings()});$('reply').textContent=r.msg};
+$('stop').onclick=async()=>{const r=await post('/api/control',{action:'stop'});$('reply').textContent=r.msg};
+$('arm').onclick=async()=>{const r=await post('/api/control',{action:'arm'});$('reply').textContent='autoplay '+r.msg};
+$('dry').onchange=async()=>{const r=await post('/api/control',{action:'settings',dry_run:$('dry').checked});$('reply').textContent=r.msg;if(r.msg!=='ok'){$('dry').checked=true}};
+$('minscore').oninput=e=>{$('msv').textContent=e.target.value;post('/api/control',{action:'settings',min_score:+e.target.value})};
+$('minmargin').oninput=e=>{$('mmv').textContent=e.target.value;post('/api/control',{action:'settings',min_margin:+e.target.value})};
+$('planbtn').onclick=async()=>{const r=await post('/api/control',{action:'plan'});$('plan').innerHTML='<pre style="white-space:pre-wrap;margin:0;font-size:11.5px">'+esc(r.msg)+'</pre>'};
+document.querySelectorAll('.quick button[data-cmd]').forEach(b=>b.onclick=()=>sendCmd(b.dataset.cmd));
+async function sendCmd(line){if(!line)return;const r=await post('/api/command',{line});$('reply').textContent='> '+r.msg;$('cmdline').value='';hideSuggest()}
+$('send').onclick=()=>sendCmd($('cmdline').value);
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+/* autocomplete for card names after o/d/m/x */
+let selIdx=-1;
+function hideSuggest(){$('suggest').style.display='none';selIdx=-1}
+$('cmdline').addEventListener('input',e=>{
+  const v=e.target.value;const m=v.match(/^(o|opp|d|deck|m|mydeck|x|unit)\s+(.*)$/i);
+  if(!m){hideSuggest();return}
+  const parts=m[2].split(',');const q=parts[parts.length-1].trim().toLowerCase();
+  if(!q){hideSuggest();return}
+  const hits=cards.filter(c=>c.name.toLowerCase().startsWith(q)||c.key.startsWith(q.replace(/ /g,'_'))).slice(0,8);
+  const box=$('suggest');box.innerHTML='';
+  hits.forEach((c,i)=>{const d=document.createElement('div');d.textContent=`${c.name}  (${c.cost})`;d.onclick=()=>{parts[parts.length-1]=' '+c.name;e.target.value=m[1]+' '+parts.join(',').trim();hideSuggest();e.target.focus()};box.appendChild(d)});
+  box.style.display=hits.length?'block':'none';selIdx=-1;
+});
+$('cmdline').addEventListener('keydown',e=>{
+  const box=$('suggest');const items=[...box.children];
+  if(box.style.display==='block'&&items.length){
+    if(e.key==='ArrowDown'){selIdx=(selIdx+1)%items.length;items.forEach((d,i)=>d.classList.toggle('sel',i===selIdx));e.preventDefault();return}
+    if(e.key==='ArrowUp'){selIdx=(selIdx-1+items.length)%items.length;items.forEach((d,i)=>d.classList.toggle('sel',i===selIdx));e.preventDefault();return}
+    if(e.key==='Tab'||(e.key==='Enter'&&selIdx>=0)){items[selIdx<0?0:selIdx].click();e.preventDefault();return}
+  }
+  if(e.key==='Enter')sendCmd(e.target.value);
+  if(e.key==='Escape')hideSuggest();
+});
+
+/* arena drawing */
+function drawArena(s){
+  const W=180,H=320,sx=x=>x/18*W,sy=y=>(32-y)/32*H;
+  let g=`<rect width="${W}" height="${H}" fill="#2f6b3a"/><rect y="${sy(17)}" width="${W}" height="${sy(15)-sy(17)}" fill="#2f78b8"/>`;
+  g+=`<rect x="${sx(2.8)}" y="${sy(17.2)}" width="${sx(1.4)}" height="${sy(14.8)-sy(17.2)}" fill="#a0784a"/><rect x="${sx(13.8)}" y="${sy(17.2)}" width="${sx(1.4)}" height="${sy(14.8)-sy(17.2)}" fill="#a0784a"/>`;
+  for(let i=1;i<18;i++)g+=`<line x1="${sx(i)}" y1="0" x2="${sx(i)}" y2="${H}" stroke="#ffffff10"/>`;
+  for(let j=1;j<32;j++)g+=`<line x1="0" y1="${sy(j)}" x2="${W}" y2="${sy(j)}" stroke="#ffffff10"/>`;
+  const tw=s.towers||{};
+  const tower=(x,y,key,col,size)=>{const t=tw[key]||{alive:true,hp:1,max:1};const f=t.alive?Math.max(0,Math.min(1,t.hp/t.max)):0;
+    return `<rect x="${sx(x)-size}" y="${sy(y)-size}" width="${2*size}" height="${2*size}" rx="2" fill="${t.alive?col:'#555'}"/><rect x="${sx(x)-size}" y="${sy(y)+size+1}" width="${2*size}" height="2" fill="#000a"/><rect x="${sx(x)-size}" y="${sy(y)+size+1}" width="${2*size*f}" height="2" fill="${col}"/>`};
+  g+=tower(3.5,6.5,'my_left','#4aa3ff',6)+tower(14.5,6.5,'my_right','#4aa3ff',6)+tower(9,2.5,'my_king','#4aa3ff',8);
+  g+=tower(3.5,25.5,'opp_left','#ff5c5c',6)+tower(14.5,25.5,'opp_right','#ff5c5c',6)+tower(9,29.5,'opp_king','#ff5c5c',8);
+  (s.units||[]).forEach(u=>{const c=u.side==='me'?'#4aa3ff':'#ff5c5c';g+=`<circle cx="${sx(u.x)}" cy="${sy(u.y)}" r="4.5" fill="${c}" stroke="#000" stroke-width=".6"/><text x="${sx(u.x)+6}" y="${sy(u.y)+3}" font-size="7" fill="#fff" stroke="#000" stroke-width=".3">${esc(u.name)}</text>`});
+  const b=(s.recs||[])[0];
+  if(b&&!b.wait){g+=`<circle cx="${sx(b.x)}" cy="${sy(b.y)}" r="7" fill="none" stroke="#f5c542" stroke-width="2"><animate attributeName="r" values="5;9;5" dur="1.2s" repeatCount="indefinite"/></circle><text x="${sx(b.x)}" y="${sy(b.y)-10}" font-size="8" text-anchor="middle" fill="#f5c542" font-weight="700">${esc(b.card_name)}</text>`}
+  $('arena').innerHTML=g;
+}
+
+function render(s){
+  const st=$('status');st.textContent=s.status||'idle';st.className='pill '+(s.status==='live'?'live':(s.status||'').startsWith('armed')?'armed':s.running?'ok':'');
+  $('fps').textContent=(s.fps||0)+' fps'+(s.frame?`  ·  frame ${s.frame[2]}x${s.frame[3]}`:'');
+  if(s.running){const t=s.time_left||0;$('clock').textContent=`${Math.floor(t/60)}:${String(t%60).padStart(2,'0')} ${s.overtime?'OT ':''}${s.phase||''}`}
+  if(!s.running){return}
+  const ev=s.eval||0;$('evalnum').textContent=(ev>=0?'+':'')+ev.toFixed(1);$('evalnum').style.color=ev>=0?'var(--blue)':'var(--red)';
+  $('evalmine').style.height=(50+Math.max(-48,Math.min(48,ev*4)))+'%';
+  const eb=s.eval_breakdown||{};$('evalsub').innerHTML=`towers ${fmt(eb.towers)}<br>elixir ${fmt(eb.elixir)}<br>field ${fmt(eb.field)}`;
+  $('waitnote').textContent='waiting = '+fmt(s.wait_score);
+  const recs=s.recs||[];const top=recs.filter(r=>!r.wait).concat(recs.filter(r=>r.wait)).slice(0,4);
+  const maxs=Math.max(1,...top.map(r=>Math.abs(r.score)));
+  $('plays').innerHTML=top.map((r,i)=>`<div class="play ${i===0?'best':''}"><div class="rank">${i+1}</div><div class="what"><b>${esc(r.text)}</b><div class="why">${esc((r.reasons||[]).join(' · '))}</div><div class="bar"><i style="width:${Math.max(2,Math.abs(r.score)/maxs*100)}%"></i></div></div><div class="score ${r.score>=0?'pos':'neg'}">${fmt(r.score)}</div></div>`).join('')||'<div class="notes">no legal plays</div>';
+  $('hand').innerHTML=(s.hand||[]).map(h=>`<div class="card ${h.affordable?'':'off'}"><div class="cost">${h.cost||'?'}</div><div class="nm">${esc(h.name)}</div></div>`).join('')+(s.next?`<div class="card next"><div class="nm" style="margin-top:4px;color:var(--muted);font-size:11px">next</div><div class="nm" style="margin-top:2px">${esc(s.next.name)}</div></div>`:'');
+  $('myel').querySelector('i').style.width=(s.my_elixir*10)+'%';$('myel').querySelector('span').textContent='You '+Number(s.my_elixir).toFixed(1);
+  $('oppel').querySelector('i').style.width=(s.opp_elixir*10)+'%';$('oppel').querySelector('span').textContent='Opponent ~'+Number(s.opp_elixir).toFixed(1);
+  drawArena(s);
+  $('threats').innerHTML=(s.threats||[]).map(t=>`<div><b style="color:var(--red)">${esc(t.name)}</b> ${t.lane} lane, y ${t.y.toFixed(0)}, urgency ${t.w}</div>`).join('')||'<div>no enemy units detected</div>';
+  const o=s.opp||{};$('opphandn').textContent=o.hand?o.hand.length:'';
+  $('opphand').innerHTML=(o.hand||[]).map(n=>`<span class="chip">${esc(n)}</span>`).join('')||'<span class="notes">type <b>o &lt;card&gt;</b> when they play</span>';
+  $('oppout').innerHTML=(o.out||[]).map(n=>`<span class="chip out">${esc(n)}</span>`).join('');
+  $('oppunk').textContent=o.unknown;
+  $('planchips').innerHTML=(s.plan_lines||[]).map(l=>`<span class="chip ${l.startsWith('Danger')?'danger':'win'}">${esc(l)}</span>`).join('');
+  if(s.plan&&!$('plan').querySelector('pre'))$('plan').textContent=s.plan;
+  $('notes').innerHTML=(s.notes||[]).filter(n=>!/^(Matchup plan|Opp archetype)/.test(n)).map(n=>`<div>${esc(n)}</div>`).join('');
+  const a=s.autoplay||{};$('armstate').textContent=a.armed?(a.paused?'armed · paused':'ARMED'):'disarmed';$('armstate').className='pill '+(a.armed?(a.dry_run?'armed':'live'):'');
+  $('arm').textContent=a.armed?'Disarm autoplay':'Arm autoplay';$('playcount').textContent=a.plays||0;$('lastplay').textContent=a.last||'-';$('inputv').textContent=(a.input||'none')+(a.dry_run?' (dry run)':'');
+  $('clf').textContent=s.classifier_classes||0;
+  $('log').innerHTML=(s.log||[]).map(l=>`<div><b>${l.t}</b> ${esc(l.msg)}</div>`).join('');
+}
+const fmt=v=>(v==null?'0.0':(v>=0?'+':'')+Number(v).toFixed(1));
+async function tick(){try{const s=await (await fetch('/api/state')).json();render(s)}catch(e){}setTimeout(tick,250)}
+tick();
+</script>
+</body>
+</html>

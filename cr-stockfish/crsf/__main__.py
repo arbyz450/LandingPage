@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import threading
 import time
@@ -71,6 +72,9 @@ def _advisor(args) -> Advisor:
     if getattr(args, "yolo", None):
         from .vision.units import YoloDetector
         detector = YoloDetector(Path(args.yolo), Path(args.yolo_classes))
+    elif getattr(args, "onnx", None):
+        from .vision.onnx_units import OnnxYoloDetector
+        detector = OnnxYoloDetector(Path(args.onnx), Path(args.onnx_classes))
     adv = Advisor(layout=layout, matcher=matcher, detector=detector, auto_frame=not args.no_auto_frame,
                   use_ocr=None if not getattr(args, "no_ocr", False) else False,
                   unit_templates=Path(getattr(args, "unit_templates", UNIT_TEMPLATES)),
@@ -192,13 +196,17 @@ def cmd_advise(args) -> int:
 
 def cmd_play(args) -> int:
     """Autoplay: ADB frames in, engine decides, ADB taps out."""
-    from .act.adb import AdbActuator
+    from .act.adb import AdbActuator, MouseActuator
     from .autoplay import AutoPlayer, AutoplayConfig
-    args.adb = True
+    if args.input == "adb":
+        args.adb = True
     adv = _advisor(args)
     src = _source(args)
-    device = args._device
-    act = AdbActuator(device, adv.layout, dry_run=args.dry_run)
+    if args.input == "adb":
+        act = AdbActuator(args._device, adv.layout, dry_run=args.dry_run)
+    else:
+        act = MouseActuator(adv.layout, origin=getattr(src, "origin", (0, 0)), dry_run=args.dry_run)
+        print("mouse input: the game window must stay visible and unobstructed; move the mouse to a screen corner to abort", file=sys.stderr)
     cfg = AutoplayConfig(min_score=args.min_score, urgent_score=args.urgent_score)
     bot = AutoPlayer(cfg)
     db = adv.db
@@ -334,6 +342,88 @@ def cmd_priors(args) -> int:
     return 0
 
 
+def cmd_simulate(args) -> int:
+    from .sim_runner import simulate
+    simulate(games=args.games, n_random=args.decks, procs=args.procs, seed=args.seed, out_dir=Path(args.out), scripted_share=args.scripted_share)
+    return 0
+
+
+def cmd_tune(args) -> int:
+    from .sim_runner import tune, WEIGHTS_PATH
+    out = Path(args.out) if args.out else WEIGHTS_PATH
+    w = tune(iters=args.iters, candidates=args.candidates, pairs=args.pairs, procs=args.procs, seed=args.seed, out=out,
+             log_path=Path(args.log) if args.log else None)
+    print("final weights:", json.dumps(w.__dict__, indent=1))
+    return 0
+
+
+def cmd_matchup(args) -> int:
+    from .matchup import plan_matchup
+    db = default_db()
+    def parse(txt):
+        from .advisor import Advisor
+        adv = Advisor(detect_units=False)
+        return [adv._resolve(c) for c in txt.replace(";", ",").split(",") if c.strip()]
+    mine, theirs = parse(args.my_deck), parse(args.opp_deck)
+    plan = plan_matchup(mine, theirs, db)
+    print(plan.render(db))
+    return 0
+
+
+def cmd_gui(args) -> int:
+    from .gui import GuiApp, serve
+    app = GuiApp(Path(args.templates), Path(args.unit_templates), Path(args.layout) if args.layout else None)
+    auto = None
+    if args.demo:
+        auto = {"source": "demo", "input": "none", "dry_run": True}
+    serve(app, host=args.host, port=args.port, open_browser=not args.no_browser, autostart=auto)
+    return 0
+
+
+def cmd_bench(args) -> int:
+    """Score the engine against benchmarks/puzzles.json."""
+    db = default_db()
+    eng = Engine(db)
+    with open(args.file, "r", encoding="utf-8") as fh:
+        puzzles = json.load(fh)["puzzles"]
+    passed = 0
+    for pz in puzzles:
+        st = GameState.from_dict(pz["state"])
+        an = eng.analyse(st, top_n=5)
+        best = an.best
+        ok = True
+        why = []
+        if pz.get("wait"):
+            ok = best.move.is_wait
+        else:
+            if best.move.is_wait or best.move.card not in pz["accept"]:
+                ok = False
+                why.append(f"card {best.move.card}")
+            if pz.get("lane") and best.move.lane != pz["lane"]:
+                ok = False
+                why.append(f"lane {best.move.lane}")
+            if pz.get("lane_any") and best.move.lane not in pz["lane_any"]:
+                ok = False
+                why.append(f"lane {best.move.lane}")
+            if pz.get("cls") and best.move.cls != pz["cls"]:
+                ok = False
+                why.append(f"cls {best.move.cls}")
+            if pz.get("not_cls") and best.move.cls in pz["not_cls"]:
+                ok = False
+                why.append(f"cls {best.move.cls}")
+            if pz.get("zone_prefix") and not (best.move.zone or "").startswith(pz["zone_prefix"]):
+                ok = False
+                why.append(f"zone {best.move.zone}")
+        passed += ok
+        mark = "PASS" if ok else "FAIL"
+        print(f"{mark}  {pz['name']}")
+        if not ok or args.verbose:
+            for r in an.recommendations[:3]:
+                print(f"        {r.text(db, st)}  {'; '.join(r.reasons[:2])}")
+    print(f"\n{passed}/{len(puzzles)} puzzles solved ({100 * passed / len(puzzles):.0f}%)")
+    return 0 if passed == len(puzzles) else 1
+
+
 def cmd_replay(args) -> int:
     adv = _advisor(args)
     from .vision.capture import ImageSource
@@ -464,6 +554,8 @@ def _add_capture_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--serial", help="ADB device serial when several are attached")
     p.add_argument("--unit-templates", default=str(UNIT_TEMPLATES), help="labelled unit crops directory")
     p.add_argument("--no-units", action="store_true", help="disable health-bar unit detection")
+    p.add_argument("--onnx", help="YOLO ONNX unit detector weights (e.g. ClashRoyaleBuildABot units_M_480x352.onnx)")
+    p.add_argument("--onnx-classes", help="class list for --onnx, one per line")
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -492,6 +584,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     p = sub.add_parser("play", help="AUTOPLAY over ADB: the engine plays the match for you (emulator or phone)")
     _add_capture_args(p)
+    p.add_argument("--input", choices=["adb", "mouse"], default="adb", help="adb taps (emulator/phone) or mouse clicks on a window (Google Play Games, mirrored phone)")
     p.add_argument("--dry-run", action="store_true", help="decide and log, but never tap")
     p.add_argument("--min-score", type=float, default=0.6)
     p.add_argument("--urgent-score", type=float, default=2.5)
@@ -514,6 +607,45 @@ def main(argv: Optional[List[str]] = None) -> int:
     p.add_argument("--out", default=str(KNOWLEDGE_DIR / "priors.json"))
     p.add_argument("--min-count", type=int, default=2)
     p.set_defaults(fn=cmd_priors)
+
+    p = sub.add_parser("simulate", help="self-play tournament over a deck pool; writes reports/simulation_report.md")
+    p.add_argument("--games", type=int, default=10000)
+    p.add_argument("--decks", type=int, default=200, help="generated decks added to the meta decks")
+    p.add_argument("--procs", type=int, default=max(1, (os.cpu_count() or 2)))
+    p.add_argument("--seed", type=int, default=3)
+    p.add_argument("--out", default=str(ROOT / "reports"))
+    p.add_argument("--scripted-share", type=float, default=0.05, help="fraction of games played against the scripted bot (sanity check)")
+    p.set_defaults(fn=cmd_simulate)
+
+    p = sub.add_parser("tune", help="evolve engine weights by self-play (gated by the puzzle benchmark)")
+    p.add_argument("--iters", type=int, default=6)
+    p.add_argument("--candidates", type=int, default=6)
+    p.add_argument("--pairs", type=int, default=30)
+    p.add_argument("--procs", type=int, default=max(1, (os.cpu_count() or 2)))
+    p.add_argument("--seed", type=int, default=1)
+    p.add_argument("--out", help="weights JSON (default knowledge/weights.json)")
+    p.add_argument("--log", help="write the tuning log JSON here")
+    p.set_defaults(fn=cmd_tune)
+
+    p = sub.add_parser("matchup", help="plan how to counter a deck with your deck")
+    p.add_argument("my_deck", help="comma-separated card names")
+    p.add_argument("opp_deck", help="comma-separated card names")
+    p.set_defaults(fn=cmd_matchup)
+
+    p = sub.add_parser("gui", help="desktop dashboard in a browser app window (advise + autoplay controls)")
+    p.add_argument("--port", type=int, default=8765)
+    p.add_argument("--host", default="127.0.0.1")
+    p.add_argument("--no-browser", action="store_true")
+    p.add_argument("--demo", action="store_true", help="start immediately on synthetic frames")
+    p.add_argument("--layout")
+    p.add_argument("--templates", default=str(DEFAULT_TEMPLATES))
+    p.add_argument("--unit-templates", default=str(UNIT_TEMPLATES))
+    p.set_defaults(fn=cmd_gui)
+
+    p = sub.add_parser("bench", help="score the engine on benchmarks/puzzles.json")
+    p.add_argument("--file", default=str(ROOT / "benchmarks" / "puzzles.json"))
+    p.add_argument("--verbose", "-v", action="store_true")
+    p.set_defaults(fn=cmd_bench)
 
     p = sub.add_parser("replay", help="run the pipeline over saved screenshots")
     p.add_argument("images", nargs="+")

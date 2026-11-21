@@ -12,7 +12,7 @@ from crsf.vision.healthbars import HealthbarDetector, detect_bars
 from crsf.vision.layout import Layout
 from crsf.vision.unit_classifier import UnitClassifier
 
-from synth import make_frame
+from crsf.vision.synth import make_frame
 
 layout = Layout.load()
 db = default_db()

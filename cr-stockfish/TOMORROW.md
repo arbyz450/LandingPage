@@ -1,10 +1,13 @@
-# Tomorrow's checklist — live card placement on Google Play Games
+# Checklist — live card placement on Google Play Games
+
+> Day 2 status: items marked [x] were done in the cloud session; everything that needs your screen is still open.
 
 Everything below was asked for in the first session or discovered while building. Work top-down.
 
 ## 0. Start-of-day sanity (5 min)
-- [ ] `cd cr-stockfish && python -m pytest tests -q` (62 tests) and `python -m crsf bench` (25/25)
-- [ ] `python -m crsf gui --demo` opens the dashboard and shows plays on synthetic frames
+- [x] `cd cr-stockfish && python -m pytest tests -q` (66 tests) and `python -m crsf bench` (40/40)
+- [x] `python -m crsf gui --demo` opens the dashboard and shows plays on synthetic frames
+- [ ] NEW one-liner: `python -m crsf go` (finds the window, downloads card icons, calibrates, opens the dashboard)
 
 ## 1. See the real game (the part that must work first)
 - [ ] Open Clash Royale in Google Play Games, enter Training Camp.
@@ -75,14 +78,24 @@ Everything below was asked for in the first session or discovered while building
   activation from splash.
 
 ## 9. Added at end of day 1 (do first thing tomorrow after step 1)
-- [ ] **Card counter + elixir tracker panel** ("make it unstoppable"): GUI panel with all 8 opponent cards and their state
+- [x] **Card counter + elixir tracker panel** ("make it unstoppable"): GUI panel with all 8 opponent cards and their state
       (in hand / back in N plays / unknown), next card coming back, elixir estimate with an uncertainty band, leak alarm
       when they sit at 10, and a trade ledger scoring every exchange. Tracker code exists (`crsf/tracker.py`); needs
       `plays_until`, elixir history/uncertainty, a `TradeLedger`, advisor wiring, GUI panel, tests.
-- [ ] **Google Play Games on PC**: already the supported target (window capture + window-message/mouse clicks).
+- [x] **Google Play Games on PC**: already the supported target (window capture + window-message/mouse clicks).
       Note: Google's *developer emulator* build of Google Play Games exposes ADB (localhost:6520) — try it for
       mouse-free ADB input on that platform.
-- [ ] **Shareable phone app**: scaffold `android/` — Chaquopy (Python engine in the APK), MediaProjection screen capture,
+- [x] **Shareable phone app** (scaffolded, NOT yet compiled; first CI run will show what to fix): `android/` — Chaquopy (Python engine in the APK), MediaProjection screen capture,
       AccessibilityService taps, floating overlay with top plays, GitHub Actions workflow that builds the APK as a
       downloadable artifact. Sideload only (not Play Store), expect a build-fix pass since it can't be compiled here.
       Also add a one-file Windows build (PyInstaller spec + bat) of the PC app as a download to send.
+
+## 10. Day-2 additions
+- [x] `crsf tournament`: 32 meta decks round-robin, 5 player styles vs engine, aggression sweep → reports/strategy_report.md
+      (spammer 19% / mid-ladder 22% vs engine; aggressive and defensive variants roughly even; thresholds: keep 0.4 / 1.0).
+- [x] Evo/hero flags: `d evo knight, hero musketeer, ...` → 1.2x threat, 15% harder to counter, badges in the counter table.
+- [x] Engine rules from new puzzles: no swarms into a splash escort, protect-your-troops value, death-blast units scare swarms.
+- [x] Side-bias check of the simulator: 47.5% for side 0 over 240 mirrored games (no first-mover bias).
+- [ ] When `knowledge/mechanics_verified.json` lands (research agent), wire champion abilities / evo effects into notes and counters.
+- [ ] Trigger the Android workflow (push touches android/) and read the first CI log; fix Gradle/Chaquopy issues.
+- [ ] On your PC: `python -m crsf go` → send calibration_frame.png; then arm autoplay in dry run for one training match.

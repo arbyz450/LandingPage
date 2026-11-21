@@ -106,3 +106,30 @@ def test_advisor_pipeline_on_synthetic_frames():
     st, an = adv.step(f2)
     assert an.threats and an.threats[0][0].card == "balloon"
     assert "reset" in adv.command("r")
+
+
+def test_video_source_and_learn_clock(tmp_path):
+    import cv2
+    from crsf.vision.capture import VideoSource
+    from crsf.vision.synth import CARD_STYLES, draw_card
+    path = tmp_path / "match.avi"
+    w = cv2.VideoWriter(str(path), cv2.VideoWriter_fourcc(*"MJPG"), 8.0, (540, 960))
+    assert w.isOpened()
+    for i in range(40):                      # 5 seconds of video at 8 fps
+        hand = ["hog_rider", "zap", "giant", "log"] if i < 24 else ["knight", "zap", "giant", "log"]
+        w.write(make_frame(layout, elixir=min(10.0, 2.0 + i * 0.2), hand=hand, next_card="musketeer"))
+    w.release()
+    src = VideoSource(path, sample_fps=4.0)
+    frames = list(src.frames())
+    assert 18 <= len(frames) <= 21 and 4.5 <= src.pos_seconds <= 5.1
+    m = CardMatcher()
+    for key in CARD_STYLES:
+        m.add(key, draw_card(80, 100, key))
+    adv = Advisor(layout=layout, matcher=m, use_ocr=False)
+    src2 = VideoSource(path, sample_fps=4.0)
+    for raw in src2.frames():
+        adv.clock.external_elapsed = src2.pos_seconds
+        st, an = adv.step(raw)
+    assert abs((180 - st.time_left) - src2.pos_seconds) < 0.6     # clock follows the video
+    assert adv.me.history and adv.me.history[-1][1] == "hog_rider"  # the deploy was logged with video time
+    assert 2.5 <= adv.me.history[-1][0] <= 3.6

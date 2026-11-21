@@ -119,6 +119,49 @@ class ImageSource(FrameSource):
             yield from super().frames(fps)
 
 
+class VideoSource(FrameSource):
+    """Reads a recorded match (mp4/avi/mkv) at ``sample_fps`` frames per second of video time.
+
+    For learning from pro replays: download the video, then
+    ``crsf learn --video match.mp4``. ``pos_seconds`` is the video timestamp of
+    the last frame, which the advisor uses as the match clock. ``start_at``
+    skips the intro (seconds) so 0:00 of the match lines up with the clock.
+    """
+
+    def __init__(self, path: Path, sample_fps: float = 4.0, start_at: float = 0.0):
+        self.path = Path(path)
+        self.cap = cv2.VideoCapture(str(self.path))
+        if not self.cap.isOpened():
+            raise IOError(f"could not open video {self.path}")
+        self.video_fps = float(self.cap.get(cv2.CAP_PROP_FPS) or 30.0)
+        self.stride = max(1, int(round(self.video_fps / max(0.1, sample_fps))))
+        self.start_at = start_at
+        self._index = 0
+        self.pos_seconds = 0.0
+        if start_at > 0:
+            self.cap.set(cv2.CAP_PROP_POS_MSEC, start_at * 1000.0)
+
+    def grab(self) -> Optional[np.ndarray]:
+        frame = None
+        for _ in range(self.stride):
+            ok, frame = self.cap.read()
+            if not ok:
+                return None
+            self._index += 1
+        self.pos_seconds = max(0.0, (self.cap.get(cv2.CAP_PROP_POS_MSEC) or 0.0) / 1000.0 - self.start_at)
+        return frame
+
+    def frames(self, fps: float = 0.0) -> Iterator[np.ndarray]:
+        while True:
+            f = self.grab()
+            if f is None:
+                return
+            yield f
+
+    def close(self) -> None:
+        self.cap.release()
+
+
 # --------------------------------------------------------------------------
 # Game-frame detection
 # --------------------------------------------------------------------------

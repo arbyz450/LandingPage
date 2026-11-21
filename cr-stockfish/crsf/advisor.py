@@ -50,6 +50,7 @@ class MatchClock:
     ocr_time_left: Optional[int] = None
     ocr_at: float = 0.0
     overtime: bool = False
+    external_elapsed: Optional[float] = None   # set by video replay: seconds since match start from the file
 
     def start(self) -> None:
         self.started_at = time.time()
@@ -76,6 +77,13 @@ class MatchClock:
         self.ocr_time_left = None
 
     def time_left(self) -> float:
+        if self.external_elapsed is not None:
+            e = self.external_elapsed
+            if e <= REGULATION:
+                self.overtime = False
+                return REGULATION - e
+            self.overtime = True
+            return max(0.0, OVERTIME - (e - REGULATION))
         if self.ocr_time_left is not None and time.time() - self.ocr_at < 5:
             return float(self.ocr_time_left)
         if self.started_at is None:
@@ -91,6 +99,8 @@ class MatchClock:
 
     def elapsed(self) -> float:
         """Seconds since match start (overtime continues counting)."""
+        if self.external_elapsed is not None:
+            return self.external_elapsed
         if self.started_at is None:
             return 0.0
         base = REGULATION if self.overtime else 0.0

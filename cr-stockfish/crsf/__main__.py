@@ -51,7 +51,9 @@ def _adb_device(args):
 
 
 def _source(args):
-    from .vision.capture import ImageSource, ScreenSource, WindowSource
+    from .vision.capture import ImageSource, ScreenSource, WindowSource, VideoSource
+    if getattr(args, "video", None):
+        return VideoSource(Path(args.video), sample_fps=getattr(args, "fps", 4.0) or 4.0, start_at=getattr(args, "start_at", 0.0) or 0.0)
     if getattr(args, "images", None):
         return ImageSource([Path(p) for p in args.images])
     if getattr(args, "adb", False) or getattr(args, "connect", None) or getattr(args, "emulator", None):
@@ -290,12 +292,16 @@ def cmd_learn(args) -> int:
     total = 0
     frames = src.frames(fps=args.fps)
 
+    is_video = hasattr(src, "pos_seconds")
+
     def produce() -> Optional[str]:
         nonlocal total
         try:
             raw = next(frames)
         except StopIteration:
             return None
+        if is_video:
+            adv.clock.external_elapsed = src.pos_seconds     # the video's own clock drives the match time
         st, an = adv.step(raw, top_n=3)
         if len(adv.events) >= 10:
             total += _save_events(adv, out)
@@ -688,6 +694,8 @@ def _add_capture_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--layout", help="layout JSON (default: crsf/data/layout.json)")
     p.add_argument("--templates", default=str(DEFAULT_TEMPLATES), help="card template directory")
     p.add_argument("--fps", type=float, default=4.0)
+    p.add_argument("--video", help="read a recorded match video instead of the screen (learn from pro replays)")
+    p.add_argument("--start-at", type=float, default=0.0, help="seconds into the video where the match clock reads 3:00")
     p.add_argument("--adb", action="store_true", help="capture frames via ADB screencap instead of the screen")
     p.add_argument("--emulator", choices=["bluestacks", "ldplayer", "memu", "nox", "mumu", "phone"], help="connect to this emulator's default ADB port (implies --adb)")
     p.add_argument("--connect", help="adb connect to host:port (e.g. 127.0.0.1:5555 or a phone's Wi-Fi ADB address)")

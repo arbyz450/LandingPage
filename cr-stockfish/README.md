@@ -37,6 +37,19 @@ python -m crsf bench                                # 25/25 pro puzzles
 
 Python 3.10+. Linux may need `sudo apt install python3-tk tesseract-ocr`.
 
+## One command
+
+```bash
+python -m crsf go
+```
+
+Finds the "Clash Royale" window (Google Play Games on PC, scrcpy, any
+emulator window), downloads the official card icons so your hand is read with
+no labelling, calibrates on the live frame, and opens the dashboard in advise
+mode with no-mouse clicking ready (arm it from the page; dry run is on by
+default). `--live` starts with dry run off; `--input mouse|adb|none` changes
+the input path.
+
 ## The dashboard
 
 ```bash
@@ -50,6 +63,13 @@ ranked plays with reasons, an arena minimap with units and the recommended
 tile, your hand and both elixir bars, the opponent's predicted hand and
 cycle, the matchup plan, autoplay controls (arm, dry run, thresholds) and a
 command box with card-name autocomplete.
+
+**Card counter & elixir tracker.** All eight opponent cards with their state
+(in hand / back in N plays / unknown, with EVO and HERO badges), the next card
+coming back, the opponent's elixir estimate with a "could be as low as" band,
+an elixir sparkline, a leak alarm when they sit at 10, elixir spent by each
+side, the running lead (whole match and last 30 s), the last trades with
+their net value, and your own cycle. Every `o <card>` you type feeds it.
 
 ## Google Play Games on PC (your setup)
 
@@ -86,7 +106,9 @@ the game is fine.
 | `matchup "my 8 cards" "their 8 cards"` | Answer assignment per enemy card, danger cards, win paths, spell targets, reserve rules, archetype plan |
 | `advise` / `play` / `gui` | Live advisor, autoplay, dashboard |
 | `learn` / `priors` | Log deploy events from gameplay on screen; build placement priors |
-| `simulate --games 10000` | Self-play tournament over meta + generated decks → `reports/simulation_report.md` |
+| `simulate --games 10000` | Self-play over meta + generated decks → `reports/simulation_report.md` |
+| `tournament` | Full round-robin of the meta decks, five player styles (aggressive, defensive, slow, spammer, mid-ladder) against the engine, and an aggression-threshold sweep → `reports/strategy_report.md` |
+| `fetch-icons` | Official card icons as hand templates (what `go` does automatically) |
 | `tune` | Evolve engine weights by self-play, promoted only if the puzzle benchmark does not regress → `knowledge/weights.json` |
 | `bench` | Score the engine on `benchmarks/puzzles.json` |
 | `replay`, `calibrate`, `learn-cards`, `label`, `cards` | Tooling |
@@ -97,7 +119,7 @@ the game is fine.
 |---|---|
 | `o hog` | opponent played Hog Rider → cycle, elixir estimate, and the enemy unit that just appeared is labelled |
 | `u` / `r` | undo last opponent play / reset for a new match |
-| `d giant,witch,...` / `m hog,musk,...` | set decks → archetype detection and the matchup plan |
+| `d giant,witch,...` / `m hog,musk,...` | set decks → archetype detection and the matchup plan; prefix `evo ` or `hero ` (e.g. `d evo knight, hero musketeer, ...`) and the engine treats those as harder to answer |
 | `e 4` / `t 2:30` / `t 1:00 ot` | override opponent elixir / clock |
 | `x balloon opp right` / `c` | manual unit / clear |
 | `p` | pause or resume autoplay |
@@ -132,6 +154,21 @@ installed; units by red/blue health bars (position, side, HP) with a
 nearest-neighbour classifier that learns sprites from your `o <card>` reports
 and your own deploys; optional YOLO (`--yolo`) or ONNX (`--onnx`, e.g.
 ClashRoyaleBuildABot's MIT-licensed `units_M_480x352.onnx`) detectors.
+
+## Phone app and shareable builds
+
+- **Android, fully on-device (sideloaded APK):** `android/` is a complete
+  project: the same Python engine runs inside the app (Chaquopy), the screen
+  is captured with MediaProjection, taps go through an Accessibility service,
+  and a floating overlay shows the plays. `.github/workflows/android.yml`
+  builds the debug APK on every push so you can download it from the Actions
+  tab and send it. It has not been compiled yet (no Android SDK in the build
+  environment), so expect a fix-up pass. Details in `docs/PHONE_APP.md`.
+- **Android, phone + PC:** works today with no app: `crsf play --emulator phone`
+  (USB) or `--connect <ip>:5555` (Wi-Fi ADB).
+- **Windows one-file build:** `build_windows.bat` produces `dist/crsf_gui.exe`
+  (PyInstaller) that you can send to another PC.
+- **iOS:** no. No screen capture plus input injection without a jailbreak.
 
 ## Layout
 

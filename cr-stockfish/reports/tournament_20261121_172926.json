@@ -1,0 +1,1322 @@
+{
+ "summary": {
+  "games": 5734,
+  "elapsed_s": 330.1,
+  "meta_decks": 32,
+  "seeds": 2,
+  "weights": {
+   "defense": 0.9737299580304896,
+   "tower_damage_prevented": 0.9876903485576395,
+   "offense": 0.9254513428633968,
+   "support_synergy": 1.1650139813481293,
+   "build_push": 0.5274450166477493,
+   "cycle": 0.19329988192724243,
+   "leak": 3.503211212093165,
+   "reserve": 0.6494761057230684,
+   "overcommit": 1.0681406481993625,
+   "opp_response": 0.6672920497893889,
+   "spell_cycle": 0.13119891884383802,
+   "wait_bias": -0.22694871174701312
+  }
+ },
+ "meta_round_robin": [
+  {
+   "name": "Golem Night Witch",
+   "archetype": "beatdown",
+   "cards": [
+    "golem",
+    "night_witch",
+    "phoenix",
+    "bomber",
+    "mini_pekka",
+    "elite_barbarians",
+    "arrows",
+    "zap"
+   ],
+   "games": 124,
+   "win_rate": 0.944,
+   "ci": [
+    0.888,
+    0.972
+   ]
+  },
+  {
+   "name": "PEKKA Bridge Spam (Golden Knight)",
+   "archetype": "pekka_bridge_spam",
+   "cards": [
+    "battle_ram",
+    "royal_ghost",
+    "golden_knight",
+    "pekka",
+    "electro_wizard",
+    "bandit",
+    "furnace",
+    "arrows"
+   ],
+   "games": 124,
+   "win_rate": 0.887,
+   "ci": [
+    0.819,
+    0.932
+   ]
+  },
+  {
+   "name": "Battle Ram Bridge Spam (Giant Skeleton)",
+   "archetype": "bridge_spam",
+   "cards": [
+    "battle_ram",
+    "royal_ghost",
+    "electro_wizard",
+    "giant_skeleton",
+    "bandit",
+    "furnace",
+    "arrows",
+    "heal_spirit"
+   ],
+   "games": 124,
+   "win_rate": 0.831,
+   "ci": [
+    0.755,
+    0.886
+   ]
+  },
+  {
+   "name": "Evo Royal Giant Hunter Monk",
+   "archetype": "royal_giant",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "monk",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.831,
+   "ci": [
+    0.755,
+    0.886
+   ]
+  },
+  {
+   "name": "Royal Giant 3.0 Ghost Cycle",
+   "archetype": "royal_giant",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "royal_ghost",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "log"
+   ],
+   "games": 124,
+   "win_rate": 0.815,
+   "ci": [
+    0.737,
+    0.873
+   ]
+  },
+  {
+   "name": "Evo Mortar Bait (Rascals / Cannon Cart)",
+   "archetype": "siege",
+   "cards": [
+    "mortar",
+    "skeleton_barrel",
+    "ice_wizard",
+    "goblin_gang",
+    "rascals",
+    "cannon_cart",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.718,
+   "ci": [
+    0.633,
+    0.789
+   ]
+  },
+  {
+   "name": "LumberLoon Freeze (Bowler)",
+   "archetype": "lavaloon",
+   "cards": [
+    "balloon",
+    "lumberjack",
+    "bowler",
+    "inferno_dragon",
+    "baby_dragon",
+    "freeze",
+    "tornado",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.702,
+   "ci": [
+    0.616,
+    0.775
+   ]
+  },
+  {
+   "name": "Mega Knight Witch Valkyrie (mid-ladder)",
+   "archetype": "mega_knight",
+   "cards": [
+    "mega_knight",
+    "witch",
+    "valkyrie",
+    "mini_pekka",
+    "baby_dragon",
+    "skeleton_army",
+    "skeleton_barrel",
+    "arrows"
+   ],
+   "games": 124,
+   "win_rate": 0.677,
+   "ci": [
+    0.591,
+    0.753
+   ]
+  },
+  {
+   "name": "Evo Royal Hogs Hut Cycle (Hero Berserker)",
+   "archetype": "cycle",
+   "cards": [
+    "royal_hogs",
+    "royal_ghost",
+    "berserker",
+    "goblin_hut",
+    "furnace",
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.653,
+   "ci": [
+    0.566,
+    0.731
+   ]
+  },
+  {
+   "name": "X-Bow 3.0 (Evo Tesla / Evo Archers / Hero Knight)",
+   "archetype": "siege",
+   "cards": [
+    "x_bow",
+    "tesla",
+    "archers",
+    "knight",
+    "skeletons",
+    "ice_spirit",
+    "fireball",
+    "log"
+   ],
+   "games": 124,
+   "win_rate": 0.629,
+   "ci": [
+    0.541,
+    0.709
+   ]
+  },
+  {
+   "name": "Royal Hogs Archer Queen Earthquake",
+   "archetype": "cycle",
+   "cards": [
+    "royal_hogs",
+    "cannon",
+    "archer_queen",
+    "skeletons",
+    "electro_spirit",
+    "log",
+    "earthquake",
+    "royal_delivery"
+   ],
+   "games": 124,
+   "win_rate": 0.621,
+   "ci": [
+    0.533,
+    0.702
+   ]
+  },
+  {
+   "name": "Hog 2.6 Cycle (Evo Skeletons / Evo Cannon / Hero Musketeer)",
+   "archetype": "cycle",
+   "cards": [
+    "hog_rider",
+    "musketeer",
+    "cannon",
+    "ice_golem",
+    "ice_spirit",
+    "skeletons",
+    "fireball",
+    "log"
+   ],
+   "games": 124,
+   "win_rate": 0.613,
+   "ci": [
+    0.525,
+    0.694
+   ]
+  },
+  {
+   "name": "Evo Goblin Drill Evo Mirror (Hero Bowler)",
+   "archetype": "goblin_drill",
+   "cards": [
+    "goblin_drill",
+    "mirror",
+    "bowler",
+    "knight",
+    "goblin_hut",
+    "furnace",
+    "barbarian_barrel",
+    "giant_snowball"
+   ],
+   "games": 124,
+   "win_rate": 0.548,
+   "ci": [
+    0.461,
+    0.633
+   ]
+  },
+  {
+   "name": "Royal Hogs Three Musketeers",
+   "archetype": "three_musketeers",
+   "cards": [
+    "three_musketeers",
+    "royal_hogs",
+    "royal_ghost",
+    "barbarian_barrel",
+    "ice_golem",
+    "hunter",
+    "fireball",
+    "heal_spirit"
+   ],
+   "games": 124,
+   "win_rate": 0.524,
+   "ci": [
+    0.437,
+    0.61
+   ]
+  },
+  {
+   "name": "Log Bait Ronin 2.5",
+   "archetype": "bait",
+   "cards": [
+    "goblin_barrel",
+    "ronin",
+    "magic_archer",
+    "wall_breakers",
+    "cannon",
+    "fire_spirit",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 124,
+   "win_rate": 0.516,
+   "ci": [
+    0.429,
+    0.602
+   ]
+  },
+  {
+   "name": "Minion Giant Rune Giant Little Prince",
+   "archetype": "control",
+   "cards": [
+    "minion_giant",
+    "rune_giant",
+    "little_prince",
+    "cannon",
+    "bats",
+    "skeletons",
+    "poison",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.508,
+   "ci": [
+    0.421,
+    0.594
+   ]
+  },
+  {
+   "name": "Minion Giant Lightning 3.1",
+   "archetype": "control",
+   "cards": [
+    "minion_giant",
+    "archers",
+    "ice_wizard",
+    "cannon",
+    "skeletons",
+    "lightning",
+    "barbarian_barrel",
+    "knight"
+   ],
+   "games": 124,
+   "win_rate": 0.46,
+   "ci": [
+    0.374,
+    0.547
+   ]
+  },
+  {
+   "name": "Golem Hero Electro Wizard",
+   "archetype": "beatdown",
+   "cards": [
+    "golem",
+    "electro_wizard",
+    "elite_barbarians",
+    "cannon_cart",
+    "berserker",
+    "furnace",
+    "zap",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.444,
+   "ci": [
+    0.359,
+    0.531
+   ]
+  },
+  {
+   "name": "Lava Hound Hero Mega Minion (Flying Machine)",
+   "archetype": "lavaloon",
+   "cards": [
+    "lava_hound",
+    "mega_minion",
+    "baby_dragon",
+    "zap",
+    "barbarians",
+    "flying_machine",
+    "tombstone",
+    "fireball"
+   ],
+   "games": 124,
+   "win_rate": 0.435,
+   "ci": [
+    0.351,
+    0.523
+   ]
+  },
+  {
+   "name": "Goblin Drill Cycle 2.5 (Hero Knight / Evo Cannon)",
+   "archetype": "goblin_drill",
+   "cards": [
+    "goblin_drill",
+    "giant_snowball",
+    "knight",
+    "cannon",
+    "poison",
+    "bomber",
+    "fire_spirit",
+    "skeletons"
+   ],
+   "games": 124,
+   "win_rate": 0.427,
+   "ci": [
+    0.344,
+    0.515
+   ]
+  },
+  {
+   "name": "Hog Earthquake Firecracker (Evo Tesla / Hero Knight)",
+   "archetype": "cycle",
+   "cards": [
+    "hog_rider",
+    "firecracker",
+    "knight",
+    "tesla",
+    "log",
+    "electro_spirit",
+    "skeletons",
+    "earthquake"
+   ],
+   "games": 124,
+   "win_rate": 0.411,
+   "ci": [
+    0.329,
+    0.499
+   ]
+  },
+  {
+   "name": "Classic Log Bait",
+   "archetype": "bait",
+   "cards": [
+    "goblin_barrel",
+    "ice_spirit",
+    "log",
+    "princess",
+    "goblin_gang",
+    "knight",
+    "inferno_tower",
+    "rocket"
+   ],
+   "games": 124,
+   "win_rate": 0.371,
+   "ci": [
+    0.291,
+    0.459
+   ]
+  },
+  {
+   "name": "Graveyard Control (Evo Furnace / Hero Ice Wizard)",
+   "archetype": "graveyard",
+   "cards": [
+    "graveyard",
+    "furnace",
+    "ice_wizard",
+    "knight",
+    "poison",
+    "goblin_hut",
+    "skeletons",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.363,
+   "ci": [
+    0.284,
+    0.45
+   ]
+  },
+  {
+   "name": "Evo Giant Sparky",
+   "archetype": "beatdown",
+   "cards": [
+    "giant",
+    "wizard",
+    "mini_pekka",
+    "sparky",
+    "zap",
+    "tornado",
+    "heal_spirit",
+    "vines"
+   ],
+   "games": 124,
+   "win_rate": 0.363,
+   "ci": [
+    0.284,
+    0.45
+   ]
+  },
+  {
+   "name": "LavaLoon (Hero Balloon / Hero Mega Minion)",
+   "archetype": "lavaloon",
+   "cards": [
+    "lava_hound",
+    "balloon",
+    "mega_minion",
+    "zap",
+    "barbarians",
+    "skeleton_dragons",
+    "tombstone",
+    "fireball"
+   ],
+   "games": 124,
+   "win_rate": 0.355,
+   "ci": [
+    0.276,
+    0.442
+   ]
+  },
+  {
+   "name": "Hog Ronin Cycle 2.9",
+   "archetype": "cycle",
+   "cards": [
+    "hog_rider",
+    "ronin",
+    "firecracker",
+    "earthquake",
+    "barbarian_barrel",
+    "tesla",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 124,
+   "win_rate": 0.29,
+   "ci": [
+    0.218,
+    0.376
+   ]
+  },
+  {
+   "name": "Electro Giant Bowler Lightning",
+   "archetype": "beatdown",
+   "cards": [
+    "electro_giant",
+    "bowler",
+    "baby_dragon",
+    "goblin_hut",
+    "lightning",
+    "tornado",
+    "barbarian_barrel",
+    "knight"
+   ],
+   "games": 124,
+   "win_rate": 0.282,
+   "ci": [
+    0.211,
+    0.367
+   ]
+  },
+  {
+   "name": "Evo Giant Double Prince",
+   "archetype": "beatdown",
+   "cards": [
+    "giant",
+    "zap",
+    "mega_minion",
+    "bomber",
+    "prince",
+    "dark_prince",
+    "rage",
+    "lightning"
+   ],
+   "games": 124,
+   "win_rate": 0.226,
+   "ci": [
+    0.161,
+    0.307
+   ]
+  },
+  {
+   "name": "Splashyard (Hero Ice Wizard)",
+   "archetype": "graveyard",
+   "cards": [
+    "graveyard",
+    "valkyrie",
+    "baby_dragon",
+    "ice_wizard",
+    "tombstone",
+    "poison",
+    "tornado",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.177,
+   "ci": [
+    0.12,
+    0.254
+   ]
+  },
+  {
+   "name": "Evo Giant Graveyard (Evo Witch / Hero Bowler)",
+   "archetype": "graveyard",
+   "cards": [
+    "giant",
+    "graveyard",
+    "witch",
+    "bowler",
+    "giant_snowball",
+    "guards",
+    "zappies",
+    "arrows"
+   ],
+   "games": 124,
+   "win_rate": 0.177,
+   "ci": [
+    0.12,
+    0.254
+   ]
+  },
+  {
+   "name": "Golem Elixir Collector",
+   "archetype": "beatdown",
+   "cards": [
+    "golem",
+    "electro_dragon",
+    "skeleton_dragons",
+    "elite_barbarians",
+    "berserker",
+    "elixir_collector",
+    "tornado",
+    "barbarian_barrel"
+   ],
+   "games": 124,
+   "win_rate": 0.161,
+   "ci": [
+    0.107,
+    0.236
+   ]
+  },
+  {
+   "name": "Miner Evo Wall Breakers Bomb Tower",
+   "archetype": "cycle",
+   "cards": [
+    "miner",
+    "wall_breakers",
+    "valkyrie",
+    "spear_goblins",
+    "skeletons",
+    "bomb_tower",
+    "rocket",
+    "tornado"
+   ],
+   "games": 124,
+   "win_rate": 0.04,
+   "ci": [
+    0.017,
+    0.091
+   ]
+  }
+ ],
+ "best_deck_vs_archetype": {
+  "bait": {
+   "deck": "Royal Giant 3.0 Ghost Cycle",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "royal_ghost",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "log"
+   ],
+   "win_rate": 1.0,
+   "games": 8
+  },
+  "beatdown": {
+   "deck": "Golem Night Witch",
+   "cards": [
+    "golem",
+    "night_witch",
+    "phoenix",
+    "bomber",
+    "mini_pekka",
+    "elite_barbarians",
+    "arrows",
+    "zap"
+   ],
+   "win_rate": 1.0,
+   "games": 20
+  },
+  "bridge_spam": {
+   "deck": "Evo Royal Hogs Hut Cycle (Hero Berserker)",
+   "cards": [
+    "royal_hogs",
+    "royal_ghost",
+    "berserker",
+    "goblin_hut",
+    "furnace",
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "win_rate": 1.0,
+   "games": 4
+  },
+  "control": {
+   "deck": "Mega Knight Witch Valkyrie (mid-ladder)",
+   "cards": [
+    "mega_knight",
+    "witch",
+    "valkyrie",
+    "mini_pekka",
+    "baby_dragon",
+    "skeleton_army",
+    "skeleton_barrel",
+    "arrows"
+   ],
+   "win_rate": 1.0,
+   "games": 8
+  },
+  "cycle": {
+   "deck": "Evo Royal Giant Hunter Monk",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "monk",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "win_rate": 1.0,
+   "games": 24
+  },
+  "goblin_drill": {
+   "deck": "Evo Royal Giant Hunter Monk",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "monk",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "win_rate": 1.0,
+   "games": 8
+  },
+  "graveyard": {
+   "deck": "Log Bait Ronin 2.5",
+   "cards": [
+    "goblin_barrel",
+    "ronin",
+    "magic_archer",
+    "wall_breakers",
+    "cannon",
+    "fire_spirit",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "win_rate": 1.0,
+   "games": 12
+  },
+  "lavaloon": {
+   "deck": "Golem Night Witch",
+   "cards": [
+    "golem",
+    "night_witch",
+    "phoenix",
+    "bomber",
+    "mini_pekka",
+    "elite_barbarians",
+    "arrows",
+    "zap"
+   ],
+   "win_rate": 1.0,
+   "games": 12
+  },
+  "mega_knight": {
+   "deck": "Royal Giant 3.0 Ghost Cycle",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "royal_ghost",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "log"
+   ],
+   "win_rate": 1.0,
+   "games": 4
+  },
+  "pekka_bridge_spam": {
+   "deck": "Battle Ram Bridge Spam (Giant Skeleton)",
+   "cards": [
+    "battle_ram",
+    "royal_ghost",
+    "electro_wizard",
+    "giant_skeleton",
+    "bandit",
+    "furnace",
+    "arrows",
+    "heal_spirit"
+   ],
+   "win_rate": 0.75,
+   "games": 4
+  },
+  "royal_giant": {
+   "deck": "Golem Night Witch",
+   "cards": [
+    "golem",
+    "night_witch",
+    "phoenix",
+    "bomber",
+    "mini_pekka",
+    "elite_barbarians",
+    "arrows",
+    "zap"
+   ],
+   "win_rate": 1.0,
+   "games": 8
+  },
+  "siege": {
+   "deck": "PEKKA Bridge Spam (Golden Knight)",
+   "cards": [
+    "battle_ram",
+    "royal_ghost",
+    "golden_knight",
+    "pekka",
+    "electro_wizard",
+    "bandit",
+    "furnace",
+    "arrows"
+   ],
+   "win_rate": 1.0,
+   "games": 8
+  },
+  "three_musketeers": {
+   "deck": "Evo Royal Giant Hunter Monk",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "monk",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "win_rate": 1.0,
+   "games": 4
+  }
+ },
+ "archetype_matrix": {
+  "bait": {
+   "bait": 0.5,
+   "beatdown": 0.521,
+   "bridge_spam": 0.125,
+   "control": 0.25,
+   "cycle": 0.562,
+   "goblin_drill": 0.625,
+   "graveyard": 0.667,
+   "lavaloon": 0.5,
+   "mega_knight": 0.375,
+   "pekka_bridge_spam": 0.25,
+   "royal_giant": 0.0,
+   "siege": 0.188,
+   "three_musketeers": 0.375
+  },
+  "beatdown": {
+   "bait": 0.479,
+   "beatdown": 0.5,
+   "bridge_spam": 0.042,
+   "control": 0.271,
+   "cycle": 0.5,
+   "goblin_drill": 0.396,
+   "graveyard": 0.653,
+   "lavaloon": 0.319,
+   "mega_knight": 0.292,
+   "pekka_bridge_spam": 0.042,
+   "royal_giant": 0.188,
+   "siege": 0.312,
+   "three_musketeers": 0.417
+  },
+  "bridge_spam": {
+   "bait": 0.875,
+   "beatdown": 0.958,
+   "bridge_spam": null,
+   "control": 1.0,
+   "cycle": 0.75,
+   "goblin_drill": 0.625,
+   "graveyard": 0.917,
+   "lavaloon": 0.75,
+   "mega_knight": 0.75,
+   "pekka_bridge_spam": 0.75,
+   "royal_giant": 0.875,
+   "siege": 0.625,
+   "three_musketeers": 1.0
+  },
+  "control": {
+   "bait": 0.75,
+   "beatdown": 0.729,
+   "bridge_spam": 0.0,
+   "control": 0.5,
+   "cycle": 0.562,
+   "goblin_drill": 0.438,
+   "graveyard": 0.708,
+   "lavaloon": 0.458,
+   "mega_knight": 0.0,
+   "pekka_bridge_spam": 0.0,
+   "royal_giant": 0.0,
+   "siege": 0.062,
+   "three_musketeers": 0.75
+  },
+  "cycle": {
+   "bait": 0.438,
+   "beatdown": 0.5,
+   "bridge_spam": 0.25,
+   "control": 0.438,
+   "cycle": 0.5,
+   "goblin_drill": 0.479,
+   "graveyard": 0.778,
+   "lavaloon": 0.472,
+   "mega_knight": 0.292,
+   "pekka_bridge_spam": 0.083,
+   "royal_giant": 0.062,
+   "siege": 0.25,
+   "three_musketeers": 0.375
+  },
+  "goblin_drill": {
+   "bait": 0.375,
+   "beatdown": 0.604,
+   "bridge_spam": 0.375,
+   "control": 0.562,
+   "cycle": 0.521,
+   "goblin_drill": 0.5,
+   "graveyard": 0.875,
+   "lavaloon": 0.542,
+   "mega_knight": 0.375,
+   "pekka_bridge_spam": 0.125,
+   "royal_giant": 0.062,
+   "siege": 0.25,
+   "three_musketeers": 0.25
+  },
+  "graveyard": {
+   "bait": 0.333,
+   "beatdown": 0.347,
+   "bridge_spam": 0.083,
+   "control": 0.292,
+   "cycle": 0.222,
+   "goblin_drill": 0.125,
+   "graveyard": 0.5,
+   "lavaloon": 0.278,
+   "mega_knight": 0.167,
+   "pekka_bridge_spam": 0.083,
+   "royal_giant": 0.0,
+   "siege": 0.125,
+   "three_musketeers": 0.083
+  },
+  "lavaloon": {
+   "bait": 0.5,
+   "beatdown": 0.681,
+   "bridge_spam": 0.25,
+   "control": 0.542,
+   "cycle": 0.528,
+   "goblin_drill": 0.458,
+   "graveyard": 0.722,
+   "lavaloon": 0.5,
+   "mega_knight": 0.167,
+   "pekka_bridge_spam": 0.083,
+   "royal_giant": 0.208,
+   "siege": 0.292,
+   "three_musketeers": 0.5
+  },
+  "mega_knight": {
+   "bait": 0.625,
+   "beatdown": 0.708,
+   "bridge_spam": 0.25,
+   "control": 1.0,
+   "cycle": 0.708,
+   "goblin_drill": 0.625,
+   "graveyard": 0.833,
+   "lavaloon": 0.833,
+   "mega_knight": null,
+   "pekka_bridge_spam": 0.25,
+   "royal_giant": 0.375,
+   "siege": 0.625,
+   "three_musketeers": 0.5
+  },
+  "pekka_bridge_spam": {
+   "bait": 0.75,
+   "beatdown": 0.958,
+   "bridge_spam": 0.25,
+   "control": 1.0,
+   "cycle": 0.917,
+   "goblin_drill": 0.875,
+   "graveyard": 0.917,
+   "lavaloon": 0.917,
+   "mega_knight": 0.75,
+   "pekka_bridge_spam": null,
+   "royal_giant": 0.75,
+   "siege": 1.0,
+   "three_musketeers": 1.0
+  },
+  "royal_giant": {
+   "bait": 1.0,
+   "beatdown": 0.812,
+   "bridge_spam": 0.125,
+   "control": 1.0,
+   "cycle": 0.938,
+   "goblin_drill": 0.938,
+   "graveyard": 1.0,
+   "lavaloon": 0.792,
+   "mega_knight": 0.625,
+   "pekka_bridge_spam": 0.25,
+   "royal_giant": 0.5,
+   "siege": 0.812,
+   "three_musketeers": 0.625
+  },
+  "siege": {
+   "bait": 0.812,
+   "beatdown": 0.688,
+   "bridge_spam": 0.375,
+   "control": 0.938,
+   "cycle": 0.75,
+   "goblin_drill": 0.75,
+   "graveyard": 0.875,
+   "lavaloon": 0.708,
+   "mega_knight": 0.375,
+   "pekka_bridge_spam": 0.0,
+   "royal_giant": 0.188,
+   "siege": 0.5,
+   "three_musketeers": 0.875
+  },
+  "three_musketeers": {
+   "bait": 0.625,
+   "beatdown": 0.583,
+   "bridge_spam": 0.0,
+   "control": 0.25,
+   "cycle": 0.625,
+   "goblin_drill": 0.75,
+   "graveyard": 0.917,
+   "lavaloon": 0.5,
+   "mega_knight": 0.5,
+   "pekka_bridge_spam": 0.0,
+   "royal_giant": 0.375,
+   "siege": 0.125,
+   "three_musketeers": null
+  }
+ },
+ "archetype_counts": {
+  "bait": {
+   "bait": 8,
+   "beatdown": 48,
+   "bridge_spam": 8,
+   "control": 16,
+   "cycle": 48,
+   "goblin_drill": 16,
+   "graveyard": 24,
+   "lavaloon": 24,
+   "mega_knight": 8,
+   "pekka_bridge_spam": 8,
+   "royal_giant": 16,
+   "siege": 16,
+   "three_musketeers": 8
+  },
+  "beatdown": {
+   "bait": 48,
+   "beatdown": 120,
+   "bridge_spam": 24,
+   "control": 48,
+   "cycle": 144,
+   "goblin_drill": 48,
+   "graveyard": 72,
+   "lavaloon": 72,
+   "mega_knight": 24,
+   "pekka_bridge_spam": 24,
+   "royal_giant": 48,
+   "siege": 48,
+   "three_musketeers": 24
+  },
+  "bridge_spam": {
+   "bait": 8,
+   "beatdown": 24,
+   "bridge_spam": 0,
+   "control": 8,
+   "cycle": 24,
+   "goblin_drill": 8,
+   "graveyard": 12,
+   "lavaloon": 12,
+   "mega_knight": 4,
+   "pekka_bridge_spam": 4,
+   "royal_giant": 8,
+   "siege": 8,
+   "three_musketeers": 4
+  },
+  "control": {
+   "bait": 16,
+   "beatdown": 48,
+   "bridge_spam": 8,
+   "control": 8,
+   "cycle": 48,
+   "goblin_drill": 16,
+   "graveyard": 24,
+   "lavaloon": 24,
+   "mega_knight": 8,
+   "pekka_bridge_spam": 8,
+   "royal_giant": 16,
+   "siege": 16,
+   "three_musketeers": 8
+  },
+  "cycle": {
+   "bait": 48,
+   "beatdown": 144,
+   "bridge_spam": 24,
+   "control": 48,
+   "cycle": 120,
+   "goblin_drill": 48,
+   "graveyard": 72,
+   "lavaloon": 72,
+   "mega_knight": 24,
+   "pekka_bridge_spam": 24,
+   "royal_giant": 48,
+   "siege": 48,
+   "three_musketeers": 24
+  },
+  "goblin_drill": {
+   "bait": 16,
+   "beatdown": 48,
+   "bridge_spam": 8,
+   "control": 16,
+   "cycle": 48,
+   "goblin_drill": 8,
+   "graveyard": 24,
+   "lavaloon": 24,
+   "mega_knight": 8,
+   "pekka_bridge_spam": 8,
+   "royal_giant": 16,
+   "siege": 16,
+   "three_musketeers": 8
+  },
+  "graveyard": {
+   "bait": 24,
+   "beatdown": 72,
+   "bridge_spam": 12,
+   "control": 24,
+   "cycle": 72,
+   "goblin_drill": 24,
+   "graveyard": 24,
+   "lavaloon": 36,
+   "mega_knight": 12,
+   "pekka_bridge_spam": 12,
+   "royal_giant": 24,
+   "siege": 24,
+   "three_musketeers": 12
+  },
+  "lavaloon": {
+   "bait": 24,
+   "beatdown": 72,
+   "bridge_spam": 12,
+   "control": 24,
+   "cycle": 72,
+   "goblin_drill": 24,
+   "graveyard": 36,
+   "lavaloon": 24,
+   "mega_knight": 12,
+   "pekka_bridge_spam": 12,
+   "royal_giant": 24,
+   "siege": 24,
+   "three_musketeers": 12
+  },
+  "mega_knight": {
+   "bait": 8,
+   "beatdown": 24,
+   "bridge_spam": 4,
+   "control": 8,
+   "cycle": 24,
+   "goblin_drill": 8,
+   "graveyard": 12,
+   "lavaloon": 12,
+   "mega_knight": 0,
+   "pekka_bridge_spam": 4,
+   "royal_giant": 8,
+   "siege": 8,
+   "three_musketeers": 4
+  },
+  "pekka_bridge_spam": {
+   "bait": 8,
+   "beatdown": 24,
+   "bridge_spam": 4,
+   "control": 8,
+   "cycle": 24,
+   "goblin_drill": 8,
+   "graveyard": 12,
+   "lavaloon": 12,
+   "mega_knight": 4,
+   "pekka_bridge_spam": 0,
+   "royal_giant": 8,
+   "siege": 8,
+   "three_musketeers": 4
+  },
+  "royal_giant": {
+   "bait": 16,
+   "beatdown": 48,
+   "bridge_spam": 8,
+   "control": 16,
+   "cycle": 48,
+   "goblin_drill": 16,
+   "graveyard": 24,
+   "lavaloon": 24,
+   "mega_knight": 8,
+   "pekka_bridge_spam": 8,
+   "royal_giant": 8,
+   "siege": 16,
+   "three_musketeers": 8
+  },
+  "siege": {
+   "bait": 16,
+   "beatdown": 48,
+   "bridge_spam": 8,
+   "control": 16,
+   "cycle": 48,
+   "goblin_drill": 16,
+   "graveyard": 24,
+   "lavaloon": 24,
+   "mega_knight": 8,
+   "pekka_bridge_spam": 8,
+   "royal_giant": 16,
+   "siege": 8,
+   "three_musketeers": 8
+  },
+  "three_musketeers": {
+   "bait": 8,
+   "beatdown": 24,
+   "bridge_spam": 4,
+   "control": 8,
+   "cycle": 24,
+   "goblin_drill": 8,
+   "graveyard": 12,
+   "lavaloon": 12,
+   "mega_knight": 4,
+   "pekka_bridge_spam": 4,
+   "royal_giant": 8,
+   "siege": 8,
+   "three_musketeers": 0
+  }
+ },
+ "styles_vs_pro": {
+  "aggressive": {
+   "win_rate_vs_pro": 0.497,
+   "games": 300
+  },
+  "defensive": {
+   "win_rate_vs_pro": 0.53,
+   "games": 300
+  },
+  "slow": {
+   "win_rate_vs_pro": 0.45,
+   "games": 300
+  },
+  "spammer": {
+   "win_rate_vs_pro": 0.187,
+   "games": 300
+  },
+  "midladder": {
+   "win_rate_vs_pro": 0.223,
+   "games": 300
+  }
+ },
+ "aggressive_vs_defensive": 0.4,
+ "aggression_sweep": [
+  {
+   "min_score": 0.2,
+   "min_margin": 0.5,
+   "win_rate_vs_baseline": 0.52,
+   "games": 300
+  },
+  {
+   "min_score": 0.2,
+   "min_margin": 2.5,
+   "win_rate_vs_baseline": 0.537,
+   "games": 300
+  },
+  {
+   "min_score": 0.4,
+   "min_margin": 0.5,
+   "win_rate_vs_baseline": 0.52,
+   "games": 300
+  },
+  {
+   "min_score": 0.4,
+   "min_margin": 1.0,
+   "win_rate_vs_baseline": 0.55,
+   "games": 300
+  },
+  {
+   "min_score": 0.4,
+   "min_margin": 1.5,
+   "win_rate_vs_baseline": 0.557,
+   "games": 300
+  },
+  {
+   "min_score": 0.6,
+   "min_margin": 1.5,
+   "win_rate_vs_baseline": 0.552,
+   "games": 300
+  },
+  {
+   "min_score": 0.8,
+   "min_margin": 2.0,
+   "win_rate_vs_baseline": 0.56,
+   "games": 300
+  }
+ ]
+}

@@ -411,14 +411,26 @@ def render_strategy_report(rep: dict, db) -> str:
         L.append(f"| {st} | {v['win_rate_vs_pro']:.1%} | {v['games']} |")
     if rep.get("aggressive_vs_defensive") is not None:
         L.append(f"\nAggressive style vs defensive style: aggressive wins {rep['aggressive_vs_defensive']:.1%}.")
-    L += ["", "## Aggression sweep (decision thresholds vs the shipped baseline 0.4 / 1.0)", "", "| play if worth >= | or >= better than waiting | win rate vs baseline | games |", "|---|---|---|---|"]
+    L += ["", "## Aggression sweep (decision thresholds vs the shipped baseline 0.4 / 1.0)", "",
+          "The 0.4 / 1.0 row is a CONTROL: it is identical to the baseline, so its distance from 50% is the noise level of this sweep. "
+          "Only differences clearly larger than that mean anything.", "",
+          "| play if worth >= | or >= better than waiting | win rate vs baseline | vs control | games |", "|---|---|---|---|---|"]
+    control = next((r for r in rep["aggression_sweep"] if r["min_score"] == 0.4 and r["min_margin"] == 1.0), None)
+    c_wr = control["win_rate_vs_baseline"] if control else 0.5
+    noise = abs(c_wr - 0.5)
     best = None
     for r in rep["aggression_sweep"]:
-        L.append(f"| {r['min_score']} | {r['min_margin']} | {r['win_rate_vs_baseline']:.1%} | {r['games']} |")
-        if best is None or r["win_rate_vs_baseline"] > best["win_rate_vs_baseline"]:
-            best = r
+        diff = r["win_rate_vs_baseline"] - c_wr
+        tag = " (control)" if r is control else ""
+        L.append(f"| {r['min_score']} | {r['min_margin']} | {r['win_rate_vs_baseline']:.1%}{tag} | {diff:+.1%} | {r['games']} |")
+        if r is not control and (best is None or diff > best[0]):
+            best = (diff, r)
     if best:
-        L.append(f"\nBest setting in this sweep: play when worth >= {best['min_score']} or >= {best['min_margin']} better than waiting ({best['win_rate_vs_baseline']:.0%} vs baseline).")
+        diff, r = best
+        if diff > max(0.03, 1.5 * noise):
+            L.append(f"\nBest setting: play when worth >= {r['min_score']} or >= {r['min_margin']} better than waiting ({diff:+.0%} over the control; noise about ±{noise:.0%}).")
+        else:
+            L.append(f"\nNo threshold setting beat the control by more than the noise (±{noise:.0%}); keep the shipped 0.4 / 1.0.")
     L += ["", "## Takeaways (auto-generated from the numbers above)", ""]
     sv = rep["styles_vs_pro"]
     for st in ("aggressive", "defensive", "slow", "spammer", "midladder"):

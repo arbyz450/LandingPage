@@ -56,8 +56,11 @@ chaquopy {
     defaultConfig {
         version = "3.11"
         pip {
-            install("numpy")
-            install("opencv-python")
+            // Pinned to versions Chaquopy ships as prebuilt Android wheels; an unpinned
+            // opencv-python resolves to the newest source tarball, which cannot be
+            // compiled for Android in the build.
+            install("numpy==1.26.2")
+            install("opencv-python==4.8.1.78")
         }
     }
     sourceSets {

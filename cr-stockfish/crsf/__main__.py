@@ -389,6 +389,66 @@ def cmd_fetch_icons(args) -> int:
     return 0 if ok else 1
 
 
+def _ensure_optional(modules: List[str]) -> None:
+    """Install optional pip packages that are missing (used by `go --auto-install` / start.bat)."""
+    import importlib
+    import subprocess
+    for name in modules:
+        try:
+            importlib.import_module(name)
+        except ImportError:
+            print(f"installing optional package {name} ...", flush=True)
+            try:
+                subprocess.run([sys.executable, "-m", "pip", "install", "--quiet", name], check=False)
+            except Exception as exc:   # noqa: BLE001
+                print(f"  could not install {name}: {exc}", flush=True)
+
+
+def cmd_doctor(args) -> int:
+    """Report what is installed, what is missing, and whether the game window is visible."""
+    import importlib
+    import shutil
+    rows = []
+
+    def check(label, ok, hint=""):
+        rows.append((label, ok, hint))
+
+    check(f"Python {sys.version.split()[0]}", sys.version_info >= (3, 9), "use Python 3.10-3.12 (3.15 has no OpenCV wheels yet)")
+    for mod, hint in (("numpy", "pip install numpy"), ("cv2", "pip install opencv-python"), ("mss", "pip install mss"),
+                      ("pygetwindow", "pip install pygetwindow  (window capture by title)"),
+                      ("pyautogui", "pip install pyautogui  (real mouse clicks)"),
+                      ("pytesseract", "pip install pytesseract + Tesseract binary (tower HP / clock)"),
+                      ("tkinter", "sudo apt install python3-tk (Linux only; the web GUI does not need it)")):
+        try:
+            importlib.import_module(mod)
+            check(f"module {mod}", True)
+        except Exception:
+            check(f"module {mod}", False, hint)
+    check("adb on PATH", shutil.which("adb") is not None, "Android platform-tools (only for emulators / phones)")
+    templates = Path(args.templates)
+    n = len(list(templates.glob("*.png"))) if templates.exists() else 0
+    check(f"card templates ({n})", n >= 20, "python -m crsf fetch-icons")
+    from .knowledge import default_knowledge
+    k = default_knowledge()
+    check("knowledge files: " + ", ".join(k.loaded), bool(k.loaded))
+    try:
+        import pygetwindow as gw
+        wins = [w.title for w in gw.getWindowsWithTitle(args.window) if w.title]
+        check(f"window '{args.window}'", bool(wins), "open Clash Royale (Google Play Games) and keep it visible")
+    except Exception:
+        check(f"window '{args.window}'", False, "needs pygetwindow (Windows/macOS)")
+    if sys.platform == "win32":
+        check("no-mouse clicks (window messages)", True)
+    else:
+        check("no-mouse clicks (window messages)", False, "Windows only; use --input mouse or ADB elsewhere")
+    width = max(len(r[0]) for r in rows)
+    for label, ok, hint in rows:
+        print(f"{'OK  ' if ok else 'MISS'} {label.ljust(width)}  {'' if ok else hint}")
+    missing = [r for r in rows if not r[1]]
+    print(f"\n{len(rows) - len(missing)}/{len(rows)} checks passed")
+    return 0 if not missing else 1
+
+
 def cmd_go(args) -> int:
     """One command: find the game window, get icons, calibrate, open the dashboard."""
     import cv2
@@ -404,20 +464,41 @@ def cmd_go(args) -> int:
         ok, failed = fetch_icons(templates)
         print(f"card icons: {len(ok)} ready, {len(failed)} failed", flush=True)
     source = "window"
+    _ensure_optional(["pygetwindow", "pyautogui"] if args.auto_install else [])
     try:
         from .vision.capture import WindowSource
-        src = WindowSource(args.window)
-        raw = src.grab()
-        src.close()
-        bbox = find_game_frame(raw)
-        frame = crop_game_frame(raw, bbox)
-        el = read_elixir(frame, Layout.load())
-        print(f"window '{args.window}': {raw.shape[1]}x{raw.shape[0]}, game frame {bbox}, elixir read {el}", flush=True)
-        if el is None:
-            print("  (no elixir bar seen: open a battle or Training Camp and the readings will start)", flush=True)
-        cv2.imwrite(str(Path(args.out)), frame)
-    except Exception as exc:
-        print(f"window capture not available ({exc}); falling back to monitor 1", flush=True)
+    except Exception as exc:   # pragma: no cover - import guard
+        WindowSource = None
+        print(f"window capture unavailable ({exc})", flush=True)
+    src = None
+    if WindowSource is not None:
+        deadline = time.time() + max(0, args.wait)
+        while True:
+            try:
+                src = WindowSource(args.window)
+                break
+            except Exception as exc:
+                if time.time() >= deadline:
+                    print(f"no window titled '{args.window}' ({exc}).", flush=True)
+                    break
+                print(f"waiting for a window titled '{args.window}' (open Clash Royale)...", flush=True)
+                time.sleep(3)
+    if src is not None:
+        try:
+            raw = src.grab()
+            src.close()
+            bbox = find_game_frame(raw)
+            frame = crop_game_frame(raw, bbox)
+            el = read_elixir(frame, Layout.load())
+            print(f"window '{args.window}': {raw.shape[1]}x{raw.shape[0]}, game frame {bbox}, elixir read {el}", flush=True)
+            if el is None:
+                print("  (no elixir bar seen yet: open a battle or Training Camp and the readings will start)", flush=True)
+            cv2.imwrite(str(Path(args.out)), frame)
+        except Exception as exc:
+            print(f"window capture failed ({exc}); falling back to monitor 1", flush=True)
+            source = "monitor"
+    else:
+        print("falling back to capturing monitor 1 (works if the game is on your main screen)", flush=True)
         source = "monitor"
     app = GuiApp(templates, Path(args.unit_templates), Path(args.layout) if args.layout else None)
     serve(app, host=args.host, port=args.port, open_browser=not args.no_browser,
@@ -705,6 +786,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     p.add_argument("--input", choices=["none", "winmsg", "mouse", "adb"], default="winmsg")
     p.add_argument("--live", action="store_true", help="start with dry run OFF (clicks for real)")
     p.add_argument("--no-icons", action="store_true")
+    p.add_argument("--wait", type=int, default=120, help="seconds to wait for the game window to appear")
+    p.add_argument("--auto-install", action="store_true", help="pip-install missing optional packages (pygetwindow, pyautogui)")
     p.add_argument("--out", default="calibration_frame.png")
     p.add_argument("--port", type=int, default=8765)
     p.add_argument("--host", default="127.0.0.1")
@@ -713,6 +796,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     p.add_argument("--templates", default=str(DEFAULT_TEMPLATES))
     p.add_argument("--unit-templates", default=str(UNIT_TEMPLATES))
     p.set_defaults(fn=cmd_go)
+
+    p = sub.add_parser("doctor", help="check Python packages, templates, knowledge files and the game window")
+    p.add_argument("--window", default="Clash Royale")
+    p.add_argument("--templates", default=str(DEFAULT_TEMPLATES))
+    p.set_defaults(fn=cmd_doctor)
 
     p = sub.add_parser("fetch-icons", help="download official card icons as hand templates (no manual labelling)")
     p.add_argument("--templates", default=str(DEFAULT_TEMPLATES))

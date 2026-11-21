@@ -100,4 +100,4 @@ Everything below was asked for in the first session or discovered while building
 - [x] Android APK builds in CI (run #10/#11 green). Download: GitHub → Actions → "Android APK" → latest run → artifact
       `cr-stockfish-debug-apk` (zip with app-debug.apk). Sideload it; grant overlay + accessibility + screen capture.
       Embedded Python is 3.8 with numpy 1.19.5 / OpenCV 4.5.1 (the only Android wheels Chaquopy carries). Not yet run on a phone.
-- [ ] On your PC: `python -m crsf go` → send calibration_frame.png; then arm autoplay in dry run for one training match.
+- [ ] On your PC: double-click `cr-stockfish\start.bat` (or `python -m crsf go`) → send calibration_frame.png; then arm autoplay in dry run for one training match. `python -m crsf doctor` explains anything missing.

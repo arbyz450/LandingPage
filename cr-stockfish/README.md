@@ -37,6 +37,14 @@ python -m crsf bench                                # 25/25 pro puzzles
 
 Python 3.10+. Linux may need `sudo apt install python3-tk tesseract-ocr`.
 
+## Zero-setup start (Windows)
+
+Double-click **`start.bat`** in this folder. It finds Python 3.10–3.12 (or
+installs 3.12 with winget), creates a virtual environment, installs the
+dependencies, downloads the card icons, waits for the "Clash Royale" window and
+opens the dashboard. If anything is off, `python -m crsf doctor` lists what is
+missing and how to fix it.
+
 ## One command
 
 ```bash

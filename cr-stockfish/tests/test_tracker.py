@@ -47,3 +47,41 @@ def test_opponent_tracker_undo():
     assert o.undo_last() == "giant"
     assert o.elixir.elixir == 5.0
     assert o.info().known_deck == ["giant"]   # still known to be in the deck
+
+
+def test_plays_until_and_status():
+    t = CycleTracker()
+    t.set_deck(["a", "b", "c", "d", "e", "f", "g"])          # one unknown slot
+    for i, c in enumerate(["a", "b", "c"]):
+        t.record_play(c, i)
+    assert t.plays_until("d") == 0 and t.plays_until("a") == 1 and t.plays_until("c") == 3
+    assert t.plays_until("zzz") is None
+    rows = t.status()
+    assert [r["state"] for r in rows].count("unknown") == 1
+    assert rows[0]["state"] == "hand"
+    back = [r for r in rows if r["state"] == "back"]
+    assert [r["card"] for r in back] == ["a", "b", "c"]
+
+
+def test_elixir_uncertainty_and_leak():
+    e = ElixirEstimator()
+    e.tick(0.0, 2.8)
+    e.spend(3)
+    assert e.uncertainty == 0.5
+    e.tick(30.0, 2.8)
+    assert e.elixir == 10.0 and e.uncertainty > 2.0
+    e.tick(35.0, 2.8)
+    assert e.leaking_for() >= 4.9 and e.leaked > 0
+    e.spend(4)
+    assert e.leaking_for() == 0.0 and len(e.history) >= 2
+
+
+def test_trade_ledger():
+    from crsf.tracker import TradeLedger
+    l = TradeLedger()
+    l.add("opp", "skeleton_army", 3, 10.0)
+    l.add("me", "log", 2, 12.0)
+    l.add("me", "hog_rider", 4, 40.0)
+    assert l.lead() == -3.0 and l.lead(since=30) == -4.0
+    tr = l.trades()
+    assert len(tr) == 1 and tr[0]["net"] == 1.0 and tr[0]["opp_card"] == "skeleton_army"

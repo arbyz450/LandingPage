@@ -28,7 +28,7 @@ import numpy as np
 from .cards import CardDB, default_db
 from .engine import Analysis, Engine
 from .state import GameState, Tower, Unit, default_towers, KING_TOWER_HP, PRINCESS_TOWER_HP
-from .tracker import CycleTracker, OpponentTracker
+from .tracker import CycleTracker, OpponentTracker, TradeLedger
 from .vision.capture import crop_game_frame, find_game_frame
 from .vision.elixir import read_elixir
 from .vision.hand import CardMatcher, read_hand
@@ -139,6 +139,7 @@ class Advisor:
         self.use_ocr = has_tesseract() if use_ocr is None else use_ocr
         self.opp = OpponentTracker(self.db)
         self.me = CycleTracker()
+        self.ledger = TradeLedger()
         self.clock = MatchClock()
         self.manual_units: List[Unit] = []
         self.last_hand: List[Optional[str]] = [None] * 4
@@ -190,6 +191,8 @@ class Advisor:
             new = hand[i] or None
             if old and new and old != new and old not in hand:
                 self.me.record_play(old, self.clock.elapsed())
+                if self.db.find(old):
+                    self.ledger.add("me", old, self.db.get(old).cost, self.clock.elapsed())
                 self.pending_my_deploy.append((old, time.time() + 2.0))
                 self.last_play_t = time.time()
             self.last_hand[i] = new
@@ -305,11 +308,14 @@ class Advisor:
             if op in ("o", "opp"):
                 card = self._resolve(rest)
                 self.opp.record_play(card, self.clock.elapsed())
+                self.ledger.add("opp", card, self.db.get(card).cost, self.clock.elapsed())
                 n = self.label_recent_enemy(card)
                 tag = f", labelled {n} unit crop(s)" if n else ""
                 return f"opponent played {self.db.get(card).name} (elixir ~{self.opp.elixir.elixir:.1f}){tag}"
             if op in ("u", "undo"):
                 c = self.opp.undo_last()
+                if c and self.ledger.opp_plays:
+                    self.ledger.opp_plays.pop()
                 return f"undid {self.db.get(c).name}" if c else "nothing to undo"
             if op in ("d", "deck"):
                 deck = [self._resolve(c) for c in rest.replace(";", ",").split(",") if c.strip()]
@@ -325,6 +331,7 @@ class Advisor:
             if op in ("r", "reset"):
                 self.opp.reset()
                 self.me.reset()
+                self.ledger.reset()
                 self.clock.start()
                 self.manual_units.clear()
                 self.last_state = None
@@ -355,6 +362,29 @@ class Advisor:
         except (KeyError, ValueError, IndexError) as exc:
             return f"error: {exc}"
         return f"unknown command: {op}"
+
+    def counter_panel(self) -> dict:
+        """Everything a card-counter / elixir-tracker panel needs."""
+        db = self.db
+        name = lambda k: (db.get(k).name if k and db.find(k) else None)
+        el = self.opp.elixir
+        rows = []
+        for r in self.opp.cycle.status():
+            rows.append({**r, "name": name(r["card"]) or "?", "cost": (db.get(r["card"]).cost if r["card"] and db.find(r["card"]) else None)})
+        nxt = self.opp.cycle.next_card()
+        elapsed = self.clock.elapsed()
+        my_rows = []
+        for r in self.me.status():
+            my_rows.append({**r, "name": name(r["card"]) or "?"})
+        return {
+            "opp_cards": rows, "opp_next_back": name(nxt), "opp_unknown": self.opp.cycle.unknown_slots,
+            "opp_elixir": round(el.elixir, 1), "opp_elixir_low": round(max(0.0, el.elixir - el.uncertainty), 1),
+            "opp_leaking_s": round(el.leaking_for(), 1), "opp_leaked_total": round(el.leaked, 1),
+            "opp_history": el.history[-60:],
+            "spent_me": self.ledger.spent("me"), "spent_opp": self.ledger.spent("opp"),
+            "lead_total": round(self.ledger.lead(), 1), "lead_30s": round(self.ledger.lead(since=elapsed - 30), 1),
+            "trades": self.ledger.trades(), "my_cards": my_rows, "my_next_back": name(self.me.next_card()),
+        }
 
     def _resolve(self, text: str) -> str:
         text = text.strip()

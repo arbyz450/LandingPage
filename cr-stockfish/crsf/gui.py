@@ -217,6 +217,7 @@ class GuiApp:
                          "last": (f"{name(last['card'])} ({int(time.time() - last['t'])}s ago)" if last else None),
                          "min_score": self.bot.config.min_score, "min_margin": self.bot.config.min_margin, "input": self.settings.get("input")},
             "classifier_classes": len(self.advisor.classifier.classes()),
+            "counter": self.advisor.counter_panel(),
             "plan": self.plan_text, "plan_lines": (self.plan.summary_lines(db) if self.plan else []),
             "log": list(self.log)[:12],
         }

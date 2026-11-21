@@ -370,6 +370,55 @@ def cmd_matchup(args) -> int:
     return 0
 
 
+def cmd_fetch_icons(args) -> int:
+    from .icons import fetch_icons
+    dest = Path(args.templates)
+    print(f"downloading card icons into {dest} ...", flush=True)
+    ok, failed = fetch_icons(dest)
+    print(f"{len(ok)} icons ready, {len(failed)} failed")
+    for k, why in list(failed.items())[:20]:
+        print(f"  {k}: {why}")
+    if failed:
+        print("Failed cards can be labelled from your own hand with: python -m crsf learn-cards / label")
+    return 0 if ok else 1
+
+
+def cmd_go(args) -> int:
+    """One command: find the game window, get icons, calibrate, open the dashboard."""
+    import cv2
+    from .gui import GuiApp, serve
+    from .icons import fetch_icons
+    from .vision.capture import find_game_frame, crop_game_frame
+    from .vision.elixir import read_elixir
+    from .vision.layout import Layout
+    templates = Path(args.templates)
+    have = len(list(templates.glob("*.png"))) if templates.exists() else 0
+    if have < 20 and not args.no_icons:
+        print("card icons: downloading official icons so your hand is recognised without labelling ...", flush=True)
+        ok, failed = fetch_icons(templates)
+        print(f"card icons: {len(ok)} ready, {len(failed)} failed", flush=True)
+    source = "window"
+    try:
+        from .vision.capture import WindowSource
+        src = WindowSource(args.window)
+        raw = src.grab()
+        src.close()
+        bbox = find_game_frame(raw)
+        frame = crop_game_frame(raw, bbox)
+        el = read_elixir(frame, Layout.load())
+        print(f"window '{args.window}': {raw.shape[1]}x{raw.shape[0]}, game frame {bbox}, elixir read {el}", flush=True)
+        if el is None:
+            print("  (no elixir bar seen: open a battle or Training Camp and the readings will start)", flush=True)
+        cv2.imwrite(str(Path(args.out)), frame)
+    except Exception as exc:
+        print(f"window capture not available ({exc}); falling back to monitor 1", flush=True)
+        source = "monitor"
+    app = GuiApp(templates, Path(args.unit_templates), Path(args.layout) if args.layout else None)
+    serve(app, host=args.host, port=args.port, open_browser=not args.no_browser,
+          autostart={"source": source, "window": args.window, "monitor": 1, "input": args.input, "dry_run": not args.live})
+    return 0
+
+
 def cmd_gui(args) -> int:
     from .gui import GuiApp, serve
     app = GuiApp(Path(args.templates), Path(args.unit_templates), Path(args.layout) if args.layout else None)
@@ -631,6 +680,24 @@ def main(argv: Optional[List[str]] = None) -> int:
     p.add_argument("my_deck", help="comma-separated card names")
     p.add_argument("opp_deck", help="comma-separated card names")
     p.set_defaults(fn=cmd_matchup)
+
+    p = sub.add_parser("go", help="ONE command: find the Clash Royale window, fetch card icons, calibrate, open the dashboard")
+    p.add_argument("--window", default="Clash Royale")
+    p.add_argument("--input", choices=["none", "winmsg", "mouse", "adb"], default="winmsg")
+    p.add_argument("--live", action="store_true", help="start with dry run OFF (clicks for real)")
+    p.add_argument("--no-icons", action="store_true")
+    p.add_argument("--out", default="calibration_frame.png")
+    p.add_argument("--port", type=int, default=8765)
+    p.add_argument("--host", default="127.0.0.1")
+    p.add_argument("--no-browser", action="store_true")
+    p.add_argument("--layout")
+    p.add_argument("--templates", default=str(DEFAULT_TEMPLATES))
+    p.add_argument("--unit-templates", default=str(UNIT_TEMPLATES))
+    p.set_defaults(fn=cmd_go)
+
+    p = sub.add_parser("fetch-icons", help="download official card icons as hand templates (no manual labelling)")
+    p.add_argument("--templates", default=str(DEFAULT_TEMPLATES))
+    p.set_defaults(fn=cmd_fetch_icons)
 
     p = sub.add_parser("gui", help="desktop dashboard in a browser app window (advise + autoplay controls)")
     p.add_argument("--port", type=int, default=8765)

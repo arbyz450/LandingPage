@@ -902,6 +902,8 @@ class Engine:
         o = state.opp
         opp_arch = self.k.detect_archetype(o.known_deck) if o.known_deck else None
         my_arch = self.k.detect_archetype(state.my_deck) if state.my_deck else None
+        if o.elixir >= 9.5:
+            notes.append("Opponent is at 10 elixir: they are leaking. Expect a big play; keep your counters ready.")
         if opp_arch:
             notes.append(f"Opp archetype: {opp_arch.id}. {opp_arch.how_to_beat}".strip())
             mu = self.k.matchup(my_arch.id if my_arch else None, opp_arch.id)

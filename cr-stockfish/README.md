@@ -14,7 +14,7 @@ mouse clicks, or ADB taps.
 |---|---|
 | "Plays like a pro" | A strong, explainable rule-based engine: researched counter matrix for every card, 167 named pro placements, timing techniques, cycle/elixir tracking, archetype-aware matchup plans, a one-ply look at the opponent's reply, weights tuned by self-play and gated by a pro-puzzle benchmark (25/25). It is not pro level. No Clash Royale bot is. |
 | "Never makes a mistake" | No engine achieves that. This one tells you why it chose a move so you can correct the knowledge files. |
-| "Learned from pro videos" | Nothing here watched a video. `crsf learn` extracts placements while a pro's match plays on your screen; `crsf priors` turns them into statistics the engine uses. |
+| "Learned from pro videos" | No model watched videos during the build. You can feed them now: `crsf learn --video replay.mp4 --start-at 12` reads a downloaded replay (the match clock follows the file), logs every deploy with its context, and `crsf priors` turns those into placement statistics the engine uses. A 3-minute replay processes in well under a minute. |
 | "Knows every card" | 123 cards with level-11 stats (28 numbers still flagged unverified), roles, counters, placements; `knowledge/mechanics.json` seeds abilities, 42 evolutions, 18 hero forms and tower troops but most entries are not yet verified. See `TOMORROW.md`. |
 | "Simulated 10,000 games" | Yes, in a simplified two-lane simulator (spawners, death spawns, ramp, charge, spells, towers, overtime). Numbers compare decks and weights against each other; they are not ladder predictions. |
 | "Plays for me" | Yes (`crsf play` / GUI autoplay). Supercell's terms prohibit it; accounts get banned. Secondary account, training camp and friendlies. iOS cannot be automated without a jailbreak. |
@@ -113,7 +113,7 @@ the game is fine.
 | `analyze state.json` | Analyse a position (the Clash Royale "FEN"; see `examples/`) |
 | `matchup "my 8 cards" "their 8 cards"` | Answer assignment per enemy card, danger cards, win paths, spell targets, reserve rules, archetype plan |
 | `advise` / `play` / `gui` | Live advisor, autoplay, dashboard |
-| `learn` / `priors` | Log deploy events from gameplay on screen; build placement priors |
+| `learn` / `priors` | Log deploy events from gameplay on screen or from a recorded replay (`--video file.mp4 --start-at <s>`); build placement priors |
 | `simulate --games 10000` | Self-play over meta + generated decks → `reports/simulation_report.md` |
 | `tournament` | Full round-robin of the meta decks, five player styles (aggressive, defensive, slow, spammer, mid-ladder) against the engine, and an aggression-threshold sweep → `reports/strategy_report.md` |
 | `fetch-icons` | Official card icons as hand templates (what `go` does automatically) |

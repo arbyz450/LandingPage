@@ -325,8 +325,13 @@ def counter_score(db: CardDB, defender: Card, u: Unit) -> float:
         score = max(score, 0.8)
     if defender.is_building and att.targets == "buildings":
         score = max(score, 0.7)
-    if att.targets == "buildings" and defender.is_troop and not defender.is_swarm and defender.dps > 150:
-        score = max(score, 0.65)  # free hits on a building-targeter
+    if att.targets == "buildings" and defender.is_troop:
+        # It never fights back, but every second it survives is tower damage: a slow kill is a weak counter.
+        score *= max(0.3, min(1.0, 4.0 / max(0.5, ttk_att)))
+        if not defender.is_swarm and defender.dps > 150:
+            score = max(score, 0.55)
+        if defender.key == "fisherman":
+            score = max(score, 0.75)  # the hook drags it off the tower
     if ttk_att > 12:
         score *= 0.8              # takes forever: tower damage leaks through
     return max(0.0, min(1.0, score))

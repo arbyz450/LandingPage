@@ -1042,6 +1042,276 @@
     "ice_golem",
     "knight"
    ]
+  },
+  {
+   "name": "pekka on my side: kite with skeletons, don't tank with knight",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "skeletons",
+     "knight",
+     "fireball",
+     "hog_rider"
+    ],
+    "units": [
+     {
+      "card": "pekka",
+      "side": "opp",
+      "x": 3.5,
+      "y": 11
+     }
+    ]
+   },
+   "accept": [
+    "skeletons"
+   ],
+   "not_cls": [
+    "bridge"
+   ]
+  },
+  {
+   "name": "hog crossing with tornado in hand: tornado to activate the king",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "tornado",
+     "musketeer",
+     "giant",
+     "zap"
+    ],
+    "units": [
+     {
+      "card": "hog_rider",
+      "side": "opp",
+      "x": 3.5,
+      "y": 13.5
+     }
+    ]
+   },
+   "accept": [
+    "tornado",
+    "musketeer"
+   ]
+  },
+  {
+   "name": "fisherman vs hog: hook it to the king",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "fisherman",
+     "giant",
+     "fireball",
+     "archers"
+    ],
+    "units": [
+     {
+      "card": "hog_rider",
+      "side": "opp",
+      "x": 3.5,
+      "y": 13
+     }
+    ]
+   },
+   "accept": [
+    "fisherman"
+   ]
+  },
+  {
+   "name": "elite barbarians crossing: ice golem kite, not knight",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "ice_golem",
+     "knight",
+     "fireball",
+     "hog_rider"
+    ],
+    "units": [
+     {
+      "card": "elite_barbarians",
+      "side": "opp",
+      "x": 3.5,
+      "y": 14
+     }
+    ]
+   },
+   "accept": [
+    "ice_golem",
+    "knight"
+   ]
+  },
+  {
+   "name": "balloon pulled by my tesla: mega minion on it",
+   "state": {
+    "my_elixir": 5,
+    "hand": [
+     "mega_minion",
+     "giant",
+     "log",
+     "skeletons"
+    ],
+    "units": [
+     {
+      "card": "balloon",
+      "side": "opp",
+      "x": 14.5,
+      "y": 13
+     },
+     {
+      "card": "tesla",
+      "side": "me",
+      "x": 12,
+      "y": 10
+     }
+    ]
+   },
+   "accept": [
+    "mega_minion"
+   ],
+   "lane": "right"
+  },
+  {
+   "name": "their inferno tower + musketeer on my golem: lightning both",
+   "state": {
+    "my_elixir": 7,
+    "hand": [
+     "lightning",
+     "night_witch",
+     "baby_dragon",
+     "tornado"
+    ],
+    "units": [
+     {
+      "card": "golem",
+      "side": "me",
+      "x": 3.5,
+      "y": 23
+     },
+     {
+      "card": "inferno_tower",
+      "side": "opp",
+      "x": 5,
+      "y": 24.5
+     },
+     {
+      "card": "musketeer",
+      "side": "opp",
+      "x": 4,
+      "y": 26
+     }
+    ]
+   },
+   "accept": [
+    "lightning"
+   ]
+  },
+  {
+   "name": "giant at bridge with musketeer behind: fireball the musketeer",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "fireball",
+     "skeleton_army",
+     "ice_spirit",
+     "hog_rider"
+    ],
+    "units": [
+     {
+      "card": "giant",
+      "side": "opp",
+      "x": 3.5,
+      "y": 16
+     },
+     {
+      "card": "musketeer",
+      "side": "opp",
+      "x": 3.5,
+      "y": 18.5
+     }
+    ]
+   },
+   "accept": [
+    "fireball",
+    "skeleton_army"
+   ]
+  },
+  {
+   "name": "giant in front of my tower: mini pekka behind the tower",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "mini_pekka",
+     "musketeer",
+     "zap",
+     "skeletons"
+    ],
+    "units": [
+     {
+      "card": "giant",
+      "side": "opp",
+      "x": 3.5,
+      "y": 9.5
+     }
+    ]
+   },
+   "accept": [
+    "mini_pekka",
+    "skeletons"
+   ],
+   "lane": "left"
+  },
+  {
+   "name": "royal hogs splitting at the bridge: cannon in the centre",
+   "state": {
+    "my_elixir": 6,
+    "hand": [
+     "cannon",
+     "fireball",
+     "hog_rider",
+     "archers"
+    ],
+    "units": [
+     {
+      "card": "royal_hogs",
+      "side": "opp",
+      "x": 9,
+      "y": 15
+     }
+    ]
+   },
+   "accept": [
+    "cannon",
+    "fireball"
+   ]
+  },
+  {
+   "name": "skeleton army dropped on my hog: zap it",
+   "state": {
+    "my_elixir": 4,
+    "hand": [
+     "zap",
+     "ice_spirit",
+     "cannon",
+     "musketeer"
+    ],
+    "units": [
+     {
+      "card": "hog_rider",
+      "side": "me",
+      "x": 3.5,
+      "y": 22
+     },
+     {
+      "card": "skeleton_army",
+      "side": "opp",
+      "x": 3.5,
+      "y": 23
+     }
+    ]
+   },
+   "accept": [
+    "zap"
+   ]
   }
  ]
 }

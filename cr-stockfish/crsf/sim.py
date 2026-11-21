@@ -66,6 +66,8 @@ SPAWN_SPELLS = {"graveyard": ("skeletons", 15, 10.0), "goblin_barrel": ("goblins
 RAMP_CARDS = {"inferno_tower": 3.0, "inferno_dragon": 3.0, "mighty_miner": 4.0}   # seconds to full damage on one target
 CHARGE_CARDS = {"prince": 2.0, "dark_prince": 2.0, "battle_ram": 2.0, "ram_rider": 2.0, "bandit": 2.0, "boss_bandit": 2.0}
 COLLECTOR = {"elixir_collector": (8.5, 70.0)}   # one elixir every 8.5s for 70s
+KNOCKBACK_SPELLS = {"log": 1.5, "barbarian_barrel": 1.2, "giant_snowball": 1.5, "bowler": 0.0}   # tiles pushed back
+ONE_SHOT_CONNECT = {"battle_ram", "wall_breakers"}   # deal their hit on connecting with a building, then die (spawning what they spawn)
 # how the engine (which only knows real cards) should see sub-units
 ENGINE_ALIAS = {"golemite": "ice_golem", "lava_pup": "bats", "elixir_golemite": "ice_golem", "elixir_blob": "ice_golem",
                 "royal_recruit_1": "knight", "bush_goblin": "goblins", "phoenix_egg": "tombstone"}
@@ -248,8 +250,11 @@ class Match:
             if not card.can_target(u.card) and card.targets != "none":
                 continue
             if card.damage > 0:
-                dmg = card.damage * (1.0 if u.card.count <= 1 else min(u.alive_count, 6) / max(1, u.alive_count))
                 u.hp -= card.damage if u.card.count <= 1 else card.damage * min(u.alive_count, 6)
+            if card.key in KNOCKBACK_SPELLS and not u.card.is_building and not u.card.is_air:
+                u.y += (1.0 if side == 0 else -1.0) * KNOCKBACK_SPELLS[card.key]   # pushed away from the caster
+                u.y = max(0.5, min(31.5, u.y))
+                u.last_target, u.ramp, u.moved = None, 0.0, 0.0
             if card.key in ("freeze",):
                 u.stun = max(u.stun, card.lifetime or 4.0)
             if card.key in ("zap", "giant_snowball", "electro_spirit", "lightning") and u.card.key in ("inferno_dragon", "inferno_tower", "sparky"):
@@ -297,6 +302,7 @@ class Match:
             if u.stun > 0:
                 u.stun -= dt
                 u.ramp = 0.0
+                u.last_target = None          # retargets after the stun (resets inferno / charge)
                 continue
             if u.card.is_building or u.card.key in SPAWNERS:
                 if u.card.is_building:
@@ -389,7 +395,7 @@ class Match:
     def _on_death(self, u: SUnit) -> None:
         for key, n in DEATH_SPAWNS.get(u.card.key, []):
             c = self._card(key)
-            self._spawn_unit(u.side, c, u.lane, u.y, count=n * max(1, c.count))   # one group of n units
+            self._spawn_unit(u.side, c, u.lane, u.y, count=n)   # one group of exactly n units
         dmg = DEATH_DAMAGE.get(u.card.key, 0)
         if dmg:
             for v in self.units:
@@ -397,6 +403,10 @@ class Match:
                     v.hp -= dmg * (min(v.alive_count, 6) if v.card.count > 1 else 1)
 
     def _hit_unit(self, u: SUnit, v: SUnit, dt: float) -> None:
+        if u.card.key in ONE_SHOT_CONNECT and v.card.is_building:
+            v.hp -= u.card.damage * u.alive_count * self._dmg_mult(u)
+            u.hp = 0
+            return
         n_u = u.alive_count
         per_hit = u.card.damage if u.card.splash else min(u.card.damage, v.card.hp)
         dps = per_hit / max(0.1, u.card.hit_speed) * n_u * self._dmg_mult(u)
@@ -406,8 +416,8 @@ class Match:
 
     def _hit_tower(self, u: SUnit, which: str, dt: float) -> None:
         opp = self.p[1 - u.side]
-        if u.card.hit_speed <= 0 and u.card.damage > 0:      # one-shot units
-            opp.towers[which] -= u.card.damage * u.alive_count
+        if (u.card.hit_speed <= 0 and u.card.damage > 0) or u.card.key in ONE_SHOT_CONNECT:   # one-shot connects
+            opp.towers[which] -= u.card.damage * u.alive_count * self._dmg_mult(u)
             u.hp = 0
         else:
             opp.towers[which] -= u.card.dps * u.alive_count * dt * self._dmg_mult(u)

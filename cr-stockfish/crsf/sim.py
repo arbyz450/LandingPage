@@ -26,6 +26,49 @@ from .tracker import CycleTracker, ElixirEstimator
 
 DT = 0.5
 REG = 180.0
+
+# ---------------------------------------------------------------------------
+# Card mechanics the stat sheet does not capture (approximate, level 11)
+# ---------------------------------------------------------------------------
+
+def _sub(key, name, cost, kind, transport, targets, hp, dmg, hs, rng, speed, count=1, splash=False, roles=()):
+    return Card(key, name, cost, "common", kind, transport, targets, hp, dmg, hs, rng, speed, count, splash, tuple(roles))
+
+
+SUBUNITS = {
+    "golemite": _sub("golemite", "Golemite", 2, "troop", "ground", "buildings", 1030, 83, 2.5, 1.0, "slow"),
+    "lava_pup": _sub("lava_pup", "Lava Pup", 1, "troop", "air", "both", 200, 60, 1.0, 1.6, "fast"),
+    "elixir_golemite": _sub("elixir_golemite", "Elixir Golemite", 1, "troop", "ground", "buildings", 700, 100, 1.3, 1.0, "medium"),
+    "elixir_blob": _sub("elixir_blob", "Elixir Blob", 1, "troop", "ground", "buildings", 300, 60, 1.3, 1.0, "medium"),
+    "royal_recruit_1": _sub("royal_recruit_1", "Royal Recruit", 1, "troop", "ground", "ground", 850, 110, 1.3, 1.6, "medium"),
+    "bush_goblin": _sub("bush_goblin", "Bush Goblin", 1, "troop", "ground", "ground", 337, 227, 1.5, 1.0, "very_fast"),
+    "phoenix_egg": _sub("phoenix_egg", "Phoenix Egg", 1, "building", "none", "none", 400, 0, 0, 0, "none"),
+}
+
+# card -> (spawned key, count, period seconds). Spawner buildings/troops.
+SPAWNERS = {
+    "goblin_hut": ("spear_goblins", 1, 2.1), "furnace": ("fire_spirit", 1, 5.0), "tombstone": ("skeletons", 1, 3.1),
+    "barbarian_hut": ("barbarians", 1, 7.0), "goblin_drill": ("goblins", 1, 3.0), "witch": ("skeletons", 3, 7.0),
+    "night_witch": ("bats", 2, 7.0), "goblin_cage": None,
+}
+# card -> list of (key, count) spawned on death
+DEATH_SPAWNS = {
+    "golem": [("golemite", 2)], "golemite": [], "lava_hound": [("lava_pup", 6)], "tombstone": [("skeletons", 4)],
+    "goblin_giant": [("spear_goblins", 2)], "elixir_golem": [("elixir_golemite", 2)], "elixir_golemite": [("elixir_blob", 2)],
+    "skeleton_barrel": [("skeletons", 8)], "goblin_drill": [("goblins", 2)], "battle_ram": [("barbarians", 2)],
+    "goblin_cage": [("goblins", 1)], "suspicious_bush": [("bush_goblin", 2)], "phoenix": [("phoenix_egg", 1)], "phoenix_egg": [("phoenix", 1)],
+    "goblin_demolisher": [], "giant_skeleton": [],
+}
+DEATH_DAMAGE = {"giant_skeleton": 720, "ice_golem": 70, "wall_breakers": 0, "goblin_demolisher": 400, "goblin_barrel": 0}
+# spells that place units: card -> (unit, count, over seconds)
+SPAWN_SPELLS = {"graveyard": ("skeletons", 15, 10.0), "goblin_barrel": ("goblins", 3, 1.0), "royal_delivery": ("royal_recruit_1", 1, 1.0),
+                "skeleton_barrel": None}
+RAMP_CARDS = {"inferno_tower": 3.0, "inferno_dragon": 3.0, "mighty_miner": 4.0}   # seconds to full damage on one target
+CHARGE_CARDS = {"prince": 2.0, "dark_prince": 2.0, "battle_ram": 2.0, "ram_rider": 2.0, "bandit": 2.0, "boss_bandit": 2.0}
+COLLECTOR = {"elixir_collector": (8.5, 70.0)}   # one elixir every 8.5s for 70s
+# how the engine (which only knows real cards) should see sub-units
+ENGINE_ALIAS = {"golemite": "ice_golem", "lava_pup": "bats", "elixir_golemite": "ice_golem", "elixir_blob": "ice_golem",
+                "royal_recruit_1": "knight", "bush_goblin": "goblins", "phoenix_egg": "tombstone"}
 OT = 120.0
 LANE_X = {"left": 3.5, "right": 14.5}
 TOWER_RANGE = 7.5
@@ -46,6 +89,11 @@ class SUnit:
     lifetime: float = 0.0      # buildings
     stun: float = 0.0
     uid: int = 0
+    spawn_timer: float = 0.0   # spawners
+    ramp: float = 0.0          # seconds on current target (inferno)
+    last_target: Optional[int] = None
+    moved: float = 0.0         # tiles moved since last hit (charge)
+    collect_timer: float = 0.0
 
     @property
     def per_unit_hp(self) -> float:
@@ -108,6 +156,7 @@ class Match:
         for pl in self.p:
             self.rng.shuffle(pl.queue)
         self.units: List[SUnit] = []
+        self.pending_spawns: List[list] = []   # [side, key, remaining, lane, y, over, elapsed, total]
         self.t = 0.0
         self.overtime = False
         self.done = False
@@ -155,11 +204,26 @@ class Match:
         pl.plays.append((self.t, key, lane0, y0))
         if card.is_spell:
             self._cast(side, card, lane0, y0)
+            sp = SPAWN_SPELLS.get(card.key)
+            if sp:
+                ukey, n, over = sp
+                self.pending_spawns.append([side, ukey, n, lane0, y0, over, 0.0, n])
             return True
-        self._uid += 1
-        self.units.append(SUnit(card, side, lane0, y0, card.hp * max(1, card.count), max(1, card.count),
-                                lifetime=card.lifetime or (30.0 if card.is_building else 0.0), uid=self._uid))
+        self._spawn_unit(side, card, lane0, y0)
         return True
+
+    def _spawn_unit(self, side: int, card: Card, lane0: str, y0: float, count: Optional[int] = None) -> SUnit:
+        self._uid += 1
+        n = count if count is not None else max(1, card.count)
+        life = card.lifetime or (40.0 if card.is_building else 0.0)
+        if card.key in COLLECTOR:
+            life = COLLECTOR[card.key][1]
+        u = SUnit(card, side, lane0, y0, card.hp * n, n, lifetime=life, uid=self._uid)
+        self.units.append(u)
+        return u
+
+    def _card(self, key: str) -> Card:
+        return SUBUNITS.get(key) or self.db.get(key)
 
     def _cast(self, side: int, card: Card, lane0: str, y0: float) -> None:
         radius = max(1.5, card.range)
@@ -196,32 +260,68 @@ class Match:
         dt = DT
         for pl in self.p:
             pl.elixir = min(10.0, pl.elixir + dt / (2.8 / self.multiplier))
+        # spell spawns over time (graveyard, barrel, delivery)
+        for ps in list(self.pending_spawns):
+            side, key, remaining, lane0, y0, over, elapsed, total = ps
+            ps[6] = elapsed + dt
+            due = int(round(total * min(1.0, ps[6] / max(dt, over)))) - (total - remaining)
+            for _ in range(max(0, due)):
+                self._spawn_unit(side, self._card(key), lane0, y0 + self.rng.uniform(-1.0, 1.0), count=1)
+                ps[2] -= 1
+            if ps[2] <= 0:
+                self.pending_spawns.remove(ps)
         # units act
         for u in list(self.units):
             if u.hp <= 0:
                 continue
             if u.stun > 0:
                 u.stun -= dt
+                u.ramp = 0.0
                 continue
-            if u.card.is_building:
-                u.lifetime -= dt
-                if u.lifetime <= 0:
-                    u.hp = 0
+            if u.card.is_building or u.card.key in SPAWNERS:
+                if u.card.is_building:
+                    u.lifetime -= dt
+                    if u.lifetime <= 0:
+                        u.hp = 0
+                        continue
+                sp = SPAWNERS.get(u.card.key)
+                if sp:
+                    u.spawn_timer += dt
+                    if u.spawn_timer >= sp[2]:
+                        u.spawn_timer = 0.0
+                        self._spawn_unit(u.side, self._card(sp[0]), u.lane, u.y + u.forward() * 0.5, count=sp[1])
+                if u.card.key in COLLECTOR:
+                    u.collect_timer += dt
+                    if u.collect_timer >= COLLECTOR[u.card.key][0]:
+                        u.collect_timer = 0.0
+                        self.p[u.side].elixir = min(10.0, self.p[u.side].elixir + 1.0)
                     continue
             target = self._pick_target(u)
             if target is not None:
                 kind, obj = target
+                tid = obj.uid if kind == "unit" else -1
+                if tid != u.last_target:
+                    u.ramp = 0.0
+                    u.last_target = tid
+                u.ramp += dt
                 if kind == "unit":
                     self._hit_unit(u, obj, dt)
                 else:
                     self._hit_tower(u, obj, dt)
+                u.moved = 0.0
             elif not u.card.is_building and u.card.tiles_per_sec > 0:
-                u.y += u.forward() * u.card.tiles_per_sec * dt
+                step_len = u.card.tiles_per_sec * dt
+                u.y += u.forward() * step_len
                 u.y = max(0.5, min(31.5, u.y))
+                u.moved += step_len
+                u.ramp = 0.0
         # towers act
         for side in (0, 1):
             self._tower_fire(side, dt)
+        dead = [u for u in self.units if u.hp <= 0]
         self.units = [u for u in self.units if u.hp > 0]
+        for u in dead:
+            self._on_death(u)
         self._check_towers()
         self.t += dt
         if not self.done:
@@ -258,10 +358,28 @@ class Match:
             return None
         return None
 
+    def _dmg_mult(self, u: SUnit) -> float:
+        m = 1.0
+        if u.card.key in RAMP_CARDS:
+            m = 0.15 + 0.85 * min(1.0, u.ramp / RAMP_CARDS[u.card.key])
+        if u.card.key in CHARGE_CARDS and u.moved >= 3.0 and u.ramp <= DT + 1e-6:
+            m *= CHARGE_CARDS[u.card.key]              # charged first hit
+        return m
+
+    def _on_death(self, u: SUnit) -> None:
+        for key, n in DEATH_SPAWNS.get(u.card.key, []):
+            c = self._card(key)
+            self._spawn_unit(u.side, c, u.lane, u.y, count=n * max(1, c.count) if c.count > 1 and n > 1 else (n if c.count <= 1 else c.count))
+        dmg = DEATH_DAMAGE.get(u.card.key, 0)
+        if dmg:
+            for v in self.units:
+                if v.side != u.side and v.lane == u.lane and abs(v.y - u.y) <= 2.5 and v.hp > 0:
+                    v.hp -= dmg * (min(v.alive_count, 6) if v.card.count > 1 else 1)
+
     def _hit_unit(self, u: SUnit, v: SUnit, dt: float) -> None:
         n_u = u.alive_count
         per_hit = u.card.damage if u.card.splash else min(u.card.damage, v.card.hp)
-        dps = per_hit / max(0.1, u.card.hit_speed) * n_u
+        dps = per_hit / max(0.1, u.card.hit_speed) * n_u * self._dmg_mult(u)
         if u.card.splash:
             dps *= min(v.alive_count, 6)
         v.hp -= dps * dt
@@ -272,7 +390,7 @@ class Match:
             opp.towers[which] -= u.card.damage * u.alive_count
             u.hp = 0
         else:
-            opp.towers[which] -= u.card.dps * u.alive_count * dt
+            opp.towers[which] -= u.card.dps * u.alive_count * dt * self._dmg_mult(u)
         if which == "king":
             opp.king_active = True
 
@@ -345,7 +463,7 @@ class Match:
             lane_own = self._mirror_lane(side, u.lane)
             x = LANE_X[lane_own]
             y = u.y if side == 0 else 32.0 - u.y
-            units.append(Unit(u.card.key, "me" if u.side == side else "opp", x, y, u.hp_frac, u.alive_count, id=str(u.uid)))
+            units.append(Unit(ENGINE_ALIAS.get(u.card.key, u.card.key), "me" if u.side == side else "opp", x, y, u.hp_frac, u.alive_count, id=str(u.uid)))
         st.units = units
         st.opp = OpponentInfo(elixir=round(opp_elixir.elixir, 1), known_deck=list(opp_cycle.known_deck),
                               predicted_hand=opp_cycle.predicted_hand(), out_of_hand=opp_cycle.out_of_hand(),

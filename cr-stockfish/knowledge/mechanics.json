@@ -1,0 +1,2605 @@
+{
+ "_doc": "Per-card mechanics beyond raw stats: abilities, evolutions, hero forms. Seeded from research notes; entries marked verified:false still need checking (see TOMORROW.md).",
+ "tower_troops": [
+  {
+   "key": "tower_princess",
+   "name": "Tower Princess",
+   "hp": 3052,
+   "damage": 109,
+   "hit_speed": 0.8,
+   "range": 7.5,
+   "notes": "Default tower troop; hits air & ground. HP from RoyaleAPI Royal Chef comparison; dmg/hit speed from a secondary source (verify)."
+  },
+  {
+   "key": "cannoneer",
+   "name": "Cannoneer",
+   "hp": 2616,
+   "damage": 422,
+   "hit_speed": 2.4,
+   "range": 7.5,
+   "notes": "Epic, Nov 2023 / Arena 8. Hits air & ground; ~4x a Princess arrow per shot but slow (175 dps)."
+  },
+  {
+   "key": "dagger_duchess",
+   "name": "Dagger Duchess",
+   "hp": 2768,
+   "damage": 107,
+   "hit_speed": 0.35,
+   "range": 7.5,
+   "notes": "Legendary, Apr 2024. Fires up to 8 stored daggers rapidly, then slow recharge when idle. HP/dmg from fandom wiki (older source says 3204/153); hit speed approximate."
+  },
+  {
+   "key": "royal_chef",
+   "name": "Royal Chef",
+   "hp": 2703,
+   "damage": 0,
+   "hit_speed": 0.8,
+   "range": 7.5,
+   "notes": "Legendary, Dec 2024 / Arena 13. Slightly lower HP and DPS than Tower Princess (damage value not found; hit speed/range stated to match Tower Princess). Starts cooking Pancakes at 7s (18-30s each); a Pancake gives a nearby troop with >=20% HP a +1 level. Oct 2025 HP 2921->2703."
+  }
+ ],
+ "cards": {
+  "knight": {
+   "name": "Knight",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "support"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Takes heavily reduced damage while walking toward a target.",
+    "effect_verified": true
+   },
+   "hero": {
+    "key": "knight",
+    "released": "2025-12-01"
+   },
+   "verified": false
+  },
+  "archers": {
+   "name": "Archers",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 2,
+   "splash": false,
+   "roles": [
+    "support",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Arrows pierce through units; longer range while standing still.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "goblins": {
+   "name": "Goblins",
+   "cost": 2,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 3,
+   "splash": false,
+   "roles": [
+    "swarm",
+    "cycle"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "goblins",
+    "released": "2026-02-02",
+    "ability": "Banner Brigade: last Goblin drops a banner that calls reinforcements (count 3->2 Aug 2026); ability cost 1->2 Apr 2026"
+   },
+   "verified": false
+  },
+  "spear_goblins": {
+   "name": "Spear Goblins",
+   "cost": 2,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 3,
+   "splash": false,
+   "roles": [
+    "swarm",
+    "cycle",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "skeletons": {
+   "name": "Skeletons",
+   "cost": 1,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 3,
+   "splash": false,
+   "roles": [
+    "swarm",
+    "cycle"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Spawn 4; each Skeleton kill spawns a new one, up to 8 alive.",
+    "effect_verified": true
+   },
+   "hero": null,
+   "verified": false
+  },
+  "bomber": {
+   "name": "Bomber",
+   "cost": 2,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "splash",
+    "ranged",
+    "swarm_killer",
+    "cycle"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Bombs bounce and explode a second time; cycles 1->2 in Oct 2025.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "minions": {
+   "name": "Minions",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 3,
+   "splash": false,
+   "roles": [
+    "air",
+    "anti_air",
+    "swarm",
+    "support"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "minion_horde": {
+   "name": "Minion Horde",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 6,
+   "splash": false,
+   "roles": [
+    "air",
+    "anti_air",
+    "swarm"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Added Apr 2026; effect not verified.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "barbarians": {
+   "name": "Barbarians",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 5,
+   "splash": false,
+   "roles": [
+    "swarm",
+    "mini_tank"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Barbarians enrage (faster move/attack) after landing hits.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "royal_giant": {
+   "name": "Royal Giant",
+   "cost": 6,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "tank",
+    "ranged"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Cannon recoil: each shot knocks back enemies behind/around him.",
+    "effect_verified": true
+   },
+   "hero": null,
+   "verified": false
+  },
+  "elite_barbarians": {
+   "name": "Elite Barbarians",
+   "cost": 6,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 2,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "support"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Added Aug 2026; effect not verified.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "ice_spirit": {
+   "name": "Ice Spirit",
+   "cost": 1,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "cycle",
+    "splash",
+    "support"
+   ],
+   "notes": "kamikaze; freezes targets for ~1.3s",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 3,
+    "effect": "Freezes for longer and leaves a slowing frost area.",
+    "effect_verified": false,
+    "cycles_note": "sources conflict 2 vs 3"
+   },
+   "hero": null,
+   "verified": false
+  },
+  "fire_spirit": {
+   "name": "Fire Spirit",
+   "cost": 1,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "cycle",
+    "splash",
+    "swarm_killer"
+   ],
+   "notes": "kamikaze area damage",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "electro_spirit": {
+   "name": "Electro Spirit",
+   "cost": 1,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "cycle",
+    "reset",
+    "support"
+   ],
+   "notes": "kamikaze; chains to up to 9 targets, 0.5s stun",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "heal_spirit": {
+   "name": "Heal Spirit",
+   "cost": 1,
+   "kind": "troop",
+   "targets": "none",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "cycle",
+    "support"
+   ],
+   "notes": "kamikaze; heals friendly troops in area",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "bats": {
+   "name": "Bats",
+   "cost": 2,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 5,
+   "splash": false,
+   "roles": [
+    "air",
+    "anti_air",
+    "swarm",
+    "cycle"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Bats heal themselves on every hit (life steal).",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "zap": {
+   "name": "Zap",
+   "cost": 2,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "reset",
+    "swarm_killer"
+   ],
+   "notes": "0.5s stun, resets charges and inferno",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "After the stun, lightning chains again to nearby enemies.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "arrows": {
+   "name": "Arrows",
+   "cost": 3,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "swarm_killer"
+   ],
+   "notes": "3 waves",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "giant_snowball": {
+   "name": "Giant Snowball",
+   "cost": 2,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "spell_utility"
+   ],
+   "notes": "knockback and 2.5s slow",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Snowball rolls across the arena, growing and knocking back enemies.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "royal_delivery": {
+   "name": "Royal Delivery",
+   "cost": 3,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "spell_utility"
+   ],
+   "notes": "delayed drop; spawns one Royal Recruit",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "mortar": {
+   "name": "Mortar",
+   "cost": 4,
+   "kind": "building",
+   "targets": "ground",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "building",
+    "siege",
+    "win_condition",
+    "splash"
+   ],
+   "notes": "minimum range 3.5",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Each shell also launches a Goblin that fights on landing.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "cannon": {
+   "name": "Cannon",
+   "cost": 3,
+   "kind": "building",
+   "targets": "ground",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "defensive_building"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Fires rolling cannonballs that knock back and pass through enemies.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "tesla": {
+   "name": "Tesla",
+   "cost": 4,
+   "kind": "building",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "defensive_building",
+    "anti_air"
+   ],
+   "notes": "hides underground when idle; immune to spells while hidden",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Emerging/retracting emits a shock pulse that stuns and pushes back enemies.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "goblin_cage": {
+   "name": "Goblin Cage",
+   "cost": 4,
+   "kind": "building",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "defensive_building",
+    "spawn_on_death"
+   ],
+   "notes": "spawns Goblin Brawler (hp ~1187, dmg ~266) on death",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Releases an evolved, stronger Goblin Brawler on destruction.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "rascals": {
+   "name": "Rascals",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 3,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "support",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "1 Rascal Boy (melee tank) + 2 Rascal Girls (ranged, hp ~260)",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "royal_recruits": {
+   "name": "Royal Recruits",
+   "cost": 7,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 6,
+   "splash": false,
+   "roles": [
+    "swarm",
+    "mini_tank"
+   ],
+   "notes": "each has a 286 hp shield; spawn across both lanes",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Recruits gain a shield-bash dash toward nearby targets.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "skeleton_barrel": {
+   "name": "Skeleton Barrel",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "air",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "win_condition",
+    "air",
+    "spawn_on_death"
+   ],
+   "notes": "drops ~8 skeletons on death with small area damage",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Barrel bounces/drops extra Skeletons and bombs on the way.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "firecracker": {
+   "name": "Firecracker",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "ranged",
+    "splash",
+    "anti_air",
+    "support"
+   ],
+   "notes": "5 sparks spread; knocks herself back",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Sparks leave lingering burning area damage after the explosion.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "skeleton_dragons": {
+   "name": "Skeleton Dragons",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 2,
+   "splash": true,
+   "roles": [
+    "air",
+    "anti_air",
+    "splash",
+    "support"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "goblin_gang": {
+   "name": "Goblin Gang",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 6,
+   "splash": false,
+   "roles": [
+    "swarm",
+    "anti_air",
+    "cycle"
+   ],
+   "notes": "3 Goblins + 3 Spear Goblins",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "berserker": {
+   "name": "Berserker",
+   "cost": 2,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "cycle",
+    "support",
+    "mini_tank"
+   ],
+   "notes": "attacks faster the lower her hp",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "berserker",
+    "released": "2026-08-04"
+   },
+   "verified": false
+  },
+  "suspicious_bush": {
+   "name": "Suspicious Bush",
+   "cost": 2,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "cycle",
+    "win_condition",
+    "spawn_on_death"
+   ],
+   "notes": "disguised bush; spawns 2 Goblins when destroyed or at tower",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "mini_pekka": {
+   "name": "Mini P.E.K.K.A",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "support"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "mini_pekka",
+    "released": "2025-12-01"
+   },
+   "verified": false
+  },
+  "musketeer": {
+   "name": "Musketeer",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "support",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Sniper stance: extra range and damage while standing still.",
+    "effect_verified": false
+   },
+   "hero": {
+    "key": "musketeer",
+    "released": "2025-12-01"
+   },
+   "verified": false
+  },
+  "giant": {
+   "name": "Giant",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "tank"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Added Nov 2 2026; effect not verified.",
+    "effect_verified": false
+   },
+   "hero": {
+    "key": "giant",
+    "released": "2025-12-01",
+    "ability": "Heroic Hurl: throws the highest-HP enemy troop across the arena"
+   },
+   "verified": false
+  },
+  "valkyrie": {
+   "name": "Valkyrie",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "mini_tank",
+    "splash",
+    "swarm_killer"
+   ],
+   "notes": "360-degree splash",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Spinning creates a tornado that pulls enemies toward her.",
+    "effect_verified": true
+   },
+   "hero": {
+    "key": "valkyrie",
+    "released": "2026-08-03",
+    "ability": "Whirl: mobile area damage (ability dps 388->324 in Dec 2026 WIP)"
+   },
+   "verified": false
+  },
+  "hog_rider": {
+   "name": "Hog Rider",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition"
+   ],
+   "notes": "jumps the river",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "wizard": {
+   "name": "Wizard",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "splash",
+    "ranged",
+    "anti_air",
+    "swarm_killer"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Spawns with a shield; when it breaks, a fire blast knocks back enemies.",
+    "effect_verified": false
+   },
+   "hero": {
+    "key": "wizard",
+    "released": "2026-01-05",
+    "ability": "Fiery Flight / Fire Wings: flies and throws fire tornadoes"
+   },
+   "verified": false
+  },
+  "mega_minion": {
+   "name": "Mega Minion",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "air",
+    "anti_air",
+    "support"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "mega_minion",
+    "released": "2026-02-13",
+    "ability": "Wounding Warp: warps to lowest-HP enemy"
+   },
+   "verified": false
+  },
+  "battle_ram": {
+   "name": "Battle Ram",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "charge",
+    "spawn_on_death"
+   ],
+   "notes": "charges after 3 tiles (2x damage); spawns 2 Barbarians on death",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Barbarians keep charging/ramming after the ram breaks.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "flying_machine": {
+   "name": "Flying Machine",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "air",
+    "anti_air",
+    "ranged",
+    "support"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "three_musketeers": {
+   "name": "Three Musketeers",
+   "cost": 9,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 3,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "support",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "can be split across lanes",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "dart_goblin": {
+   "name": "Dart Goblin",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "support",
+    "ranged",
+    "anti_air",
+    "cycle"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Darts apply poison damage over time.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "ice_golem": {
+   "name": "Ice Golem",
+   "cost": 2,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "cycle",
+    "mini_tank",
+    "spawn_on_death"
+   ],
+   "notes": "death damage + 1s slow",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "ice_golem",
+    "released": "2026-01",
+    "ability": "Snowstorm / Frost Blast"
+   },
+   "verified": false
+  },
+  "elixir_golem": {
+   "name": "Elixir Golem",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "tank",
+    "spawn_on_death"
+   ],
+   "notes": "splits into 2 Golemites then 4 Blobs; each death gives opponent elixir",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "royal_hogs": {
+   "name": "Royal Hogs",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 4,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "swarm"
+   ],
+   "notes": "can be split across lanes; jump the river",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "zappies": {
+   "name": "Zappies",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 3,
+   "splash": false,
+   "roles": [
+    "support",
+    "ranged",
+    "reset",
+    "anti_air"
+   ],
+   "notes": "0.5s stun per hit",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "goblin_demolisher": {
+   "name": "Goblin Demolisher",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "splash",
+    "ranged",
+    "swarm_killer"
+   ],
+   "notes": "throws bombs; lights fuse at low hp and explodes for large area damage",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "fireball": {
+   "name": "Fireball",
+   "cost": 4,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_big",
+    "swarm_killer"
+   ],
+   "notes": "knockback",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "rocket": {
+   "name": "Rocket",
+   "cost": 6,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_big"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "earthquake": {
+   "name": "Earthquake",
+   "cost": 3,
+   "kind": "spell",
+   "targets": "ground",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "spell_utility"
+   ],
+   "notes": "~4x damage to buildings; slows ground troops; ignores air",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "furnace": {
+   "name": "Furnace",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "spawner"
+   ],
+   "notes": "spawns Fire Spirits periodically",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Hot Spawns: while attacking, spawns Fire Spirits every 2.4s (was 1.8s) from its sides.",
+    "effect_verified": true
+   },
+   "hero": null,
+   "verified": false
+  },
+  "goblin_hut": {
+   "name": "Goblin Hut",
+   "cost": 5,
+   "kind": "building",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "spawner"
+   ],
+   "notes": "spawns Spear Goblins periodically",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "tombstone": {
+   "name": "Tombstone",
+   "cost": 3,
+   "kind": "building",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "spawner",
+    "defensive_building",
+    "spawn_on_death"
+   ],
+   "notes": "spawns Skeletons; 4 Skeletons on death",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "tombstone",
+    "released": "2026-06-01",
+    "ability": "Destroying it raises Tomb Queen (building-targeting win condition; 4044 HP after Jul 2026 buff, ability 6->5 elixir)"
+   },
+   "verified": false
+  },
+  "bomb_tower": {
+   "name": "Bomb Tower",
+   "cost": 4,
+   "kind": "building",
+   "targets": "ground",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "building",
+    "defensive_building",
+    "splash",
+    "swarm_killer"
+   ],
+   "notes": "drops a bomb on death",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "inferno_tower": {
+   "name": "Inferno Tower",
+   "cost": 5,
+   "kind": "building",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "defensive_building",
+    "anti_air"
+   ],
+   "notes": "damage ramps from ~32 to ~1200 per 0.4s; reset by stun",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "elixir_collector": {
+   "name": "Elixir Collector",
+   "cost": 6,
+   "kind": "building",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building"
+   ],
+   "notes": "produces 8 elixir over lifetime",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "barbarian_hut": {
+   "name": "Barbarian Hut",
+   "cost": 7,
+   "kind": "building",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "spawner",
+    "spawn_on_death"
+   ],
+   "notes": "spawns Barbarians periodically; spawns Barbarians on death",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "battle_healer": {
+   "name": "Battle Healer",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "mini_tank"
+   ],
+   "notes": "heals nearby allies on attack and passively",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "rune_giant": {
+   "name": "Rune Giant",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "tank",
+    "support"
+   ],
+   "notes": "empowers 2 nearby allies with rune magic (bonus area damage)",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "prince": {
+   "name": "Prince",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "charge",
+    "support"
+   ],
+   "notes": "charges after 3 tiles (2x damage)",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "dark_prince": {
+   "name": "Dark Prince",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "mini_tank",
+    "charge",
+    "splash",
+    "swarm_killer"
+   ],
+   "notes": "260 hp shield; charges after 3 tiles",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "dark_prince",
+    "released": "2026-05-04"
+   },
+   "verified": false
+  },
+  "baby_dragon": {
+   "name": "Baby Dragon",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "air",
+    "anti_air",
+    "splash",
+    "support",
+    "swarm_killer"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Breath leaves burning ground (released Sep 2025).",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "witch": {
+   "name": "Witch",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "spawner",
+    "splash",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "spawns Skeletons every 7s",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Periodically unleashes a bigger wave of Skeletons.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "skeleton_army": {
+   "name": "Skeleton Army",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 15,
+   "splash": false,
+   "roles": [
+    "swarm"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "giant_skeleton": {
+   "name": "Giant Skeleton",
+   "cost": 6,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "tank",
+    "spawn_on_death"
+   ],
+   "notes": "drops a bomb on death (~1300 area damage)",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "balloon": {
+   "name": "Balloon",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "air",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "air",
+    "spawn_on_death"
+   ],
+   "notes": "death damage ~318",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "balloon",
+    "released": "2026-04-06",
+    "ability": "Coffin Cadets: Skeletons jump off and fight"
+   },
+   "verified": false
+  },
+  "bowler": {
+   "name": "Bowler",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "mini_tank",
+    "splash",
+    "ranged",
+    "swarm_killer"
+   ],
+   "notes": "rolling boulder pierces and knocks back",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "bowler",
+    "released": "2026-05-04"
+   },
+   "verified": false
+  },
+  "executioner": {
+   "name": "Executioner",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "splash",
+    "ranged",
+    "anti_air",
+    "swarm_killer"
+   ],
+   "notes": "axe hits twice (out and back)",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Axe arc widens and hits more times on return.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "hunter": {
+   "name": "Hunter",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "10 pellets; full damage only at point blank",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Shots pull/knock targets toward him for point-blank damage.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "electro_dragon": {
+   "name": "Electro Dragon",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "air",
+    "anti_air",
+    "reset",
+    "support"
+   ],
+   "notes": "chain lightning hits 3 targets, 0.5s stun",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Chain lightning jumps to more targets with longer stun.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "guards": {
+   "name": "Guards",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 3,
+   "splash": false,
+   "roles": [
+    "swarm",
+    "cycle"
+   ],
+   "notes": "each has a 199 hp shield",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "golem": {
+   "name": "Golem",
+   "cost": 8,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "tank",
+    "spawn_on_death"
+   ],
+   "notes": "splits into 2 Golemites with death damage",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "pekka": {
+   "name": "P.E.K.K.A",
+   "cost": 7,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "tank",
+    "win_condition"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Heals herself from damage dealt (life steal) [unverified].",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "cannon_cart": {
+   "name": "Cannon Cart",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "support",
+    "ranged",
+    "building"
+   ],
+   "notes": "1147 hp shield; becomes a stationary cannon (~1057 hp) when shield breaks",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "goblin_giant": {
+   "name": "Goblin Giant",
+   "cost": 6,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "tank",
+    "spawn_on_death"
+   ],
+   "notes": "carries 2 Spear Goblins that attack from his back and drop on death",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Periodically spawns extra Spear Goblins from his backpack (spawn speed nerfed Sep 2025).",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "wall_breakers": {
+   "name": "Wall Breakers",
+   "cost": 2,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 2,
+   "splash": true,
+   "roles": [
+    "win_condition",
+    "cycle"
+   ],
+   "notes": "kamikaze area damage",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Leave bombs behind on death that detonate shortly after.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "electro_giant": {
+   "name": "Electro Giant",
+   "cost": 7,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "tank",
+    "reset"
+   ],
+   "notes": "zaps and stuns anything attacking him in melee range",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Added Oct 2026; effect not verified.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "lightning": {
+   "name": "Lightning",
+   "cost": 6,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_big",
+    "reset"
+   ],
+   "notes": "hits 3 highest-hp targets, 0.5s stun",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "freeze": {
+   "name": "Freeze",
+   "cost": 4,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_big",
+    "spell_utility"
+   ],
+   "notes": "freezes troops and buildings",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "poison": {
+   "name": "Poison",
+   "cost": 4,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_big",
+    "swarm_killer"
+   ],
+   "notes": "damage over time, slows",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "mirror": {
+   "name": "Mirror",
+   "cost": 0,
+   "kind": "spell",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "spell_utility"
+   ],
+   "notes": "replays last card at +1 elixir and +1 level",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Added Nov 2 2026; effect not verified.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "rage": {
+   "name": "Rage",
+   "cost": 2,
+   "kind": "spell",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_utility",
+    "spell_small"
+   ],
+   "notes": "+35% speed and attack speed",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "clone": {
+   "name": "Clone",
+   "cost": 3,
+   "kind": "spell",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_utility",
+    "spell_small"
+   ],
+   "notes": "clones troops with 1 hp",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "tornado": {
+   "name": "Tornado",
+   "cost": 3,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "spell_utility"
+   ],
+   "notes": "pulls troops to center; activates king tower",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "barbarian_barrel": {
+   "name": "Barbarian Barrel",
+   "cost": 2,
+   "kind": "spell",
+   "targets": "ground",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "swarm_killer"
+   ],
+   "notes": "rolls ~5 tiles then spawns a Barbarian",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "barbarian_barrel",
+    "released": "2026-03"
+   },
+   "verified": false
+  },
+  "goblin_barrel": {
+   "name": "Goblin Barrel",
+   "cost": 3,
+   "kind": "spell",
+   "targets": "ground",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "spell_utility"
+   ],
+   "notes": "spawns 3 Goblins anywhere",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Throws a second (decoy/delayed) barrel alongside the real one.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "goblin_drill": {
+   "name": "Goblin Drill",
+   "cost": 4,
+   "kind": "building",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "building",
+    "spawner",
+    "spawn_on_death"
+   ],
+   "notes": "can be placed anywhere; spawns Goblins; 2 Goblins on death",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Bigger drill spawns Goblins along its tunnel path.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "x_bow": {
+   "name": "X-Bow",
+   "cost": 6,
+   "kind": "building",
+   "targets": "ground",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "building",
+    "siege",
+    "win_condition"
+   ],
+   "notes": "",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "void": {
+   "name": "Void",
+   "cost": 5,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_big",
+    "spell_utility"
+   ],
+   "notes": "damage split among units: huge to a single unit, small to swarms",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "goblin_curse": {
+   "name": "Goblin Curse",
+   "cost": 2,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "spell_utility"
+   ],
+   "notes": "cursed troops take +20% damage and turn into Goblins on death",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "goblin_machine": {
+   "name": "Goblin Machine",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "support",
+    "ranged"
+   ],
+   "notes": "fires a long-range rocket periodically",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "inferno_dragon": {
+   "name": "Inferno Dragon",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "air",
+    "anti_air",
+    "support"
+   ],
+   "notes": "damage ramps from ~30 to ~350 per 0.4s; reset by stun",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Beam ramps faster and splits/arcs to a second target.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "ice_wizard": {
+   "name": "Ice Wizard",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "ranged",
+    "splash",
+    "anti_air"
+   ],
+   "notes": "slows targets by 35%",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "ice_wizard",
+    "released": "2026-09-07",
+    "ability": "ability damage 89->46 Oct 2026"
+   },
+   "verified": false
+  },
+  "princess": {
+   "name": "Princess",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "ranged",
+    "splash",
+    "anti_air",
+    "swarm_killer"
+   ],
+   "notes": "outranges towers",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Added Jun 2026; effect not verified.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "miner": {
+   "name": "Miner",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "mini_tank"
+   ],
+   "notes": "can be placed anywhere; reduced damage to towers",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "sparky": {
+   "name": "Sparky",
+   "cost": 6,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "splash",
+    "ranged"
+   ],
+   "notes": "charge is reset by stun",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "lava_hound": {
+   "name": "Lava Hound",
+   "cost": 7,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "air",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "tank",
+    "air",
+    "spawn_on_death"
+   ],
+   "notes": "spawns 6 Lava Pups on death",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "lumberjack": {
+   "name": "Lumberjack",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "support",
+    "spawn_on_death"
+   ],
+   "notes": "drops a Rage spell on death",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 2,
+    "effect": "Drops a larger/longer Rage on death that also affects buildings.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "electro_wizard": {
+   "name": "Electro Wizard",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "support",
+    "ranged",
+    "reset",
+    "anti_air"
+   ],
+   "notes": "zaps on spawn; hits 2 targets with 0.5s stun",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "electro_wizard",
+    "released": "2026-10-05",
+    "ability": "Surging Strikes (2 elixir): stuns two nearby enemies"
+   },
+   "verified": false
+  },
+  "graveyard": {
+   "name": "Graveyard",
+   "cost": 5,
+   "kind": "spell",
+   "targets": "none",
+   "transport": "none",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "spell_utility"
+   ],
+   "notes": "spawns ~15 Skeletons over duration anywhere",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "log": {
+   "name": "The Log",
+   "cost": 2,
+   "kind": "spell",
+   "targets": "ground",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "swarm_killer"
+   ],
+   "notes": "rolls ~10 tiles, knockback, ground only",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "night_witch": {
+   "name": "Night Witch",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "support",
+    "spawner",
+    "spawn_on_death"
+   ],
+   "notes": "spawns Bats every 5s; 2 Bats on death",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "bandit": {
+   "name": "Bandit",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "support",
+    "charge"
+   ],
+   "notes": "dash (2x damage) makes her invulnerable",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "royal_ghost": {
+   "name": "Royal Ghost",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "mini_tank",
+    "splash",
+    "support"
+   ],
+   "notes": "invisible until attacking",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "magic_archer": {
+   "name": "Magic Archer",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "arrows pierce through targets",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": {
+    "key": "magic_archer",
+    "released": "2026-03-02",
+    "ability": "Triple Threat: piercing lane-long arrows; ability cost 1->2 Apr 2026"
+   },
+   "verified": false
+  },
+  "ram_rider": {
+   "name": "Ram Rider",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "charge"
+   ],
+   "notes": "charges after 3 tiles; rider snares troops with bolas",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "fisherman": {
+   "name": "Fisherman",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "support",
+    "reset",
+    "mini_tank"
+   ],
+   "notes": "hooks and pulls a target to him",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "mega_knight": {
+   "name": "Mega Knight",
+   "cost": 7,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "tank",
+    "win_condition",
+    "splash",
+    "swarm_killer"
+   ],
+   "notes": "spawn and jump damage ~2x",
+   "champion_ability": null,
+   "evolution": {
+    "cycles": 1,
+    "effect": "Chains repeated jump attacks while enemies remain in range.",
+    "effect_verified": false
+   },
+   "hero": null,
+   "verified": false
+  },
+  "mother_witch": {
+   "name": "Mother Witch",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "support",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "cursed troops turn into Hogs on death",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "phoenix": {
+   "name": "Phoenix",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "air",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "air",
+    "anti_air",
+    "support",
+    "spawn_on_death"
+   ],
+   "notes": "leaves an egg that rehatches into a Phoenix unless destroyed",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "spirit_empress": {
+   "name": "Spirit Empress",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "support",
+    "tank",
+    "ranged"
+   ],
+   "notes": "summons spirits; form depends on elixir state",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "golden_knight": {
+   "name": "Golden Knight",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "champion",
+    "mini_tank",
+    "support"
+   ],
+   "notes": "champion ability: Dashing Dash chains through up to 10 enemies (1 elixir)",
+   "champion_ability": "champion ability: Dashing Dash chains through up to 10 enemies (1 elixir)",
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "skeleton_king": {
+   "name": "Skeleton King",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "champion",
+    "tank",
+    "splash",
+    "spawner"
+   ],
+   "notes": "champion ability: Soul Summoning spawns collected Skeletons (2 elixir)",
+   "champion_ability": "champion ability: Soul Summoning spawns collected Skeletons (2 elixir)",
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "archer_queen": {
+   "name": "Archer Queen",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "champion",
+    "support",
+    "ranged",
+    "anti_air"
+   ],
+   "notes": "champion ability: Cloaking Cape, invisible with faster attacks (1 elixir)",
+   "champion_ability": "champion ability: Cloaking Cape, invisible with faster attacks (1 elixir)",
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "mighty_miner": {
+   "name": "Mighty Miner",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "champion",
+    "tank",
+    "mini_tank"
+   ],
+   "notes": "drill damage ramps; champion ability: Explosive Escape swaps lane and drops a bomb (1 elixir)",
+   "champion_ability": "drill damage ramps; champion ability: Explosive Escape swaps lane and drops a bomb (1 elixir)",
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "monk": {
+   "name": "Monk",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "champion",
+    "mini_tank",
+    "support"
+   ],
+   "notes": "3-hit combo with knockback; champion ability: Pensive Protection reflects projectiles (1 elixir)",
+   "champion_ability": "3-hit combo with knockback; champion ability: Pensive Protection reflects projectiles (1 elixir)",
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "little_prince": {
+   "name": "Little Prince",
+   "cost": 3,
+   "kind": "troop",
+   "targets": "both",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "champion",
+    "support",
+    "ranged",
+    "anti_air",
+    "cycle"
+   ],
+   "notes": "attack speed ramps; champion ability: Royal Rescue summons Guardienne with knockback (3 elixir)",
+   "champion_ability": "attack speed ramps; champion ability: Royal Rescue summons Guardienne with knockback (3 elixir)",
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "goblinstein": {
+   "name": "Goblinstein",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "ground",
+   "count": 2,
+   "splash": false,
+   "roles": [
+    "champion",
+    "tank",
+    "support",
+    "ranged"
+   ],
+   "notes": "Monster (tank, targets buildings) + Doctor (ranged); champion ability: Lightning Link electrocutes between them (2 elixir)",
+   "champion_ability": "Monster (tank, targets buildings) + Doctor (ranged); champion ability: Lightning Link electrocutes between them (2 elixir)",
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "boss_bandit": {
+   "name": "Boss Bandit",
+   "cost": 6,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "champion",
+    "mini_tank",
+    "charge",
+    "support"
+   ],
+   "notes": "dashes (double damage) when target is 3.5-6 tiles away; champion ability Getaway Grenade (1 elixir): turns invisible, teleports back 6 tiles and dashes; 2 charges, 3s cooldown (Jul 2025 rework)",
+   "champion_ability": "dashes (double damage) when target is 3.5-6 tiles away; champion ability Getaway Grenade (1 elixir): turns invisible, teleports back 6 tiles and dashes; 2 charges, 3s cooldown (Jul 2025 rework)",
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "vines": {
+   "name": "Vines",
+   "cost": 3,
+   "kind": "spell",
+   "targets": "both",
+   "transport": "none",
+   "count": 1,
+   "splash": true,
+   "roles": [
+    "spell_small",
+    "spell_utility"
+   ],
+   "notes": "Released Sep 1 2025 (Season 75). Entangles the 3 highest-HP units in a 2.5-tile radius for 2.5s; grounds air units so ground troops can hit them. Damage: 405 total at launch (162 dps x 2.5s); Sep 5 2025 emergency nerf 162->134 dps (~335 total); further Oct 2025 nerf (numbers not found). Verified: cost/rarity/radius/mechanic; damage approximate.",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "ronin": {
+   "name": "Ronin",
+   "cost": 5,
+   "kind": "troop",
+   "targets": "ground",
+   "transport": "ground",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "mini_tank",
+    "support"
+   ],
+   "notes": "Released Jul 6 2026 (Season 85 Honor & Exile). Melee, ground-only. Parry: every 3.5s blocks one incoming ground melee hit and reflects 200% of it; spawns with parry charged. Aug 2026 bug-fix: first hit time 0.3->0.4s. Damage sources conflict (371 vs 337 at L11); 337 is the more recent figure. Reduced tower damage multiplier (WIP note, unconfirmed).",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  },
+  "minion_giant": {
+   "name": "Minion Giant",
+   "cost": 4,
+   "kind": "troop",
+   "targets": "buildings",
+   "transport": "air",
+   "count": 1,
+   "splash": false,
+   "roles": [
+    "win_condition",
+    "air",
+    "mini_tank"
+   ],
+   "notes": "Released Sep 7 2026 (Season 87 Minion Academy, Academy Antics album event). Flying building-targeter that spits toxin from 4 tiles. Launch 189 dmg; Sep 16 2026 nerf 189->168 (-11%). All figures community-sourced (LDPlayer/noff/trophycoach), not from Supercell notes.",
+   "champion_ability": null,
+   "evolution": null,
+   "hero": null,
+   "verified": false
+  }
+ }
+}

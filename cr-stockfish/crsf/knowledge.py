@@ -56,8 +56,34 @@ class Archetype:
 
 
 @dataclass
+class Technique:
+    id: str
+    family: str
+    name: str
+    when: str
+    do: str
+    cards: Tuple[str, ...] = ()
+    vs: Tuple[str, ...] = ()
+    x: Optional[float] = None
+    y: Optional[float] = None
+    timing_type: str = ""
+    timing_value: str = ""
+    priority: int = 3
+
+    @property
+    def trigger_y(self) -> Optional[float]:
+        """For distance-timed techniques: the attacker's tile y (in my frame) at which to act."""
+        import re
+        if self.timing_type != "distance":
+            return None
+        m = re.search(r"y\s*[=≈~]\s*(\d+(?:\.\d+)?)", self.timing_value)
+        return float(m.group(1)) if m else None
+
+
+@dataclass
 class Knowledge:
     counters: Dict[str, Dict[str, Tuple[float, str]]] = field(default_factory=dict)   # attacker -> {defender: (quality, note)}
+    techniques: List[Technique] = field(default_factory=list)
     placements: Dict[str, List[Placement]] = field(default_factory=dict)              # card -> placements (left-lane normalised)
     placement_tips: Dict[str, List[str]] = field(default_factory=dict)
     mechanics: List[dict] = field(default_factory=list)
@@ -116,6 +142,18 @@ class Knowledge:
                                               a.get("gameplan", ""), a.get("how_to_beat", ""), tuple(a.get("beats", [])), tuple(a.get("loses_to", []))))
             for m in data.get("matchups", []):
                 k.matchups[(m.get("me", ""), m.get("opp", ""))] = m
+        data = _load_json(d / "techniques.json")
+        if data:
+            k.loaded.append("techniques.json")
+            for t in data.get("techniques", []):
+                try:
+                    tm = t.get("timing") or {}
+                    k.techniques.append(Technique(
+                        t.get("id", ""), t.get("family", ""), t.get("name", ""), t.get("when", ""), t.get("do", ""),
+                        tuple(c for c in t.get("cards", []) if ok(c)), tuple(c for c in t.get("vs", []) if ok(c)),
+                        t.get("x"), t.get("y"), str(tm.get("type", "")), str(tm.get("value", "")), int(t.get("priority", 3) or 3)))
+                except (TypeError, ValueError):
+                    continue
         pri = d / "priors.json"
         if pri.exists():
             k.priors = PlacementPriors.load(pri)
@@ -143,6 +181,23 @@ class Knowledge:
             if n > best_n:
                 best, best_n = a, n
         return best if best_n >= 1 else None
+
+    def techniques_for(self, my_cards: List[str], on_board: List[str], expected: Optional[List[str]] = None, limit: int = 3) -> List[Technique]:
+        """Techniques whose cards are in my hand and whose targets are on the board (preferred) or expected in their hand."""
+        mine, board, exp = set(my_cards), set(on_board), set(expected or [])
+        hits = []
+        for t in self.techniques:
+            if not t.cards or not t.vs:
+                continue
+            if not (set(t.cards) & mine):
+                continue
+            tv = set(t.vs)
+            if tv & board:
+                hits.append((t.priority + 3 + len(tv & board), t))
+            elif tv & exp:
+                hits.append((t.priority, t))
+        hits.sort(key=lambda x: -x[0])
+        return [t for _, t in hits[:limit]]
 
     def matchup(self, me: Optional[str], opp: Optional[str]) -> Optional[dict]:
         if not me or not opp:

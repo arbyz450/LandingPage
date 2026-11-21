@@ -583,6 +583,12 @@ class Engine:
         comps["placement"] = kb
         reasons += kb_reasons
 
+        # 1c. Technique timing: don't drop the counter before the attacker reaches the trigger tile
+        tg, tg_reason = self._timing_gate(state, mv, card, threats)
+        if tg:
+            comps["timing"] = -tg
+            reasons.append(tg_reason)
+
         # 2. Offense ----------------------------------------------------------
         offense, off_reasons = self._offense(state, mv, card, total_threat)
         comps["offense"] = w.offense * offense
@@ -828,6 +834,27 @@ class Engine:
                     reason = f"you could no longer answer {oc.name}"
         return worst, reason
 
+    def _timing_gate(self, state: GameState, mv: Move, card: Card, threats) -> Tuple[float, str]:
+        """Penalty for playing a timed counter too early (distance-timed techniques)."""
+        if card.is_spell and mv.zone and mv.zone.startswith("tower:"):
+            return 0.0, ""
+        best_pen, why = 0.0, ""
+        for t in self.k.techniques:
+            if card.key not in t.cards or t.family not in ("deploy_timing", "kiting_pulling", "king_activation", "spell_timing", "micro"):
+                continue
+            ty = t.trigger_y
+            if ty is None:
+                continue
+            for u, w in threats:
+                if u.card not in t.vs or (u.lane != mv.lane and mv.lane != "center"):
+                    continue
+                early = u.y - ty          # tiles the attacker still has to travel
+                if early > 1.0:
+                    pen = min(0.8 * card.cost, 0.25 * card.cost * early)
+                    if pen > best_pen:
+                        best_pen, why = pen, f"too early: {t.name} wants {self.db.get(u.card).name} at y≈{ty:.0f} (now {u.y:.0f})"
+        return best_pen, why
+
     def _kp(self, card_key: str, mv: Move):
         label = mv.zone.split(":", 1)[1] if mv.zone else ""
         return next((p for p in self.k.placements_for(card_key) if p.label == label), None)
@@ -880,6 +907,9 @@ class Engine:
             mu = self.k.matchup(my_arch.id if my_arch else None, opp_arch.id)
             if mu:
                 notes.append(f"Matchup plan ({my_arch.id} vs {opp_arch.id}): {mu.get('plan', '')}")
+        on_board = [u.card for u in state.opp_units()]
+        for t in self.k.techniques_for(state.playable_hand(), on_board, list(o.predicted_hand), limit=2):
+            notes.append(f"Technique: {t.name}. {t.do}")
         pol = self.k.phase_policy.get("overtime" if state.overtime else state.phase)
         if pol:
             first = pol.split(". ")[0]

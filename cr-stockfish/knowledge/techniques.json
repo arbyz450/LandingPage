@@ -1,0 +1,3027 @@
+{
+ "techniques": [
+  {
+   "id": "ice_spirit_hog_freeze_at_tower",
+   "family": "deploy_timing",
+   "name": "Ice Spirit meets Hog at tower edge",
+   "when": "Enemy Hog Rider alone crosses the bridge toward my left tower.",
+   "do": "Deploy Ice Spirit at (4.5,9.5) when Hog is at y~14 (1 tile my side of bridge); 1s deploy + jump lands freeze as Hog reaches tower, tower kills it with 0-1 hits taken.",
+   "cards": [
+    "ice_spirit"
+   ],
+   "vs": [
+    "hog_rider"
+   ],
+   "x": 4.5,
+   "y": 9.5,
+   "timing": {
+    "type": "distance",
+    "value": "hog at y=14 (1 tile past bridge)"
+   },
+   "priority": 5,
+   "sources": [
+    "https://theriagames.com/guide/clash-royale-hog-rider-guide/",
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "skeletons_hog_surround_at_tower_edge",
+   "family": "deploy_timing",
+   "name": "Skeletons surround Hog in tower range",
+   "when": "Enemy Hog Rider crossing bridge; I hold Skeletons and no building.",
+   "do": "Drop Skeletons at (4,9) directly on the Hog's path when it is at y~11, so all 3 surround it inside tower range; Hog gets 1-2 hits at most.",
+   "cards": [
+    "skeletons"
+   ],
+   "vs": [
+    "hog_rider"
+   ],
+   "x": 4.0,
+   "y": 9.0,
+   "timing": {
+    "type": "distance",
+    "value": "hog at y=11"
+   },
+   "priority": 5,
+   "sources": [
+    "https://theriagames.com/guide/clash-royale-hog-rider-guide/",
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "guards_on_prince_at_bridge_cancel_charge",
+   "family": "deploy_timing",
+   "name": "Guards on Prince to cancel charge",
+   "when": "Enemy Prince (or Dark Prince) charging down the lane, about to cross the bridge.",
+   "do": "Place Guards directly on top of the Prince at (3.5,14) as he steps off the bridge; the hit on a shield cancels the charge and he dies to Guards + tower.",
+   "cards": [
+    "guards"
+   ],
+   "vs": [
+    "prince",
+    "dark_prince"
+   ],
+   "x": 3.5,
+   "y": 14.0,
+   "timing": {
+    "type": "distance",
+    "value": "prince at y=15-16 (on bridge)"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "skeletons_on_prince_to_stop_charge",
+   "family": "deploy_timing",
+   "name": "Skeletons on charging Prince",
+   "when": "Enemy Prince charging, Skeletons in hand, nothing else cheap.",
+   "do": "Deploy Skeletons on the Prince's tile when he is 2 tiles from the tower (y~10); first skeleton hit absorbs the charge, remaining two distract 2-3s while tower shoots.",
+   "cards": [
+    "skeletons"
+   ],
+   "vs": [
+    "prince"
+   ],
+   "x": 4.0,
+   "y": 10.0,
+   "timing": {
+    "type": "distance",
+    "value": "prince at y=10"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "mini_pekka_behind_tower_vs_giant",
+   "family": "deploy_timing",
+   "name": "Mini P.E.K.K.A behind tower on Giant",
+   "when": "Enemy Giant walking at my left tower with no splash support behind it.",
+   "do": "When Giant is 3 tiles from the tower (y~11), deploy Mini P.E.K.K.A at (3.5,4.5) behind the tower; it walks out as Giant locks on and gets 4-5 hits before support arrives.",
+   "cards": [
+    "mini_pekka"
+   ],
+   "vs": [
+    "giant",
+    "goblin_giant",
+    "royal_giant"
+   ],
+   "x": 3.5,
+   "y": 4.5,
+   "timing": {
+    "type": "distance",
+    "value": "giant at y=11"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "tornado_king_hog_two_tiles_past_river",
+   "family": "deploy_timing",
+   "name": "Tornado Hog to King at y=14",
+   "when": "Enemy Hog Rider (or Goblin Barrel, Wall Breakers) coming alone down left lane; king tower not yet active.",
+   "do": "Cast Tornado centered at (7,7.5) when Hog is at y~14 (2 tiles past river); pull lands Hog on the king tower hitbox so it hits the king and activates it.",
+   "cards": [
+    "tornado"
+   ],
+   "vs": [
+    "hog_rider",
+    "goblin_barrel",
+    "wall_breakers"
+   ],
+   "x": 7.0,
+   "y": 7.5,
+   "timing": {
+    "type": "distance",
+    "value": "hog at y=14"
+   },
+   "priority": 5,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "fisherman_hook_hog_to_king",
+   "family": "deploy_timing",
+   "name": "Fisherman hooks Hog onto the king",
+   "when": "Enemy Hog Rider crossing the bridge; Fisherman in hand; king inactive.",
+   "do": "Deploy Fisherman at (6.5,5) when Hog is at y~13; after 1s deploy the hook (range ~7) drags the Hog beside the king, Hog hits king and activates it.",
+   "cards": [
+    "fisherman"
+   ],
+   "vs": [
+    "hog_rider",
+    "battle_ram",
+    "ram_rider"
+   ],
+   "x": 6.5,
+   "y": 5.0,
+   "timing": {
+    "type": "distance",
+    "value": "hog at y=13"
+   },
+   "priority": 4,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Fisherman",
+    "https://xboxplay.games/clash-royale/how-to-complete-the-kingfisher-puzzle-in-clash-royale-77133",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "zap_inferno_tower_at_stage_three",
+   "family": "deploy_timing",
+   "name": "Zap Inferno Tower at full ramp",
+   "when": "My tank (Golem/Giant/Lava Hound) is locked by Inferno Tower; its beam just hit the third stage (~4s after lock).",
+   "do": "Zap/Electro Spirit/Snowball the Inferno Tower exactly when the beam turns to stage 3 (~4s after lock); reset drops it to stage 1 and buys another 4s of low damage.",
+   "cards": [
+    "zap",
+    "electro_spirit",
+    "giant_snowball",
+    "lightning"
+   ],
+   "vs": [
+    "inferno_tower"
+   ],
+   "x": 3.5,
+   "y": 25.0,
+   "timing": {
+    "type": "delay",
+    "value": "4.0s after inferno locks on"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "zap_inferno_dragon_reset_on_lock",
+   "family": "deploy_timing",
+   "name": "Reset Inferno Dragon before max",
+   "when": "Inferno Dragon locked on my tank; beam reaches stage 3 (~4s).",
+   "do": "Zap/Electro Wizard/Electro Spirit the Inferno Dragon ~3.5-4s after it locks, then let a small troop retarget it; if waiting 2s more, reset again, each reset costs it 4s of ramp.",
+   "cards": [
+    "zap",
+    "electro_wizard",
+    "electro_spirit",
+    "lightning"
+   ],
+   "vs": [
+    "inferno_dragon"
+   ],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "delay",
+    "value": "3.5-4.0s after lock"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "freeze_balloon_one_tile_from_tower",
+   "family": "deploy_timing",
+   "name": "Freeze when Balloon is 1 tile out",
+   "when": "My Balloon about to reach the enemy tower; defenders (Musketeer, Mega Minion) are on it.",
+   "do": "Cast Freeze on (3.5,24) when Balloon is 1 tile from the tower (y~23.5); it covers tower and defenders, Balloon drops 2 bombs plus death bomb before anything retargets.",
+   "cards": [
+    "freeze",
+    "balloon"
+   ],
+   "vs": [
+    "musketeer",
+    "mega_minion",
+    "tesla"
+   ],
+   "x": 3.5,
+   "y": 24.0,
+   "timing": {
+    "type": "distance",
+    "value": "balloon at y=23.5 (1 tile from tower)"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "arrows_goblin_barrel_on_launch",
+   "family": "deploy_timing",
+   "name": "Arrows the Barrel in flight",
+   "when": "Enemy Goblin Barrel just thrown at my tower; I hold Arrows.",
+   "do": "Cast Arrows on the landing tile (3.5,7.5) about 0.5s after the barrel is thrown; arrows' ~1s travel lands as the goblins spawn, killing all three before a stab.",
+   "cards": [
+    "arrows"
+   ],
+   "vs": [
+    "goblin_barrel"
+   ],
+   "x": 3.5,
+   "y": 7.5,
+   "timing": {
+    "type": "delay",
+    "value": "0.5s after barrel thrown"
+   },
+   "priority": 5,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "log_barrel_after_landing",
+   "family": "deploy_timing",
+   "name": "Log the Barrel after it lands",
+   "when": "Enemy Goblin Barrel thrown at my left tower; I hold The Log.",
+   "do": "Wait until goblins spawn, then roll Log from (3.5,5) upward through the landing tile; goblins land stacked and all die before the second stab (tower takes 1 stab at most).",
+   "cards": [
+    "log"
+   ],
+   "vs": [
+    "goblin_barrel"
+   ],
+   "x": 3.5,
+   "y": 5.0,
+   "timing": {
+    "type": "delay",
+    "value": "0.2s after goblins spawn"
+   },
+   "priority": 5,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "rocket_three_musketeers_on_split",
+   "family": "deploy_timing",
+   "name": "Rocket the 3M pair on split",
+   "when": "Enemy Three Musketeers deployed at the back and splitting; two go to one lane.",
+   "do": "Target the two-Musketeer side 1s after they split; Rocket center on (3.5,27) as the pair walks together, catching both inside the 2-tile radius for a 6-for-9 trade.",
+   "cards": [
+    "rocket"
+   ],
+   "vs": [
+    "three_musketeers"
+   ],
+   "x": 3.5,
+   "y": 27.0,
+   "timing": {
+    "type": "delay",
+    "value": "1.0s after split"
+   },
+   "priority": 4,
+   "sources": [
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "fireball_support_crossing_bridge",
+   "family": "deploy_timing",
+   "name": "Fireball support as it reaches bridge",
+   "when": "Enemy Giant/Golem crossing with Musketeer/Wizard 2-3 tiles behind; support about to step onto the bridge.",
+   "do": "Fireball at (3.5,16.5) when the support is 1 tile from the bridge; travel ~1s lands as Musketeer/Wizard stand on the narrow bridge tile, often also clipping the tank.",
+   "cards": [
+    "fireball",
+    "poison"
+   ],
+   "vs": [
+    "musketeer",
+    "wizard",
+    "witch",
+    "electro_wizard"
+   ],
+   "x": 3.5,
+   "y": 16.5,
+   "timing": {
+    "type": "distance",
+    "value": "support at y=17.5"
+   },
+   "priority": 5,
+   "sources": [
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "knight_in_front_of_tower_vs_bandit_dash",
+   "family": "deploy_timing",
+   "name": "Knight absorbs Bandit dash",
+   "when": "Enemy Bandit dashing at my left tower.",
+   "do": "Drop Knight at (3.5,10.5) when Bandit is at y~13; the dash hits the Knight instead of the tower and she dies to Knight + tower.",
+   "cards": [
+    "knight",
+    "ice_golem",
+    "valkyrie"
+   ],
+   "vs": [
+    "bandit"
+   ],
+   "x": 3.5,
+   "y": 10.5,
+   "timing": {
+    "type": "distance",
+    "value": "bandit at y=13"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "cannon_vs_royal_hogs_late_drop",
+   "family": "deploy_timing",
+   "name": "Late building drop vs Royal Hogs",
+   "when": "Enemy Royal Hogs crossing in one lane (not split).",
+   "do": "Place Cannon/Tesla at (5.5,11) when the lead hog is at y~14; a late drop means all four hogs retarget onto the building inside tower range instead of spreading.",
+   "cards": [
+    "cannon",
+    "tesla",
+    "bomb_tower"
+   ],
+   "vs": [
+    "royal_hogs"
+   ],
+   "x": 5.5,
+   "y": 11.0,
+   "timing": {
+    "type": "distance",
+    "value": "lead hog at y=14"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "bats_on_balloon_after_tesla_pull",
+   "family": "deploy_timing",
+   "name": "Bats on Balloon once it is pulled",
+   "when": "Enemy Balloon pulled by my Tesla/Cannon; Lava Hound or Baby Dragon support behind it.",
+   "do": "Deploy Bats directly on the Balloon at (6,12) ~1s after it locks the building, so splash support behind cannot hit them; 5 bats kill Balloon in ~3s.",
+   "cards": [
+    "bats",
+    "minions"
+   ],
+   "vs": [
+    "balloon"
+   ],
+   "x": 6.0,
+   "y": 12.0,
+   "timing": {
+    "type": "delay",
+    "value": "1.0s after balloon locks building"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "electro_wizard_drop_on_sparky_charge",
+   "family": "deploy_timing",
+   "name": "Electro Wizard reset on Sparky at bridge",
+   "when": "Enemy Sparky walking to the bridge, charge almost full (about 4s since last shot).",
+   "do": "Deploy Electro Wizard directly on Sparky at (3.5,14) when it is 1 tile from firing at a defender; spawn zap resets her charge, then he keeps stunning every 1.8s.",
+   "cards": [
+    "electro_wizard"
+   ],
+   "vs": [
+    "sparky"
+   ],
+   "x": 3.5,
+   "y": 14.0,
+   "timing": {
+    "type": "state",
+    "value": "sparky charge >=3.5s"
+   },
+   "priority": 4,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-sparky-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "ice_golem_kite_mega_knight_across",
+   "family": "kiting_pulling",
+   "name": "Ice Golem kites Mega Knight to the other lane",
+   "when": "Enemy Mega Knight jumped into my left lane near the bridge; no supporting troops behind.",
+   "do": "Place Ice Golem at (9,12) about 4 tiles from the Mega Knight; he walks toward the center, Ice Golem retreats toward (12,9); Mega Knight ends up pulled under both towers.",
+   "cards": [
+    "ice_golem"
+   ],
+   "vs": [
+    "mega_knight"
+   ],
+   "x": 9.0,
+   "y": 12.0,
+   "timing": {
+    "type": "distance",
+    "value": "mega knight at (3.5,14)"
+   },
+   "priority": 5,
+   "sources": [
+    "https://www.sportskeeda.com/esports/what-kiting-clash-royale-and-how-to-do-it",
+    "https://sportskeeda.com/esports/how-use-ice-golem-clash-royale",
+    "https://www.sportskeeda.com/esports/how-use-mega-knight-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "skeletons_kite_pekka_to_center",
+   "family": "kiting_pulling",
+   "name": "Skeletons kite P.E.K.K.A toward king",
+   "when": "Enemy P.E.K.K.A crossed the bridge alone toward my left tower.",
+   "do": "Drop Skeletons at (7,11), 3-4 tiles diagonally inside; P.E.K.K.A turns to chase, each skeleton swing drags her toward the king's range while the tower shoots free.",
+   "cards": [
+    "skeletons"
+   ],
+   "vs": [
+    "pekka",
+    "mega_knight"
+   ],
+   "x": 7.0,
+   "y": 11.0,
+   "timing": {
+    "type": "distance",
+    "value": "pekka at y=13"
+   },
+   "priority": 5,
+   "sources": [
+    "https://www.sportskeeda.com/esports/what-kiting-clash-royale-and-how-to-do-it",
+    "https://sportskeeda.com/esports/how-use-ice-golem-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "ice_golem_kite_elite_barbarians",
+   "family": "kiting_pulling",
+   "name": "Ice Golem kite Elite Barbarians into the pocket",
+   "when": "Enemy Elite Barbarians at my bridge; I have Ice Golem and a tower-range defender.",
+   "do": "Place Ice Golem at (7.5,9.5); Ebarbs chase it into the gap between princess and king towers, both towers hit them, Ice Golem death nova slows them for the finisher.",
+   "cards": [
+    "ice_golem"
+   ],
+   "vs": [
+    "elite_barbarians"
+   ],
+   "x": 7.5,
+   "y": 9.5,
+   "timing": {
+    "type": "distance",
+    "value": "ebarbs at y=14"
+   },
+   "priority": 4,
+   "sources": [
+    "https://www.sportskeeda.com/esports/what-kiting-clash-royale-and-how-to-do-it",
+    "https://sportskeeda.com/esports/how-use-ice-golem-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "knight_kite_mini_pekka_from_tower",
+   "family": "kiting_pulling",
+   "name": "Knight pulls Mini P.E.K.K.A off the tower",
+   "when": "Enemy Mini P.E.K.K.A alone heading to my left tower.",
+   "do": "Deploy Knight at (6,10), 1-2 tiles inside the Mini P.E.K.K.A's path; it retargets, fights Knight in tower range and dies for a +1 trade with Knight left for counterpush.",
+   "cards": [
+    "knight",
+    "valkyrie"
+   ],
+   "vs": [
+    "mini_pekka",
+    "lumberjack"
+   ],
+   "x": 6.0,
+   "y": 10.0,
+   "timing": {
+    "type": "distance",
+    "value": "mini pekka at y=12"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "skeletons_kite_prince_after_charge",
+   "family": "kiting_pulling",
+   "name": "Kite Prince after he spends his charge",
+   "when": "Enemy Prince crossing; he will charge the first thing he sees.",
+   "do": "Place Skeletons at (6.5,12) so the charge is wasted on a skeleton; survivors pull him sideways toward the center where he re-charges only after 2 more tiles.",
+   "cards": [
+    "skeletons",
+    "ice_spirit"
+   ],
+   "vs": [
+    "prince"
+   ],
+   "x": 6.5,
+   "y": 12.0,
+   "timing": {
+    "type": "distance",
+    "value": "prince at y=15"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "kite_lumberjack_into_other_lane",
+   "family": "kiting_pulling",
+   "name": "Kite Lumberjack across lanes",
+   "when": "Enemy Lumberjack alone; I do not want his rage dropping on my tower-side push.",
+   "do": "Ice Golem at (9.5,10): Lumberjack chases to the center, dies to both towers, his rage lands on nothing of mine; never kill him next to my own defenders.",
+   "cards": [
+    "ice_golem",
+    "knight"
+   ],
+   "vs": [
+    "lumberjack"
+   ],
+   "x": 9.5,
+   "y": 10.0,
+   "timing": {
+    "type": "distance",
+    "value": "lumberjack at y=14"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "building_4_3_pull_hog",
+   "family": "kiting_pulling",
+   "name": "4-3 building plant vs Hog",
+   "when": "Enemy Hog Rider expected or crossing left lane; I hold a building.",
+   "do": "Place Cannon/Tesla/Tombstone at (7.5,12): 4 tiles below river, 3 tiles inside the princess tower. Hog retargets at the bridge and never reaches the tower; both towers shoot it.",
+   "cards": [
+    "cannon",
+    "tesla",
+    "tombstone",
+    "bomb_tower",
+    "goblin_cage"
+   ],
+   "vs": [
+    "hog_rider",
+    "battle_ram",
+    "ram_rider"
+   ],
+   "x": 7.5,
+   "y": 12.0,
+   "timing": {
+    "type": "distance",
+    "value": "attacker at bridge y=15-16"
+   },
+   "priority": 5,
+   "sources": [
+    "https://trophycoach.com/guides/how-to-counter-hog-cycle-deck",
+    "https://sportskeeda.com/esports/how-use-cannon-clash-royale",
+    "https://www.sportskeeda.com/esports/how-use-building-cards-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "building_3_2_pull_giant_golem",
+   "family": "kiting_pulling",
+   "name": "3-2 plant for slow tanks",
+   "when": "Enemy Giant/Golem/Royal Giant walking down left lane with support behind.",
+   "do": "Plant Inferno Tower/Tesla at (6.5,13): 3 below river, 2 inside tower. Tank locks at the bridge, support bunches behind it for splash, and the building is far from Royal Giant range.",
+   "cards": [
+    "inferno_tower",
+    "tesla",
+    "cannon"
+   ],
+   "vs": [
+    "giant",
+    "golem",
+    "royal_giant",
+    "electro_giant"
+   ],
+   "x": 6.5,
+   "y": 13.0,
+   "timing": {
+    "type": "distance",
+    "value": "tank at y=17"
+   },
+   "priority": 5,
+   "sources": [
+    "https://trophycoach.com/guides/how-to-counter-hog-cycle-deck",
+    "https://sportskeeda.com/esports/how-use-cannon-clash-royale",
+    "https://www.sportskeeda.com/esports/how-use-building-cards-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "building_center_pulls_both_lanes",
+   "family": "kiting_pulling",
+   "name": "Center building in front of king",
+   "when": "Opponent runs Royal Hogs/Three Musketeers split or switches lanes often.",
+   "do": "Place Tesla/Cannon at (9,10) in front of the king: it is the nearest building to any bridge crosser in either lane, so one plant pulls both split pushes into king + princess range.",
+   "cards": [
+    "tesla",
+    "cannon",
+    "inferno_tower",
+    "bomb_tower"
+   ],
+   "vs": [
+    "royal_hogs",
+    "three_musketeers",
+    "hog_rider",
+    "balloon"
+   ],
+   "x": 9.0,
+   "y": 10.0,
+   "timing": {
+    "type": "state",
+    "value": "opponent split pushing"
+   },
+   "priority": 4,
+   "sources": [
+    "https://trophycoach.com/guides/how-to-counter-hog-cycle-deck",
+    "https://sportskeeda.com/esports/how-use-cannon-clash-royale",
+    "https://www.sportskeeda.com/esports/how-use-building-cards-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "tesla_pull_balloon_inside",
+   "family": "kiting_pulling",
+   "name": "Tesla pull on Balloon",
+   "when": "Enemy Balloon crossing left lane, often with Lava Hound ahead.",
+   "do": "Place Tesla at (6.5,11) when Balloon is at y~16; it retargets to the Tesla instead of the tower and hangs 4-5s in range of tower + my air defence.",
+   "cards": [
+    "tesla",
+    "cannon",
+    "inferno_tower"
+   ],
+   "vs": [
+    "balloon",
+    "lava_hound"
+   ],
+   "x": 6.5,
+   "y": 11.0,
+   "timing": {
+    "type": "distance",
+    "value": "balloon at y=16"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "royal_giant_pull_deep_building",
+   "family": "kiting_pulling",
+   "name": "Deep plant vs Royal Giant",
+   "when": "Enemy Royal Giant at bridge; its range is 5 tiles so a 4-3 plant is shot from the bridge.",
+   "do": "Plant building at (7.5,10), 6 tiles below river, so Royal Giant must walk into both towers' range before it can shoot the building.",
+   "cards": [
+    "cannon",
+    "tesla",
+    "inferno_tower"
+   ],
+   "vs": [
+    "royal_giant"
+   ],
+   "x": 7.5,
+   "y": 10.0,
+   "timing": {
+    "type": "distance",
+    "value": "royal giant at y=16"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "ram_rider_pull_building_early",
+   "family": "kiting_pulling",
+   "name": "Early building vs Ram Rider",
+   "when": "Enemy Ram Rider placed at the bridge; her charge begins after ~3 tiles.",
+   "do": "Drop building at (7.5,12) before she passes y~14 so she locks and charges into the building, not the tower; snare lands on nothing. Cheap troops only after the charge hits.",
+   "cards": [
+    "cannon",
+    "tesla",
+    "tombstone"
+   ],
+   "vs": [
+    "ram_rider",
+    "battle_ram"
+   ],
+   "x": 7.5,
+   "y": 12.0,
+   "timing": {
+    "type": "distance",
+    "value": "ram at y=15"
+   },
+   "priority": 4,
+   "sources": [
+    "https://trophycoach.com/guides/how-to-counter-hog-cycle-deck",
+    "https://sportskeeda.com/esports/how-use-cannon-clash-royale",
+    "https://www.sportskeeda.com/esports/how-use-building-cards-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "golem_pull_with_cheap_unit_to_center",
+   "family": "kiting_pulling",
+   "name": "Pull Golem's support with cheap troop",
+   "when": "Enemy Golem at bridge with Night Witch/Baby Dragon 2 tiles behind.",
+   "do": "Place Skeletons/Ice Spirit at (8,11) so the support retargets toward the center while the Golem continues to the tower; then hit the isolated support with splash or Fireball.",
+   "cards": [
+    "skeletons",
+    "ice_spirit",
+    "ice_golem"
+   ],
+   "vs": [
+    "night_witch",
+    "baby_dragon",
+    "golem"
+   ],
+   "x": 8.0,
+   "y": 11.0,
+   "timing": {
+    "type": "distance",
+    "value": "support at y=13"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "balloon_pull_with_minions_wait",
+   "family": "kiting_pulling",
+   "name": "Pull Balloon off-lane with late Minions",
+   "when": "Enemy Balloon crossing; no building.",
+   "do": "Hold Minions until Balloon is at y~12, then drop at (5.5,9) on it; the Balloon continues to tower but Minions and tower kill it after one bomb; earlier drops let support hit them.",
+   "cards": [
+    "minions",
+    "mega_minion",
+    "bats"
+   ],
+   "vs": [
+    "balloon"
+   ],
+   "x": 5.5,
+   "y": 9.0,
+   "timing": {
+    "type": "distance",
+    "value": "balloon at y=12"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "tornado_hog_to_king_tile",
+   "family": "king_activation",
+   "name": "Tornado Hog into king",
+   "when": "Enemy Hog Rider in left lane, king inactive, Tornado in hand.",
+   "do": "Tornado at (7,7.5) when Hog is at y~14; it pulls the Hog 5 tiles into the king's hitbox and it hits the king once before dying. Works identically on Battle Ram and Ram Rider.",
+   "cards": [
+    "tornado"
+   ],
+   "vs": [
+    "hog_rider",
+    "battle_ram",
+    "ram_rider"
+   ],
+   "x": 7.0,
+   "y": 7.5,
+   "timing": {
+    "type": "distance",
+    "value": "hog at y=14"
+   },
+   "priority": 5,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://theriagames.com/?p=66611",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "tornado_goblin_barrel_to_king",
+   "family": "king_activation",
+   "name": "Tornado Barrel goblins onto king",
+   "when": "Enemy Goblin Barrel thrown at my left tower; king inactive.",
+   "do": "Cast Tornado at (6.5,5.5) as goblins spawn; they are dragged beside the king, stab it once, king activates and kills them with the princess tower.",
+   "cards": [
+    "tornado"
+   ],
+   "vs": [
+    "goblin_barrel"
+   ],
+   "x": 6.5,
+   "y": 5.5,
+   "timing": {
+    "type": "delay",
+    "value": "0.3s after goblins spawn"
+   },
+   "priority": 5,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://theriagames.com/?p=66611",
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "tornado_miner_to_king",
+   "family": "king_activation",
+   "name": "Tornado Miner into king",
+   "when": "Enemy Miner tunnels onto my left tower; Tornado ready.",
+   "do": "Tornado at (6.5,5) the moment the Miner surfaces at the tower; he lands against the king, swings once, activating it. Also catches Wall Breakers if they are mid-run.",
+   "cards": [
+    "tornado"
+   ],
+   "vs": [
+    "miner",
+    "wall_breakers"
+   ],
+   "x": 6.5,
+   "y": 5.0,
+   "timing": {
+    "type": "delay",
+    "value": "0.5s after miner surfaces"
+   },
+   "priority": 4,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://theriagames.com/?p=66611",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "skeletons_bait_fireball_on_king",
+   "family": "king_activation",
+   "name": "Skeletons to bait Fireball onto king",
+   "when": "Opponent fireballs or rockets my defensive swarms; king inactive.",
+   "do": "Place Skeletons/Ice Spirit at (7,4.5) hugging the king tower's front; a predicted Fireball/Rocket/Arrows on them splashes the king and activates it.",
+   "cards": [
+    "skeletons",
+    "ice_spirit",
+    "bats",
+    "spear_goblins"
+   ],
+   "vs": [
+    "fireball",
+    "rocket",
+    "arrows",
+    "poison"
+   ],
+   "x": 7.0,
+   "y": 4.5,
+   "timing": {
+    "type": "state",
+    "value": "opponent has shown spell-prediction habit"
+   },
+   "priority": 3,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://theriagames.com/?p=66611",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "fisherman_hook_to_king",
+   "family": "king_activation",
+   "name": "Fisherman hook from in front of king",
+   "when": "Any enemy ground troop (Hog, Giant, Knight) in my lane within 7 tiles of (7,5); king inactive.",
+   "do": "Deploy Fisherman at (7,5); after 1s he hooks the nearest enemy to himself, dropping it next to the king, which gets hit and activates.",
+   "cards": [
+    "fisherman"
+   ],
+   "vs": [
+    "hog_rider",
+    "giant",
+    "knight",
+    "royal_ghost"
+   ],
+   "x": 7.0,
+   "y": 5.0,
+   "timing": {
+    "type": "state",
+    "value": "target within 7 tiles of fisherman"
+   },
+   "priority": 4,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Fisherman",
+    "https://xboxplay.games/clash-royale/how-to-complete-the-kingfisher-puzzle-in-clash-royale-77133",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "let_barrel_goblin_hit_king",
+   "family": "king_activation",
+   "name": "Let one Barrel goblin reach the king",
+   "when": "Enemy Goblin Barrel thrown at my king tower (ladder players sometimes do) or a goblin wanders inward.",
+   "do": "Do not spell it; the goblins hit the king for ~100 damage each and activate it. Zap only after the first stab lands.",
+   "cards": [],
+   "vs": [
+    "goblin_barrel"
+   ],
+   "x": 9.0,
+   "y": 4.0,
+   "timing": {
+    "type": "state",
+    "value": "barrel targeting king"
+   },
+   "priority": 2,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "bomber_bomb_splash_king",
+   "family": "king_activation",
+   "name": "Enemy Bomber/Bowler splash onto king",
+   "when": "Enemy Bomber, Bowler or Executioner is attacking my troops near the center.",
+   "do": "Stand a cheap troop at (8,4.5) between the attacker and the king so the bomb's splash (radius 1.5) or Bowler's roll clips the king tower hitbox and activates it.",
+   "cards": [
+    "skeletons",
+    "ice_spirit",
+    "knight"
+   ],
+   "vs": [
+    "bomber",
+    "bowler",
+    "executioner",
+    "dark_prince"
+   ],
+   "x": 8.0,
+   "y": 4.5,
+   "timing": {
+    "type": "state",
+    "value": "enemy splasher at y<=9"
+   },
+   "priority": 3,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://theriagames.com/?p=66611",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "valkyrie_spin_king",
+   "family": "king_activation",
+   "name": "Valkyrie/Mega Knight splash activates king",
+   "when": "Enemy Valkyrie or Mega Knight walks deep into my side chasing a kite.",
+   "do": "Kite with Ice Golem to (8,4.5) beside the king; the spin/jump splash hits the king tower, activating it.",
+   "cards": [
+    "ice_golem",
+    "knight"
+   ],
+   "vs": [
+    "valkyrie",
+    "mega_knight"
+   ],
+   "x": 8.0,
+   "y": 4.5,
+   "timing": {
+    "type": "state",
+    "value": "enemy splasher pulled to y<=6"
+   },
+   "priority": 3,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://theriagames.com/?p=66611",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "electro_wizard_spawn_zap_near_king_no",
+   "family": "king_activation",
+   "name": "Spells and spawn zaps do NOT activate king",
+   "when": "Tempted to use Electro Wizard spawn zap, Zap or Rocket to wake the king.",
+   "do": "Skip: only troop attacks (including their splash) activate the king tower; spells and spawn effects never do. Spend the elixir on a Tornado or Fisherman play instead.",
+   "cards": [],
+   "vs": [
+    "electro_wizard",
+    "zap",
+    "rocket"
+   ],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "state",
+    "value": "always"
+   },
+   "priority": 2,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+    "https://theriagames.com/?p=66611",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "log_predict_skarmy_on_hog",
+   "family": "spell_timing",
+   "name": "Pre-Log the Skeleton Army on Hog",
+   "when": "My Hog Rider at the bridge; opponent counters it with Skeleton Army/Goblin Gang/Guards every time.",
+   "do": "Roll Log from (3.5,15.5) toward the tower 0.8s after Hog is placed, so it reaches (3.5,22) as their swarm deploys on the Hog's path 1 tile in front of the tower.",
+   "cards": [
+    "log",
+    "hog_rider"
+   ],
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "guards",
+    "skeletons"
+   ],
+   "x": 3.5,
+   "y": 15.5,
+   "timing": {
+    "type": "delay",
+    "value": "0.8s after hog placed"
+   },
+   "priority": 5,
+   "sources": [
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "zap_predict_swarm_on_battle_ram",
+   "family": "spell_timing",
+   "name": "Zap/Snowball prediction on Ram defenders",
+   "when": "My Battle Ram at bridge; opponent habitually drops Skeletons/Bats/Goblin Gang on it at the tower.",
+   "do": "Cast Zap at (3.5,23) ~1.3s after Ram placed (Ram arrives ~2.5s, Zap lands 0.5s); kills swarm as it spawns and the Ram connects. Snowball same timing from 0.3s earlier.",
+   "cards": [
+    "zap",
+    "giant_snowball",
+    "battle_ram"
+   ],
+   "vs": [
+    "skeletons",
+    "bats",
+    "goblin_gang",
+    "skeleton_army"
+   ],
+   "x": 3.5,
+   "y": 23.0,
+   "timing": {
+    "type": "delay",
+    "value": "1.3s after ram placed"
+   },
+   "priority": 4,
+   "sources": [
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "fireball_three_musketeers_on_deploy",
+   "family": "spell_timing",
+   "name": "Fireball 3M immediately on deploy",
+   "when": "Enemy Three Musketeers placed in the back (y~29) or on a pump.",
+   "do": "Fireball the exact deploy tile within 0.5s; all three still overlap, taking ~60% HP; follow with Log/Arrows later or let tower finish them.",
+   "cards": [
+    "fireball",
+    "poison"
+   ],
+   "vs": [
+    "three_musketeers"
+   ],
+   "x": 3.5,
+   "y": 29.0,
+   "timing": {
+    "type": "delay",
+    "value": "0.5s after 3M deployed"
+   },
+   "priority": 4,
+   "sources": [
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "fireball_musketeer_behind_giant_at_bridge",
+   "family": "spell_timing",
+   "name": "Fireball Musketeer behind Giant",
+   "when": "Enemy Giant with Musketeer 2 tiles behind approaching the bridge.",
+   "do": "Fireball at (3.5,18) when Musketeer is at y~19: travel ~1s puts Musketeer at the bridge, Giant catches splash too. Then one tower shot kills the Musketeer.",
+   "cards": [
+    "fireball"
+   ],
+   "vs": [
+    "musketeer",
+    "giant"
+   ],
+   "x": 3.5,
+   "y": 18.0,
+   "timing": {
+    "type": "distance",
+    "value": "musketeer at y=19"
+   },
+   "priority": 5,
+   "sources": [
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "fireball_witch_on_spawn_cycle",
+   "family": "spell_timing",
+   "name": "Fireball Witch on first skeleton spawn",
+   "when": "Enemy Witch walking behind a tank, first skeleton spawn just occurred.",
+   "do": "Fireball the Witch 0.5s after her skeleton spawn so splash kills the fresh skeletons and takes most of her HP; a Log/tower shot finishes.",
+   "cards": [
+    "fireball",
+    "lightning"
+   ],
+   "vs": [
+    "witch"
+   ],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "delay",
+    "value": "0.5s after witch spawns skeletons"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "poison_graveyard_defenders",
+   "family": "spell_timing",
+   "name": "Poison as Graveyard defenders drop",
+   "when": "My Graveyard cast on enemy tower; opponent defends with swarm or Archers.",
+   "do": "Cast Poison centered on (3,24.5) 1s after Graveyard, when the first skeletons spawn and the defenders are placed; 8s cloud kills swarm and halves Archers while tower takes chip.",
+   "cards": [
+    "poison",
+    "graveyard"
+   ],
+   "vs": [
+    "skeletons",
+    "goblin_gang",
+    "archers",
+    "bats"
+   ],
+   "x": 3.0,
+   "y": 24.5,
+   "timing": {
+    "type": "delay",
+    "value": "1.0s after graveyard"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "poison_elixir_collector_with_tower",
+   "family": "spell_timing",
+   "name": "Poison Collector plus tower",
+   "when": "Opponent placed Elixir Collector behind a princess tower (y~28).",
+   "do": "Poison centered between pump and tower at (3.5,27) within 2s of the pump drop: kills ~half pump value and chips tower; use Earthquake or Rocket only if the pump sits touching the tower.",
+   "cards": [
+    "poison",
+    "earthquake"
+   ],
+   "vs": [
+    "elixir_collector"
+   ],
+   "x": 3.5,
+   "y": 27.0,
+   "timing": {
+    "type": "delay",
+    "value": "0-2s after pump placed"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "rocket_cycle_threshold",
+   "family": "spell_timing",
+   "name": "Rocket cycle finishing threshold",
+   "when": "Enemy princess tower HP <= number of Rockets I can afford before timer end x ~450-500 (tournament level tower damage).",
+   "do": "Switch to Rocket cycling: Rocket the tower every time Rocket is back in hand with 6 elixir, defend with the other 3 cards, never Rocket troops unless they threaten a tower.",
+   "cards": [
+    "rocket"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 25.5,
+   "timing": {
+    "type": "state",
+    "value": "tower hp <= rockets_affordable * rocket_tower_damage"
+   },
+   "priority": 4,
+   "sources": [
+    "https://royaletracker.gg/guides/rocket-cycle-deck-clash-royale",
+    "https://www.148apps.com/clash-royale/how-to-use-rocket-effectively-in-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "earthquake_building_and_tower",
+   "family": "spell_timing",
+   "name": "Earthquake overlapping building + tower",
+   "when": "Opponent plants a defensive building within 3.5 tiles of their princess tower.",
+   "do": "Place Earthquake so its 3.5-tile radius covers both the building and tower: for a 4-3 plant at (7.5,20) cast at (5.5,22.5). 3 elixir deals heavy building damage plus tower chip.",
+   "cards": [
+    "earthquake"
+   ],
+   "vs": [
+    "cannon",
+    "tesla",
+    "inferno_tower",
+    "bomb_tower",
+    "goblin_cage"
+   ],
+   "x": 5.5,
+   "y": 22.5,
+   "timing": {
+    "type": "state",
+    "value": "building within 3.5 tiles of tower"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "lightning_inferno_plus_support",
+   "family": "spell_timing",
+   "name": "Lightning Inferno Tower + support",
+   "when": "Enemy Inferno Tower locks my tank with a Musketeer/Electro Wizard standing nearby.",
+   "do": "Lightning centered on the Inferno Tower when the support is within 3.5 tiles: resets and heavily damages the building, kills Musketeer, hits a third target or tower.",
+   "cards": [
+    "lightning"
+   ],
+   "vs": [
+    "inferno_tower",
+    "musketeer",
+    "electro_wizard"
+   ],
+   "x": 6.5,
+   "y": 20.0,
+   "timing": {
+    "type": "state",
+    "value": "support within 3.5 tiles of inferno"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "arrows_minion_horde_before_split",
+   "family": "spell_timing",
+   "name": "Arrows Minion Horde before it spreads",
+   "when": "Enemy Minion Horde deployed on my push or in the back.",
+   "do": "Arrows 0.3s after deployment, centered on the deploy tile; the 6 minions are still clustered. If they already spread over 4+ tiles, aim at the 4 nearest my tank.",
+   "cards": [
+    "arrows",
+    "fireball",
+    "zap"
+   ],
+   "vs": [
+    "minion_horde"
+   ],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "delay",
+    "value": "0.3s after horde deployed"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "log_wait_for_second_swarm",
+   "family": "spell_timing",
+   "name": "Hold Log for the second swarm",
+   "when": "Opponent has two swarm cards (e.g. Skarmy + Goblin Gang) and I have one small spell.",
+   "do": "Do not Log the first swarm; let tower + a melee troop handle it, save Log for the swarm that defends my win condition. Spell count must match swarm count.",
+   "cards": [
+    "log",
+    "zap",
+    "arrows"
+   ],
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "guards"
+   ],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "state",
+    "value": "opponent swarms > my small spells"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "fireball_prediction_on_split_lane_counter",
+   "family": "spell_timing",
+   "name": "Fireball where the counter will be placed",
+   "when": "Opponent counters my Balloon with Musketeer at the same tile every time (usually (5.5,22.5)).",
+   "do": "Cast Fireball at that tile 0.5s before the Balloon reaches y~20 so it lands as the Musketeer deploys (1s deploy delay) and she dies before shooting.",
+   "cards": [
+    "fireball",
+    "balloon"
+   ],
+   "vs": [
+    "musketeer",
+    "archers",
+    "electro_wizard"
+   ],
+   "x": 5.5,
+   "y": 22.5,
+   "timing": {
+    "type": "distance",
+    "value": "balloon at y=20"
+   },
+   "priority": 3,
+   "sources": [
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://sportskeeda.com/esports/how-use-fireball-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "rocket_sparky_only_when_charged",
+   "family": "spell_timing",
+   "name": "Rocket Sparky before she fires",
+   "when": "Enemy Sparky with tank in front crossing bridge; Rocket in hand.",
+   "do": "Rocket Sparky when she is at y~17 with 4-5 elixir tank ahead so she dies before her first shot at my defenders; cheaper than losing a Mini P.E.K.K.A + tower HP.",
+   "cards": [
+    "rocket",
+    "lightning"
+   ],
+   "vs": [
+    "sparky"
+   ],
+   "x": 3.5,
+   "y": 17.0,
+   "timing": {
+    "type": "distance",
+    "value": "sparky at y=17"
+   },
+   "priority": 3,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-sparky-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "hog_ice_spirit_spacing",
+   "family": "offense_timing",
+   "name": "Hog + Ice Spirit 1s gap",
+   "when": "I play Hog at the bridge expecting a building or small defender.",
+   "do": "Hog at (3.5,15), then Ice Spirit at (3.5,14) 1.0s later; the spirit arrives at the tower just as the defender deploys and freezes it for 1s. Same frame = pig push instead.",
+   "cards": [
+    "hog_rider",
+    "ice_spirit"
+   ],
+   "vs": [
+    "cannon",
+    "skeletons",
+    "musketeer"
+   ],
+   "x": 3.5,
+   "y": 14.0,
+   "timing": {
+    "type": "delay",
+    "value": "1.0s after hog"
+   },
+   "priority": 5,
+   "sources": [
+    "https://theriagames.com/guide/clash-royale-hog-rider-guide/",
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "hog_ice_golem_front",
+   "family": "offense_timing",
+   "name": "Ice Golem in front of Hog",
+   "when": "Opponent defends Hog with Mini P.E.K.K.A/Knight at the tower.",
+   "do": "Place Ice Golem at (3.5,15) first, Hog at (3.5,14) 0.5s later; Ice Golem tanks first hits at the tower, Hog slides past. Zap/Log right after hits the defender.",
+   "cards": [
+    "ice_golem",
+    "hog_rider"
+   ],
+   "vs": [
+    "mini_pekka",
+    "knight",
+    "valkyrie"
+   ],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "sequence",
+    "value": "ice golem, hog 0.5s later"
+   },
+   "priority": 4,
+   "sources": [
+    "https://theriagames.com/guide/clash-royale-hog-rider-guide/",
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "hog_pig_push_tile",
+   "family": "offense_timing",
+   "name": "Pig push off the inner bridge tile",
+   "when": "Opponent plants a 4-3 building or Tornadoes my Hog to the king.",
+   "do": "Hog at (4.5,15) and Skeletons/Ice Spirit at (5.5,14) on the same frame; the Hog is pushed inward and runs across the river diagonally, often outrunning the building pull.",
+   "cards": [
+    "hog_rider",
+    "skeletons",
+    "ice_spirit"
+   ],
+   "vs": [
+    "cannon",
+    "tesla",
+    "tornado"
+   ],
+   "x": 4.5,
+   "y": 15.0,
+   "timing": {
+    "type": "sequence",
+    "value": "same frame"
+   },
+   "priority": 4,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "giant_then_support_after_bridge",
+   "family": "offense_timing",
+   "name": "Giant crosses, then support",
+   "when": "Giant placed behind king (9,1) is now crossing the bridge.",
+   "do": "When the Giant is at y~17, drop Musketeer/Witch at (3.5,14) and Mini troops at (3.5,15); support is 3 tiles behind so Fireball cannot hit both, and the Giant has already tanked the building.",
+   "cards": [
+    "giant",
+    "musketeer",
+    "witch",
+    "sparky"
+   ],
+   "vs": [
+    "fireball",
+    "inferno_tower"
+   ],
+   "x": 3.5,
+   "y": 14.0,
+   "timing": {
+    "type": "distance",
+    "value": "giant at y=17"
+   },
+   "priority": 5,
+   "sources": [
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "https://mobi.gg/en/tips/clash-royale-baloon-guide",
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "golem_support_at_bridge",
+   "family": "offense_timing",
+   "name": "Golem support when Golem reaches bridge",
+   "when": "Golem placed at (9,1) in double elixir has walked to the bridge.",
+   "do": "Place Night Witch/Baby Dragon at (3.5,13) when Golem is at y~16; they stay 3+ tiles behind so Lightning/Fireball cannot hit Golem and support together, and defenders target the Golem first.",
+   "cards": [
+    "golem",
+    "night_witch",
+    "baby_dragon",
+    "lumberjack"
+   ],
+   "vs": [
+    "lightning",
+    "fireball",
+    "inferno_tower"
+   ],
+   "x": 3.5,
+   "y": 13.0,
+   "timing": {
+    "type": "distance",
+    "value": "golem at y=16"
+   },
+   "priority": 5,
+   "sources": [
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "https://mobi.gg/en/tips/clash-royale-baloon-guide",
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "balloon_behind_lava_hound",
+   "family": "offense_timing",
+   "name": "Balloon 2s behind Lava Hound",
+   "when": "Lava Hound placed at (3.5,1) in double elixir has reached y~12.",
+   "do": "Drop Balloon at (3.5,9) when the Hound is at y~12; Balloon arrives ~4s after Hound locks the tower, defenders are already on the Hound, and a Fireball cannot hit both.",
+   "cards": [
+    "lava_hound",
+    "balloon"
+   ],
+   "vs": [
+    "musketeer",
+    "tesla",
+    "inferno_dragon"
+   ],
+   "x": 3.5,
+   "y": 9.0,
+   "timing": {
+    "type": "distance",
+    "value": "hound at y=12"
+   },
+   "priority": 5,
+   "sources": [
+    "https://mobi.gg/en/tips/clash-royale-hog-rider-guide",
+    "https://mobi.gg/en/tips/clash-royale-baloon-guide",
+    "https://sportskeeda.com/esports/how-use-golem-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "miner_poison_timing",
+   "family": "offense_timing",
+   "name": "Miner then Poison on the counter",
+   "when": "Miner cast on enemy tower; opponent defends with swarm or Archers.",
+   "do": "Miner at (2.5,24) (left-back of tower), Poison centered (3,24.5) 1s after he surfaces; the cloud kills small defenders and ticks the tower for 8s while Miner tanks.",
+   "cards": [
+    "miner",
+    "poison"
+   ],
+   "vs": [
+    "skeletons",
+    "goblin_gang",
+    "archers",
+    "bats"
+   ],
+   "x": 2.5,
+   "y": 24.0,
+   "timing": {
+    "type": "delay",
+    "value": "1.0s after miner surfaces"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "miner_wall_breakers_sequence",
+   "family": "offense_timing",
+   "name": "Miner tanks for Wall Breakers",
+   "when": "Opponent out of Log/Zap or at <=3 elixir.",
+   "do": "Miner at (3.5,24) first, Wall Breakers at (3.5,15) 1s later; Miner surfaces as the tower locks on, so the tower shoots Miner while both breakers connect (~700 damage).",
+   "cards": [
+    "miner",
+    "wall_breakers"
+   ],
+   "vs": [
+    "log",
+    "zap",
+    "cannon"
+   ],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "sequence",
+    "value": "miner, wall breakers 1.0s later"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "miner_bats_delayed",
+   "family": "offense_timing",
+   "name": "Bats 1s after Miner",
+   "when": "Opponent has used their small spell; Miner on their tower.",
+   "do": "Bats at (3.5,15) 1s after Miner; they fly ~1.6 tiles/s and reach the tower as it is locked on Miner, 5 bats + Miner deal ~500 before a counter.",
+   "cards": [
+    "miner",
+    "bats"
+   ],
+   "vs": [
+    "log",
+    "zap"
+   ],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "delay",
+    "value": "1.0s after miner"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "goblin_barrel_bait_then_rocket",
+   "family": "offense_timing",
+   "name": "Barrel to bait the spell, then Princess/Gang",
+   "when": "Log-bait deck; opponent has one small spell for my Barrel, Gang, Princess.",
+   "do": "Throw Barrel at tower; if opponent Logs it, drop Goblin Gang at (3.5,15) or Princess at (3.5,15) within 3s so their spell is out of cycle; Rocket their counter if it is a Musketeer-class card.",
+   "cards": [
+    "goblin_barrel",
+    "goblin_gang",
+    "princess",
+    "rocket"
+   ],
+   "vs": [
+    "log",
+    "zap",
+    "arrows"
+   ],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "sequence",
+    "value": "barrel, bait card within 3s of their spell"
+   },
+   "priority": 5,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "barrel_offset_tile",
+   "family": "offense_timing",
+   "name": "Offset Barrel against Log timing",
+   "when": "Opponent Logs my Barrel from behind the tower every time.",
+   "do": "Throw the Barrel at (2,25.5), on the far-left edge of the tower hitbox, alternating with (3.5,27) behind; goblins land off the Log's straight line and get 1-2 extra stabs.",
+   "cards": [
+    "goblin_barrel"
+   ],
+   "vs": [
+    "log",
+    "barbarian_barrel"
+   ],
+   "x": 2.0,
+   "y": 25.5,
+   "timing": {
+    "type": "state",
+    "value": "opponent logs barrel consistently"
+   },
+   "priority": 4,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-goblin-barrel-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "bridge_spam_after_defence",
+   "family": "offense_timing",
+   "name": "Bridge spam immediately after a defence",
+   "when": "I just defended with P.E.K.K.A/Bandit/Royal Ghost surviving; opponent at <=5 elixir.",
+   "do": "Within 1s of their push dying, drop Battle Ram/Ram Rider at (3.5,15) and Bandit at (3.5,15) so the surviving defender arrives together; opponent cannot afford a building.",
+   "cards": [
+    "battle_ram",
+    "ram_rider",
+    "bandit",
+    "royal_ghost",
+    "pekka"
+   ],
+   "vs": [
+    "skeletons",
+    "cannon"
+   ],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "state",
+    "value": "opponent elixir <= 5 and my defender survived"
+   },
+   "priority": 5,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-counter-p-e-k-k-a-bridge-spam-deck-clash-royale",
+    "https://sportskeeda.com/esports/how-counter-bridge-spam-decks-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "xbow_placement_timing",
+   "family": "offense_timing",
+   "name": "X-Bow when their counter is cycled",
+   "when": "Opponent just used their X-Bow answer (Rocket, Earthquake, Fireball, Giant) and is at <=6 elixir.",
+   "do": "Place X-Bow at (5.5,13) (locks tower at range 11.5) immediately, Tesla at (4.5,10) in front as they respond; cycle Skeletons/Ice Spirit to defend the X-Bow.",
+   "cards": [
+    "x_bow",
+    "tesla",
+    "skeletons",
+    "ice_spirit"
+   ],
+   "vs": [
+    "rocket",
+    "earthquake",
+    "giant",
+    "royal_giant"
+   ],
+   "x": 5.5,
+   "y": 13.0,
+   "timing": {
+    "type": "state",
+    "value": "their x-bow counter out of cycle and elixir <= 6"
+   },
+   "priority": 4,
+   "sources": [
+    "https://trophycoach.com/guides/xbow-3.0-from-5k-to-8k",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "mortar_offensive_placement",
+   "family": "offense_timing",
+   "name": "Mortar on the tower when they are low",
+   "when": "Opponent at <=4 elixir with no tank in hand; single elixir.",
+   "do": "Mortar at (5.5,12) (5-tile dead zone, 11.5 range reaches tower at y=25.5); Knight at (3.5,13) in front 1s later to body-block the reactive Miner or Hog.",
+   "cards": [
+    "mortar",
+    "knight"
+   ],
+   "vs": [
+    "miner",
+    "hog_rider",
+    "giant"
+   ],
+   "x": 5.5,
+   "y": 12.0,
+   "timing": {
+    "type": "state",
+    "value": "opponent elixir <= 4"
+   },
+   "priority": 4,
+   "sources": [
+    "https://trophycoach.com/guides/how-to-play-mortar-cycle-deck",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "graveyard_after_splash_used",
+   "family": "offense_timing",
+   "name": "Graveyard after splash is cycled",
+   "when": "Opponent just used Valkyrie/Bomber/Poison/Baby Dragon on defence; my tank is reaching the tower.",
+   "do": "Cast Graveyard at (3,24.5) when the tank is 2 tiles from the tower and their splash card is at least 2 cards from returning; Poison ready for the next defender.",
+   "cards": [
+    "graveyard",
+    "knight",
+    "ice_golem",
+    "poison"
+   ],
+   "vs": [
+    "valkyrie",
+    "bomber",
+    "poison",
+    "baby_dragon"
+   ],
+   "x": 3.0,
+   "y": 24.5,
+   "timing": {
+    "type": "state",
+    "value": "their splash card out of cycle"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "wall_breakers_barb_barrel",
+   "family": "offense_timing",
+   "name": "Barbarian Barrel ahead of Wall Breakers",
+   "when": "Opponent defends Wall Breakers with Skeletons/Goblins at the bridge.",
+   "do": "Roll Barbarian Barrel from (3.5,15) 0.3s before Wall Breakers at (3.5,15); the barrel clears the small defenders and the Barbarian tanks the tower's first shot.",
+   "cards": [
+    "barbarian_barrel",
+    "wall_breakers"
+   ],
+   "vs": [
+    "skeletons",
+    "goblins",
+    "spear_goblins"
+   ],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "sequence",
+    "value": "barrel, wall breakers 0.3s later"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "three_musketeers_split_2_1",
+   "family": "offense_timing",
+   "name": "Split 3M 2-1 behind the king",
+   "when": "Double elixir, I have 10 elixir and opponent has no Fireball/Rocket in hand (just used).",
+   "do": "Place Three Musketeers at (9,2) directly behind the king so they split 2 left / 1 right; support the 2-side with a Ram/Ice Golem at the bridge as they cross.",
+   "cards": [
+    "three_musketeers",
+    "battle_ram",
+    "ice_golem"
+   ],
+   "vs": [
+    "fireball",
+    "rocket",
+    "lightning"
+   ],
+   "x": 9.0,
+   "y": 2.0,
+   "timing": {
+    "type": "state",
+    "value": "opponent big spell out of cycle"
+   },
+   "priority": 4,
+   "sources": [
+    "https://sportskeeda.com/esports/how-split-lane-push-clash-royale",
+    "https://trophycoach.com/guides/how-to-play-royal-hogs-deck",
+    "https://clashroyale.fandom.com/wiki/Deck:Musketeers_Ram",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "royal_hogs_split_from_center",
+   "family": "offense_timing",
+   "name": "Royal Hogs split at the king",
+   "when": "Opponent has one building or one splash card in hand.",
+   "do": "Place Royal Hogs at (9,9) in front of the king so 2 go each lane; their single building pulls only one pair, the other pair connects. Earthquake the building.",
+   "cards": [
+    "royal_hogs",
+    "earthquake"
+   ],
+   "vs": [
+    "cannon",
+    "bomb_tower",
+    "valkyrie"
+   ],
+   "x": 9.0,
+   "y": 9.0,
+   "timing": {
+    "type": "state",
+    "value": "opponent has 1 building/splash"
+   },
+   "priority": 4,
+   "sources": [
+    "https://sportskeeda.com/esports/how-split-lane-push-clash-royale",
+    "https://trophycoach.com/guides/how-to-play-royal-hogs-deck",
+    "https://clashroyale.fandom.com/wiki/Deck:Musketeers_Ram",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "rage_on_tank_push_at_tower",
+   "family": "offense_timing",
+   "name": "Rage when the push reaches the tower",
+   "when": "My Golem/Giant push with support is 1 tile from the enemy tower.",
+   "do": "Cast Rage centered (3.5,22) when the tank is at y~22 so support and tank are both inside the 5-tile radius for the full duration against the tower; never Rage at the bridge.",
+   "cards": [
+    "rage",
+    "golem",
+    "lumberjack"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 22.0,
+   "timing": {
+    "type": "distance",
+    "value": "tank at y=22"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "clone_on_balloon_over_tower",
+   "family": "offense_timing",
+   "name": "Clone Balloon over the tower",
+   "when": "My Balloon or Lava Hound pups reach the enemy tower; defenders are already committed.",
+   "do": "Clone at (3.5,24) when Balloon is at y~23: the clone appears 1 tile right and drops a bomb before any new defender, and both death bombs hit the tower.",
+   "cards": [
+    "clone",
+    "balloon",
+    "lava_hound"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 24.0,
+   "timing": {
+    "type": "distance",
+    "value": "balloon at y=23"
+   },
+   "priority": 2,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "mirror_second_barrel",
+   "family": "offense_timing",
+   "name": "Mirror a second Barrel on the spell",
+   "when": "Opponent Logs/Arrows my Goblin Barrel and is at <=3 elixir.",
+   "do": "Mirror Goblin Barrel (4 elixir) at (3.5,25.5) within 1s of their spell landing; they have no second answer and the +1 level barrel takes ~600.",
+   "cards": [
+    "mirror",
+    "goblin_barrel"
+   ],
+   "vs": [
+    "log",
+    "arrows"
+   ],
+   "x": 3.5,
+   "y": 25.5,
+   "timing": {
+    "type": "delay",
+    "value": "<=1s after their spell"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "lava_hound_opposite_lane_timing",
+   "family": "offense_timing",
+   "name": "Hound in the lane they just attacked",
+   "when": "Opponent just pushed left and I defended; double elixir.",
+   "do": "Place Lava Hound at (3.5,1) in the lane where their push died so my surviving defenders (Mega Minion/Minions) become support; opponent's air counters were spent elsewhere.",
+   "cards": [
+    "lava_hound",
+    "mega_minion",
+    "minions"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 1.0,
+   "timing": {
+    "type": "state",
+    "value": "my air defenders survived their push"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "count_cards_out_of_cycle",
+   "family": "elixir_cycle",
+   "name": "Track 4-card out-of-cycle window",
+   "when": "Opponent just played a key counter (building, Fireball, Mini P.E.K.K.A).",
+   "do": "That card is unavailable until they play 4 more cards; punish within that window with the win condition it counters. Log each card they play to maintain the count.",
+   "cards": [],
+   "vs": [],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "state",
+    "value": "counter card played < 4 cards ago"
+   },
+   "priority": 5,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "https://www.reddit.com/r/ClashRoyale/comments/1gw6u59/think_like_a_pro_the_complete_guide_to_elixir",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "four_card_cycle_to_win_condition",
+   "family": "elixir_cycle",
+   "name": "4-card cycle back to win condition",
+   "when": "My cheap cycle (sum of 4 cheapest cards <= 8) and opponent's counter is out of cycle.",
+   "do": "Play the 4 cheapest cards in the back at (9,1) or on defence, never leak at 10, so the win condition returns before their counter does; keep a spell in hand for the connect.",
+   "cards": [
+    "skeletons",
+    "ice_spirit",
+    "log",
+    "ice_golem",
+    "hog_rider"
+   ],
+   "vs": [],
+   "x": 9.0,
+   "y": 1.0,
+   "timing": {
+    "type": "state",
+    "value": "my 4-card cycle cost <= 8"
+   },
+   "priority": 5,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "https://www.reddit.com/r/ClashRoyale/comments/1gw6u59/think_like_a_pro_the_complete_guide_to_elixir",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "spell_cycle_at_ten_elixir",
+   "family": "elixir_cycle",
+   "name": "Spell the tower instead of leaking",
+   "when": "I am at 10 elixir, no threat on board, tower lead is small.",
+   "do": "Fireball/Rocket the enemy princess tower (or the tower + any troop near it) rather than leak; in double elixir this is 1 elixir per 1.4s so never sit at 10.",
+   "cards": [
+    "fireball",
+    "rocket",
+    "poison",
+    "lightning"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 25.5,
+   "timing": {
+    "type": "state",
+    "value": "my elixir = 10 and no threat"
+   },
+   "priority": 4,
+   "sources": [
+    "https://royaletracker.gg/guides/rocket-cycle-deck-clash-royale",
+    "https://www.148apps.com/clash-royale/how-to-use-rocket-effectively-in-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "bait_counter_then_win_condition",
+   "family": "elixir_cycle",
+   "name": "Bait the counter then play the win con",
+   "when": "Opponent's building/counter is in hand; I have a cheap threat (Miner, Wall Breakers, Goblin Barrel).",
+   "do": "Play the cheap threat first to draw the counter (e.g. Cannon), then within 3s play Hog/Balloon in the same lane before they regain 3-4 elixir.",
+   "cards": [
+    "miner",
+    "wall_breakers",
+    "goblin_barrel",
+    "hog_rider",
+    "balloon"
+   ],
+   "vs": [
+    "cannon",
+    "tesla",
+    "musketeer"
+   ],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "sequence",
+    "value": "bait card, win condition within 3s"
+   },
+   "priority": 5,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "https://www.reddit.com/r/ClashRoyale/comments/1gw6u59/think_like_a_pro_the_complete_guide_to_elixir",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "wait_out_their_spell",
+   "family": "elixir_cycle",
+   "name": "Wait out the opponent's spell",
+   "when": "Opponent holds Fireball/Poison and my push depends on 2-3 medium troops.",
+   "do": "Hold the push; play one cheap card in the back and defend until they spell something else (tower chip, pump). Then commit within the next 4 cards.",
+   "cards": [],
+   "vs": [
+    "fireball",
+    "poison",
+    "rocket",
+    "lightning"
+   ],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "state",
+    "value": "their spell in hand and my push spell-vulnerable"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "punish_overcommit_opposite_lane",
+   "family": "elixir_cycle",
+   "name": "Punish an over-commit in the other lane",
+   "when": "Opponent spends 8+ elixir behind the king (Golem/Lava Hound/pump + support).",
+   "do": "Immediately drop Hog/Ram/Miner + Wall Breakers in the other lane at (14.5,15); they must defend with <=3 elixir or take 1000+ damage. Defend their push with cheap cards only.",
+   "cards": [
+    "hog_rider",
+    "battle_ram",
+    "miner",
+    "wall_breakers",
+    "royal_hogs"
+   ],
+   "vs": [
+    "golem",
+    "lava_hound",
+    "elixir_collector",
+    "electro_giant"
+   ],
+   "x": 14.5,
+   "y": 15.0,
+   "timing": {
+    "type": "state",
+    "value": "opponent elixir <= 2 after big back placement"
+   },
+   "priority": 5,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "https://www.reddit.com/r/ClashRoyale/comments/1gw6u59/think_like_a_pro_the_complete_guide_to_elixir",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "single_elixir_patience",
+   "family": "elixir_cycle",
+   "name": "Single elixir: cheap chip, no commit",
+   "when": "Single elixir, scores level, opponent's deck heavier than mine.",
+   "do": "Only cycle 2-4 elixir plays and positive defences; keep every push <= 6 elixir. Commit only to punish an over-commit or a cycled counter.",
+   "cards": [],
+   "vs": [],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "state",
+    "value": "match time > 1:00 remaining in single elixir"
+   },
+   "priority": 4,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "https://www.reddit.com/r/ClashRoyale/comments/1gw6u59/think_like_a_pro_the_complete_guide_to_elixir",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "double_elixir_tempo",
+   "family": "elixir_cycle",
+   "name": "Double elixir: play on their tempo",
+   "when": "Double elixir started (last 60s of regular time) with beatdown vs my control deck.",
+   "do": "Defend in front of my tower, counterpush with survivors every time, spend to 0 when they drop a tank behind king; elixir advantage halves in value as income doubles.",
+   "cards": [],
+   "vs": [
+    "golem",
+    "giant",
+    "lava_hound"
+   ],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "state",
+    "value": "double elixir active"
+   },
+   "priority": 4,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "https://www.reddit.com/r/ClashRoyale/comments/1gw6u59/think_like_a_pro_the_complete_guide_to_elixir",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "last_thirty_seconds_decision",
+   "family": "elixir_cycle",
+   "name": "Last 30 seconds: protect or press",
+   "when": "Regular time, 30s left, I am ahead on crowns or tower HP.",
+   "do": "If ahead: defend only, keep 4+ elixir, spell only troops that reach the tower. If behind by <= one Rocket: Rocket the tower at 0:08 so it lands before the horn.",
+   "cards": [
+    "rocket",
+    "fireball"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 25.5,
+   "timing": {
+    "type": "state",
+    "value": "time <= 0:30"
+   },
+   "priority": 4,
+   "sources": [
+    "https://gamingonphone.com/guides/clash-royale-tiebreaker-tips-and-strategies",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "overtime_tiebreak_lowest_tower",
+   "family": "elixir_cycle",
+   "name": "Tiebreak: hit their lowest tower",
+   "when": "Overtime running out, crowns tied, tiebreak decides by lowest-tower HP.",
+   "do": "All chip to the lowest-HP enemy tower (spells, Miner, Princess) and never let my lowest tower take damage; defend it with buildings/troops even at negative trades.",
+   "cards": [
+    "rocket",
+    "fireball",
+    "miner",
+    "princess"
+   ],
+   "vs": [],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "state",
+    "value": "overtime with crowns tied"
+   },
+   "priority": 4,
+   "sources": [
+    "https://gamingonphone.com/guides/clash-royale-tiebreaker-tips-and-strategies",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "retaliate_after_failed_push",
+   "family": "elixir_cycle",
+   "name": "Retaliate immediately when their push fails",
+   "when": "Their push just died on my side; they are at <=4 elixir and my defenders survived.",
+   "do": "Within 2s add a win condition in front of the surviving defenders (Hog at (3.5,15) in front of Musketeer); do not wait to build, their best counters are out of cycle.",
+   "cards": [
+    "hog_rider",
+    "battle_ram",
+    "giant",
+    "ram_rider"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "delay",
+    "value": "<=2s after their push dies"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "opening_cheap_back_card",
+   "family": "elixir_cycle",
+   "name": "Open with the cheapest back-card",
+   "when": "Match start (first 10s), both at 5-7 elixir.",
+   "do": "Open with a 1-3 elixir card at (9,1) behind the king (Ice Spirit, Skeletons, Knight) or wait to 10; never open a 4+ win condition so the opponent cannot gain cycle information.",
+   "cards": [
+    "ice_spirit",
+    "skeletons",
+    "knight",
+    "ice_golem"
+   ],
+   "vs": [],
+   "x": 9.0,
+   "y": 1.0,
+   "timing": {
+    "type": "state",
+    "value": "time >= 2:50"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "retarget_tank_with_cheap_unit",
+   "family": "micro",
+   "name": "Retarget a tank with a cheap unit",
+   "when": "Enemy Mini P.E.K.K.A/Prince/Lumberjack locked on my tower.",
+   "do": "Drop Skeletons/Ice Spirit adjacent to the attacker (within 1 tile) at (4.5,9); it retargets to the closer unit, loses 1-2 hits on the tower and dies to the tower.",
+   "cards": [
+    "skeletons",
+    "ice_spirit",
+    "electro_spirit"
+   ],
+   "vs": [
+    "mini_pekka",
+    "prince",
+    "lumberjack",
+    "knight"
+   ],
+   "x": 4.5,
+   "y": 9.0,
+   "timing": {
+    "type": "state",
+    "value": "attacker within 1 tile of my tower"
+   },
+   "priority": 5,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "tornado_mega_knight_off_support",
+   "family": "micro",
+   "name": "Tornado Mega Knight away from support",
+   "when": "Enemy Mega Knight with Bats/Minions/Wizard support crossing left lane.",
+   "do": "Tornado at (8.5,11) when Mega Knight is at y~14: he is pulled 3 tiles toward the center away from his support, which my tower and troops then kill separately.",
+   "cards": [
+    "tornado"
+   ],
+   "vs": [
+    "mega_knight",
+    "bats",
+    "wizard"
+   ],
+   "x": 8.5,
+   "y": 11.0,
+   "timing": {
+    "type": "distance",
+    "value": "mega knight at y=14"
+   },
+   "priority": 4,
+   "sources": [
+    "https://ddocs.royaleapi.com/strategy/tornado.html",
+    "https://ddocs.royaleapi.com/strategy/tornado2.html",
+    "https://www.sportskeeda.com/esports/how-use-mega-knight-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "guards_behind_pekka",
+   "family": "micro",
+   "name": "Guards behind the P.E.K.K.A",
+   "when": "Enemy P.E.K.K.A walking at my tower.",
+   "do": "Place Guards 1 tile behind her at (3.5,12.5) when she is at y~11; she turns around and walks away from the tower, each shield hit costs her 1.8s swing while tower shoots.",
+   "cards": [
+    "guards",
+    "skeletons"
+   ],
+   "vs": [
+    "pekka"
+   ],
+   "x": 3.5,
+   "y": 12.5,
+   "timing": {
+    "type": "distance",
+    "value": "pekka at y=11"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "building_pushes_giant_out",
+   "family": "micro",
+   "name": "Building deploy pushes Giant aside",
+   "when": "Enemy Giant about to reach my tower; building in hand.",
+   "do": "Drop Cannon/Tesla directly on the Giant's tile at (3.5,9) when he is 1 tile from the tower; the building's hitbox shoves him sideways/back and he retargets to it.",
+   "cards": [
+    "cannon",
+    "tesla",
+    "bomb_tower"
+   ],
+   "vs": [
+    "giant",
+    "royal_giant",
+    "golem"
+   ],
+   "x": 3.5,
+   "y": 9.0,
+   "timing": {
+    "type": "distance",
+    "value": "giant at y=9.5"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "skeletons_drag_sparky",
+   "family": "micro",
+   "name": "Skeletons drag Sparky's shot",
+   "when": "Enemy Sparky crossing the bridge with her charge ready.",
+   "do": "Drop Skeletons at (6,13), 2-3 tiles to the side of Sparky; she turns to fire at one skeleton (5s recharge), then Zap/Electro reset or a melee unit kills her.",
+   "cards": [
+    "skeletons",
+    "zap",
+    "electro_wizard"
+   ],
+   "vs": [
+    "sparky"
+   ],
+   "x": 6.0,
+   "y": 13.0,
+   "timing": {
+    "type": "distance",
+    "value": "sparky at y=15"
+   },
+   "priority": 4,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-sparky-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "ewiz_spawn_zap_sparky_inferno",
+   "family": "micro",
+   "name": "Electro Wizard spawn zap reset",
+   "when": "Enemy Sparky about to fire or Inferno Dragon at stage 3 on my tank.",
+   "do": "Deploy Electro Wizard within 2.5 tiles of the target; his spawn zap resets charge/ramp instantly (0 travel), then his attacks reset every 1.8s.",
+   "cards": [
+    "electro_wizard"
+   ],
+   "vs": [
+    "sparky",
+    "inferno_dragon",
+    "inferno_tower",
+    "prince"
+   ],
+   "x": null,
+   "y": null,
+   "timing": {
+    "type": "state",
+    "value": "target charge >= 80% or inferno stage 3"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "reset_charge_with_shield",
+   "family": "micro",
+   "name": "Reset charges with a shielded unit",
+   "when": "Enemy Prince/Dark Prince/Battle Ram charging.",
+   "do": "Place Guards/Dark Prince/Skeleton King skeleton so the charge hits the shield at (3.5,13); the charge is consumed on the shield, the attacker needs 2+ tiles to re-charge.",
+   "cards": [
+    "guards",
+    "dark_prince",
+    "royal_recruits"
+   ],
+   "vs": [
+    "prince",
+    "dark_prince",
+    "battle_ram",
+    "ram_rider"
+   ],
+   "x": 3.5,
+   "y": 13.0,
+   "timing": {
+    "type": "distance",
+    "value": "charger at y=15"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "ice_golem_nova_on_swarm",
+   "family": "micro",
+   "name": "Ice Golem death nova on swarm",
+   "when": "Enemy Skeleton Army/Bats on my push or defence.",
+   "do": "Let Ice Golem die inside the swarm (or deploy it on them at (3.5,11)); death nova deals ~75 damage in 3 tiles killing all skeletons/bats and slowing survivors 2s.",
+   "cards": [
+    "ice_golem"
+   ],
+   "vs": [
+    "skeleton_army",
+    "bats",
+    "skeletons",
+    "goblin_gang"
+   ],
+   "x": 3.5,
+   "y": 11.0,
+   "timing": {
+    "type": "state",
+    "value": "ice golem hp low and swarm adjacent"
+   },
+   "priority": 4,
+   "sources": [
+    "https://www.sportskeeda.com/esports/what-kiting-clash-royale-and-how-to-do-it",
+    "https://sportskeeda.com/esports/how-use-ice-golem-clash-royale",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "bomber_behind_tank_vs_swarm",
+   "family": "micro",
+   "name": "Bomber 3 tiles behind to hit swarm on tank",
+   "when": "Opponent defends my Giant/Knight with Skeleton Army or Goblin Gang.",
+   "do": "Keep Bomber 3 tiles behind the tank at (3.5,13) when the tank is at y~16; swarm placed on the tank sits in his 4.5-tile range and dies to one bomb.",
+   "cards": [
+    "bomber",
+    "baby_dragon",
+    "giant",
+    "knight"
+   ],
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "guards"
+   ],
+   "x": 3.5,
+   "y": 13.0,
+   "timing": {
+    "type": "distance",
+    "value": "tank at y=16"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "baby_dragon_on_swarm_defence",
+   "family": "micro",
+   "name": "Baby Dragon placed on the swarm",
+   "when": "Enemy Goblin Gang/Skeleton Army attacking my tower or troop.",
+   "do": "Deploy Baby Dragon directly above the swarm at (4,9) rather than behind; splash hits immediately and it cannot be targeted by the melee goblins.",
+   "cards": [
+    "baby_dragon",
+    "wizard",
+    "executioner"
+   ],
+   "vs": [
+    "skeleton_army",
+    "goblin_gang",
+    "skeletons"
+   ],
+   "x": 4.0,
+   "y": 9.0,
+   "timing": {
+    "type": "state",
+    "value": "swarm on my tower"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "hunter_point_blank",
+   "family": "micro",
+   "name": "Hunter point-blank on tank",
+   "when": "Enemy Giant/Golem/Mega Knight within 1 tile of my tower; Hunter in hand.",
+   "do": "Deploy Hunter directly adjacent to the tank at (4.5,9.5) so all 10 pellets hit (~1000 damage per shot vs 1 pellet at range); kills Giant in 4 shots.",
+   "cards": [
+    "hunter"
+   ],
+   "vs": [
+    "giant",
+    "golem",
+    "mega_knight",
+    "pekka",
+    "royal_giant"
+   ],
+   "x": 4.5,
+   "y": 9.5,
+   "timing": {
+    "type": "distance",
+    "value": "tank within 1 tile of hunter tile"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "magic_archer_line_up_tower",
+   "family": "micro",
+   "name": "Magic Archer line through troop to tower",
+   "when": "Enemy troop stands between my Magic Archer's tile and the enemy tower.",
+   "do": "Place Magic Archer at (1.5,16.5) at the river edge so his 7-tile arrow (11 travel) passes through the troop and continues into the tower at (3.5,25.5).",
+   "cards": [
+    "magic_archer"
+   ],
+   "vs": [
+    "knight",
+    "musketeer",
+    "goblins"
+   ],
+   "x": 1.5,
+   "y": 16.5,
+   "timing": {
+    "type": "state",
+    "value": "enemy troop within 7 tiles on the line to tower"
+   },
+   "priority": 4,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Magic_Archer",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "princess_bridge_chip",
+   "family": "micro",
+   "name": "Princess at the bridge to chip",
+   "when": "Opponent has used Log/Arrows in the last 3 cards.",
+   "do": "Princess at (3.5,15) on my bridge tile: 9-tile range outranges the tower (7) so she chips from safety; move her to (1.5,15) if they have Miner.",
+   "cards": [
+    "princess"
+   ],
+   "vs": [
+    "log",
+    "arrows"
+   ],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "state",
+    "value": "their small spell out of cycle"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "dart_goblin_pocket_chip",
+   "family": "micro",
+   "name": "Dart Goblin in the pocket",
+   "when": "Opponent low on elixir and no Log; I want chip without a push.",
+   "do": "Dart Goblin at (1,16) left of the bridge (the pocket): 6.5 range reaches the tower; defenders must cross the bridge to reach him, giving the tower free shots.",
+   "cards": [
+    "dart_goblin",
+    "spear_goblins",
+    "firecracker"
+   ],
+   "vs": [
+    "log",
+    "arrows"
+   ],
+   "x": 1.0,
+   "y": 16.0,
+   "timing": {
+    "type": "state",
+    "value": "opponent elixir <= 4"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "miner_position_vs_tower_princess",
+   "family": "micro",
+   "name": "Miner on the tower's back-left vs Tower Princess",
+   "when": "Casting Miner on a Tower Princess (default) tower.",
+   "do": "Miner at (2.5,26.5), behind-left of the tower: defenders placed in front cannot reach him quickly and he avoids the common Log line from behind.",
+   "cards": [
+    "miner"
+   ],
+   "vs": [],
+   "x": 2.5,
+   "y": 26.5,
+   "timing": {
+    "type": "state",
+    "value": "tower troop = tower princess"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "miner_position_vs_dagger_duchess",
+   "family": "micro",
+   "name": "Miner timing vs Dagger Duchess",
+   "when": "Enemy tower is Dagger Duchess with full daggers.",
+   "do": "Bait her daggers first with a cheap troop (Skeletons at (3.5,15) ~3s before Miner); send Miner once her dagger count drops under 3 so he tanks only slow forged hits.",
+   "cards": [
+    "miner",
+    "skeletons",
+    "ice_spirit"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "sequence",
+    "value": "cheap bait, miner 3s later when daggers < 3"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "fisherman_pull_onto_king_cheap",
+   "family": "micro",
+   "name": "Fisherman pull to make tower defend",
+   "when": "Enemy ranged support (Musketeer, Wizard) stands at y~12 out of my tower's range.",
+   "do": "Fisherman at (4.5,8) hooks the support into tower range, then he tanks while tower and Fisherman kill it; also activates king if placed at (7,5).",
+   "cards": [
+    "fisherman"
+   ],
+   "vs": [
+    "musketeer",
+    "wizard",
+    "electro_wizard"
+   ],
+   "x": 4.5,
+   "y": 8.0,
+   "timing": {
+    "type": "state",
+    "value": "support within 7 tiles but out of tower range"
+   },
+   "priority": 3,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Fisherman",
+    "https://xboxplay.games/clash-royale/how-to-complete-the-kingfisher-puzzle-in-clash-royale-77133",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "duchess_dagger_count_defend",
+   "family": "tower_troop",
+   "name": "Defend before Duchess empties",
+   "when": "My tower is Dagger Duchess; a tank or swarm is approaching and she has <= 3 daggers.",
+   "do": "Her 8 daggers fire in ~4s then she reloads slowly; place the defender (Knight/Skeletons) when she is at 2-3 daggers so her burst is spent on the main target, not fodder.",
+   "cards": [
+    "knight",
+    "skeletons",
+    "ice_spirit"
+   ],
+   "vs": [
+    "hog_rider",
+    "giant",
+    "skeleton_army"
+   ],
+   "x": 3.5,
+   "y": 10.0,
+   "timing": {
+    "type": "state",
+    "value": "duchess daggers <= 3"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "duchess_drain_with_cheap_bait",
+   "family": "tower_troop",
+   "name": "Drain Duchess daggers before the push",
+   "when": "Enemy tower is Dagger Duchess at 8 daggers; I plan Hog/Miner/Barrel.",
+   "do": "Send Skeletons at (3.5,15) first; she spends ~4 daggers on them in 2s, then play the win condition so it faces reload speed instead of the burst.",
+   "cards": [
+    "skeletons",
+    "ice_spirit",
+    "bats",
+    "hog_rider"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "sequence",
+    "value": "skeletons, win condition 2s later"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "duchess_swarm_timing",
+   "family": "tower_troop",
+   "name": "Swarm vs Duchess: wait for empty",
+   "when": "Opponent Duchess just fired her 8 daggers at my tank.",
+   "do": "Deploy swarm (Goblin Gang, Skeleton Army, Bats) during her reload window right after dagger 8; she forges one dagger at a time so most of the swarm connects.",
+   "cards": [
+    "goblin_gang",
+    "skeleton_army",
+    "bats",
+    "minion_horde"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 22.0,
+   "timing": {
+    "type": "delay",
+    "value": "0-1s after dagger 8 fired"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "cannoneer_slow_shot_bait",
+   "family": "tower_troop",
+   "name": "Bait the Cannoneer shot with Skeletons",
+   "when": "Enemy tower is Cannoneer (slow ~2s reload, high damage); I send Hog/Ram.",
+   "do": "Drop Skeletons at (3.5,17) 1s before the Hog so the Cannoneer's shot lands on a skeleton; the Hog gets ~2 extra seconds on the tower before the next cannonball.",
+   "cards": [
+    "skeletons",
+    "ice_spirit",
+    "hog_rider",
+    "battle_ram"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 17.0,
+   "timing": {
+    "type": "sequence",
+    "value": "skeletons, hog 1s later"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "cannoneer_overkill_swarm",
+   "family": "tower_troop",
+   "name": "Swarm the Cannoneer",
+   "when": "Enemy tower is Cannoneer; my Goblin Gang/Royal Hogs/Skeleton Barrel in hand.",
+   "do": "Attack with many small units (Royal Hogs, Gang, Skeleton Barrel): the Cannoneer one-shots a single unit every ~2s so 4+ units land many hits; avoid lone medium troops.",
+   "cards": [
+    "royal_hogs",
+    "goblin_gang",
+    "skeleton_barrel",
+    "wall_breakers"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "state",
+    "value": "tower troop = cannoneer"
+   },
+   "priority": 4,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "cannoneer_defence_tank_focus",
+   "family": "tower_troop",
+   "name": "My Cannoneer: let it shoot the tank",
+   "when": "My tower is Cannoneer; Giant + swarm support attacking.",
+   "do": "Do not place small troops in front of the Giant: Cannoneer's single shot is wasted on them. Splash the support with Valkyrie/Bomber at (4.5,10) and let the Cannoneer hit the Giant.",
+   "cards": [
+    "valkyrie",
+    "bomber",
+    "baby_dragon"
+   ],
+   "vs": [
+    "giant",
+    "skeleton_army",
+    "goblin_gang"
+   ],
+   "x": 4.5,
+   "y": 10.0,
+   "timing": {
+    "type": "state",
+    "value": "tower troop = cannoneer"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "royal_chef_pancake_timing",
+   "family": "tower_troop",
+   "name": "Deploy to eat the Royal Chef pancake",
+   "when": "My tower is Royal Chef and a pancake is ready (cooking bar full).",
+   "do": "Place the troop you want levelled (Knight/Musketeer) at (3.5,8) next to the tower as the pancake drops so it eats it instantly (+1 level) before fighting.",
+   "cards": [
+    "knight",
+    "musketeer",
+    "valkyrie"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 8.0,
+   "timing": {
+    "type": "state",
+    "value": "pancake ready"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "royal_chef_opponent_deny_pancake",
+   "family": "tower_troop",
+   "name": "Kill troops before they eat pancakes",
+   "when": "Enemy tower is Royal Chef with a pancake out and defenders near it.",
+   "do": "Spell the defender standing by the pancake (Log/Zap at (3.5,24)) before it levels up, or place Miner there to soak the pancake slot; the pancake is wasted on an about-to-die unit.",
+   "cards": [
+    "log",
+    "zap",
+    "miner"
+   ],
+   "vs": [
+    "knight",
+    "skeletons"
+   ],
+   "x": 3.5,
+   "y": 24.0,
+   "timing": {
+    "type": "state",
+    "value": "enemy pancake on field"
+   },
+   "priority": 2,
+   "sources": [
+    "knowledge"
+   ]
+  },
+  {
+   "id": "tower_princess_range_bait",
+   "family": "tower_troop",
+   "name": "Tower Princess 7-tile range edge plays",
+   "when": "Enemy tower is Tower Princess (range ~7).",
+   "do": "Stand ranged chip units at exactly 7.5-9 tiles from the tower: Princess at (3.5,15) y-distance 10.5 is safe, Magic Archer at (3.5,17) outranges; move 1 tile closer vs Cannoneer (same range).",
+   "cards": [
+    "princess",
+    "magic_archer",
+    "musketeer"
+   ],
+   "vs": [],
+   "x": 3.5,
+   "y": 15.0,
+   "timing": {
+    "type": "state",
+    "value": "tower troop = tower princess"
+   },
+   "priority": 3,
+   "sources": [
+    "knowledge"
+   ]
+  }
+ ]
+}

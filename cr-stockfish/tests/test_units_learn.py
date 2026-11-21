@@ -112,3 +112,22 @@ def test_knowledge_counters_and_placements_blend(tmp_path):
     assert any("Opp archetype: beatdown" in n for n in an.notes)
     mv = Move("tesla", "kp:4-3 tesla", 7.5, 12.0, label="4-3 tesla", source="knowledge")
     assert "4-3 tesla" in mv.describe(db, st)
+
+
+def test_technique_timing_gate_and_hints(tmp_path):
+    (tmp_path / "techniques.json").write_text(json.dumps({"techniques": [
+        {"id": "ice_spirit_hog", "family": "deploy_timing", "name": "Ice Spirit on Hog at the bridge", "when": "Hog crosses",
+         "do": "Drop Ice Spirit in front of the tower as the Hog reaches y=12", "cards": ["ice_spirit"], "vs": ["hog_rider"],
+         "x": 4.5, "y": 9.0, "timing": {"type": "distance", "value": "attacker at y=12"}, "priority": 5, "sources": ["knowledge"]}
+    ]}))
+    k = Knowledge.load(tmp_path, valid_keys=set(c.key for c in db))
+    assert k.techniques and k.techniques[0].trigger_y == 12.0
+    eng = Engine(db, knowledge=k)
+    far = GameState(my_elixir=4, hand=["ice_spirit", "zap", "giant", "mini_pekka"], units=[Unit("hog_rider", "opp", 3.5, 17.5)])
+    near = GameState(my_elixir=4, hand=["ice_spirit", "zap", "giant", "mini_pekka"], units=[Unit("hog_rider", "opp", 3.5, 12.0)])
+    def ice_score(st):
+        an = eng.analyse(st, top_n=30)
+        return max(r.score for r in an.recommendations if r.move.card == "ice_spirit" and r.move.lane == "left")
+    assert ice_score(near) > ice_score(far) + 0.5
+    an = eng.analyse(near)
+    assert any(n.startswith("Technique: Ice Spirit on Hog") for n in an.notes)

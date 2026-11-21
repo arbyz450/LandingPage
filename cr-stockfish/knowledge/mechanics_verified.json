@@ -1,0 +1,1885 @@
+{
+ "as_of": "2026-11",
+ "champions": [
+  {
+   "key": "archer_queen",
+   "ability": "Cloaking Cape",
+   "ability_cost": 1,
+   "effect": "Becomes invisible/untargetable to enemy troops and buildings for ~3.5 s (sources: 3-3.5 s) while attacking with ~+180-200% attack speed. Single-use since Aug 2026 (was 11 s cooldown). Aug 26 2026: damage 225->232.",
+   "duration_s": 3.5,
+   "cooldown_s": null,
+   "single_use": true,
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/clash-royale-archer-queen-all-need-know",
+    "https://www.noff.gg/clash-royale/card/archer-queen",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://gamemarket.gg/news/clash-royale/clash-royale-single-use-abilities-what-changed-and-who-gains",
+    "https://trophycoach.com/tools/meta-tracker/archer-queen"
+   ]
+  },
+  {
+   "key": "golden_knight",
+   "ability": "Dashing Dash",
+   "ability_cost": 1,
+   "effect": "Chains dashes between nearby enemies (up to ~10 targets, each dash deals dash damage, untargetable while dashing); moves faster when no enemies around. Dash range 5.5->5 tiles (Feb/Oct 2026 nerfs). Single-use since Aug 2026 (was 8 s cooldown).",
+   "duration_s": null,
+   "cooldown_s": null,
+   "single_use": true,
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/all-champion-cards-clash-royale-abilities",
+    "https://royaleapi.com/blog/champions-update-season-29-sneak-peek",
+    "https://trophycoach.com/tools/meta-tracker/golden-knight",
+    "https://www.sportsdunia.com/gaming/clash-royale-balance-changes-october-2026",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "skeleton_king",
+   "ability": "Soul Summoning",
+   "ability_cost": 2,
+   "effect": "Collects a soul for every troop that dies within 3.5 tiles (4->3.5 Oct 2025); ability spawns 6 (min) to 20 (max) Skeletons at his level. Soul bar resets if a duplicate is placed (Oct 2025). Single-use since Aug 2026 (was 20 s cooldown).",
+   "duration_s": null,
+   "cooldown_s": null,
+   "single_use": true,
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/clash-royale-skeleton-king-all-need-know",
+    "https://gamertweak.com/skeleton-king-decks-clash-royale",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/october-balance-changes-2",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://gamemarket.gg/news/clash-royale/clash-royale-single-use-abilities-what-changed-and-who-gains"
+   ]
+  },
+  {
+   "key": "mighty_miner",
+   "ability": "Explosive Escape",
+   "ability_cost": 1,
+   "effect": "Drill damage ramps through 3 stages (stage switch every 2 s; base 43 dmg at L11 after Aug 2026, two-shots Skeletons). Ability: tunnels to the opposite lane and leaves a bomb that explodes after 1 s, hitting air+ground with 1.8-tile knockback. Knockback-immune. Single-use since Aug 2026 (was 13 s cooldown).",
+   "duration_s": null,
+   "cooldown_s": null,
+   "single_use": true,
+   "verified": true,
+   "sources": [
+    "https://liquipedia.net/clashroyale/Mighty_Miner",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://gamemarket.gg/news/clash-royale/clash-royale-single-use-abilities-what-changed-and-who-gains",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/balance-changes-april-2022"
+   ]
+  },
+  {
+   "key": "monk",
+   "ability": "Pensive Protection",
+   "ability_cost": 1,
+   "effect": "For ~4 s reflects incoming projectiles back at attackers, reduces damage taken by ~80% (one Nov 2026 guide says 65%), immune to knockback and Tornado pull. Activation time 0.93->0.7 s (Oct 2026). Melee 3-hit combo whose third hit knocks back (unverified). Single-use since Aug 2026 (was 17 s cooldown).",
+   "duration_s": 4.0,
+   "cooldown_s": null,
+   "single_use": true,
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Monk",
+    "https://sportskeeda.com/esports/latest-clash-royale-champion-card-monk-information-strategy",
+    "https://timesaver.gg/blog/clash-royale-monk",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://www.sportsdunia.com/gaming/clash-royale-balance-changes-october-2026",
+    "https://timesaver.gg/blog/clash-royale-october-2026-balance-changes"
+   ]
+  },
+  {
+   "key": "little_prince",
+   "ability": "Royal Rescue",
+   "ability_cost": 3,
+   "effect": "Ranged attacker whose hit speed ramps 1.2 s -> 0.4 s on consecutive shots (keeps the ramp briefly while moving). Ability summons Guardienne (~1800 HP, 232 dmg after Aug 2026; 400 charge dmg) who charges in, knocking enemies back 2 tiles; targets air+ground. Single-use since Aug 2026 (was 30 s cooldown).",
+   "duration_s": null,
+   "cooldown_s": null,
+   "single_use": true,
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/little-prince-guide-2023-november",
+    "https://sportskeeda.com/esports/little-prince-clash-royale-ability-stats-strategies",
+    "https://timesaver.gg/blog/clash-royale-little-prince",
+    "https://gamemarket.gg/news/clash-royale/clash-royale-single-use-abilities-what-changed-and-who-gains",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "goblinstein",
+   "ability": "Lightning Link",
+   "ability_cost": 2,
+   "effect": "Two units: Monster (tank, targets buildings) + Doctor (ranged, air+ground, 135 dmg after Aug 2026). Ability links Doctor and Monster for 4 s (5->4 Oct 2024); enemies within 2 tiles of the beam are shocked every 0.5 s (~188 dps after Aug 2026, reduced tower damage). Single-use since Aug 2026 (was 17 s cooldown).",
+   "duration_s": 4.0,
+   "cooldown_s": null,
+   "single_use": true,
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblinstein-new-card-2024-october",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/maintenance-bug-fixes-and-balance-changes-2",
+    "https://trophycoach.com/tools/meta-tracker/goblinstein",
+    "https://www.deckshop.pro/card/detail/goblinstein",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "boss_bandit",
+   "ability": "Getaway Grenade",
+   "ability_cost": 1,
+   "effect": "Dashes (double damage, untargetable) at targets 3.5-6 tiles away. Ability: throws a grenade, turns invisible, teleports back ~6 tiles and dashes again. Holds up to 2 charges with a 3 s cooldown between uses (Jul 2025 rework); the ONLY champion/hero ability still reusable after the Aug 2026 single-use change. Jan 2026: damage and dash damage nerfed.",
+   "duration_s": null,
+   "cooldown_s": 3.0,
+   "single_use": false,
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/july-balance-changes-2",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/january-balance-changes-26/",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://gamemarket.gg/news/clash-royale/clash-royale-single-use-abilities-what-changed-and-who-gains",
+    "https://www.sportskeeda.com/mobile-games/boss-bandit-clash-royale-ability-stats"
+   ]
+  }
+ ],
+ "evolutions": [
+  {
+   "key": "barbarians",
+   "cycles": 1,
+   "effect": "Rage-on-hit: every hit landed/taken makes each Barbarian faster and stronger for ~2 s; the anger stacks while fighting (also applies to Battle Ram Barbarians).",
+   "stat_changes": "No base stat change; 1 cycle (was 2 at launch Jun 2023).",
+   "counters_change": "Kill them before they stack: splash (Valkyrie, Bowler), knockback resets momentum; don't tank them with slow melee.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/card-evolution-2023-q2-update",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/may-balance-changes/",
+    "https://allthings.how/?p=163195"
+   ]
+  },
+  {
+   "key": "firecracker",
+   "cycles": 2,
+   "effect": "Each shot's main projectile and its 5 splinters leave small burning areas that deal damage over time (mini-poison patches).",
+   "stat_changes": "+43% HP (survives Arrows); 2 cycles.",
+   "counters_change": "Move swarm out of the sparks; Fireball/Arrows still kill her; pull with Tornado onto Giant Skeleton etc.",
+   "verified": true,
+   "sources": [
+    "https://liquipedia.net/clashroyale/Firecracker_Evolution",
+    "https://www.sportskeeda.com/esports/firecracker-evolution-clash-royale-stats-ability",
+    "https://royaleapi.com/blog/evolved-firecracker-2023-q2-update"
+   ]
+  },
+  {
+   "key": "skeletons",
+   "cycles": 2,
+   "effect": "Deploys 4 Skeletons; every kill by an evolved Skeleton spawns another, up to a cap of 8 alive.",
+   "stat_changes": "4 instead of 3 skeletons; 2 cycles.",
+   "counters_change": "Use splash (Bomber, Zap, Log) so no kill chain starts; never feed them single low-HP units.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Card_Evolution",
+    "https://royaleapi.com/blog/season49"
+   ]
+  },
+  {
+   "key": "royal_giant",
+   "cycles": 1,
+   "effect": "Cannon recoil: each shot emits a blast behind/around him that damages and knocks back nearby enemies.",
+   "stat_changes": "No base stat change; 1 cycle.",
+   "counters_change": "Attack from range rather than melee swarm behind him; Inferno/Hunter from the side; knockback cancels charges (Prince).",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Card_Evolution",
+    "https://royaleapi.com/blog/season49"
+   ]
+  },
+  {
+   "key": "mortar",
+   "cycles": 2,
+   "effect": "Each shell also launches a Goblin that lands unharmed and attacks the nearest target.",
+   "stat_changes": "No stat change; 2 cycles.",
+   "counters_change": "Expect a Goblin at the tower every shot: keep a cheap swarm/Spirit; the building itself is still Earthquake/Fireball bait.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/evolved-mortar-2023-july",
+    "https://gamertweak.com/best-mortar-evolution-decks-cr"
+   ]
+  },
+  {
+   "key": "knight",
+   "cycles": 2,
+   "effect": "Takes heavily reduced damage while walking toward a target (shield-up stance); normal damage once he stops to attack.",
+   "stat_changes": "No stat change; 2 cycles.",
+   "counters_change": "Let him reach and stop (then burst him), use Inferno/pull; don't spell him while he walks.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Card_Evolution",
+    "https://royaleapi.com/blog/knight-evolution-2023-august",
+    "https://trophycoach.com/guides/evolution-tier-list-november-2026"
+   ]
+  },
+  {
+   "key": "bats",
+   "cycles": 2,
+   "effect": "Each Bat heals itself (~76 HP at L11, ~31% max HP) after every attack; can overheal past max HP.",
+   "stat_changes": "+50% HP; 2 cycles.",
+   "counters_change": "One-shot them with Zap/Arrows/Snowball before they connect; splash troops; don't let them sit on a tank.",
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/news-clash-royale-set-introduce-new-card-evolution-bats-stats-ability",
+    "https://mobilematters.gg/clash-royale/clash-royale-bats-evolution"
+   ]
+  },
+  {
+   "key": "archers",
+   "cycles": 2,
+   "effect": "Power Shot: when a target is beyond normal range (5 to 6.5 tiles) they fire a stronger piercing arrow; normal arrows up close.",
+   "stat_changes": "+25% HP, +30% range; Power Shot dmg +18% (May patch); 2 cycles.",
+   "counters_change": "Close the distance fast or spell them (Fireball still kills); don't leave units sitting at 5-6.5 tiles.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/archers-evolution-2023-november",
+    "https://sportskeeda.com/esports/news-clash-royale-set-introduce-new-card-evolution-archers-release-date-stats"
+   ]
+  },
+  {
+   "key": "royal_recruits",
+   "cycles": 1,
+   "effect": "When an evolved Recruit's shield breaks he charges (dash) at the nearest target for bonus damage.",
+   "stat_changes": "+11% HP, charge bonus damage 12%->6% (Nov 2023); 1 cycle (community; not officially confirmed).",
+   "counters_change": "Break shields with splash from range (Bowler/Valkyrie) so charges hit nothing; stun/knockback cancels the charge.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/royal-recruits-evolution-2023-september",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/balance-changes-nov-2023",
+    "https://mobilematters.gg/clash-royale/clash-royale-royal-recruit-evolution"
+   ]
+  },
+  {
+   "key": "ice_spirit",
+   "cycles": 2,
+   "effect": "Ice Blast: the freeze also applies a second icy burst of area damage over time to affected targets.",
+   "stat_changes": "Same HP/freeze/range; cycles 3->2 (Dec 13 2023).",
+   "counters_change": "Same as Ice Spirit: bait it, or accept the chip; avoid stacking swarm in its radius.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/ice-spirit-evolution-2023-december",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/balance-changes-dec-13"
+   ]
+  },
+  {
+   "key": "valkyrie",
+   "cycles": 2,
+   "effect": "Her spin creates a tornado that pulls nearby ground enemies toward her for repeated 360-degree hits.",
+   "stat_changes": "No stat change; 2 cycles.",
+   "counters_change": "Fight her with air or from range; don't drop swarms near her; Inferno/Mini P.E.K.K.A one-on-one still trades fine.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Card_Evolution",
+    "https://royaleapi.com/blog/valkyrie-evolution-2024-january"
+   ]
+  },
+  {
+   "key": "bomber",
+   "cycles": 2,
+   "effect": "Bouncy Bomb: each bomb bounces twice, exploding at each bounce (up to 3 explosions along its path).",
+   "stat_changes": "+25% HP; cycles 1->2 (Oct 2025).",
+   "counters_change": "Rush him with a fast unit or Log/Snowball; spread troops so bounces miss; don't pre-place swarm behind a tank.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/bomber-evolution-2024-february",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/october-balance-changes-2"
+   ]
+  },
+  {
+   "key": "wall_breakers",
+   "cycles": 2,
+   "effect": "Barrel Walkers: ride explosive barrels; when killed the barrel explodes and the Wall Breakers keep running with the dynamite for a second hit.",
+   "stat_changes": "Second-life runners have lower HP/dmg than stage 1; L6: 207 HP/367 area dmg, runner 103 HP/245 dmg; 2 cycles.",
+   "counters_change": "Need two answers (e.g. Log then a unit) or a building placed early; kill runners before they reach the tower.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/wall-breakers-evolution-2024-february",
+    "https://mobilematters.gg/guides/clash-royale/clash-royale-wall-breakers-evolution"
+   ]
+  },
+  {
+   "key": "tesla",
+   "cycles": 2,
+   "effect": "Electro Pulse: emits a ~6-tile shockwave that damages (~192 at TS) and briefly stuns air+ground on emerging and on death; always at least two pulses (deploy + death, May patch).",
+   "stat_changes": "No stat change; 2 cycles.",
+   "counters_change": "Don't rely on Sparky/Inferno/charges near it (stun resets); kill it with spells (Earthquake) or out-range.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/tesla-evolution-2024-march",
+    "https://sportskeeda.com/esports/clash-royale-tesla-evolution-ability-changes-unlock-explained",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/may-balance-changes/"
+   ]
+  },
+  {
+   "key": "zap",
+   "cycles": 2,
+   "effect": "Triple Shock: zaps three times with growing radius (2.5->3->3.5 tiles) and growing damage (~192/384/576 at TS), stunning each time.",
+   "stat_changes": "2 cycles (not 1); base Zap stats unchanged.",
+   "counters_change": "Treat it like a mini-Lightning for swarms: don't stack Skeleton Army/Goblin Gang; it also hard-resets Inferno/Sparky.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/zap-evolution-2024-march",
+    "https://sportskeeda.com/esports/clash-royale-zap-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "goblin_giant",
+   "cycles": 1,
+   "effect": "Sack-trick: below 50% HP he periodically drops extra Spear Goblins 2.5 tiles behind him (spawn speed nerfed Sep 2025).",
+   "stat_changes": "Same HP/damage; 1 cycle (community).",
+   "counters_change": "Kill him from the front quickly with DPS; splash behind him to clear spawned Spear Goblins; Fisherman pull.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblin-giant-evolution-new-card-2024-july",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/vines-and-goblin-giant-evolution-nerfs/",
+    "https://sportskeeda.com/esports/clash-royale-goblin-giant-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "goblin_drill",
+   "cycles": 2,
+   "effect": "Whack-A-Drill: the drill resurfaces at 66% and 33% HP, each time leaving an extra Goblin; still spawns a Goblin every ~3 s and 2 more on death.",
+   "stat_changes": "Same HP/damage; 2 cycles.",
+   "counters_change": "Place splash (Valkyrie/Bomb Tower) on the drill immediately; count on 2 extra Goblins before it dies.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblin-drill-evolution-new-card-2024-july",
+    "https://sportskeeda.com/esports/clash-royale-goblin-drill-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "goblin_barrel",
+   "cycles": 2,
+   "effect": "Decoy Barrel: throws a second decoy barrel; both look identical in flight and only one releases Goblins.",
+   "stat_changes": "2 cycles; base stats unchanged.",
+   "counters_change": "Wait for landing before spelling, or use a wide spell (Arrows) that covers both; keep a cheap unit for the real one.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblin-barrel-2024-june",
+    "https://www.sportskeeda.com/esports/clash-royale-goblin-barrel-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "goblin_cage",
+   "cycles": 1,
+   "effect": "Cage Pull: ground troops within 3 tiles are pulled into the cage and trapped (cannot attack) until it breaks; releases a stronger Brawler.",
+   "stat_changes": "Brawler HP 1081->1189 (+10%); 1 cycle (community).",
+   "counters_change": "Attack it with air or ranged units; don't send single melee win-cons (Hog) near it; Lightning/Earthquake it.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblin-cage-evolution-new-card-2024-august",
+    "https://sportskeeda.com/esports/goblin-cage-evolution-clash-royale-stats-abilities"
+   ]
+  },
+  {
+   "key": "wizard",
+   "cycles": 1,
+   "effect": "Fire Shield: spawns with a shield (~371 shield HP at max level); while active he pushes back nearby enemies; when it breaks it explodes (~231 area damage) killing swarms.",
+   "stat_changes": "1 cycle; shield is extra effective HP.",
+   "counters_change": "Break the shield from range/with a spell first, then dive with Miner/Bandit; don't send Bats/Minions in.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/wizard-evolution-2024-may",
+    "https://sportskeeda.com/esports/clash-royale-wizard-evolution-stats-evolution-ability"
+   ]
+  },
+  {
+   "key": "pekka",
+   "cycles": 1,
+   "effect": "Healing Blade: heals on every kill (~3.5-15% of max HP depending on victim), can overheal up to +50%.",
+   "stat_changes": "1 cycle; no base stat change.",
+   "counters_change": "Don't feed her swarms; counter with Inferno Tower/Dragon or kite with buildings; swarm only to distract, not to fight.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/clash-royale-p-e-k-k-a-evolution-ability-stats",
+    "https://liquipedia.net/clashroyale/P.E.K.K.A._Evolution",
+    "https://royaleapi.com/blog/pekka-evolution-new-card-2024-september"
+   ]
+  },
+  {
+   "key": "mega_knight",
+   "cycles": 1,
+   "effect": "Mega Uppercut: his melee hit launches ground troops 4 tiles toward the nearest enemy crown tower (knockback); since Aug 2026 only every other attack triggers it.",
+   "stat_changes": "No stat change; 1 cycle (community).",
+   "counters_change": "Keep defenders behind buildings so they aren't thrown into your tower; P.E.K.K.A/Inferno from the side; avoid stacking melee on him.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/mega-knight-evolution-new-card-2024-september",
+    "https://sportskeeda.com/esports/clash-royale-mega-knight-evolution-ability-stats",
+    "https://www.playnews.gg/en/guides/clash-royale-the-best-evolutions-after-the-august-2026-balance-changes"
+   ]
+  },
+  {
+   "key": "musketeer",
+   "cycles": 2,
+   "effect": "Long Shot: her first 3 shots are sniper bullets with ~30-tile straight-line range and +50% damage (cannot target Crown Towers); afterwards a normal Musketeer.",
+   "stat_changes": "2 cycles; no stat change.",
+   "counters_change": "Don't leave support troops in her lane line; close distance or spell her (Fireball+Log) before the 3 shots.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/musketeer-evolution-new-card-2024-november",
+    "https://www.sportskeeda.com/mobile-games/clash-royale-musketeer-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "battle_ram",
+   "cycles": 2,
+   "effect": "Super Charge: after hitting a building it bounces back and charges again repeatedly (each hit ~572 charge dmg, ~212 pushback dmg) until its HP is gone; Barbarians then drop.",
+   "stat_changes": "2 cycles.",
+   "counters_change": "Stop it before it connects (building placement, Fisherman, Log/Snowball knockback); kill the ram, not just the Barbarians.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/battle-ram-evolution-2024-april",
+    "https://mobilematters.gg/guides/clash-royale/clash-royale-battle-ram-evolution"
+   ]
+  },
+  {
+   "key": "skeleton_barrel",
+   "cycles": 2,
+   "effect": "Two-stage barrel: after losing 25% HP it drops a first barrel of 7 Skeletons mid-path and keeps flying to drop the second on the tower.",
+   "stat_changes": "HP 532->665 (+25%); death damage 145 -> 2x256 (Apr 2026: 220->192 area dmg to troops); 2 cycles.",
+   "counters_change": "Need two swarm answers or splash near the tower; shoot it late (over your tower) or early (over the river), not mid-path.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/evo-skeleton-barrel-2025-july",
+    "https://www.sportskeeda.com/mobile-games/clash-royale-skeleton-barrel-evolution-ability-stats",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/april26-balance-changes/"
+   ]
+  },
+  {
+   "key": "dart_goblin",
+   "cycles": 2,
+   "effect": "Toxic Darts: each dart poisons the target area (1.5-tile radius) for 4 s, damaging nearby units and lingering on towers.",
+   "stat_changes": "2 cycles; no stat change.",
+   "counters_change": "Kill him fast (Log/Arrows/Fireball); keep swarm away from his target; tower takes extra chip, so don't ignore him.",
+   "verified": true,
+   "sources": [
+    "https://on.royaleapi.com/evodg",
+    "https://www.sportskeeda.com/mobile-games/clash-royale-dart-goblin-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "lumberjack",
+   "cycles": 2,
+   "effect": "Rage Ghost: on death drops his Rage and a Ghost Lumberjack (~256 dmg after Apr buff) that keeps fighting as long as it stands inside any Rage area.",
+   "stat_changes": "Cycles 1->2 and ghost dmg 192->256 (Apr balance); base stats unchanged.",
+   "counters_change": "Pull or kill him away from your push/tower so the ghost's Rage zone is wasted; stun/knockback the ghost out of the Rage.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/lumberjack-evolution-new-2025-february",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/april-balance-changes"
+   ]
+  },
+  {
+   "key": "inferno_dragon",
+   "cycles": 2,
+   "effect": "Beam Momentum: keeps its current beam stage when retargeting within ~9 s (stuns still reset) and gains a 4th beam stage.",
+   "stat_changes": "2 cycles; same HP/damage.",
+   "counters_change": "Reset with stun/freeze (Zap, E-Wiz, Freeze) rather than distracting with a swarm; kill it with ranged anti-air.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/inferno-dragon-evolution-2025-june",
+    "https://mobilematters.gg/guides/clash-royale/inferno-dragon-evolution",
+    "https://gamingonphone.com/guides/clash-royale-inferno-dragon-evolution-best-decks-guide"
+   ]
+  },
+  {
+   "key": "cannon",
+   "cycles": 2,
+   "effect": "Deploy Barrage: on placement fires 9 cannonballs that damage (2.5-tile effective radius) and knock back air AND ground units around it.",
+   "stat_changes": "2 cycles; base building stats unchanged.",
+   "counters_change": "Don't pre-stack swarms where it will land; place win-cons after the barrage; it still dies to Earthquake/Fireball.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/cannon-evolution-new-card-2024-november",
+    "https://clashroyale.fandom.com/wiki/Cannon/Evolution"
+   ]
+  },
+  {
+   "key": "giant_snowball",
+   "cycles": 2,
+   "effect": "Snow Bowling: instead of knockback, enemies are trapped inside the snowball and rolled 4 tiles with it (5-tile diameter path).",
+   "stat_changes": "2 cycles; damage/slow unchanged.",
+   "counters_change": "Monk's protection ignores it; keep defenders out of its roll line; it displaces, so re-place after it lands.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/giant-snowball-evolution-new-card-2024-december",
+    "https://liquipedia.net/clashroyale/Giant_Snowball_Evolution"
+   ]
+  },
+  {
+   "key": "executioner",
+   "cycles": 1,
+   "effect": "Axe Smash: at close range his axe hit is much stronger, knocks enemies back and cancels charges (Prince, Battle Ram).",
+   "stat_changes": "1 cycle; no stat change.",
+   "counters_change": "Engage from range or with air; don't charge into him with Prince/Ram; stun to interrupt.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/executioner-evolution-2025-april",
+    "https://www.sportskeeda.com/mobile-games/clash-royale-executioner-evolution-stats-ability"
+   ]
+  },
+  {
+   "key": "witch",
+   "cycles": 1,
+   "effect": "Healing Bones: every allied Skeleton (not Clone/Skeleton King ones) dying nearby heals her ~109 HP (1 s soul travel).",
+   "stat_changes": "1 cycle; stats identical to normal Witch.",
+   "counters_change": "Kill her directly with Fireball/Lightning or a dive (Miner) instead of grinding her Skeletons.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/witch-evolution-2025-may",
+    "https://www.sportskeeda.com/mobile-games/clash-royale-witch-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "hunter",
+   "cycles": 2,
+   "effect": "Net Gun: before his first shot he nets the nearest target, pinning it in place for 4 s (net breaks if the unit splits, e.g. Elixir Golem).",
+   "stat_changes": "2 cycles; base stats unchanged.",
+   "counters_change": "Bait the net with a cheap unit first; don't send a lone win-con into him; stun/kill him from range.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/hunter-evolution-2025-march",
+    "https://sportskeeda.com/mobile-games/clash-royale-hunter-evolution-stats-ability"
+   ]
+  },
+  {
+   "key": "electro_dragon",
+   "cycles": 1,
+   "effect": "Infinite Bolts: chain lightning no longer stops at 3 targets; it keeps bouncing between enemies within ~3.5-4 tiles indefinitely.",
+   "stat_changes": "1 cycle; same stats.",
+   "counters_change": "Spread units out (>4 tiles) so chains stop; kill it with ranged anti-air (Musketeer, Hunter) rather than swarms.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/electro-dragon-evolution-new-card-2024-october",
+    "https://www.sportskeeda.com/mobile-games/clash-royale-electro-dragon-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "furnace",
+   "cycles": 2,
+   "effect": "Hot Spawns: while attacking, spawns Fire Spirits from its sides every 2.4 s (was 1.8 s at launch).",
+   "stat_changes": "2 cycles; troop-Furnace stats unchanged.",
+   "counters_change": "Kill it before it engages (it spawns only while attacking); Arrows/Fireball; avoid swarm support near it.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Card_Evolution",
+    "https://royaleapi.com/blog/furnace-rework-2025-august",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/october-balance-changes-2"
+   ]
+  },
+  {
+   "key": "baby_dragon",
+   "cycles": 1,
+   "effect": "Friendly Drag: every attack also speeds up friendly troops (+50% -> +30% Dec 2025) and slows enemies (~30%) in a large area around it.",
+   "stat_changes": "1 cycle (Supercell calls it a 1-cycle evolution); stats unchanged.",
+   "counters_change": "Kill it early with anti-air; its push gets faster, so pre-place defence; Tornado it away from its tank.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/new-season-back-to-drool",
+    "https://www.sportskeeda.com/mobile-games/clash-royale-baby-dragon-evolution-stats-ability",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/october-balance-changes-2",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/december-balance-changes"
+   ]
+  },
+  {
+   "key": "royal_hogs",
+   "cycles": 2,
+   "effect": "Flying Pigs: the hogs fly toward the nearest building, deal splash damage when they land, then behave like normal Royal Hogs.",
+   "stat_changes": "2 cycles; stats unchanged. Released Nov 2025 (Season 77).",
+   "counters_change": "Ground-only buildings/pulls (Tornado) miss them in flight; defend at the landing spot with splash; air-targeting units.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/royal-hogs-evolution-2025-november",
+    "https://clashroyale.fandom.com/wiki/Royal_Hogs/Evolution",
+    "https://supercell.com/en/games/clashroyale/blog/news/new-season-when-hogs-fly"
+   ]
+  },
+  {
+   "key": "skeleton_army",
+   "cycles": 2,
+   "effect": "General Gerry: the army spawns with a commander; while he lives the Skeletons are invisible and indestructible; when he dies the whole army collapses.",
+   "stat_changes": "2 cycles; stats unchanged. Released Oct 2025 (Season 76).",
+   "counters_change": "Target/kill the General (splash still hits him); don't waste Zap/Log on the invisible Skeletons.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/skeleton-army-evolution-2025-october",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/october-update-2025"
+   ]
+  },
+  {
+   "key": "royal_ghost",
+   "cycles": 2,
+   "effect": "Ghost Souldiers: on appearing he summons 2 Souldiers (Skeleton HP, Royal Ghost damage, 1.8 s hit speed, also go invisible when idle) that vanish when he dies.",
+   "stat_changes": "Stats unchanged; cycle count not found (assumed 2). Released Oct 17 2025.",
+   "counters_change": "Kill the Ghost himself (splash while he attacks); Souldiers die to any splash; don't let them tag your tower unanswered.",
+   "verified": false,
+   "sources": [
+    "https://royaleapi.com/blog/royal-ghost-evolution-2025-october",
+    "https://www.sportskeeda.com/mobile-games/clash-royale-royal-ghost-evolution-guide"
+   ]
+  },
+  {
+   "key": "minion_horde",
+   "cycles": 1,
+   "effect": "Horde Immunity: each Minion becomes briefly invincible (and visually invisible) right after taking damage; splash hits trigger it on all at once.",
+   "stat_changes": "1 cycle; Aug 2026 reduced its hit-speed slowdown. Released Apr 6 2026 (Season 82).",
+   "counters_change": "Wait out the immunity window before the second spell/hit; single big spell (Arrows) first, then clean-up; Inferno ramps are wasted.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/hero-knight-and-heroes-december-2025",
+    "https://trophycoach.com/guides/minion-horde-evolution-guide",
+    "https://mobilematters.gg/news/clash-royale/april-2026-update-new-hero-card-evolution-balloon-festival",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "princess",
+   "cycles": 2,
+   "effect": "Ice Arrows: her first shot and every third shot afterwards is an icy arrow that damages and slows all enemies hit; on death she drops an icy area that slows troops.",
+   "stat_changes": "2 cycles (Supercell Season 84 blog); base stats unchanged. Released Jun 1 2026.",
+   "counters_change": "Kill her quickly with Log/Arrows/Miner; move the push off the ice patch; slow effect punishes charge units.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/news/stone-cold",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/june-update-2026/",
+    "https://www.lootbar.com/blog/en/clash-royale-evo-princess-ability-deck-guides.html"
+   ]
+  },
+  {
+   "key": "elite_barbarians",
+   "cycles": 1,
+   "effect": "Rage Javelins: both Barbarians gain a ranged spear throw (3.5-5 tiles, ~5 s cooldown) that leaves a Rage trail buffing allies behind it, on top of the normal charge.",
+   "stat_changes": "1 cycle (lowest in game); stats unchanged. Released Aug 3 2026 (Season 86).",
+   "counters_change": "Don't stand units in the spear line; kill them before the rage trail forms; swarm+knockback (Barb Barrel) still works.",
+   "verified": true,
+   "sources": [
+    "https://trophycoach.com/guides/elite-barbarians-evolution-guide",
+    "https://trophycoach.com/guides/elite-barbarians-evolution-meta-august-2026",
+    "https://egw.news/gaming/news/36398/clash-royale-august-2026-update-adds-two-heroes-el-I-oMHM32z"
+   ]
+  },
+  {
+   "key": "electro_giant",
+   "cycles": 1,
+   "effect": "Level Damper: every few seconds he emits an electric shockwave that de-levels nearby enemies by 1 level (on top of the normal reflect zap).",
+   "stat_changes": "Cycle count not confirmed (assumed 1); released Oct 5 2026 via Shocktober album.",
+   "counters_change": "Fight him from outside the shockwave/reflect radius (ranged/air units); Inferno Tower still works if not stunned; buildings to kite.",
+   "verified": false,
+   "sources": [
+    "https://www.sportsdunia.com/gaming/clash-royale-tv-royale-september-2026",
+    "https://timesaver.gg/blog/clash-royale-evolution-electro-giant",
+    "https://trophycoach.com/guides/clash-royale-shocktober-season-88-guide"
+   ]
+  },
+  {
+   "key": "giant",
+   "cycles": 1,
+   "effect": "Angry Giant: plays as a normal Giant until he drops to about half HP, then becomes enraged and leaves a Rage trail that boosts friendly troops following him.",
+   "stat_changes": "Cycle count and exact thresholds not officially published (assumed 1); released Nov 2 2026 (Season 89).",
+   "counters_change": "Kill him fast once enraged or pull him away from his support (Tornado/Fisherman); Inferno; don't chip him to 50% and leave him.",
+   "verified": false,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/new-season-king-vs-king",
+    "https://royaletracker.gg/news/clash-royale-update-november-2026",
+    "https://timesaver.gg/blog/clash-royale-evo-giant"
+   ]
+  },
+  {
+   "key": "mirror",
+   "cycles": 1,
+   "effect": "Evolved Mirror copies the last card played as its EVOLVED form (if one exists) at +1 level, even if that card is not in an evolution slot; otherwise a normal +1-level copy.",
+   "stat_changes": "Still costs last card +1 elixir; must cycle as a normal Mirror first (assumed 1 cycle). Released Nov 2 2026, Shop from Nov 9.",
+   "counters_change": "Expect a surprise evolved copy after any card: hold the counter for the evo version of their best card.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/new-season-king-vs-king",
+    "https://timesaver.gg/blog/clash-royale-evo-mirror",
+    "https://gamemarket.gg/news/clash-royale/clash-royale-king-vs-king-season-evo-giant-evo-mirror-and-more"
+   ]
+  }
+ ],
+ "heroes": [
+  {
+   "key": "knight",
+   "hero_name": "Hero Knight",
+   "ability": "Triumphant Taunt (2 elixir): gains a shield and taunts nearby enemies to attack him (taunt window 0.7->0.1 s, Apr 2026). Same base stats as Knight.",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2025-12",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/december-update-2025",
+    "https://clashroyale.fandom.com/wiki/Knight/Hero",
+    "https://royaleapi.com/blog/hero-knight-and-heroes-december-2025",
+    "https://trophycoach.com/guides/hero-mode-nerf-roundup-april-2026"
+   ]
+  },
+  {
+   "key": "giant",
+   "hero_name": "Hero Giant",
+   "ability": "Heroic Hurl (2 elixir): grabs the highest-HP enemy troop within ~2 tiles and throws it ~9 tiles into the other lane; landing damage and 2 s stun. Counts as 7 elixir total.",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2025-12",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Giant/Hero",
+    "https://royaleapi.com/blog/hero-giant-december-2025",
+    "https://support.clashroyale.com/hc/ms/articles/49484957738651-What-s-New"
+   ]
+  },
+  {
+   "key": "mini_pekka",
+   "hero_name": "Hero Mini P.E.K.K.A",
+   "ability": "Breakfast Boost (1 elixir): eats pancakes to gain +1 level per meter filled (meters fill over time/when attacking), up to +5 levels, and heals (40%->30% Jan 2026).",
+   "ability_cost": 1,
+   "single_use": true,
+   "released": "2025-12",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Mini_P.E.K.K.A./Hero",
+    "https://liquipedia.net/clashroyale/Hero_Mini_P.E.K.K.A.",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/december-update-2025",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/january-balance-changes-26/"
+   ]
+  },
+  {
+   "key": "musketeer",
+   "hero_name": "Hero Musketeer",
+   "ability": "Trusty Turret (3 elixir): spawns a short-range (5.5) auto-turret in front of her that hits air+ground for 10 s.",
+   "ability_cost": 3,
+   "single_use": true,
+   "released": "2025-12",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Musketeer/Hero",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/december-update-2025"
+   ]
+  },
+  {
+   "key": "wizard",
+   "hero_name": "Hero Wizard",
+   "ability": "Fiery Flight (1 elixir): takes flight for 3.5 s (5 s at launch; Sep 2026 nerf), +50% move speed, unreachable by ground-only attacks, throws 0.5 s mini-tornadoes (now 2 per activation).",
+   "ability_cost": 1,
+   "single_use": true,
+   "released": "2026-01",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/hero-wizard-january-2026",
+    "https://supercell.com/en/games/clashroyale/blog/news/new-season-fire-and-ice",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/september-balance-changes-2026"
+   ]
+  },
+  {
+   "key": "ice_golem",
+   "hero_name": "Hero Ice Golem",
+   "ability": "Snowstorm (2 elixir): emits pulses around him: slow, then (formerly knockback, removed Apr 2026), then a freeze of nearby enemies.",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2026-01",
+   "verified": true,
+   "sources": [
+    "https://www.sportsdunia.com/gaming/best-clash-royale-hero-ice-golem-decks",
+    "https://liquipedia.net/clashroyale/Portal:Hero_Cards",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/april26-balance-changes/"
+   ]
+  },
+  {
+   "key": "goblins",
+   "hero_name": "Hero Goblins",
+   "ability": "Banner Brigade (1 elixir): the last Goblin plants a banner (lasts 7 s); activating spawns 4 Goblins around it (respawn moved farther from towers Apr 2026). Seed's '1->2 cost' claim not supported by Supercell notes.",
+   "ability_cost": 1,
+   "single_use": true,
+   "released": "2026-02",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/hero-goblins-february-2026",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/april26-balance-changes/",
+    "https://www.highgroundgaming.com/clash-royale-best-hero-goblins-decks/"
+   ]
+  },
+  {
+   "key": "mega_minion",
+   "hero_name": "Hero Mega Minion",
+   "ability": "Wounding Warp (2 elixir): after 1 s teleports (infinite range) to the enemy troop with the lowest max HP and deals warp damage (373->399 Aug 2026; reduced tower damage).",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2026-02",
+   "verified": true,
+   "sources": [
+    "https://liquipedia.net/clashroyale/Hero_Mega_Minion",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "magic_archer",
+   "hero_name": "Hero Magic Archer",
+   "ability": "Triple Threat (1->2 elixir Apr 2026): dashes back ~3 tiles leaving a decoy whose next shot is a triple piercing arrow volley (bonus damage no longer applies to the triple shot).",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2026-03",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/march-update-2026/",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/april26-balance-changes/",
+    "https://trophycoach.com/guides/hero-magic-archer-guide"
+   ]
+  },
+  {
+   "key": "barbarian_barrel",
+   "hero_name": "Hero Barbarian Barrel",
+   "ability": "Rowdy Reroll (1 elixir): after the barrel breaks, the Barbarian can roll a second time (reroll range 4->3 tiles, May 2026).",
+   "ability_cost": 1,
+   "single_use": true,
+   "released": "2026-03",
+   "verified": true,
+   "sources": [
+    "https://trophycoach.com/heroes/hero-barbarian-barrel",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/march-update-2026/",
+    "https://www.pocketgamer.com/clash-royale/march-2026-update"
+   ]
+  },
+  {
+   "key": "balloon",
+   "hero_name": "Hero Balloon",
+   "ability": "Coffin Cadets (2 elixir; one site says 1): drops Skeletroopers (buffed Skeletons) that deal landing damage and fight on foot (Skeletrooper dmg 256->204, hit speed 0.9->1.1 s Jul 2026; further trim Sep 2026).",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2026-04",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/news/new-season-balloon-festival",
+    "https://mobilematters.gg/news/clash-royale/april-2026-update-new-hero-card-evolution-balloon-festival",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/july-balance-changes-2026",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/september-balance-changes-2026"
+   ]
+  },
+  {
+   "key": "dark_prince",
+   "hero_name": "Hero Dark Prince",
+   "ability": "Destructive Dismount (3 elixir): summons a Rhino mount that charges through ground troops and keeps fighting as an independent troop; Dark Prince keeps his shield but loses his charge afterwards.",
+   "ability_cost": 3,
+   "single_use": true,
+   "released": "2026-05",
+   "verified": true,
+   "sources": [
+    "https://trophycoach.com/guides/hero-dark-prince-guide",
+    "https://timesaver.gg/blog/clash-royale-hero-dark-prince",
+    "https://www.lootbar.com/blog/en/clash-royale-season-83-hero-bowler-and-dark-prince.html"
+   ]
+  },
+  {
+   "key": "bowler",
+   "hero_name": "Hero Bowler",
+   "ability": "Stone Swish (2 elixir): plants his feet and launches 4 boulders over 7.3 s (9 s at launch) with 11.5-tile range and +30% hit speed; up to ~768 tower damage if all connect.",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2026-05",
+   "verified": true,
+   "sources": [
+    "https://www.lootbar.com/blog/en/clash-royale-season-83-hero-bowler-and-dark-prince.html",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/june-balance-changes-2026",
+    "https://supercell.com/en/games/clashroyale/blog/News/new-season-siege-and-swish/"
+   ]
+  },
+  {
+   "key": "tombstone",
+   "hero_name": "Hero Tombstone",
+   "ability": "Regal Revival (6->5 elixir Jul 2026): the building rises as the Tomb Queen, a building-targeting win condition (4044->4224 HP, 320->422 dmg, sight 7 tiles after Aug 2026) that spawns Skeletons on death; continuous spawn removed Jul 2026.",
+   "ability_cost": 5,
+   "single_use": true,
+   "released": "2026-06",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/june-update-2026/",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/july-balance-changes-2026",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://support.clashroyale.com/hc/en-us/articles/50813583030427-What-s-New-June-2026"
+   ]
+  },
+  {
+   "key": "valkyrie",
+   "hero_name": "Hero Valkyrie",
+   "ability": "Wild Whirlwind (3 elixir): dashes up to 5.5 tiles toward enemies and spins for 3.5 s dealing area damage in a 2.5-tile radius (ability dps 388->324 planned Dec 2026).",
+   "ability_cost": 3,
+   "single_use": true,
+   "released": "2026-08",
+   "verified": true,
+   "sources": [
+    "https://trophycoach.com/guides/hero-valkyrie-guide",
+    "https://timesaver.gg/blog/clash-royale-hero-valkyrie",
+    "https://supercell.com/en/games/clashroyale/blog/news/august-balance-changes-26/"
+   ]
+  },
+  {
+   "key": "berserker",
+   "hero_name": "Hero Berserker",
+   "ability": "Savage Survival (3 elixir): for 4 s her HP cannot drop below 1, hit speed becomes 0.2 s and she moves Ultra Fast.",
+   "ability_cost": 3,
+   "single_use": true,
+   "released": "2026-08",
+   "verified": true,
+   "sources": [
+    "https://trophycoach.com/guides/hero-berserker-guide",
+    "https://trophycoach.com/heroes/hero-berserker",
+    "https://egw.news/gaming/news/36398/clash-royale-august-2026-update-adds-two-heroes-el-I-oMHM32z"
+   ]
+  },
+  {
+   "key": "ice_wizard",
+   "hero_name": "Hero Ice Wizard",
+   "ability": "Frosty Fella (2 elixir): his next shot spawns a Sneaky Snowman that freezes enemies around it (freeze duration 7->5 s Sep 16 2026; freeze damage 89->46 Oct 2026, no longer kills Skeletons/Bats); refunds elixir if he dies before the projectile lands (Nov 2026, unverified).",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2026-09",
+   "verified": true,
+   "sources": [
+    "https://timesaver.gg/blog/clash-royale-hero-ice-wizard-explained-september-2026",
+    "https://trophycoach.com/heroes/hero-ice-wizard",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/new-season-minion-academy",
+    "https://www.sportsdunia.com/gaming/clash-royale-balance-changes-october-2026"
+   ]
+  },
+  {
+   "key": "electro_wizard",
+   "hero_name": "Hero Electro Wizard",
+   "ability": "Surging Strikes (2 elixir): fires twin beams at two nearby enemies for ~3 s, stunning each target every 0.5 s.",
+   "ability_cost": 2,
+   "single_use": true,
+   "released": "2026-10",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/new-season-shocktober",
+    "https://gamemarket.gg/news/clash-royale/clash-royale-shocktober-2026-new-hero-evolution-balance-changes",
+    "https://trophycoach.com/guides/clash-royale-shocktober-season-88-guide"
+   ]
+  }
+ ],
+ "special_mechanics": [
+  {
+   "key": "golem",
+   "mechanic": "spawn_on_death",
+   "detail": "On death splits into 2 Golemites and deals area death damage (~= its hit damage); each Golemite also deals death damage. Golem L11 ~5120 HP (deckshop).",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Golem",
+    "https://www.deckshop.pro/card/hitpoints"
+   ]
+  },
+  {
+   "key": "lava_hound",
+   "mechanic": "spawn_on_death",
+   "detail": "On death bursts into 6 Lava Pups (low HP, target anything, air).",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Lava_Hound"
+   ]
+  },
+  {
+   "key": "giant_skeleton",
+   "mechanic": "death_damage",
+   "detail": "Drops a bomb on death: 209->269 area damage to troops, tower damage 418->269 (May 2026, L11); HP 1413->1313.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/may-balance-changes-2026"
+   ]
+  },
+  {
+   "key": "ice_golem",
+   "mechanic": "death_damage",
+   "detail": "Death nova deals small area damage (~84 at L11 per wiki table) and slows nearby enemies (~35%) for ~1 s; targets buildings only.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards"
+   ]
+  },
+  {
+   "key": "elixir_golem",
+   "mechanic": "spawn_on_death",
+   "detail": "Splits Golem -> 2 Golemites -> 4 Blobs; opponent gains +1 (Golem), +0.5 per Golemite, +0.5 per Blob = 4 elixir total.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/balance-changes-august-2022-2",
+    "https://sportskeeda.com/esports/elixir-golem-clash-royale-details-stats-strategies"
+   ]
+  },
+  {
+   "key": "goblin_giant",
+   "mechanic": "spawner",
+   "detail": "Carries 2 Spear Goblins in his sack who shoot from his back and drop out when he dies; targets buildings.",
+   "verified": false,
+   "sources": [
+    "https://royaleapi.com/blog/goblin-giant-evolution-new-card-2024-july"
+   ]
+  },
+  {
+   "key": "skeleton_barrel",
+   "mechanic": "spawn_on_death",
+   "detail": "Flying building-targeter; when popped deals small death damage and drops ~7-8 Skeletons (evo: 7 per barrel).",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards",
+    "https://royaleapi.com/blog/evo-skeleton-barrel-2025-july"
+   ]
+  },
+  {
+   "key": "battle_ram",
+   "mechanic": "charge",
+   "detail": "Charges after ~3 tiles uninterrupted (2x damage, knockback-resistant); breaks on hit, spawning 2 Barbarians. Stun/knockback resets the charge.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Battle_Ram"
+   ]
+  },
+  {
+   "key": "ram_rider",
+   "mechanic": "charge",
+   "detail": "Ram charges after ~3 tiles (2x building damage); the rider throws bolas that snare (immobilize) a troop for a few seconds; snare also stops Hog/Ram charges.",
+   "verified": false,
+   "sources": [
+    "https://clasher.us/clash-royale/card/Ram_Rider"
+   ]
+  },
+  {
+   "key": "prince",
+   "mechanic": "charge",
+   "detail": "Charges after ~3 tiles of uninterrupted running for 2x damage (one report claims 1.5 tiles after a rework); charge cancelled by stun/knockback/retarget.",
+   "verified": false,
+   "sources": [
+    "https://sportskeeda.com/esports/best-prince-decks-clash-royale",
+    "https://clashroyale.fandom.com/wiki/Glossary"
+   ]
+  },
+  {
+   "key": "dark_prince",
+   "mechanic": "shield",
+   "detail": "Shield absorbs damage before HP; charges after 3.5 tiles for 2x damage; 360-degree splash melee; charge lost on hit/stun.",
+   "verified": true,
+   "sources": [
+    "https://clasher.us/clash-royale/card/Dark_Prince",
+    "https://clashroyale.fandom.com/zh/wiki/%E9%BB%91%E6%9A%97%E7%8E%8B%E5%AD%90"
+   ]
+  },
+  {
+   "key": "bandit",
+   "mechanic": "dash",
+   "detail": "Dashes at targets 3.5-6 tiles away for 2x damage; untargetable/invulnerable during the dash.",
+   "verified": true,
+   "sources": [
+    "https://liquipedia.net/clashroyale/Bandit",
+    "https://sportskeeda.com/esports/how-use-bandit-clash-royale"
+   ]
+  },
+  {
+   "key": "boss_bandit",
+   "mechanic": "dash",
+   "detail": "Dashes (2x damage) at 3.5-6 tiles; Getaway Grenade (1 elixir): invisibility + 6-tile teleport back + dash; 2 charges, 3 s cooldown; exempt from single-use rule.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/july-balance-changes-2",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "ronin",
+   "mechanic": "parry",
+   "detail": "Every ~3.5 s can parry one incoming ground melee hit, blocking it and reflecting 200% of it; spawns parry-ready. Hit speed 1.4->1.3 s and crown-tower damage reduction 75%->0% (Sep 8 2026); first hit 0.3->0.4 s (Aug 2026).",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/september-balance-changes-2026",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://royaletracker.gg/news/clash-royale-july-2026-update"
+   ]
+  },
+  {
+   "key": "royal_ghost",
+   "mechanic": "invisibility",
+   "detail": "Invisible (untargetable) while not attacking; becomes visible when he attacks, re-cloaks ~1.5 s after stopping. Splash still hits him.",
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/which-best-legendary-card-clash-royale"
+   ]
+  },
+  {
+   "key": "guards",
+   "mechanic": "shield",
+   "detail": "3 Skeletons each with a shield (~160 shield HP at an unstated level; ~199 at L11 per seed) that must be broken before HP; shield blocks one-shot kills.",
+   "verified": false,
+   "sources": [
+    "https://sportskeeda.com/esports/how-play-the-guards-clash-royale-abilities-strategies"
+   ]
+  },
+  {
+   "key": "royal_recruits",
+   "mechanic": "shield",
+   "detail": "6 Recruits deployed across both lanes, each with a shield (~240-318 shield HP by level) in front of ~705 HP (L14 figures).",
+   "verified": false,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-royal-recruits-clash-royale"
+   ]
+  },
+  {
+   "key": "inferno_tower",
+   "mechanic": "ramp",
+   "detail": "Single-target beam, 0.4 s hit speed; damage ramps through stages to ~20x the starting hit (L8: 32->640 per hit, so L11 ~43->852). Any stun/freeze/retarget resets to stage 1.",
+   "verified": false,
+   "sources": [
+    "https://www.noff.gg/clash-royale/card/inferno-tower",
+    "https://clasher.us/clash-royale/card/Inferno_Tower"
+   ]
+  },
+  {
+   "key": "inferno_dragon",
+   "mechanic": "ramp",
+   "detail": "Air beam with 3 damage stages reaching full (stage 3) damage at ~4 s; retarget or stun resets (evolution keeps stage for 9 s). Optimal stun timing: just before 4 s.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/mobile-games/important-tips-use-inferno-dragon-clash-royale",
+    "https://www.clasher.us/clash-royale/card/Inferno_Dragon"
+   ]
+  },
+  {
+   "key": "mighty_miner",
+   "mechanic": "ramp",
+   "detail": "Drill ramps through 3 stages, switching stage every 2 s (base 43 dmg L11); Explosive Escape bomb (1 elixir) 1 s fuse, 1.8-tile knockback, air+ground.",
+   "verified": true,
+   "sources": [
+    "https://liquipedia.net/clashroyale/Mighty_Miner",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "sparky",
+   "mechanic": "charge",
+   "detail": "Charges ~4 s between shots (hit speed 4 s; one source says 5); huge area blast; stun (Zap, E-Wiz, Zappies, E-Drag, Lightning) resets the charge; Ice Spirit/Freeze also reset.",
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/how-counter-sparky-decks-clash-royale",
+    "https://sportskeeda.com/esports/clash-royale-how-unlock-sparky"
+   ]
+  },
+  {
+   "key": "electro_wizard",
+   "mechanic": "stun",
+   "detail": "Spawn zap on deploy (area damage + stun); each attack hits 2 targets with 0.5 s stun that resets charges/Inferno.",
+   "verified": false,
+   "sources": [
+    "https://clasher.us/clash-royale/card/Electro_Wizard"
+   ]
+  },
+  {
+   "key": "zappies",
+   "mechanic": "stun",
+   "detail": "3 ranged units; each hit applies a 0.5 s stun (chain-stuns a single target, resets Inferno/Sparky).",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards"
+   ]
+  },
+  {
+   "key": "electro_dragon",
+   "mechanic": "stun",
+   "detail": "Chain lightning bounces to up to 3 targets (evolution: unlimited within ~3.5-4 tiles), 0.5 s stun per hit.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/electro-dragon-evolution-new-card-2024-october"
+   ]
+  },
+  {
+   "key": "electro_giant",
+   "mechanic": "reflect",
+   "detail": "Zap Pack: any enemy that damages him while within ~3 tiles (one source 2.5) is zapped back: damage + 0.5 s stun/reset. Reflection disabled while Frozen. Evo adds de-level shockwaves.",
+   "verified": true,
+   "sources": [
+    "https://thesportsrush.com/electro-giant-stats-info-gameplay-in-clash-royale/",
+    "https://timesaver.gg/blog/how-to-counter-electro-giant-clash-royale"
+   ]
+  },
+  {
+   "key": "electro_spirit",
+   "mechanic": "stun",
+   "detail": "Kamikaze: chains to up to 9 targets (damage 99 x9 at L11 per wiki table), 0.5 s stun each; Spirits can no longer hit Crown Towers on their own (Aug 2026); HP 230->215.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "zap",
+   "mechanic": "stun",
+   "detail": "Instant area damage + 0.5 s stun in 2.5-tile radius; resets Inferno, Sparky charge, Prince charge; kills Skeletons/Bats.",
+   "verified": true,
+   "sources": [
+    "https://www.clasher.us/clash-royale/card/Zap"
+   ]
+  },
+  {
+   "key": "lightning",
+   "mechanic": "stun",
+   "detail": "Strikes the 3 highest-HP enemies in a 3.5-tile radius (one per bolt), each with 0.5 s stun; resets Inferno/Sparky.",
+   "verified": false,
+   "sources": [
+    "https://royaleapi.com/card/lightning/matchup"
+   ]
+  },
+  {
+   "key": "fisherman",
+   "mechanic": "pull",
+   "detail": "Hooks ground targets 3.5-7 tiles away (1.3 s wind-up): pulls troops to him or pulls himself to buildings; slows target ~30-35% for 1.5 s. Can pull Hog/Ram off a tower.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Fisherman"
+   ]
+  },
+  {
+   "key": "tornado",
+   "mechanic": "pull",
+   "detail": "Pulls all troops (air+ground) toward its centre for ~1 s with light damage; activates King Tower if units are dragged into its range; groups swarms for splash.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Glossary"
+   ]
+  },
+  {
+   "key": "bowler",
+   "mechanic": "knockback",
+   "detail": "Rolls a boulder (~4-tile range) that pierces along a line, damaging and knocking back every ground unit in its path; cancels charges.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/bowler-clash-royale-stats-strategies",
+    "https://clasher.us/clash-royale/card/Bowler"
+   ]
+  },
+  {
+   "key": "log",
+   "mechanic": "knockback",
+   "detail": "Rolls ~10-11 tiles, ground only, damages and knocks back everything in its path (cancels charges); kills Skeletons/Goblins; cannot hit air.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards"
+   ]
+  },
+  {
+   "key": "barbarian_barrel",
+   "mechanic": "knockback",
+   "detail": "Rolls ~5 tiles (hero version 4.5) over ground units with knockback, then spawns a Barbarian; range too short to hit Crown Towers from the bridge.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Barbarian_Barrel",
+    "https://trophycoach.com/guides/hero-barbarian-barrel-guide"
+   ]
+  },
+  {
+   "key": "giant_snowball",
+   "mechanic": "knockback",
+   "detail": "Area damage, knockback and ~35% slow for 2.5 s on air+ground; evolution instead rolls trapped enemies 4 tiles.",
+   "verified": false,
+   "sources": [
+    "https://royaleapi.com/blog/giant-snowball-evolution-new-card-2024-december"
+   ]
+  },
+  {
+   "key": "royal_delivery",
+   "mechanic": "knockback",
+   "detail": "Drops after a ~3 s deploy delay: area damage + knockback to air and ground, then spawns one Royal Recruit (with shield).",
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-royal-delivery-clash-royale"
+   ]
+  },
+  {
+   "key": "freeze",
+   "mechanic": "freeze",
+   "detail": "Freezes enemy troops and buildings in a 3-tile radius for 4 s and deals small instant damage; Inferno/Sparky reset; Electro Giant's reflect disabled while frozen.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/all-spell-cards-clash-royale-everything-must-know",
+    "https://timesaver.gg/blog/how-to-counter-electro-giant-clash-royale"
+   ]
+  },
+  {
+   "key": "rage",
+   "mechanic": "rage",
+   "detail": "+35% movement and attack speed to friendly troops/buildings in the area for ~4.5 s (5.5->4.5 Aug 2025; Lumberjack's own rage stays 5.5 s).",
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/how-utilize-freeze-rage-spells-strategically-clash-royale",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/august-balance-changes-2"
+   ]
+  },
+  {
+   "key": "clone",
+   "mechanic": "clone",
+   "detail": "Copies every friendly troop in a 3-tile radius as a 1-HP clone with full damage (cannot clone buildings); clones push originals aside and die to any splash.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-clone-spell-clash-royale",
+    "https://liquipedia.net/clashroyale/Clone"
+   ]
+  },
+  {
+   "key": "mirror",
+   "mechanic": "mirror",
+   "detail": "Replays your previous card at +1 elixir cost and +1 level (Mirror itself has no cost); evolved Mirror produces the evolved form.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/new-season-king-vs-king",
+    "https://timesaver.gg/blog/clash-royale-evo-mirror"
+   ]
+  },
+  {
+   "key": "heal_spirit",
+   "mechanic": "heal",
+   "detail": "Kamikaze: jumps to a target and heals friendly troops in the area (no damage); HP 230->215 Aug 2026; cannot target Crown Towers alone.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "battle_healer",
+   "mechanic": "heal",
+   "detail": "Heals herself and nearby allies on every hit (active pulse ~4/s while fighting) and passively (~2 pulses/s) after ~5 s idle; spawn heal ~200, per-hit heal ~100 (level unstated).",
+   "verified": false,
+   "sources": [
+    "https://sportskeeda.com/esports/how-use-battle-healer-clash-royale"
+   ]
+  },
+  {
+   "key": "phoenix",
+   "mechanic": "transform",
+   "detail": "On death leaves an egg; if the egg survives a few seconds it re-hatches into a weaker Phoenix (egg HP +32% Mar 2026). Kill the egg to deny the rebirth.",
+   "verified": true,
+   "sources": [
+    "https://liquipedia.net/clashroyale/Phoenix"
+   ]
+  },
+  {
+   "key": "mother_witch",
+   "mechanic": "transform",
+   "detail": "Her shots curse enemies; cursed troops that die turn into allied Cursed Hogs (piglets) that run at buildings.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-use-mother-witch-clash-royale"
+   ]
+  },
+  {
+   "key": "witch",
+   "mechanic": "spawner",
+   "detail": "Spawns 2-3 Skeletons every ~7 s while alive (evo heals from their deaths); ranged splash attack.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Witch"
+   ]
+  },
+  {
+   "key": "night_witch",
+   "mechanic": "spawner",
+   "detail": "Spawns Bats periodically (~5 s) while alive; releases Bats on death; melee ground attacker.",
+   "verified": false,
+   "sources": [
+    "https://clasher.us/clash-royale/card/Night_Witch"
+   ]
+  },
+  {
+   "key": "goblin_hut",
+   "mechanic": "spawner",
+   "detail": "Spawns a Spear Goblin every 4 s for a 31 s lifetime (Dec 2021 rework) and 1 more on destruction.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/2021-q4-balance",
+    "https://sportskeeda.com/esports/all-building-cards-clash-royale"
+   ]
+  },
+  {
+   "key": "barbarian_hut",
+   "mechanic": "spawner",
+   "detail": "Spawns Barbarians every 10 s for a 40 s lifetime (Dec 2021 rework) and 1 more Barbarian when destroyed (2022 rework details may differ).",
+   "verified": false,
+   "sources": [
+    "https://royaleapi.com/blog/2021-q4-balance",
+    "https://sportskeeda.com/esports/all-building-cards-clash-royale"
+   ]
+  },
+  {
+   "key": "furnace",
+   "mechanic": "spawner",
+   "detail": "Since Aug 2025 a 4-elixir ranged TROOP (hits air+ground) that spawns 1 Fire Spirit every ~5 s; evolution spawns extra Spirits every 2.4 s while attacking.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/furnace-rework-2025-august",
+    "https://www.sportskeeda.com/mobile-games/news-clash-royale-announces-sudden-nerfs-the-furnace-rework"
+   ]
+  },
+  {
+   "key": "tombstone",
+   "mechanic": "spawner",
+   "detail": "Spawns 2 Skeletons every 3.3 s for a 30 s lifetime and 3-4 Skeletons on death (Dec 2021 rework); Hero version raises the Tomb Queen.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/2021-q4-balance",
+    "https://www.clasher.us/clash-royale/card/Tombstone"
+   ]
+  },
+  {
+   "key": "goblin_cage",
+   "mechanic": "spawn_on_death",
+   "detail": "Building with no attack; when destroyed (or expired) releases a Goblin Brawler (~1081 HP, evo 1189); evo pulls ground troops into the cage.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblin-cage-evolution-new-card-2024-august"
+   ]
+  },
+  {
+   "key": "goblin_drill",
+   "mechanic": "spawner",
+   "detail": "Can be placed anywhere; after burrowing it surfaces and spawns a Goblin every ~3 s while alive, plus 2 Goblins on destruction (evo adds pops at 66%/33%).",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblin-drill-evolution-new-card-2024-july",
+    "https://sportskeeda.com/esports/clash-royale-goblin-drill-evolution-ability-stats"
+   ]
+  },
+  {
+   "key": "graveyard",
+   "mechanic": "spawner",
+   "detail": "Placeable anywhere: spawns ~15 Skeletons one at a time over ~9-10 s in a 4-tile radius; skeletons target anything.",
+   "verified": false,
+   "sources": [
+    "https://sportskeeda.com/esports/how-unlock-graveyard-card-clash-royale"
+   ]
+  },
+  {
+   "key": "goblin_barrel",
+   "mechanic": "spawner",
+   "detail": "Thrown anywhere (flight ~1.1 s): releases 3 Goblins on landing (first-hit delay 0.4->0.3 s Oct 2026); evo adds a decoy barrel.",
+   "verified": true,
+   "sources": [
+    "https://clasher.us/clash-royale/card/Goblin_Barrel",
+    "https://www.sportsdunia.com/gaming/clash-royale-balance-changes-october-2026"
+   ]
+  },
+  {
+   "key": "miner",
+   "mechanic": "other",
+   "detail": "Placeable anywhere (burrows); deals reduced damage to Crown Towers (~30-35% less); good spell-tank.",
+   "verified": false,
+   "sources": [
+    "https://sportskeeda.com/esports/clash-royale-miner-all-need-know"
+   ]
+  },
+  {
+   "key": "wall_breakers",
+   "mechanic": "death_damage",
+   "detail": "2 kamikaze runners targeting buildings; each explodes for large area damage on contact (also small death damage when killed); evo keeps running after the barrel pops.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards",
+    "https://royaleapi.com/blog/wall-breakers-evolution-2024-february"
+   ]
+  },
+  {
+   "key": "goblin_demolisher",
+   "mechanic": "death_damage",
+   "detail": "Throws bombs (ground splash); below 50% HP lights his fuse, charges the nearest building and explodes (~465 area damage at launch, since nerfed) - a death explosion, not a spawn.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblin-demolisher-new-card-2024-summer-update",
+    "https://supercell.com/en/games/clashroyale/blog/news/july-balance-changes"
+   ]
+  },
+  {
+   "key": "goblin_machine",
+   "mechanic": "other",
+   "detail": "Melee mini-tank (hits every ~0.9-1.2 s) that periodically fires a long-range rocket (every 5 s after Aug 2026, range 2.5-5 tiles, ~304 dmg at L11, hits air+ground).",
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/clash-royale-goblin-machine-ability-stats",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/january-balance-changes-2"
+   ]
+  },
+  {
+   "key": "goblin_curse",
+   "mechanic": "transform",
+   "detail": "3-tile, 6 s area spell: 35 dps to troops (10 to towers); cursed enemies that die become allied Goblins. Damage amplification removed (20%->0%) Sep 2 2025.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/september-balance-changes",
+    "https://royaleapi.com/blog/goblin-curse-new-card-2024-summer-update"
+   ]
+  },
+  {
+   "key": "void",
+   "mechanic": "other",
+   "detail": "5-elixir (Aug 2026) area spell, 2.5-tile radius, strikes every 1.2 s: full damage to a lone unit (~696 total), ~42% each for 2-4 units, less for 5+.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+    "https://www.playnews.gg/en/guides/clash-royale-classic-cards-reworked-on-august-4-the-void-at-5-elixir-and-the-x-bow-s-fake-buff"
+   ]
+  },
+  {
+   "key": "vines",
+   "mechanic": "pull",
+   "detail": "Entangles the 3 highest-HP units in a 2.5-tile radius for 2.5 s (grounds air units so ground troops can hit them) while dealing damage over time (~134 dps after Sep 2025 nerf).",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/vines-and-goblin-giant-evolution-nerfs/",
+    "https://royaleapi.com/blog/vines-new-card-2025-september"
+   ]
+  },
+  {
+   "key": "suspicious_bush",
+   "mechanic": "spawn_on_death",
+   "detail": "Slow, near-zero-HP disguised bush that walks at buildings; releases 2 Bush Goblins (~337 HP, 227 dmg) when it arrives or is killed by a spell.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/suspicious-bush-clash-royale-ability-stats",
+    "https://royaleapi.com/blog/suspicious-bush-2024-august"
+   ]
+  },
+  {
+   "key": "spirit_empress",
+   "mechanic": "transform",
+   "detail": "Form chosen by your elixir on deploy: <6 elixir = 3-cost ground melee form (~1075 HP); >=6 = 6-cost flying ranged form (range 4.5, hits air+ground, ~1380 HP, 1.4 s hit time).",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/spirit-empress-new-card-2025-july",
+    "https://1v9.gg/blog/clash-royale-cr-how-to-use-and-counter-spirit-empress-guide"
+   ]
+  },
+  {
+   "key": "rune_giant",
+   "mechanic": "other",
+   "detail": "Building-targeter that enchants up to 2 nearby allies so their hits deal bonus area damage (~220); enchant persists after she dies (linger 5 s -> 0.5 s Oct 19 2026); bonus doubled vs large troops for several multi-projectile cards.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/balance-change-rune-giant",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/june-balance-changes-2026",
+    "https://trophycoach.com/guides/rune-giant-nerf-october-19-2026-balance-changes"
+   ]
+  },
+  {
+   "key": "berserker",
+   "mechanic": "ramp",
+   "detail": "2-elixir melee; attacks faster as her HP drops (max hit speed 0.5->0.6 s Oct 2025, ~102 dmg at launch); hero form adds Savage Survival.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/season-76-balance-final-october-2025",
+    "https://royaleapi.com/blog/berserker-new-card-2025-february"
+   ]
+  },
+  {
+   "key": "minion_giant",
+   "mechanic": "other",
+   "detail": "4-elixir flying building-targeter that spits toxin from 4 tiles; 189->168 dmg (Sep 2026), hit speed 1.5->1.7 s (Oct 2026).",
+   "verified": true,
+   "sources": [
+    "https://www.ldplayer.net/blog/clash-royale-minion-giant-guide.html",
+    "https://youmind.com/landing/x-viral-articles/clash-royale-oct-2026-balance"
+   ]
+  },
+  {
+   "key": "hunter",
+   "mechanic": "other",
+   "detail": "Fires a spread of ~10 pellets; all pellets connect only at point-blank, so damage falls off sharply with distance; evo nets the first target for 4 s.",
+   "verified": false,
+   "sources": [
+    "https://royaleapi.com/card/hunter/matchup",
+    "https://royaleapi.com/blog/hunter-evolution-2025-march"
+   ]
+  },
+  {
+   "key": "magic_archer",
+   "mechanic": "other",
+   "detail": "Arrows pierce every unit in a line and keep flying to max range (7-tile targeting), so he can hit towers while aiming at a troop in front of them.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/magic-archer-clash-royale-stats-hp-damage-type",
+    "https://clashroyale.fandom.com/wiki/Magic_Archer"
+   ]
+  },
+  {
+   "key": "executioner",
+   "mechanic": "other",
+   "detail": "Throws a boomerang axe (2.4 s hit speed) that damages everything along its path going out and coming back (two hits per throw); evo adds point-blank knockback.",
+   "verified": false,
+   "sources": [
+    "https://www.sportskeeda.com/esports/how-unlock-executioner-clash-royale",
+    "https://royaleapi.com/blog/executioner-evolution-2025-april"
+   ]
+  },
+  {
+   "key": "lumberjack",
+   "mechanic": "rage",
+   "detail": "Very fast melee; on death drops a Rage (5.5 s, +35%) on the spot; evolution adds a Rage Ghost.",
+   "verified": true,
+   "sources": [
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/august-balance-changes-2",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/january-balance-changes-2"
+   ]
+  },
+  {
+   "key": "elixir_collector",
+   "mechanic": "other",
+   "detail": "6-elixir building that generates elixir over its lifetime (~8 total, net +2 if untouched); dies to Earthquake/Rocket value.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards"
+   ]
+  },
+  {
+   "key": "x_bow",
+   "mechanic": "other",
+   "detail": "Siege building with ~11.5-tile range and 0.25 s hit speed (fastest in game), ground only; Aug 2026 'fake buff' rework.",
+   "verified": false,
+   "sources": [
+    "https://clasher.us/clash-royale/card/Inferno_Tower",
+    "https://www.playnews.gg/en/guides/clash-royale-classic-cards-reworked-on-august-4-the-void-at-5-elixir-and-the-x-bow-s-fake-buff"
+   ]
+  },
+  {
+   "key": "mortar",
+   "mechanic": "other",
+   "detail": "Siege building with ~11.5-tile range but a 3.5-tile minimum range (blind spot); ground splash; evo launches Goblins.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards"
+   ]
+  },
+  {
+   "key": "cannon_cart",
+   "mechanic": "shield",
+   "detail": "Cart shield (~1100 HP at L11) is a separate HP pool; when it breaks the Cannon becomes a stationary building (~1000 HP) that lasts ~30 s; damage 212->202 (Oct 19 2026).",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/november-balance-changes-2/"
+   ]
+  },
+  {
+   "key": "flying_machine",
+   "mechanic": "other",
+   "detail": "Fast long-range (6 tiles) air unit, single target, ground+air; no special ability beyond range.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards"
+   ]
+  },
+  {
+   "key": "skeleton_dragons",
+   "mechanic": "other",
+   "detail": "2 flying splash units; each breath deals small area damage, so together they clear swarms.",
+   "verified": false,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Cards"
+   ]
+  },
+  {
+   "key": "firecracker",
+   "mechanic": "knockback",
+   "detail": "Each shot bursts into 5 sparks spreading forward (area damage) and knocks HERSELF back ~1 tile; evo sparks leave burning ground.",
+   "verified": true,
+   "sources": [
+    "https://liquipedia.net/clashroyale/Firecracker_Evolution"
+   ]
+  },
+  {
+   "key": "mega_knight",
+   "mechanic": "knockback",
+   "detail": "Spawn damage on deploy and jump attack (~2x damage) on targets 3.5+ tiles away, both with knockback; evo uppercut throws targets 4 tiles.",
+   "verified": false,
+   "sources": [
+    "https://sportskeeda.com/esports/clash-royale-mega-knight-all-need-know",
+    "https://royaleapi.com/blog/mega-knight-evolution-new-card-2024-september"
+   ]
+  },
+  {
+   "key": "archer_queen",
+   "mechanic": "invisibility",
+   "detail": "Cloaking Cape (1 elixir, single-use): ~3.5 s invisibility + ~+180-200% attack speed.",
+   "verified": true,
+   "sources": [
+    "https://www.sportskeeda.com/esports/clash-royale-archer-queen-all-need-know",
+    "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/"
+   ]
+  },
+  {
+   "key": "golden_knight",
+   "mechanic": "dash",
+   "detail": "Dashing Dash (1 elixir, single-use): chain dashes through nearby enemies (5-tile dash range after 2026 nerfs), untargetable while dashing.",
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/all-champion-cards-clash-royale-abilities",
+    "https://trophycoach.com/tools/meta-tracker/golden-knight"
+   ]
+  },
+  {
+   "key": "skeleton_king",
+   "mechanic": "spawner",
+   "detail": "Soul Summoning (2 elixir, single-use): 6-20 Skeletons depending on souls collected within 3.5 tiles.",
+   "verified": true,
+   "sources": [
+    "https://sportskeeda.com/esports/clash-royale-skeleton-king-all-need-know",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/october-balance-changes-2"
+   ]
+  },
+  {
+   "key": "monk",
+   "mechanic": "reflect",
+   "detail": "Pensive Protection (1 elixir, single-use): 4 s projectile reflection, ~80% damage reduction, knockback/pull immunity; 0.7 s activation (Oct 2026).",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Monk",
+    "https://timesaver.gg/blog/clash-royale-monk"
+   ]
+  },
+  {
+   "key": "little_prince",
+   "mechanic": "ramp",
+   "detail": "Hit speed ramps 1.2->0.4 s on consecutive shots; Royal Rescue (3 elixir, single-use) summons Guardienne with 2-tile knockback charge.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/little-prince-guide-2023-november",
+    "https://gamemarket.gg/news/clash-royale/clash-royale-single-use-abilities-what-changed-and-who-gains"
+   ]
+  },
+  {
+   "key": "goblinstein",
+   "mechanic": "stun",
+   "detail": "Lightning Link (2 elixir, single-use): 4 s beam between Doctor and Monster shocking units within 2 tiles every 0.5 s.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/goblinstein-new-card-2024-october",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/maintenance-bug-fixes-and-balance-changes-2"
+   ]
+  }
+ ],
+ "tower_troops": [
+  {
+   "key": "tower_princess",
+   "hp": 3052,
+   "damage": 109,
+   "hit_speed": 0.8,
+   "range": 7.5,
+   "mechanic": "Default tower troop; single-target arrows, hits air and ground; steady 136 dps.",
+   "how_to_play_against": "Standard tower: tank with a mini-tank, spell-cycle; nothing special to exploit.",
+   "verified": true,
+   "sources": [
+    "https://1v9.gg/blog/clash-royale-cr-all-tower-troops",
+    "https://clashroyale.fandom.com/wiki/Tower_Princess",
+    "https://royaleapi.com/blog/royal-chef-new-card-2024-december"
+   ]
+  },
+  {
+   "key": "cannoneer",
+   "hp": 2616,
+   "damage": 422,
+   "hit_speed": 2.4,
+   "range": 7.5,
+   "mechanic": "Epic tower troop: one heavy cannonball every 2.4 s (~175 dps), hits air and ground; great vs single tanky units, poor vs swarms. Sep 2025 partially reverted a hit-speed buff.",
+   "how_to_play_against": "Swarm it (Skeleton Army, Goblin Gang, Bats): each shot kills one unit; avoid lone mini-tanks.",
+   "verified": true,
+   "sources": [
+    "https://1v9.gg/blog/clash-royale-cr-all-tower-troops",
+    "https://royaleapi.com/blog/cannoneer-january-2024",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/september-balance-changes"
+   ]
+  },
+  {
+   "key": "dagger_duchess",
+   "hp": 2768,
+   "damage": 107,
+   "hit_speed": 0.5,
+   "range": 7.5,
+   "mechanic": "Legendary: stores up to 8 daggers and throws them at 0.5 s intervals (0.45->0.50 Aug 2025) for ~214 dps burst; when empty she recharges one dagger every 0.9 s (~76-90 dps sustained). Daggers recharge while idle.",
+   "how_to_play_against": "Burn her 8 daggers with a cheap swarm/bait first, then push with the real threat; tanks beat her sustained dps.",
+   "verified": true,
+   "sources": [
+    "https://clashroyale.fandom.com/wiki/Dagger_Duchess",
+    "https://royaleapi.com/blog/dagger-duchess-2024-april",
+    "https://theriagames.com/?p=74986"
+   ]
+  },
+  {
+   "key": "royal_chef",
+   "hp": 2703,
+   "damage": 108,
+   "hit_speed": 0.9,
+   "range": 7.5,
+   "mechanic": "Legendary: slightly weaker than Tower Princess (~120 dps, dmg approx scaled from L15 158). Every 18 s (up to 30 s while attacking) throws a Pancake giving your highest-HP troop (>=20% HP, not the same troop twice in a row) +1 level. HP 2921->2703 Oct 2025.",
+   "how_to_play_against": "Keep the tower busy (pancake timer slows while attacking); kill the levelled troop with spells; pressure early before pancakes stack.",
+   "verified": true,
+   "sources": [
+    "https://royaleapi.com/blog/royal-chef-new-card-2024-december",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/game-update-new-tower-troop-royal-chef",
+    "https://sportskeeda.com/mobile-games/royal-chef-clash-royale-ability-stats",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/october-balance-changes-2"
+   ]
+  }
+ ],
+ "deploy_times": {
+  "troop_default_s": 1.0,
+  "exceptions": [
+   {
+    "key": "royal_delivery",
+    "deploy_s": 3.0,
+    "note": "Spell drops after ~3 s, then the Recruit lands (verified: Sportskeeda '3 seconds deployment time')."
+   },
+   {
+    "key": "golem",
+    "deploy_s": 3.0,
+    "note": "Long-standing 3 s deploy time for Golem (unverified this session; PocketGamer shows an unnamed 3 s melee unit)."
+   },
+   {
+    "key": "goblin_barrel",
+    "deploy_s": 1.1,
+    "note": "Barrel flight ~1.1 s before Goblins land (approx; Goblins' own deploy was cut to 1.1 s in an old patch)."
+   },
+   {
+    "key": "graveyard",
+    "deploy_s": 0.5,
+    "note": "First Skeleton ~0.5 s after cast, then one every ~0.5 s for ~9-10 s (unverified)."
+   },
+   {
+    "key": "goblin_drill",
+    "deploy_s": 1.0,
+    "note": "1 s deploy plus ~1-2 s burrow before it surfaces and starts spawning (unverified)."
+   },
+   {
+    "key": "mega_knight",
+    "deploy_s": 1.0,
+    "note": "Standard 1 s but deals spawn damage immediately on landing (verified: spawn damage)."
+   },
+   {
+    "key": "electro_wizard",
+    "deploy_s": 1.0,
+    "note": "Standard 1 s; spawn zap stuns on landing."
+   },
+   {
+    "key": "sparky",
+    "deploy_s": 1.0,
+    "note": "1 s deploy but ~4 s charge before the first shot (load time, RoyaleAPI 'secret stats')."
+   }
+  ]
+ },
+ "notes": [
+  "Aug 2026 (Season 86, live Aug 3-4, finalised Aug 26): ALL Hero and Champion abilities became single-use per deployment with no cooldown; Boss Bandit's Getaway Grenade is the only exception (2 charges, 3 s cooldown). Compensation buffs went to Goblinstein, Little Prince (Guardienne 217->232) and Mighty Miner (base dmg 40->43). Verified via Supercell + gamemarket/timesaver/trophycoach summaries.",
+  "Evolution count: 45 evolutions exist through Nov 2026 (36 pre-Oct-2025 + Royal Ghost & Skeleton Army Oct 2025 + Royal Hogs Nov 2025 + Minion Horde Apr 2026 + Princess Jun 2026 + Elite Barbarians Aug 2026 + Electro Giant Oct 2026 + Giant & Mirror Nov 2026). The seed's 42 was missing Royal Hogs, Skeleton Army and Royal Ghost; Elixirdeck's '44' is likely one behind. Dec 2025-Mar 2026 shipped Heroes instead of Evolutions (no Evo in May 2026 either).",
+  "Cycle corrections vs seed: Zap 1->2, Hunter 1->2, Goblin Cage 2->1, Lumberjack now 2 (was 1), Bomber 2 (was 1 until Oct 2025), Ice Spirit 2 (3 at launch). Cycle counts for Royal Ghost, Electro Giant, Giant and Mirror were not found and are best guesses (verified:false).",
+  "Evolution entries whose base effect was verified in the seed's earlier research (knight, skeletons, royal_giant, valkyrie, furnace) were not re-searched this session; they keep verified:true on the seed's evidence.",
+  "Heroes: 18 live (Dec 2025 Knight/Giant/Mini P.E.K.K.A/Musketeer; Jan Wizard/Ice Golem; Feb Goblins/Mega Minion; Mar Magic Archer/Barbarian Barrel; Apr Balloon; May Dark Prince/Bowler; Jun Tombstone; Aug Valkyrie/Berserker; Sep Ice Wizard; Oct Electro Wizard). No new Hero in Jul or Nov 2026. Hero base stats equal the normal card; the ability is paid separately (counts toward elixir trades).",
+  "Hero ability-cost conflicts: Balloon Coffin Cadets 2 (RoyaleAPI/Lootbar) vs 1 (TrophyCoach) - 2 used. Goblins Banner Brigade 1 (RoyaleAPI/HGG) vs 2 (SportsDunia) - 1 used; Supercell's Apr 2026 notes changed only its respawn position, not cost. Magic Archer 1->2 (Apr 2026) is official.",
+  "Tower troops: Tower Princess L11 3052/109/0.8 s (single third-party source); Cannoneer 2616/422/2.4 s; Dagger Duchess 2768 HP, 107 per dagger, 8 stored daggers, 0.5 s attack interval (Aug 2025), 0.9 s recharge per dagger when empty; Royal Chef 2703 HP (Oct 2025 nerf), ~108 dmg at L11 scaled from the L15 158 figure, 0.9 s hit speed. Tower Troops level 16 cap since Nov 2025. No 2026 tower-troop balance changes found.",
+  "Oct 6 2026 patch (pre-World Finals): Hero Ice Wizard freeze dmg 89->46, Skeletons spawn radius 0.74->0.53, Goblin Barrel first hit 0.4->0.3 s, Monk activation 0.93->0.7 s, Golden Knight dash 5.5->5 tiles, Minion Giant hit speed 1.5->1.7 s. Oct 19 2026 early 'November' changes: Cannon Cart dmg 212->202, Rune Giant linger 5->0.5 s. Nov 2 2026 (Season 89 King vs King): Evo Giant + Evo Mirror; Dec 2026 WIP includes Hero Valkyrie ability dps 388->324.",
+  "Spirits (Fire/Ice/Electro/Heal) since Aug 2026: 230->215 HP (one outlet says 217) and they can no longer target Crown Towers on their own.",
+  "Inferno Tower/Dragon stage numbers at L11 were not found in search summaries; the tower figure is scaled from the L8 32-640 per-hit table (x1.331). Treat as approximate.",
+  "Deploy time: every troop/building uses 1.0 s unless listed; the main engine-relevant exceptions are Royal Delivery's 3 s drop and Golem's 3 s. Spells have travel time (Fireball/Rocket/Arrows) rather than deploy time; Goblin Barrel ~1.1 s flight.",
+  "Direct page fetches were blocked; every verified:true item is supported by a WebSearch summary of Supercell, RoyaleAPI, fandom/Liquipedia or a named community site. verified:false = best knowledge or conflicting sources."
+ ]
+}

@@ -1,0 +1,6667 @@
+{
+ "summary": {
+  "games": 9505,
+  "elapsed_s": 682.1,
+  "procs": 4,
+  "decks": 232,
+  "avg_duration_s": 174.5,
+  "overtime_rate": 0.242,
+  "draw_rate": 0.0,
+  "weights": {
+   "defense": 0.948150031166059,
+   "tower_damage_prevented": 0.9755322246339114,
+   "offense": 0.8564601880076644,
+   "support_synergy": 1.5080639741517994,
+   "build_push": 0.5058149919755356,
+   "cycle": 0.14945937741234347,
+   "leak": 4.090829598845088,
+   "reserve": 0.7030320198420038,
+   "overcommit": 1.1409244443357542,
+   "opp_response": 0.5565983496401554,
+   "spell_cycle": 0.11475437537194665,
+   "wait_bias": -0.45389742349402623
+  },
+  "vs_scripted_winrate": 0.743
+ },
+ "decks": [
+  {
+   "name": "royal_hogs-33",
+   "archetype": "three_musketeers",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "furnace",
+    "fireball",
+    "giant_snowball",
+    "phoenix",
+    "bowler",
+    "ice_golem",
+    "electro_spirit"
+   ],
+   "games": 78,
+   "win_rate": 0.987,
+   "ci": [
+    0.931,
+    0.998
+   ],
+   "crowns_for": 181,
+   "crowns_against": 26,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "electro_giant-38",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "lightning",
+    "giant_snowball",
+    "phoenix",
+    "flying_machine",
+    "zappies",
+    "bats",
+    "ice_golem"
+   ],
+   "games": 73,
+   "win_rate": 0.986,
+   "ci": [
+    0.926,
+    0.998
+   ],
+   "crowns_for": 163,
+   "crowns_against": 29,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "royal_hogs-35",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "lightning",
+    "barbarian_barrel",
+    "musketeer",
+    "phoenix",
+    "golden_knight",
+    "skeletons",
+    "goblins"
+   ],
+   "games": 71,
+   "win_rate": 0.972,
+   "ci": [
+    0.903,
+    0.992
+   ],
+   "crowns_for": 164,
+   "crowns_against": 24,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "pekka-37",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "lightning",
+    "tornado",
+    "phoenix",
+    "golden_knight",
+    "guards",
+    "fire_spirit",
+    "bats"
+   ],
+   "games": 79,
+   "win_rate": 0.962,
+   "ci": [
+    0.894,
+    0.987
+   ],
+   "crowns_for": 173,
+   "crowns_against": 27,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "ram_rider-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "ram_rider",
+    "inferno_tower",
+    "poison",
+    "log",
+    "minions",
+    "phoenix",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 85,
+   "win_rate": 0.953,
+   "ci": [
+    0.885,
+    0.982
+   ],
+   "crowns_for": 197,
+   "crowns_against": 38,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "giant-35",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "giant",
+    "inferno_tower",
+    "rocket",
+    "royal_delivery",
+    "dart_goblin",
+    "inferno_dragon",
+    "heal_spirit",
+    "fire_spirit"
+   ],
+   "games": 99,
+   "win_rate": 0.949,
+   "ci": [
+    0.887,
+    0.978
+   ],
+   "crowns_for": 233,
+   "crowns_against": 34,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "elixir_golem-32",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "elixir_golem",
+    "tesla",
+    "rocket",
+    "royal_delivery",
+    "phoenix",
+    "firecracker",
+    "ice_spirit",
+    "goblins"
+   ],
+   "games": 92,
+   "win_rate": 0.946,
+   "ci": [
+    0.879,
+    0.977
+   ],
+   "crowns_for": 201,
+   "crowns_against": 43,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "three_musketeers-36",
+   "archetype": "three_musketeers",
+   "source": "generated",
+   "cards": [
+    "three_musketeers",
+    "bomb_tower",
+    "fireball",
+    "arrows",
+    "little_prince",
+    "hunter",
+    "heal_spirit",
+    "electro_spirit"
+   ],
+   "games": 92,
+   "win_rate": 0.946,
+   "ci": [
+    0.879,
+    0.977
+   ],
+   "crowns_for": 192,
+   "crowns_against": 36,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "Golem Night Witch",
+   "archetype": "beatdown",
+   "source": "meta",
+   "cards": [
+    "golem",
+    "night_witch",
+    "phoenix",
+    "bomber",
+    "mini_pekka",
+    "elite_barbarians",
+    "arrows",
+    "zap"
+   ],
+   "games": 76,
+   "win_rate": 0.934,
+   "ci": [
+    0.855,
+    0.972
+   ],
+   "crowns_for": 162,
+   "crowns_against": 40,
+   "avg_elixir": 4.12
+  },
+  {
+   "name": "wall_breakers-31",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "tesla",
+    "fireball",
+    "tornado",
+    "executioner",
+    "phoenix",
+    "ice_golem",
+    "skeletons"
+   ],
+   "games": 92,
+   "win_rate": 0.924,
+   "ci": [
+    0.851,
+    0.963
+   ],
+   "crowns_for": 197,
+   "crowns_against": 50,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "hog_rider-32",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "cannon",
+    "poison",
+    "tornado",
+    "phoenix",
+    "valkyrie",
+    "ice_golem",
+    "bats"
+   ],
+   "games": 89,
+   "win_rate": 0.921,
+   "ci": [
+    0.846,
+    0.961
+   ],
+   "crowns_for": 195,
+   "crowns_against": 33,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "battle_ram-33",
+   "archetype": "bridge_spam",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "furnace",
+    "rocket",
+    "royal_delivery",
+    "inferno_dragon",
+    "little_prince",
+    "ice_golem",
+    "heal_spirit"
+   ],
+   "games": 83,
+   "win_rate": 0.916,
+   "ci": [
+    0.836,
+    0.959
+   ],
+   "crowns_for": 186,
+   "crowns_against": 39,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "graveyard-37",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "inferno_tower",
+    "rocket",
+    "arrows",
+    "inferno_dragon",
+    "hunter",
+    "bats",
+    "skeletons"
+   ],
+   "games": 78,
+   "win_rate": 0.885,
+   "ci": [
+    0.795,
+    0.938
+   ],
+   "crowns_for": 106,
+   "crowns_against": 21,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "elixir_golem-30",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "elixir_golem",
+    "poison",
+    "arrows",
+    "phoenix",
+    "magic_archer",
+    "ice_wizard",
+    "goblins",
+    "fire_spirit"
+   ],
+   "games": 83,
+   "win_rate": 0.88,
+   "ci": [
+    0.792,
+    0.933
+   ],
+   "crowns_for": 190,
+   "crowns_against": 52,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "elixir_golem-30",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "elixir_golem",
+    "poison",
+    "arrows",
+    "hunter",
+    "bowler",
+    "bats",
+    "spear_goblins",
+    "ice_spirit"
+   ],
+   "games": 81,
+   "win_rate": 0.877,
+   "ci": [
+    0.787,
+    0.932
+   ],
+   "crowns_for": 194,
+   "crowns_against": 55,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "royal_hogs-36",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "inferno_tower",
+    "rocket",
+    "earthquake",
+    "inferno_dragon",
+    "mini_pekka",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 66,
+   "win_rate": 0.864,
+   "ci": [
+    0.761,
+    0.927
+   ],
+   "crowns_for": 139,
+   "crowns_against": 34,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "Evo Royal Giant Hunter Monk",
+   "archetype": "royal_giant",
+   "source": "meta",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "monk",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "games": 79,
+   "win_rate": 0.861,
+   "ci": [
+    0.768,
+    0.92
+   ],
+   "crowns_for": 178,
+   "crowns_against": 64,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "hog_rider-33",
+   "archetype": "bridge_spam",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "furnace",
+    "lightning",
+    "giant_snowball",
+    "hunter",
+    "golden_knight",
+    "bats",
+    "electro_spirit"
+   ],
+   "games": 85,
+   "win_rate": 0.859,
+   "ci": [
+    0.769,
+    0.917
+   ],
+   "crowns_for": 175,
+   "crowns_against": 56,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "battle_ram-28",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "tombstone",
+    "fireball",
+    "barbarian_barrel",
+    "musketeer",
+    "hunter",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 100,
+   "win_rate": 0.85,
+   "ci": [
+    0.767,
+    0.907
+   ],
+   "crowns_for": 216,
+   "crowns_against": 69,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "goblin_barrel-28",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "fireball",
+    "log",
+    "little_prince",
+    "mini_pekka",
+    "wizard",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 75,
+   "win_rate": 0.84,
+   "ci": [
+    0.741,
+    0.906
+   ],
+   "crowns_for": 134,
+   "crowns_against": 40,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "royal_hogs-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "cannon",
+    "fireball",
+    "royal_delivery",
+    "wizard",
+    "valkyrie",
+    "bats",
+    "electro_spirit"
+   ],
+   "games": 76,
+   "win_rate": 0.829,
+   "ci": [
+    0.729,
+    0.897
+   ],
+   "crowns_for": 130,
+   "crowns_against": 46,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "royal_giant-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "cannon",
+    "fireball",
+    "barbarian_barrel",
+    "baby_dragon",
+    "mini_pekka",
+    "ice_spirit",
+    "fire_spirit"
+   ],
+   "games": 86,
+   "win_rate": 0.826,
+   "ci": [
+    0.732,
+    0.891
+   ],
+   "crowns_for": 177,
+   "crowns_against": 63,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "goblin_drill-33",
+   "archetype": "bridge_spam",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "furnace",
+    "lightning",
+    "royal_delivery",
+    "musketeer",
+    "skeleton_king",
+    "fire_spirit",
+    "heal_spirit"
+   ],
+   "games": 80,
+   "win_rate": 0.812,
+   "ci": [
+    0.713,
+    0.883
+   ],
+   "crowns_for": 134,
+   "crowns_against": 28,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "goblin_barrel-30",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "lightning",
+    "zap",
+    "inferno_dragon",
+    "zappies",
+    "knight",
+    "fire_spirit",
+    "heal_spirit"
+   ],
+   "games": 72,
+   "win_rate": 0.806,
+   "ci": [
+    0.7,
+    0.88
+   ],
+   "crowns_for": 124,
+   "crowns_against": 46,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "Royal Giant 3.0 Ghost Cycle",
+   "archetype": "royal_giant",
+   "source": "meta",
+   "cards": [
+    "royal_giant",
+    "hunter",
+    "royal_ghost",
+    "fisherman",
+    "skeletons",
+    "electro_spirit",
+    "fireball",
+    "log"
+   ],
+   "games": 78,
+   "win_rate": 0.795,
+   "ci": [
+    0.692,
+    0.87
+   ],
+   "crowns_for": 169,
+   "crowns_against": 72,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "elixir_golem-30",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "elixir_golem",
+    "lightning",
+    "log",
+    "zappies",
+    "magic_archer",
+    "little_prince",
+    "skeletons",
+    "ice_spirit"
+   ],
+   "games": 79,
+   "win_rate": 0.785,
+   "ci": [
+    0.682,
+    0.861
+   ],
+   "crowns_for": 179,
+   "crowns_against": 67,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "royal_giant-37",
+   "archetype": "royal_giant",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "lightning",
+    "giant_snowball",
+    "hunter",
+    "flying_machine",
+    "prince",
+    "ice_spirit",
+    "goblins"
+   ],
+   "games": 78,
+   "win_rate": 0.782,
+   "ci": [
+    0.678,
+    0.859
+   ],
+   "crowns_for": 153,
+   "crowns_against": 71,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "miner-28",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "miner",
+    "bomb_tower",
+    "lightning",
+    "barbarian_barrel",
+    "bats",
+    "hunter",
+    "ice_spirit",
+    "fire_spirit"
+   ],
+   "games": 82,
+   "win_rate": 0.78,
+   "ci": [
+    0.679,
+    0.856
+   ],
+   "crowns_for": 119,
+   "crowns_against": 47,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "golem-37",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "golem",
+    "tesla",
+    "fireball",
+    "royal_delivery",
+    "minions",
+    "prince",
+    "bats",
+    "ice_spirit"
+   ],
+   "games": 77,
+   "win_rate": 0.779,
+   "ci": [
+    0.675,
+    0.857
+   ],
+   "crowns_for": 132,
+   "crowns_against": 61,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "x_bow-37",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "inferno_tower",
+    "rocket",
+    "earthquake",
+    "little_prince",
+    "skeleton_king",
+    "goblins",
+    "electro_spirit"
+   ],
+   "games": 72,
+   "win_rate": 0.778,
+   "ci": [
+    0.669,
+    0.858
+   ],
+   "crowns_for": 108,
+   "crowns_against": 47,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "X-Bow 3.0 (Evo Tesla / Evo Archers / Hero Knight)",
+   "archetype": "siege",
+   "source": "meta",
+   "cards": [
+    "x_bow",
+    "tesla",
+    "archers",
+    "knight",
+    "skeletons",
+    "ice_spirit",
+    "fireball",
+    "log"
+   ],
+   "games": 79,
+   "win_rate": 0.772,
+   "ci": [
+    0.668,
+    0.851
+   ],
+   "crowns_for": 81,
+   "crowns_against": 41,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "lava_hound-36",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "cannon",
+    "rocket",
+    "royal_delivery",
+    "flying_machine",
+    "skeleton_king",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 83,
+   "win_rate": 0.771,
+   "ci": [
+    0.67,
+    0.848
+   ],
+   "crowns_for": 135,
+   "crowns_against": 67,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "miner-30",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "miner",
+    "poison",
+    "royal_delivery",
+    "princess",
+    "mini_pekka",
+    "inferno_dragon",
+    "goblins",
+    "fire_spirit"
+   ],
+   "games": 91,
+   "win_rate": 0.769,
+   "ci": [
+    0.673,
+    0.844
+   ],
+   "crowns_for": 167,
+   "crowns_against": 64,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "graveyard-33",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "lightning",
+    "log",
+    "inferno_dragon",
+    "archers",
+    "magic_archer",
+    "ice_spirit",
+    "goblins"
+   ],
+   "games": 89,
+   "win_rate": 0.764,
+   "ci": [
+    0.666,
+    0.84
+   ],
+   "crowns_for": 122,
+   "crowns_against": 50,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "balloon-35",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "balloon",
+    "lightning",
+    "log",
+    "musketeer",
+    "minion_horde",
+    "knight",
+    "fire_spirit",
+    "goblins"
+   ],
+   "games": 79,
+   "win_rate": 0.759,
+   "ci": [
+    0.655,
+    0.84
+   ],
+   "crowns_for": 157,
+   "crowns_against": 81,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "pekka-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "cannon",
+    "fireball",
+    "tornado",
+    "firecracker",
+    "fisherman",
+    "fire_spirit",
+    "bats"
+   ],
+   "games": 80,
+   "win_rate": 0.75,
+   "ci": [
+    0.645,
+    0.832
+   ],
+   "crowns_for": 148,
+   "crowns_against": 63,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "graveyard-32",
+   "archetype": "pekka_bridge_spam",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "poison",
+    "royal_delivery",
+    "goblin_gang",
+    "magic_archer",
+    "prince",
+    "electro_spirit",
+    "skeletons"
+   ],
+   "games": 73,
+   "win_rate": 0.74,
+   "ci": [
+    0.629,
+    0.827
+   ],
+   "crowns_for": 116,
+   "crowns_against": 63,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "elixir_golem-30",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "elixir_golem",
+    "inferno_tower",
+    "fireball",
+    "log",
+    "dart_goblin",
+    "dark_prince",
+    "electro_spirit",
+    "ice_golem"
+   ],
+   "games": 88,
+   "win_rate": 0.739,
+   "ci": [
+    0.638,
+    0.819
+   ],
+   "crowns_for": 165,
+   "crowns_against": 97,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "mega_knight-36",
+   "archetype": "three_musketeers",
+   "source": "generated",
+   "cards": [
+    "mega_knight",
+    "cannon",
+    "lightning",
+    "barbarian_barrel",
+    "flying_machine",
+    "mighty_miner",
+    "ice_golem",
+    "electro_spirit"
+   ],
+   "games": 79,
+   "win_rate": 0.734,
+   "ci": [
+    0.628,
+    0.819
+   ],
+   "crowns_for": 112,
+   "crowns_against": 79,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "pekka-32",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "fireball",
+    "log",
+    "hunter",
+    "knight",
+    "dart_goblin",
+    "skeletons",
+    "bats"
+   ],
+   "games": 81,
+   "win_rate": 0.728,
+   "ci": [
+    0.623,
+    0.813
+   ],
+   "crowns_for": 146,
+   "crowns_against": 62,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "hog_rider-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "goblin_cage",
+    "fireball",
+    "earthquake",
+    "inferno_dragon",
+    "magic_archer",
+    "spear_goblins",
+    "ice_spirit"
+   ],
+   "games": 84,
+   "win_rate": 0.726,
+   "ci": [
+    0.623,
+    0.81
+   ],
+   "crowns_for": 147,
+   "crowns_against": 67,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "LumberLoon Freeze (Bowler)",
+   "archetype": "lavaloon",
+   "source": "meta",
+   "cards": [
+    "balloon",
+    "lumberjack",
+    "bowler",
+    "inferno_dragon",
+    "baby_dragon",
+    "freeze",
+    "tornado",
+    "barbarian_barrel"
+   ],
+   "games": 82,
+   "win_rate": 0.72,
+   "ci": [
+    0.614,
+    0.805
+   ],
+   "crowns_for": 147,
+   "crowns_against": 72,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "lava_hound-35",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "inferno_tower",
+    "poison",
+    "earthquake",
+    "hunter",
+    "goblin_gang",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 82,
+   "win_rate": 0.72,
+   "ci": [
+    0.614,
+    0.805
+   ],
+   "crowns_for": 139,
+   "crowns_against": 78,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "electro_giant-33",
+   "archetype": "three_musketeers",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "furnace",
+    "fireball",
+    "barbarian_barrel",
+    "electro_dragon",
+    "little_prince",
+    "electro_spirit",
+    "heal_spirit"
+   ],
+   "games": 71,
+   "win_rate": 0.718,
+   "ci": [
+    0.605,
+    0.81
+   ],
+   "crowns_for": 123,
+   "crowns_against": 66,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "pekka-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "furnace",
+    "fireball",
+    "log",
+    "baby_dragon",
+    "magic_archer",
+    "heal_spirit",
+    "ice_spirit"
+   ],
+   "games": 84,
+   "win_rate": 0.714,
+   "ci": [
+    0.61,
+    0.8
+   ],
+   "crowns_for": 152,
+   "crowns_against": 75,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "royal_giant-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "cannon",
+    "fireball",
+    "royal_delivery",
+    "little_prince",
+    "executioner",
+    "ice_golem",
+    "skeletons"
+   ],
+   "games": 80,
+   "win_rate": 0.713,
+   "ci": [
+    0.605,
+    0.8
+   ],
+   "crowns_for": 140,
+   "crowns_against": 71,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "royal_giant-35",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "cannon",
+    "rocket",
+    "royal_delivery",
+    "flying_machine",
+    "ice_wizard",
+    "fire_spirit",
+    "spear_goblins"
+   ],
+   "games": 79,
+   "win_rate": 0.709,
+   "ci": [
+    0.601,
+    0.797
+   ],
+   "crowns_for": 151,
+   "crowns_against": 83,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "giant-32",
+   "archetype": "evolution_centric",
+   "source": "generated",
+   "cards": [
+    "giant",
+    "tesla",
+    "poison",
+    "zap",
+    "hunter",
+    "archers",
+    "spear_goblins",
+    "goblins"
+   ],
+   "games": 81,
+   "win_rate": 0.704,
+   "ci": [
+    0.597,
+    0.792
+   ],
+   "crowns_for": 137,
+   "crowns_against": 79,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "giant-35",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "giant",
+    "rocket",
+    "giant_snowball",
+    "wizard",
+    "magic_archer",
+    "goblin_gang",
+    "electro_spirit",
+    "spear_goblins"
+   ],
+   "games": 91,
+   "win_rate": 0.703,
+   "ci": [
+    0.603,
+    0.787
+   ],
+   "crowns_for": 179,
+   "crowns_against": 105,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "Royal Hogs Archer Queen Earthquake",
+   "archetype": "cycle",
+   "source": "meta",
+   "cards": [
+    "royal_hogs",
+    "cannon",
+    "archer_queen",
+    "skeletons",
+    "electro_spirit",
+    "log",
+    "earthquake",
+    "royal_delivery"
+   ],
+   "games": 80,
+   "win_rate": 0.7,
+   "ci": [
+    0.592,
+    0.789
+   ],
+   "crowns_for": 106,
+   "crowns_against": 68,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "Hog 2.6 Cycle (Evo Skeletons / Evo Cannon / Hero Musketeer)",
+   "archetype": "cycle",
+   "source": "meta",
+   "cards": [
+    "hog_rider",
+    "musketeer",
+    "cannon",
+    "ice_golem",
+    "ice_spirit",
+    "skeletons",
+    "fireball",
+    "log"
+   ],
+   "games": 86,
+   "win_rate": 0.698,
+   "ci": [
+    0.594,
+    0.785
+   ],
+   "crowns_for": 135,
+   "crowns_against": 83,
+   "avg_elixir": 2.62
+  },
+  {
+   "name": "pekka-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "cannon",
+    "rocket",
+    "zap",
+    "ice_wizard",
+    "bats",
+    "electro_spirit",
+    "skeletons"
+   ],
+   "games": 82,
+   "win_rate": 0.695,
+   "ci": [
+    0.589,
+    0.784
+   ],
+   "crowns_for": 132,
+   "crowns_against": 68,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "giant-32",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "giant",
+    "bomb_tower",
+    "lightning",
+    "zap",
+    "archers",
+    "firecracker",
+    "bats",
+    "fire_spirit"
+   ],
+   "games": 85,
+   "win_rate": 0.694,
+   "ci": [
+    0.59,
+    0.782
+   ],
+   "crowns_for": 150,
+   "crowns_against": 89,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "pekka-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "fireball",
+    "log",
+    "executioner",
+    "skeleton_army",
+    "bats",
+    "skeletons",
+    "ice_spirit"
+   ],
+   "games": 78,
+   "win_rate": 0.692,
+   "ci": [
+    0.583,
+    0.784
+   ],
+   "crowns_for": 139,
+   "crowns_against": 66,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "goblin_barrel-33",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "tesla",
+    "rocket",
+    "royal_delivery",
+    "electro_dragon",
+    "little_prince",
+    "ice_spirit",
+    "bats"
+   ],
+   "games": 78,
+   "win_rate": 0.692,
+   "ci": [
+    0.583,
+    0.784
+   ],
+   "crowns_for": 107,
+   "crowns_against": 57,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "royal_hogs-36",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "inferno_tower",
+    "lightning",
+    "giant_snowball",
+    "archer_queen",
+    "lumberjack",
+    "fire_spirit",
+    "ice_spirit"
+   ],
+   "games": 94,
+   "win_rate": 0.691,
+   "ci": [
+    0.592,
+    0.776
+   ],
+   "crowns_for": 137,
+   "crowns_against": 88,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "elixir_golem-30",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "elixir_golem",
+    "cannon",
+    "lightning",
+    "giant_snowball",
+    "magic_archer",
+    "mother_witch",
+    "electro_spirit",
+    "skeletons"
+   ],
+   "games": 83,
+   "win_rate": 0.687,
+   "ci": [
+    0.581,
+    0.776
+   ],
+   "crowns_for": 126,
+   "crowns_against": 80,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "miner-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "miner",
+    "inferno_tower",
+    "fireball",
+    "giant_snowball",
+    "musketeer",
+    "bowler",
+    "fire_spirit",
+    "spear_goblins"
+   ],
+   "games": 79,
+   "win_rate": 0.684,
+   "ci": [
+    0.575,
+    0.776
+   ],
+   "crowns_for": 101,
+   "crowns_against": 59,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "giant-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "giant",
+    "tombstone",
+    "fireball",
+    "tornado",
+    "hunter",
+    "electro_wizard",
+    "bats",
+    "ice_spirit"
+   ],
+   "games": 85,
+   "win_rate": 0.682,
+   "ci": [
+    0.577,
+    0.772
+   ],
+   "crowns_for": 149,
+   "crowns_against": 87,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "lava_hound-35",
+   "archetype": "lavaloon",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "tombstone",
+    "lightning",
+    "zap",
+    "ice_wizard",
+    "phoenix",
+    "spear_goblins",
+    "skeletons"
+   ],
+   "games": 81,
+   "win_rate": 0.679,
+   "ci": [
+    0.571,
+    0.771
+   ],
+   "crowns_for": 117,
+   "crowns_against": 80,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "goblin_giant-35",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "inferno_tower",
+    "poison",
+    "royal_delivery",
+    "minions",
+    "skeleton_king",
+    "ice_spirit",
+    "goblins"
+   ],
+   "games": 82,
+   "win_rate": 0.671,
+   "ci": [
+    0.563,
+    0.763
+   ],
+   "crowns_for": 118,
+   "crowns_against": 80,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "skeleton_barrel-28",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "skeleton_barrel",
+    "furnace",
+    "rocket",
+    "royal_delivery",
+    "mega_minion",
+    "bats",
+    "heal_spirit",
+    "ice_spirit"
+   ],
+   "games": 87,
+   "win_rate": 0.667,
+   "ci": [
+    0.562,
+    0.757
+   ],
+   "crowns_for": 131,
+   "crowns_against": 87,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "electro_giant-37",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "furnace",
+    "lightning",
+    "giant_snowball",
+    "mega_minion",
+    "executioner",
+    "fire_spirit",
+    "ice_golem"
+   ],
+   "games": 87,
+   "win_rate": 0.667,
+   "ci": [
+    0.562,
+    0.757
+   ],
+   "crowns_for": 130,
+   "crowns_against": 92,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "elixir_golem-33",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "elixir_golem",
+    "inferno_tower",
+    "fireball",
+    "giant_snowball",
+    "baby_dragon",
+    "minion_horde",
+    "bats",
+    "ice_golem"
+   ],
+   "games": 85,
+   "win_rate": 0.659,
+   "ci": [
+    0.553,
+    0.751
+   ],
+   "crowns_for": 134,
+   "crowns_against": 95,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "lava_hound-35",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "fireball",
+    "log",
+    "witch",
+    "little_prince",
+    "mother_witch",
+    "fire_spirit",
+    "goblins"
+   ],
+   "games": 73,
+   "win_rate": 0.658,
+   "ci": [
+    0.543,
+    0.756
+   ],
+   "crowns_for": 125,
+   "crowns_against": 83,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "goblin_drill-36",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "inferno_tower",
+    "rocket",
+    "royal_delivery",
+    "musketeer",
+    "skeleton_king",
+    "skeletons",
+    "bats"
+   ],
+   "games": 80,
+   "win_rate": 0.65,
+   "ci": [
+    0.541,
+    0.745
+   ],
+   "crowns_for": 87,
+   "crowns_against": 57,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "goblin_barrel-28",
+   "archetype": "royal_giant",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "poison",
+    "royal_delivery",
+    "bats",
+    "prince",
+    "night_witch",
+    "electro_spirit",
+    "skeletons"
+   ],
+   "games": 84,
+   "win_rate": 0.643,
+   "ci": [
+    0.536,
+    0.737
+   ],
+   "crowns_for": 113,
+   "crowns_against": 76,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "three_musketeers-38",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "three_musketeers",
+    "rocket",
+    "tornado",
+    "mega_minion",
+    "valkyrie",
+    "little_prince",
+    "ice_spirit",
+    "spear_goblins"
+   ],
+   "games": 81,
+   "win_rate": 0.642,
+   "ci": [
+    0.533,
+    0.738
+   ],
+   "crowns_for": 128,
+   "crowns_against": 84,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "graveyard-36",
+   "archetype": "graveyard",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "bomb_tower",
+    "rocket",
+    "tornado",
+    "wizard",
+    "fisherman",
+    "goblins",
+    "electro_spirit"
+   ],
+   "games": 85,
+   "win_rate": 0.635,
+   "ci": [
+    0.529,
+    0.73
+   ],
+   "crowns_for": 101,
+   "crowns_against": 79,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "Evo Royal Hogs Hut Cycle (Hero Berserker)",
+   "archetype": "cycle",
+   "source": "meta",
+   "cards": [
+    "royal_hogs",
+    "royal_ghost",
+    "berserker",
+    "goblin_hut",
+    "furnace",
+    "electro_spirit",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "games": 79,
+   "win_rate": 0.633,
+   "ci": [
+    0.523,
+    0.731
+   ],
+   "crowns_for": 134,
+   "crowns_against": 76,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "wall_breakers-28",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "bomb_tower",
+    "lightning",
+    "giant_snowball",
+    "little_prince",
+    "mighty_miner",
+    "heal_spirit",
+    "fire_spirit"
+   ],
+   "games": 84,
+   "win_rate": 0.631,
+   "ci": [
+    0.524,
+    0.726
+   ],
+   "crowns_for": 127,
+   "crowns_against": 86,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "balloon-32",
+   "archetype": "lavaloon",
+   "source": "generated",
+   "cards": [
+    "balloon",
+    "fireball",
+    "zap",
+    "flying_machine",
+    "musketeer",
+    "lumberjack",
+    "ice_spirit",
+    "ice_golem"
+   ],
+   "games": 70,
+   "win_rate": 0.629,
+   "ci": [
+    0.511,
+    0.732
+   ],
+   "crowns_for": 109,
+   "crowns_against": 79,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "goblin_drill-30",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "fireball",
+    "tornado",
+    "mega_minion",
+    "mighty_miner",
+    "little_prince",
+    "ice_golem",
+    "ice_spirit"
+   ],
+   "games": 83,
+   "win_rate": 0.627,
+   "ci": [
+    0.519,
+    0.723
+   ],
+   "crowns_for": 121,
+   "crowns_against": 83,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "royal_giant-37",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "furnace",
+    "rocket",
+    "arrows",
+    "musketeer",
+    "zappies",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 88,
+   "win_rate": 0.625,
+   "ci": [
+    0.521,
+    0.719
+   ],
+   "crowns_for": 145,
+   "crowns_against": 115,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "mortar-35",
+   "archetype": "royal_giant",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "lightning",
+    "earthquake",
+    "hunter",
+    "bowler",
+    "princess",
+    "spear_goblins",
+    "electro_spirit"
+   ],
+   "games": 80,
+   "win_rate": 0.625,
+   "ci": [
+    0.515,
+    0.723
+   ],
+   "crowns_for": 89,
+   "crowns_against": 73,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "lava_hound-31",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "cannon",
+    "poison",
+    "log",
+    "baby_dragon",
+    "archers",
+    "heal_spirit",
+    "electro_spirit"
+   ],
+   "games": 80,
+   "win_rate": 0.625,
+   "ci": [
+    0.515,
+    0.723
+   ],
+   "crowns_for": 120,
+   "crowns_against": 86,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "lava_hound-36",
+   "archetype": "lavaloon",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "inferno_tower",
+    "fireball",
+    "zap",
+    "dart_goblin",
+    "witch",
+    "spear_goblins",
+    "electro_spirit"
+   ],
+   "games": 98,
+   "win_rate": 0.622,
+   "ci": [
+    0.524,
+    0.712
+   ],
+   "crowns_for": 145,
+   "crowns_against": 117,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "wall_breakers-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "furnace",
+    "fireball",
+    "royal_delivery",
+    "archer_queen",
+    "witch",
+    "ice_golem",
+    "skeletons"
+   ],
+   "games": 81,
+   "win_rate": 0.617,
+   "ci": [
+    0.508,
+    0.716
+   ],
+   "crowns_for": 117,
+   "crowns_against": 93,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "graveyard-38",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "tesla",
+    "lightning",
+    "royal_delivery",
+    "wizard",
+    "executioner",
+    "ice_spirit",
+    "ice_golem"
+   ],
+   "games": 82,
+   "win_rate": 0.61,
+   "ci": [
+    0.502,
+    0.708
+   ],
+   "crowns_for": 79,
+   "crowns_against": 70,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "battle_ram-35",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "lightning",
+    "earthquake",
+    "goblin_gang",
+    "skeleton_king",
+    "inferno_dragon",
+    "spear_goblins",
+    "goblins"
+   ],
+   "games": 87,
+   "win_rate": 0.609,
+   "ci": [
+    0.504,
+    0.705
+   ],
+   "crowns_for": 127,
+   "crowns_against": 83,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "skeleton_barrel-35",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "skeleton_barrel",
+    "furnace",
+    "rocket",
+    "earthquake",
+    "inferno_dragon",
+    "mini_pekka",
+    "ice_golem",
+    "spear_goblins"
+   ],
+   "games": 96,
+   "win_rate": 0.604,
+   "ci": [
+    0.504,
+    0.696
+   ],
+   "crowns_for": 163,
+   "crowns_against": 107,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "royal_giant-37",
+   "archetype": "royal_giant",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "tesla",
+    "lightning",
+    "zap",
+    "minion_horde",
+    "hunter",
+    "skeletons",
+    "bats"
+   ],
+   "games": 85,
+   "win_rate": 0.6,
+   "ci": [
+    0.494,
+    0.698
+   ],
+   "crowns_for": 128,
+   "crowns_against": 96,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "battle_ram-33",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "goblin_cage",
+    "rocket",
+    "tornado",
+    "dart_goblin",
+    "bowler",
+    "skeletons",
+    "fire_spirit"
+   ],
+   "games": 71,
+   "win_rate": 0.592,
+   "ci": [
+    0.475,
+    0.698
+   ],
+   "crowns_for": 118,
+   "crowns_against": 91,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "hog_rider-35",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "lightning",
+    "barbarian_barrel",
+    "minion_horde",
+    "inferno_dragon",
+    "night_witch",
+    "skeletons",
+    "goblins"
+   ],
+   "games": 79,
+   "win_rate": 0.582,
+   "ci": [
+    0.472,
+    0.685
+   ],
+   "crowns_for": 109,
+   "crowns_against": 85,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "balloon-38",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "balloon",
+    "lightning",
+    "tornado",
+    "inferno_dragon",
+    "magic_archer",
+    "monk",
+    "ice_golem",
+    "spear_goblins"
+   ],
+   "games": 88,
+   "win_rate": 0.58,
+   "ci": [
+    0.475,
+    0.677
+   ],
+   "crowns_for": 143,
+   "crowns_against": 96,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "graveyard-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "tombstone",
+    "fireball",
+    "arrows",
+    "baby_dragon",
+    "musketeer",
+    "ice_spirit",
+    "goblins"
+   ],
+   "games": 92,
+   "win_rate": 0.576,
+   "ci": [
+    0.474,
+    0.672
+   ],
+   "crowns_for": 63,
+   "crowns_against": 61,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "Classic Log Bait",
+   "archetype": "bait",
+   "source": "meta",
+   "cards": [
+    "goblin_barrel",
+    "ice_spirit",
+    "log",
+    "princess",
+    "goblin_gang",
+    "knight",
+    "inferno_tower",
+    "rocket"
+   ],
+   "games": 87,
+   "win_rate": 0.575,
+   "ci": [
+    0.47,
+    0.673
+   ],
+   "crowns_for": 77,
+   "crowns_against": 62,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "mortar-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "poison",
+    "arrows",
+    "wizard",
+    "inferno_dragon",
+    "flying_machine",
+    "goblins",
+    "skeletons"
+   ],
+   "games": 80,
+   "win_rate": 0.575,
+   "ci": [
+    0.466,
+    0.677
+   ],
+   "crowns_for": 77,
+   "crowns_against": 62,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "golem-36",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "golem",
+    "tesla",
+    "fireball",
+    "earthquake",
+    "zappies",
+    "archers",
+    "goblins",
+    "ice_spirit"
+   ],
+   "games": 86,
+   "win_rate": 0.57,
+   "ci": [
+    0.464,
+    0.669
+   ],
+   "crowns_for": 123,
+   "crowns_against": 109,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "Royal Hogs Three Musketeers",
+   "archetype": "three_musketeers",
+   "source": "meta",
+   "cards": [
+    "three_musketeers",
+    "royal_hogs",
+    "royal_ghost",
+    "barbarian_barrel",
+    "ice_golem",
+    "hunter",
+    "fireball",
+    "heal_spirit"
+   ],
+   "games": 81,
+   "win_rate": 0.568,
+   "ci": [
+    0.459,
+    0.67
+   ],
+   "crowns_for": 140,
+   "crowns_against": 120,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "balloon-32",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "balloon",
+    "tesla",
+    "rocket",
+    "barbarian_barrel",
+    "baby_dragon",
+    "guards",
+    "ice_spirit",
+    "electro_spirit"
+   ],
+   "games": 89,
+   "win_rate": 0.562,
+   "ci": [
+    0.458,
+    0.66
+   ],
+   "crowns_for": 141,
+   "crowns_against": 124,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "x_bow-35",
+   "archetype": "three_musketeers",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "goblin_cage",
+    "fireball",
+    "barbarian_barrel",
+    "hunter",
+    "wizard",
+    "bats",
+    "fire_spirit"
+   ],
+   "games": 75,
+   "win_rate": 0.56,
+   "ci": [
+    0.447,
+    0.667
+   ],
+   "crowns_for": 54,
+   "crowns_against": 50,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "graveyard-38",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "tesla",
+    "rocket",
+    "royal_delivery",
+    "electro_dragon",
+    "minion_horde",
+    "electro_spirit",
+    "bats"
+   ],
+   "games": 77,
+   "win_rate": 0.558,
+   "ci": [
+    0.447,
+    0.664
+   ],
+   "crowns_for": 52,
+   "crowns_against": 56,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "Minion Giant Rune Giant Little Prince",
+   "archetype": "control",
+   "source": "meta",
+   "cards": [
+    "minion_giant",
+    "rune_giant",
+    "little_prince",
+    "cannon",
+    "bats",
+    "skeletons",
+    "poison",
+    "barbarian_barrel"
+   ],
+   "games": 90,
+   "win_rate": 0.556,
+   "ci": [
+    0.453,
+    0.654
+   ],
+   "crowns_for": 144,
+   "crowns_against": 113,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "ram_rider-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "ram_rider",
+    "cannon",
+    "rocket",
+    "barbarian_barrel",
+    "goblin_gang",
+    "magic_archer",
+    "ice_spirit",
+    "fire_spirit"
+   ],
+   "games": 81,
+   "win_rate": 0.556,
+   "ci": [
+    0.447,
+    0.659
+   ],
+   "crowns_for": 99,
+   "crowns_against": 88,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "royal_giant-40",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "inferno_tower",
+    "rocket",
+    "zap",
+    "electro_dragon",
+    "witch",
+    "bats",
+    "skeletons"
+   ],
+   "games": 83,
+   "win_rate": 0.554,
+   "ci": [
+    0.447,
+    0.656
+   ],
+   "crowns_for": 105,
+   "crowns_against": 106,
+   "avg_elixir": 4.0
+  },
+  {
+   "name": "royal_hogs-32",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "inferno_tower",
+    "poison",
+    "zap",
+    "goblin_gang",
+    "electro_dragon",
+    "skeletons",
+    "fire_spirit"
+   ],
+   "games": 80,
+   "win_rate": 0.55,
+   "ci": [
+    0.441,
+    0.654
+   ],
+   "crowns_for": 106,
+   "crowns_against": 86,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "goblin_drill-31",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "rocket",
+    "earthquake",
+    "mega_minion",
+    "inferno_dragon",
+    "bandit",
+    "fire_spirit",
+    "ice_spirit"
+   ],
+   "games": 75,
+   "win_rate": 0.547,
+   "ci": [
+    0.434,
+    0.654
+   ],
+   "crowns_for": 91,
+   "crowns_against": 66,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "mortar-28",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "tombstone",
+    "poison",
+    "log",
+    "witch",
+    "knight",
+    "skeletons",
+    "fire_spirit"
+   ],
+   "games": 77,
+   "win_rate": 0.545,
+   "ci": [
+    0.435,
+    0.652
+   ],
+   "crowns_for": 67,
+   "crowns_against": 61,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "royal_giant-36",
+   "archetype": "royal_giant",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "inferno_tower",
+    "poison",
+    "royal_delivery",
+    "electro_dragon",
+    "minions",
+    "bats",
+    "skeletons"
+   ],
+   "games": 70,
+   "win_rate": 0.543,
+   "ci": [
+    0.427,
+    0.654
+   ],
+   "crowns_for": 86,
+   "crowns_against": 80,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "Evo Giant Sparky",
+   "archetype": "beatdown",
+   "source": "meta",
+   "cards": [
+    "giant",
+    "wizard",
+    "mini_pekka",
+    "sparky",
+    "zap",
+    "tornado",
+    "heal_spirit",
+    "vines"
+   ],
+   "games": 88,
+   "win_rate": 0.534,
+   "ci": [
+    0.431,
+    0.635
+   ],
+   "crowns_for": 146,
+   "crowns_against": 139,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "Minion Giant Lightning 3.1",
+   "archetype": "control",
+   "source": "meta",
+   "cards": [
+    "minion_giant",
+    "archers",
+    "ice_wizard",
+    "cannon",
+    "skeletons",
+    "lightning",
+    "barbarian_barrel",
+    "knight"
+   ],
+   "games": 73,
+   "win_rate": 0.534,
+   "ci": [
+    0.421,
+    0.644
+   ],
+   "crowns_for": 92,
+   "crowns_against": 98,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "battle_ram-30",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "tombstone",
+    "rocket",
+    "log",
+    "firecracker",
+    "fisherman",
+    "ice_golem",
+    "electro_spirit"
+   ],
+   "games": 75,
+   "win_rate": 0.533,
+   "ci": [
+    0.422,
+    0.642
+   ],
+   "crowns_for": 114,
+   "crowns_against": 103,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "royal_giant-33",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "tesla",
+    "poison",
+    "tornado",
+    "mega_minion",
+    "monk",
+    "heal_spirit",
+    "fire_spirit"
+   ],
+   "games": 79,
+   "win_rate": 0.532,
+   "ci": [
+    0.423,
+    0.638
+   ],
+   "crowns_for": 114,
+   "crowns_against": 108,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "ram_rider-36",
+   "archetype": "three_musketeers",
+   "source": "generated",
+   "cards": [
+    "ram_rider",
+    "lightning",
+    "barbarian_barrel",
+    "hunter",
+    "musketeer",
+    "witch",
+    "heal_spirit",
+    "ice_golem"
+   ],
+   "games": 77,
+   "win_rate": 0.532,
+   "ci": [
+    0.422,
+    0.64
+   ],
+   "crowns_for": 103,
+   "crowns_against": 108,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "battle_ram-35",
+   "archetype": "evolution_centric",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "tesla",
+    "lightning",
+    "arrows",
+    "magic_archer",
+    "musketeer",
+    "spear_goblins",
+    "skeletons"
+   ],
+   "games": 89,
+   "win_rate": 0.528,
+   "ci": [
+    0.425,
+    0.628
+   ],
+   "crowns_for": 140,
+   "crowns_against": 126,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "Evo Goblin Drill Evo Mirror (Hero Bowler)",
+   "archetype": "goblin_drill",
+   "source": "meta",
+   "cards": [
+    "goblin_drill",
+    "mirror",
+    "bowler",
+    "knight",
+    "goblin_hut",
+    "furnace",
+    "barbarian_barrel",
+    "giant_snowball"
+   ],
+   "games": 78,
+   "win_rate": 0.526,
+   "ci": [
+    0.416,
+    0.633
+   ],
+   "crowns_for": 81,
+   "crowns_against": 75,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "pekka-38",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "goblin_cage",
+    "lightning",
+    "tornado",
+    "zappies",
+    "hunter",
+    "heal_spirit",
+    "spear_goblins"
+   ],
+   "games": 76,
+   "win_rate": 0.526,
+   "ci": [
+    0.416,
+    0.635
+   ],
+   "crowns_for": 95,
+   "crowns_against": 83,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "mortar-37",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "inferno_tower",
+    "rocket",
+    "earthquake",
+    "baby_dragon",
+    "wizard",
+    "electro_spirit",
+    "ice_golem"
+   ],
+   "games": 78,
+   "win_rate": 0.526,
+   "ci": [
+    0.416,
+    0.633
+   ],
+   "crowns_for": 61,
+   "crowns_against": 66,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "three_musketeers-40",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "three_musketeers",
+    "goblin_cage",
+    "rocket",
+    "giant_snowball",
+    "baby_dragon",
+    "prince",
+    "electro_spirit",
+    "ice_spirit"
+   ],
+   "games": 88,
+   "win_rate": 0.523,
+   "ci": [
+    0.42,
+    0.624
+   ],
+   "crowns_for": 126,
+   "crowns_against": 109,
+   "avg_elixir": 4.0
+  },
+  {
+   "name": "Log Bait Ronin 2.5",
+   "archetype": "bait",
+   "source": "meta",
+   "cards": [
+    "goblin_barrel",
+    "ronin",
+    "magic_archer",
+    "wall_breakers",
+    "cannon",
+    "fire_spirit",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 75,
+   "win_rate": 0.52,
+   "ci": [
+    0.409,
+    0.629
+   ],
+   "crowns_for": 79,
+   "crowns_against": 81,
+   "avg_elixir": 2.5
+  },
+  {
+   "name": "skeleton_barrel-30",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "skeleton_barrel",
+    "tombstone",
+    "rocket",
+    "giant_snowball",
+    "electro_wizard",
+    "inferno_dragon",
+    "skeletons",
+    "ice_spirit"
+   ],
+   "games": 85,
+   "win_rate": 0.518,
+   "ci": [
+    0.413,
+    0.621
+   ],
+   "crowns_for": 109,
+   "crowns_against": 88,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "hog_rider-32",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "lightning",
+    "earthquake",
+    "flying_machine",
+    "archers",
+    "guards",
+    "spear_goblins",
+    "electro_spirit"
+   ],
+   "games": 95,
+   "win_rate": 0.516,
+   "ci": [
+    0.417,
+    0.614
+   ],
+   "crowns_for": 132,
+   "crowns_against": 132,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "goblin_giant-35",
+   "archetype": "bridge_spam",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "furnace",
+    "rocket",
+    "barbarian_barrel",
+    "musketeer",
+    "skeleton_army",
+    "bats",
+    "heal_spirit"
+   ],
+   "games": 85,
+   "win_rate": 0.506,
+   "ci": [
+    0.402,
+    0.61
+   ],
+   "crowns_for": 116,
+   "crowns_against": 103,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "ram_rider-33",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "ram_rider",
+    "bomb_tower",
+    "poison",
+    "giant_snowball",
+    "minion_horde",
+    "inferno_dragon",
+    "bats",
+    "skeletons"
+   ],
+   "games": 82,
+   "win_rate": 0.488,
+   "ci": [
+    0.383,
+    0.594
+   ],
+   "crowns_for": 71,
+   "crowns_against": 83,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "Mega Knight Witch Valkyrie (mid-ladder)",
+   "archetype": "mega_knight",
+   "source": "meta",
+   "cards": [
+    "mega_knight",
+    "witch",
+    "valkyrie",
+    "mini_pekka",
+    "baby_dragon",
+    "skeleton_army",
+    "skeleton_barrel",
+    "arrows"
+   ],
+   "games": 76,
+   "win_rate": 0.487,
+   "ci": [
+    0.378,
+    0.597
+   ],
+   "crowns_for": 99,
+   "crowns_against": 98,
+   "avg_elixir": 4.12
+  },
+  {
+   "name": "royal_hogs-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "cannon",
+    "fireball",
+    "earthquake",
+    "wizard",
+    "monk",
+    "skeletons",
+    "fire_spirit"
+   ],
+   "games": 80,
+   "win_rate": 0.487,
+   "ci": [
+    0.381,
+    0.595
+   ],
+   "crowns_for": 82,
+   "crowns_against": 88,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "miner-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "miner",
+    "tesla",
+    "lightning",
+    "log",
+    "baby_dragon",
+    "magic_archer",
+    "electro_spirit",
+    "ice_spirit"
+   ],
+   "games": 87,
+   "win_rate": 0.483,
+   "ci": [
+    0.381,
+    0.586
+   ],
+   "crowns_for": 90,
+   "crowns_against": 102,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "electro_giant-37",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "inferno_tower",
+    "fireball",
+    "royal_delivery",
+    "goblin_gang",
+    "skeleton_king",
+    "spear_goblins",
+    "bats"
+   ],
+   "games": 84,
+   "win_rate": 0.476,
+   "ci": [
+    0.373,
+    0.582
+   ],
+   "crowns_for": 92,
+   "crowns_against": 99,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "lava_hound-36",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "cannon",
+    "lightning",
+    "zap",
+    "minions",
+    "archer_queen",
+    "fire_spirit",
+    "bats"
+   ],
+   "games": 84,
+   "win_rate": 0.476,
+   "ci": [
+    0.373,
+    0.582
+   ],
+   "crowns_for": 79,
+   "crowns_against": 110,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "lava_hound-31",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "cannon",
+    "poison",
+    "giant_snowball",
+    "dart_goblin",
+    "firecracker",
+    "electro_spirit",
+    "bats"
+   ],
+   "games": 85,
+   "win_rate": 0.471,
+   "ci": [
+    0.368,
+    0.576
+   ],
+   "crowns_for": 97,
+   "crowns_against": 101,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "battle_ram-30",
+   "archetype": "bridge_spam",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "furnace",
+    "fireball",
+    "zap",
+    "wizard",
+    "minions",
+    "heal_spirit",
+    "skeletons"
+   ],
+   "games": 79,
+   "win_rate": 0.468,
+   "ci": [
+    0.362,
+    0.577
+   ],
+   "crowns_for": 100,
+   "crowns_against": 116,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "lava_hound-36",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "bomb_tower",
+    "poison",
+    "arrows",
+    "minions",
+    "monk",
+    "ice_spirit",
+    "bats"
+   ],
+   "games": 79,
+   "win_rate": 0.468,
+   "ci": [
+    0.362,
+    0.577
+   ],
+   "crowns_for": 76,
+   "crowns_against": 92,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "wall_breakers-27",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "bomb_tower",
+    "rocket",
+    "giant_snowball",
+    "dart_goblin",
+    "firecracker",
+    "fire_spirit",
+    "ice_spirit"
+   ],
+   "games": 77,
+   "win_rate": 0.468,
+   "ci": [
+    0.36,
+    0.578
+   ],
+   "crowns_for": 78,
+   "crowns_against": 105,
+   "avg_elixir": 2.75
+  },
+  {
+   "name": "mortar-33",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "inferno_tower",
+    "rocket",
+    "log",
+    "ice_wizard",
+    "electro_dragon",
+    "ice_spirit",
+    "electro_spirit"
+   ],
+   "games": 80,
+   "win_rate": 0.463,
+   "ci": [
+    0.357,
+    0.571
+   ],
+   "crowns_for": 26,
+   "crowns_against": 57,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "royal_giant-33",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "poison",
+    "earthquake",
+    "flying_machine",
+    "bats",
+    "mighty_miner",
+    "ice_golem",
+    "goblins"
+   ],
+   "games": 78,
+   "win_rate": 0.462,
+   "ci": [
+    0.355,
+    0.571
+   ],
+   "crowns_for": 105,
+   "crowns_against": 128,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "Lava Hound Hero Mega Minion (Flying Machine)",
+   "archetype": "lavaloon",
+   "source": "meta",
+   "cards": [
+    "lava_hound",
+    "mega_minion",
+    "baby_dragon",
+    "zap",
+    "barbarians",
+    "flying_machine",
+    "tombstone",
+    "fireball"
+   ],
+   "games": 85,
+   "win_rate": 0.459,
+   "ci": [
+    0.357,
+    0.564
+   ],
+   "crowns_for": 103,
+   "crowns_against": 111,
+   "avg_elixir": 4.0
+  },
+  {
+   "name": "miner-31",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "miner",
+    "tesla",
+    "lightning",
+    "log",
+    "zappies",
+    "knight",
+    "bats",
+    "fire_spirit"
+   ],
+   "games": 85,
+   "win_rate": 0.459,
+   "ci": [
+    0.357,
+    0.564
+   ],
+   "crowns_for": 78,
+   "crowns_against": 93,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "Goblin Drill Cycle 2.5 (Hero Knight / Evo Cannon)",
+   "archetype": "goblin_drill",
+   "source": "meta",
+   "cards": [
+    "goblin_drill",
+    "giant_snowball",
+    "knight",
+    "cannon",
+    "poison",
+    "bomber",
+    "fire_spirit",
+    "skeletons"
+   ],
+   "games": 79,
+   "win_rate": 0.456,
+   "ci": [
+    0.35,
+    0.565
+   ],
+   "crowns_for": 52,
+   "crowns_against": 69,
+   "avg_elixir": 2.5
+  },
+  {
+   "name": "Golem Hero Electro Wizard",
+   "archetype": "beatdown",
+   "source": "meta",
+   "cards": [
+    "golem",
+    "electro_wizard",
+    "elite_barbarians",
+    "cannon_cart",
+    "berserker",
+    "furnace",
+    "zap",
+    "barbarian_barrel"
+   ],
+   "games": 77,
+   "win_rate": 0.455,
+   "ci": [
+    0.348,
+    0.565
+   ],
+   "crowns_for": 105,
+   "crowns_against": 117,
+   "avg_elixir": 4.12
+  },
+  {
+   "name": "graveyard-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "bomb_tower",
+    "fireball",
+    "royal_delivery",
+    "princess",
+    "minions",
+    "ice_spirit",
+    "goblins"
+   ],
+   "games": 89,
+   "win_rate": 0.449,
+   "ci": [
+    0.35,
+    0.553
+   ],
+   "crowns_for": 58,
+   "crowns_against": 81,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "lava_hound-35",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "cannon",
+    "poison",
+    "arrows",
+    "ice_wizard",
+    "hunter",
+    "spear_goblins",
+    "ice_golem"
+   ],
+   "games": 78,
+   "win_rate": 0.449,
+   "ci": [
+    0.343,
+    0.559
+   ],
+   "crowns_for": 83,
+   "crowns_against": 109,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "pekka-35",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "lightning",
+    "log",
+    "bats",
+    "executioner",
+    "fisherman",
+    "skeletons",
+    "spear_goblins"
+   ],
+   "games": 78,
+   "win_rate": 0.449,
+   "ci": [
+    0.343,
+    0.559
+   ],
+   "crowns_for": 110,
+   "crowns_against": 107,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "wall_breakers-28",
+   "archetype": "bridge_spam",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "furnace",
+    "lightning",
+    "earthquake",
+    "princess",
+    "little_prince",
+    "fire_spirit",
+    "heal_spirit"
+   ],
+   "games": 72,
+   "win_rate": 0.444,
+   "ci": [
+    0.335,
+    0.559
+   ],
+   "crowns_for": 95,
+   "crowns_against": 113,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "golem-40",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "golem",
+    "bomb_tower",
+    "rocket",
+    "giant_snowball",
+    "musketeer",
+    "electro_wizard",
+    "goblins",
+    "bats"
+   ],
+   "games": 88,
+   "win_rate": 0.443,
+   "ci": [
+    0.344,
+    0.547
+   ],
+   "crowns_for": 100,
+   "crowns_against": 116,
+   "avg_elixir": 4.0
+  },
+  {
+   "name": "wall_breakers-30",
+   "archetype": "hybrid",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "goblin_cage",
+    "lightning",
+    "royal_delivery",
+    "hunter",
+    "skeleton_army",
+    "skeletons",
+    "heal_spirit"
+   ],
+   "games": 77,
+   "win_rate": 0.442,
+   "ci": [
+    0.336,
+    0.553
+   ],
+   "crowns_for": 65,
+   "crowns_against": 76,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "golem-36",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "golem",
+    "cannon",
+    "fireball",
+    "royal_delivery",
+    "baby_dragon",
+    "goblin_gang",
+    "ice_golem",
+    "goblins"
+   ],
+   "games": 77,
+   "win_rate": 0.442,
+   "ci": [
+    0.336,
+    0.553
+   ],
+   "crowns_for": 84,
+   "crowns_against": 98,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "electro_giant-36",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "goblin_cage",
+    "rocket",
+    "zap",
+    "hunter",
+    "guards",
+    "goblins",
+    "ice_spirit"
+   ],
+   "games": 87,
+   "win_rate": 0.437,
+   "ci": [
+    0.337,
+    0.541
+   ],
+   "crowns_for": 101,
+   "crowns_against": 121,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "x_bow-33",
+   "archetype": "graveyard",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "tombstone",
+    "poison",
+    "royal_delivery",
+    "zappies",
+    "baby_dragon",
+    "ice_spirit",
+    "ice_golem"
+   ],
+   "games": 78,
+   "win_rate": 0.436,
+   "ci": [
+    0.331,
+    0.546
+   ],
+   "crowns_for": 44,
+   "crowns_against": 73,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "mortar-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "cannon",
+    "fireball",
+    "tornado",
+    "little_prince",
+    "executioner",
+    "spear_goblins",
+    "heal_spirit"
+   ],
+   "games": 76,
+   "win_rate": 0.434,
+   "ci": [
+    0.329,
+    0.546
+   ],
+   "crowns_for": 52,
+   "crowns_against": 91,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "hog_rider-30",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "tesla",
+    "fireball",
+    "giant_snowball",
+    "little_prince",
+    "skeleton_army",
+    "bats",
+    "goblins"
+   ],
+   "games": 93,
+   "win_rate": 0.43,
+   "ci": [
+    0.334,
+    0.532
+   ],
+   "crowns_for": 108,
+   "crowns_against": 111,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "goblin_barrel-35",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "rocket",
+    "arrows",
+    "hunter",
+    "wizard",
+    "zappies",
+    "heal_spirit",
+    "goblins"
+   ],
+   "games": 86,
+   "win_rate": 0.43,
+   "ci": [
+    0.331,
+    0.536
+   ],
+   "crowns_for": 58,
+   "crowns_against": 92,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "ram_rider-37",
+   "archetype": "mega_knight",
+   "source": "generated",
+   "cards": [
+    "ram_rider",
+    "rocket",
+    "arrows",
+    "electro_dragon",
+    "inferno_dragon",
+    "skeleton_army",
+    "spear_goblins",
+    "goblins"
+   ],
+   "games": 76,
+   "win_rate": 0.421,
+   "ci": [
+    0.316,
+    0.533
+   ],
+   "crowns_for": 64,
+   "crowns_against": 92,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "lava_hound-35",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "lightning",
+    "earthquake",
+    "bats",
+    "ice_wizard",
+    "magic_archer",
+    "spear_goblins",
+    "fire_spirit"
+   ],
+   "games": 89,
+   "win_rate": 0.416,
+   "ci": [
+    0.319,
+    0.52
+   ],
+   "crowns_for": 102,
+   "crowns_against": 127,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "x_bow-35",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "cannon",
+    "rocket",
+    "royal_delivery",
+    "princess",
+    "golden_knight",
+    "bats",
+    "skeletons"
+   ],
+   "games": 75,
+   "win_rate": 0.413,
+   "ci": [
+    0.309,
+    0.526
+   ],
+   "crowns_for": 41,
+   "crowns_against": 64,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "three_musketeers-35",
+   "archetype": "pekka_bridge_spam",
+   "source": "generated",
+   "cards": [
+    "three_musketeers",
+    "tombstone",
+    "poison",
+    "earthquake",
+    "magic_archer",
+    "bats",
+    "ice_golem",
+    "ice_spirit"
+   ],
+   "games": 93,
+   "win_rate": 0.409,
+   "ci": [
+    0.314,
+    0.51
+   ],
+   "crowns_for": 87,
+   "crowns_against": 115,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "pekka-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "cannon",
+    "fireball",
+    "tornado",
+    "minions",
+    "dark_prince",
+    "skeletons",
+    "bats"
+   ],
+   "games": 81,
+   "win_rate": 0.407,
+   "ci": [
+    0.307,
+    0.516
+   ],
+   "crowns_for": 86,
+   "crowns_against": 92,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "Electro Giant Bowler Lightning",
+   "archetype": "beatdown",
+   "source": "meta",
+   "cards": [
+    "electro_giant",
+    "bowler",
+    "baby_dragon",
+    "goblin_hut",
+    "lightning",
+    "tornado",
+    "barbarian_barrel",
+    "knight"
+   ],
+   "games": 84,
+   "win_rate": 0.405,
+   "ci": [
+    0.306,
+    0.512
+   ],
+   "crowns_for": 82,
+   "crowns_against": 120,
+   "avg_elixir": 4.38
+  },
+  {
+   "name": "mega_knight-35",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "mega_knight",
+    "poison",
+    "arrows",
+    "archers",
+    "magic_archer",
+    "dark_prince",
+    "skeletons",
+    "goblins"
+   ],
+   "games": 77,
+   "win_rate": 0.403,
+   "ci": [
+    0.3,
+    0.514
+   ],
+   "crowns_for": 79,
+   "crowns_against": 107,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "battle_ram-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "rocket",
+    "earthquake",
+    "musketeer",
+    "princess",
+    "skeleton_king",
+    "bats",
+    "skeletons"
+   ],
+   "games": 97,
+   "win_rate": 0.402,
+   "ci": [
+    0.31,
+    0.502
+   ],
+   "crowns_for": 134,
+   "crowns_against": 172,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "royal_giant-32",
+   "archetype": "bridge_spam",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "furnace",
+    "rocket",
+    "barbarian_barrel",
+    "bats",
+    "skeleton_army",
+    "heal_spirit",
+    "spear_goblins"
+   ],
+   "games": 83,
+   "win_rate": 0.398,
+   "ci": [
+    0.299,
+    0.505
+   ],
+   "crowns_for": 107,
+   "crowns_against": 138,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "pekka-35",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "pekka",
+    "goblin_cage",
+    "rocket",
+    "giant_snowball",
+    "mega_minion",
+    "goblin_gang",
+    "heal_spirit",
+    "spear_goblins"
+   ],
+   "games": 88,
+   "win_rate": 0.398,
+   "ci": [
+    0.302,
+    0.502
+   ],
+   "crowns_for": 98,
+   "crowns_against": 128,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "battle_ram-35",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "tombstone",
+    "rocket",
+    "tornado",
+    "witch",
+    "wizard",
+    "skeletons",
+    "fire_spirit"
+   ],
+   "games": 83,
+   "win_rate": 0.398,
+   "ci": [
+    0.299,
+    0.505
+   ],
+   "crowns_for": 107,
+   "crowns_against": 121,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "goblin_barrel-30",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "tesla",
+    "rocket",
+    "barbarian_barrel",
+    "dart_goblin",
+    "little_prince",
+    "heal_spirit",
+    "spear_goblins"
+   ],
+   "games": 83,
+   "win_rate": 0.398,
+   "ci": [
+    0.299,
+    0.505
+   ],
+   "crowns_for": 72,
+   "crowns_against": 109,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "giant-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "giant",
+    "cannon",
+    "fireball",
+    "barbarian_barrel",
+    "electro_dragon",
+    "baby_dragon",
+    "skeletons",
+    "goblins"
+   ],
+   "games": 79,
+   "win_rate": 0.392,
+   "ci": [
+    0.292,
+    0.503
+   ],
+   "crowns_for": 85,
+   "crowns_against": 116,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "golem-35",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "golem",
+    "tesla",
+    "fireball",
+    "log",
+    "mother_witch",
+    "night_witch",
+    "skeletons",
+    "fire_spirit"
+   ],
+   "games": 80,
+   "win_rate": 0.388,
+   "ci": [
+    0.288,
+    0.497
+   ],
+   "crowns_for": 84,
+   "crowns_against": 119,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "Evo Mortar Bait (Rascals / Cannon Cart)",
+   "archetype": "siege",
+   "source": "meta",
+   "cards": [
+    "mortar",
+    "skeleton_barrel",
+    "ice_wizard",
+    "goblin_gang",
+    "rascals",
+    "cannon_cart",
+    "fireball",
+    "barbarian_barrel"
+   ],
+   "games": 78,
+   "win_rate": 0.385,
+   "ci": [
+    0.284,
+    0.496
+   ],
+   "crowns_for": 79,
+   "crowns_against": 117,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "mortar-30",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "cannon",
+    "lightning",
+    "giant_snowball",
+    "princess",
+    "little_prince",
+    "ice_golem",
+    "skeletons"
+   ],
+   "games": 81,
+   "win_rate": 0.383,
+   "ci": [
+    0.284,
+    0.492
+   ],
+   "crowns_for": 67,
+   "crowns_against": 106,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "giant-31",
+   "archetype": "graveyard",
+   "source": "generated",
+   "cards": [
+    "giant",
+    "poison",
+    "barbarian_barrel",
+    "zappies",
+    "mother_witch",
+    "goblin_gang",
+    "skeletons",
+    "spear_goblins"
+   ],
+   "games": 79,
+   "win_rate": 0.38,
+   "ci": [
+    0.281,
+    0.49
+   ],
+   "crowns_for": 92,
+   "crowns_against": 133,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "royal_hogs-37",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "bomb_tower",
+    "lightning",
+    "giant_snowball",
+    "electro_dragon",
+    "archer_queen",
+    "skeletons",
+    "bats"
+   ],
+   "games": 78,
+   "win_rate": 0.372,
+   "ci": [
+    0.273,
+    0.483
+   ],
+   "crowns_for": 74,
+   "crowns_against": 100,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "goblin_giant-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "tesla",
+    "poison",
+    "log",
+    "musketeer",
+    "zappies",
+    "skeletons",
+    "spear_goblins"
+   ],
+   "games": 82,
+   "win_rate": 0.366,
+   "ci": [
+    0.27,
+    0.474
+   ],
+   "crowns_for": 83,
+   "crowns_against": 114,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "Hog Earthquake Firecracker (Evo Tesla / Hero Knight)",
+   "archetype": "cycle",
+   "source": "meta",
+   "cards": [
+    "hog_rider",
+    "firecracker",
+    "knight",
+    "tesla",
+    "log",
+    "electro_spirit",
+    "skeletons",
+    "earthquake"
+   ],
+   "games": 74,
+   "win_rate": 0.365,
+   "ci": [
+    0.264,
+    0.479
+   ],
+   "crowns_for": 85,
+   "crowns_against": 111,
+   "avg_elixir": 2.62
+  },
+  {
+   "name": "goblin_giant-36",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "cannon",
+    "lightning",
+    "barbarian_barrel",
+    "electro_dragon",
+    "night_witch",
+    "spear_goblins",
+    "electro_spirit"
+   ],
+   "games": 88,
+   "win_rate": 0.364,
+   "ci": [
+    0.271,
+    0.468
+   ],
+   "crowns_for": 78,
+   "crowns_against": 116,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "goblin_drill-37",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "inferno_tower",
+    "rocket",
+    "tornado",
+    "executioner",
+    "bowler",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 84,
+   "win_rate": 0.357,
+   "ci": [
+    0.263,
+    0.464
+   ],
+   "crowns_for": 34,
+   "crowns_against": 86,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "goblin_drill-31",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "lightning",
+    "earthquake",
+    "zappies",
+    "dart_goblin",
+    "archers",
+    "skeletons",
+    "electro_spirit"
+   ],
+   "games": 79,
+   "win_rate": 0.354,
+   "ci": [
+    0.258,
+    0.464
+   ],
+   "crowns_for": 50,
+   "crowns_against": 89,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "mortar-30",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "poison",
+    "arrows",
+    "flying_machine",
+    "mega_minion",
+    "skeleton_army",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 88,
+   "win_rate": 0.352,
+   "ci": [
+    0.261,
+    0.456
+   ],
+   "crowns_for": 56,
+   "crowns_against": 108,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "Graveyard Control (Evo Furnace / Hero Ice Wizard)",
+   "archetype": "graveyard",
+   "source": "meta",
+   "cards": [
+    "graveyard",
+    "furnace",
+    "ice_wizard",
+    "knight",
+    "poison",
+    "goblin_hut",
+    "skeletons",
+    "barbarian_barrel"
+   ],
+   "games": 83,
+   "win_rate": 0.349,
+   "ci": [
+    0.256,
+    0.457
+   ],
+   "crowns_for": 58,
+   "crowns_against": 97,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "x_bow-33",
+   "archetype": "pekka_bridge_spam",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "cannon",
+    "poison",
+    "zap",
+    "dart_goblin",
+    "minion_horde",
+    "goblins",
+    "spear_goblins"
+   ],
+   "games": 83,
+   "win_rate": 0.349,
+   "ci": [
+    0.256,
+    0.457
+   ],
+   "crowns_for": 50,
+   "crowns_against": 100,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "battle_ram-33",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "tesla",
+    "lightning",
+    "log",
+    "electro_wizard",
+    "flying_machine",
+    "spear_goblins",
+    "skeletons"
+   ],
+   "games": 83,
+   "win_rate": 0.349,
+   "ci": [
+    0.256,
+    0.457
+   ],
+   "crowns_for": 101,
+   "crowns_against": 140,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "LavaLoon (Hero Balloon / Hero Mega Minion)",
+   "archetype": "lavaloon",
+   "source": "meta",
+   "cards": [
+    "lava_hound",
+    "balloon",
+    "mega_minion",
+    "zap",
+    "barbarians",
+    "skeleton_dragons",
+    "tombstone",
+    "fireball"
+   ],
+   "games": 92,
+   "win_rate": 0.337,
+   "ci": [
+    0.249,
+    0.438
+   ],
+   "crowns_for": 107,
+   "crowns_against": 160,
+   "avg_elixir": 4.12
+  },
+  {
+   "name": "goblin_giant-37",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "inferno_tower",
+    "lightning",
+    "zap",
+    "zappies",
+    "mother_witch",
+    "electro_spirit",
+    "bats"
+   ],
+   "games": 83,
+   "win_rate": 0.337,
+   "ci": [
+    0.245,
+    0.444
+   ],
+   "crowns_for": 73,
+   "crowns_against": 130,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "three_musketeers-35",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "three_musketeers",
+    "poison",
+    "log",
+    "princess",
+    "dark_prince",
+    "ice_wizard",
+    "electro_spirit",
+    "ice_golem"
+   ],
+   "games": 86,
+   "win_rate": 0.337,
+   "ci": [
+    0.246,
+    0.442
+   ],
+   "crowns_for": 77,
+   "crowns_against": 123,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "x_bow-36",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "furnace",
+    "lightning",
+    "tornado",
+    "princess",
+    "golden_knight",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 92,
+   "win_rate": 0.337,
+   "ci": [
+    0.249,
+    0.438
+   ],
+   "crowns_for": 88,
+   "crowns_against": 157,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "mortar-32",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "mortar",
+    "rocket",
+    "zap",
+    "bats",
+    "monk",
+    "executioner",
+    "skeletons",
+    "fire_spirit"
+   ],
+   "games": 87,
+   "win_rate": 0.333,
+   "ci": [
+    0.243,
+    0.438
+   ],
+   "crowns_for": 42,
+   "crowns_against": 98,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "x_bow-32",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "tombstone",
+    "fireball",
+    "royal_delivery",
+    "electro_wizard",
+    "magic_archer",
+    "electro_spirit",
+    "heal_spirit"
+   ],
+   "games": 84,
+   "win_rate": 0.333,
+   "ci": [
+    0.242,
+    0.439
+   ],
+   "crowns_for": 38,
+   "crowns_against": 90,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "miner-30",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "miner",
+    "poison",
+    "earthquake",
+    "archers",
+    "magic_archer",
+    "mini_pekka",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 87,
+   "win_rate": 0.333,
+   "ci": [
+    0.243,
+    0.438
+   ],
+   "crowns_for": 83,
+   "crowns_against": 137,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "goblin_barrel-31",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "rocket",
+    "tornado",
+    "zappies",
+    "skeleton_king",
+    "bandit",
+    "electro_spirit",
+    "heal_spirit"
+   ],
+   "games": 82,
+   "win_rate": 0.329,
+   "ci": [
+    0.237,
+    0.437
+   ],
+   "crowns_for": 68,
+   "crowns_against": 111,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "Hog Ronin Cycle 2.9",
+   "archetype": "cycle",
+   "source": "meta",
+   "cards": [
+    "hog_rider",
+    "ronin",
+    "firecracker",
+    "earthquake",
+    "barbarian_barrel",
+    "tesla",
+    "ice_spirit",
+    "skeletons"
+   ],
+   "games": 86,
+   "win_rate": 0.326,
+   "ci": [
+    0.236,
+    0.43
+   ],
+   "crowns_for": 92,
+   "crowns_against": 150,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "Evo Giant Double Prince",
+   "archetype": "beatdown",
+   "source": "meta",
+   "cards": [
+    "giant",
+    "zap",
+    "mega_minion",
+    "bomber",
+    "prince",
+    "dark_prince",
+    "rage",
+    "lightning"
+   ],
+   "games": 77,
+   "win_rate": 0.325,
+   "ci": [
+    0.231,
+    0.435
+   ],
+   "crowns_for": 90,
+   "crowns_against": 128,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "mega_knight-36",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "mega_knight",
+    "furnace",
+    "rocket",
+    "earthquake",
+    "bats",
+    "lumberjack",
+    "skeletons",
+    "spear_goblins"
+   ],
+   "games": 71,
+   "win_rate": 0.324,
+   "ci": [
+    0.227,
+    0.439
+   ],
+   "crowns_for": 69,
+   "crowns_against": 122,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "goblin_barrel-35",
+   "archetype": "pekka_bridge_spam",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "tesla",
+    "lightning",
+    "zap",
+    "magic_archer",
+    "prince",
+    "ice_golem",
+    "spear_goblins"
+   ],
+   "games": 74,
+   "win_rate": 0.324,
+   "ci": [
+    0.229,
+    0.437
+   ],
+   "crowns_for": 71,
+   "crowns_against": 119,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "Golem Elixir Collector",
+   "archetype": "beatdown",
+   "source": "meta",
+   "cards": [
+    "golem",
+    "electro_dragon",
+    "skeleton_dragons",
+    "elite_barbarians",
+    "berserker",
+    "elixir_collector",
+    "tornado",
+    "barbarian_barrel"
+   ],
+   "games": 80,
+   "win_rate": 0.312,
+   "ci": [
+    0.222,
+    0.421
+   ],
+   "crowns_for": 76,
+   "crowns_against": 134,
+   "avg_elixir": 4.5
+  },
+  {
+   "name": "Evo Giant Graveyard (Evo Witch / Hero Bowler)",
+   "archetype": "graveyard",
+   "source": "meta",
+   "cards": [
+    "giant",
+    "graveyard",
+    "witch",
+    "bowler",
+    "giant_snowball",
+    "guards",
+    "zappies",
+    "arrows"
+   ],
+   "games": 78,
+   "win_rate": 0.308,
+   "ci": [
+    0.216,
+    0.417
+   ],
+   "crowns_for": 88,
+   "crowns_against": 138,
+   "avg_elixir": 4.0
+  },
+  {
+   "name": "wall_breakers-28",
+   "archetype": "royal_giant",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "tombstone",
+    "lightning",
+    "giant_snowball",
+    "minions",
+    "hunter",
+    "skeletons",
+    "bats"
+   ],
+   "games": 98,
+   "win_rate": 0.306,
+   "ci": [
+    0.224,
+    0.403
+   ],
+   "crowns_for": 44,
+   "crowns_against": 105,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "skeleton_barrel-28",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "skeleton_barrel",
+    "poison",
+    "tornado",
+    "electro_wizard",
+    "dart_goblin",
+    "zappies",
+    "skeletons",
+    "electro_spirit"
+   ],
+   "games": 76,
+   "win_rate": 0.303,
+   "ci": [
+    0.211,
+    0.413
+   ],
+   "crowns_for": 75,
+   "crowns_against": 133,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "hog_rider-32",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "lightning",
+    "barbarian_barrel",
+    "goblin_gang",
+    "archers",
+    "magic_archer",
+    "spear_goblins",
+    "goblins"
+   ],
+   "games": 73,
+   "win_rate": 0.301,
+   "ci": [
+    0.208,
+    0.414
+   ],
+   "crowns_for": 75,
+   "crowns_against": 129,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "lava_hound-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "inferno_tower",
+    "fireball",
+    "tornado",
+    "firecracker",
+    "goblin_gang",
+    "fire_spirit",
+    "skeletons"
+   ],
+   "games": 79,
+   "win_rate": 0.291,
+   "ci": [
+    0.203,
+    0.399
+   ],
+   "crowns_for": 66,
+   "crowns_against": 116,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "ram_rider-32",
+   "archetype": "hybrid",
+   "source": "generated",
+   "cards": [
+    "ram_rider",
+    "goblin_cage",
+    "poison",
+    "log",
+    "flying_machine",
+    "little_prince",
+    "bats",
+    "spear_goblins"
+   ],
+   "games": 85,
+   "win_rate": 0.282,
+   "ci": [
+    0.198,
+    0.386
+   ],
+   "crowns_for": 70,
+   "crowns_against": 136,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "electro_giant-35",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "fireball",
+    "zap",
+    "goblin_gang",
+    "baby_dragon",
+    "archer_queen",
+    "bats",
+    "skeletons"
+   ],
+   "games": 82,
+   "win_rate": 0.28,
+   "ci": [
+    0.195,
+    0.386
+   ],
+   "crowns_for": 69,
+   "crowns_against": 128,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "goblin_giant-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "cannon",
+    "fireball",
+    "barbarian_barrel",
+    "baby_dragon",
+    "mega_minion",
+    "skeletons",
+    "goblins"
+   ],
+   "games": 86,
+   "win_rate": 0.279,
+   "ci": [
+    0.195,
+    0.382
+   ],
+   "crowns_for": 59,
+   "crowns_against": 111,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "wall_breakers-32",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "lightning",
+    "earthquake",
+    "archers",
+    "prince",
+    "flying_machine",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 96,
+   "win_rate": 0.271,
+   "ci": [
+    0.192,
+    0.367
+   ],
+   "crowns_for": 85,
+   "crowns_against": 152,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "PEKKA Bridge Spam (Golden Knight)",
+   "archetype": "pekka_bridge_spam",
+   "source": "meta",
+   "cards": [
+    "battle_ram",
+    "royal_ghost",
+    "golden_knight",
+    "pekka",
+    "electro_wizard",
+    "bandit",
+    "furnace",
+    "arrows"
+   ],
+   "games": 75,
+   "win_rate": 0.267,
+   "ci": [
+    0.18,
+    0.376
+   ],
+   "crowns_for": 79,
+   "crowns_against": 139,
+   "avg_elixir": 4.0
+  },
+  {
+   "name": "battle_ram-32",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "battle_ram",
+    "poison",
+    "tornado",
+    "ice_wizard",
+    "golden_knight",
+    "skeleton_king",
+    "goblins",
+    "spear_goblins"
+   ],
+   "games": 80,
+   "win_rate": 0.25,
+   "ci": [
+    0.168,
+    0.355
+   ],
+   "crowns_for": 91,
+   "crowns_against": 157,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "giant-31",
+   "archetype": "lavaloon",
+   "source": "generated",
+   "cards": [
+    "giant",
+    "fireball",
+    "royal_delivery",
+    "princess",
+    "bandit",
+    "mega_minion",
+    "goblins",
+    "bats"
+   ],
+   "games": 81,
+   "win_rate": 0.247,
+   "ci": [
+    0.166,
+    0.351
+   ],
+   "crowns_for": 79,
+   "crowns_against": 145,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "x_bow-33",
+   "archetype": "hybrid",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "goblin_cage",
+    "poison",
+    "barbarian_barrel",
+    "minion_horde",
+    "flying_machine",
+    "electro_spirit",
+    "heal_spirit"
+   ],
+   "games": 89,
+   "win_rate": 0.247,
+   "ci": [
+    0.169,
+    0.346
+   ],
+   "crowns_for": 24,
+   "crowns_against": 102,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "royal_giant-32",
+   "archetype": "three_musketeers",
+   "source": "generated",
+   "cards": [
+    "royal_giant",
+    "bomb_tower",
+    "poison",
+    "barbarian_barrel",
+    "mother_witch",
+    "goblin_gang",
+    "heal_spirit",
+    "ice_golem"
+   ],
+   "games": 70,
+   "win_rate": 0.243,
+   "ci": [
+    0.158,
+    0.355
+   ],
+   "crowns_for": 69,
+   "crowns_against": 121,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "goblin_giant-35",
+   "archetype": "hybrid",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "goblin_cage",
+    "poison",
+    "giant_snowball",
+    "flying_machine",
+    "dark_prince",
+    "goblins",
+    "ice_golem"
+   ],
+   "games": 75,
+   "win_rate": 0.24,
+   "ci": [
+    0.158,
+    0.348
+   ],
+   "crowns_for": 66,
+   "crowns_against": 148,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "goblin_drill-30",
+   "archetype": "lavaloon",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "fireball",
+    "zap",
+    "ice_wizard",
+    "mini_pekka",
+    "night_witch",
+    "electro_spirit",
+    "spear_goblins"
+   ],
+   "games": 75,
+   "win_rate": 0.24,
+   "ci": [
+    0.158,
+    0.348
+   ],
+   "crowns_for": 23,
+   "crowns_against": 88,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "goblin_barrel-30",
+   "archetype": "graveyard",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "furnace",
+    "poison",
+    "tornado",
+    "ice_wizard",
+    "minion_horde",
+    "skeletons",
+    "electro_spirit"
+   ],
+   "games": 80,
+   "win_rate": 0.237,
+   "ci": [
+    0.158,
+    0.341
+   ],
+   "crowns_for": 23,
+   "crowns_against": 96,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "electro_giant-38",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "lightning",
+    "zap",
+    "minion_horde",
+    "lumberjack",
+    "dark_prince",
+    "fire_spirit",
+    "spear_goblins"
+   ],
+   "games": 85,
+   "win_rate": 0.224,
+   "ci": [
+    0.148,
+    0.323
+   ],
+   "crowns_for": 96,
+   "crowns_against": 167,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "graveyard-32",
+   "archetype": "graveyard",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "lightning",
+    "barbarian_barrel",
+    "mega_minion",
+    "ice_wizard",
+    "archer_queen",
+    "skeletons",
+    "fire_spirit"
+   ],
+   "games": 85,
+   "win_rate": 0.224,
+   "ci": [
+    0.148,
+    0.323
+   ],
+   "crowns_for": 22,
+   "crowns_against": 101,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "graveyard-33",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "bomb_tower",
+    "fireball",
+    "log",
+    "minion_horde",
+    "mini_pekka",
+    "heal_spirit",
+    "goblins"
+   ],
+   "games": 74,
+   "win_rate": 0.216,
+   "ci": [
+    0.138,
+    0.323
+   ],
+   "crowns_for": 28,
+   "crowns_against": 82,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "hog_rider-32",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "goblin_cage",
+    "poison",
+    "giant_snowball",
+    "witch",
+    "princess",
+    "goblins",
+    "bats"
+   ],
+   "games": 74,
+   "win_rate": 0.216,
+   "ci": [
+    0.138,
+    0.323
+   ],
+   "crowns_for": 65,
+   "crowns_against": 144,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "goblin_barrel-32",
+   "archetype": "bait",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "tombstone",
+    "rocket",
+    "zap",
+    "executioner",
+    "knight",
+    "goblins",
+    "ice_golem"
+   ],
+   "games": 70,
+   "win_rate": 0.214,
+   "ci": [
+    0.134,
+    0.324
+   ],
+   "crowns_for": 38,
+   "crowns_against": 111,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "goblin_drill-36",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "goblin_cage",
+    "rocket",
+    "log",
+    "musketeer",
+    "electro_dragon",
+    "bats",
+    "ice_golem"
+   ],
+   "games": 79,
+   "win_rate": 0.203,
+   "ci": [
+    0.129,
+    0.304
+   ],
+   "crowns_for": 25,
+   "crowns_against": 112,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "Splashyard (Hero Ice Wizard)",
+   "archetype": "graveyard",
+   "source": "meta",
+   "cards": [
+    "graveyard",
+    "valkyrie",
+    "baby_dragon",
+    "ice_wizard",
+    "tombstone",
+    "poison",
+    "tornado",
+    "barbarian_barrel"
+   ],
+   "games": 85,
+   "win_rate": 0.2,
+   "ci": [
+    0.129,
+    0.297
+   ],
+   "crowns_for": 28,
+   "crowns_against": 112,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "goblin_giant-37",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "bomb_tower",
+    "rocket",
+    "tornado",
+    "archers",
+    "witch",
+    "spear_goblins",
+    "heal_spirit"
+   ],
+   "games": 71,
+   "win_rate": 0.197,
+   "ci": [
+    0.121,
+    0.304
+   ],
+   "crowns_for": 50,
+   "crowns_against": 117,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "goblin_drill-35",
+   "archetype": "graveyard",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "furnace",
+    "lightning",
+    "tornado",
+    "executioner",
+    "ice_wizard",
+    "goblins",
+    "heal_spirit"
+   ],
+   "games": 90,
+   "win_rate": 0.189,
+   "ci": [
+    0.121,
+    0.282
+   ],
+   "crowns_for": 28,
+   "crowns_against": 176,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "electro_giant-38",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "tesla",
+    "poison",
+    "earthquake",
+    "magic_archer",
+    "minion_horde",
+    "bats",
+    "spear_goblins"
+   ],
+   "games": 81,
+   "win_rate": 0.185,
+   "ci": [
+    0.116,
+    0.283
+   ],
+   "crowns_for": 54,
+   "crowns_against": 148,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "wall_breakers-27",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "furnace",
+    "fireball",
+    "log",
+    "princess",
+    "magic_archer",
+    "bats",
+    "skeletons"
+   ],
+   "games": 76,
+   "win_rate": 0.184,
+   "ci": [
+    0.113,
+    0.286
+   ],
+   "crowns_for": 48,
+   "crowns_against": 128,
+   "avg_elixir": 2.75
+  },
+  {
+   "name": "mega_knight-35",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "mega_knight",
+    "tesla",
+    "fireball",
+    "arrows",
+    "ice_wizard",
+    "magic_archer",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 85,
+   "win_rate": 0.176,
+   "ci": [
+    0.11,
+    0.271
+   ],
+   "crowns_for": 50,
+   "crowns_against": 158,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "goblin_drill-35",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "bomb_tower",
+    "rocket",
+    "earthquake",
+    "archers",
+    "magic_archer",
+    "bats",
+    "ice_golem"
+   ],
+   "games": 89,
+   "win_rate": 0.169,
+   "ci": [
+    0.105,
+    0.26
+   ],
+   "crowns_for": 45,
+   "crowns_against": 151,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "ram_rider-35",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "ram_rider",
+    "cannon",
+    "lightning",
+    "tornado",
+    "witch",
+    "ice_wizard",
+    "bats",
+    "ice_spirit"
+   ],
+   "games": 87,
+   "win_rate": 0.161,
+   "ci": [
+    0.098,
+    0.252
+   ],
+   "crowns_for": 38,
+   "crowns_against": 144,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "x_bow-36",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "x_bow",
+    "bomb_tower",
+    "lightning",
+    "zap",
+    "electro_wizard",
+    "mighty_miner",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 76,
+   "win_rate": 0.158,
+   "ci": [
+    0.093,
+    0.256
+   ],
+   "crowns_for": 29,
+   "crowns_against": 111,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "Battle Ram Bridge Spam (Giant Skeleton)",
+   "archetype": "bridge_spam",
+   "source": "meta",
+   "cards": [
+    "battle_ram",
+    "royal_ghost",
+    "electro_wizard",
+    "giant_skeleton",
+    "bandit",
+    "furnace",
+    "arrows",
+    "heal_spirit"
+   ],
+   "games": 89,
+   "win_rate": 0.157,
+   "ci": [
+    0.096,
+    0.247
+   ],
+   "crowns_for": 91,
+   "crowns_against": 181,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "wall_breakers-30",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "furnace",
+    "lightning",
+    "log",
+    "zappies",
+    "goblin_gang",
+    "skeletons",
+    "bats"
+   ],
+   "games": 83,
+   "win_rate": 0.157,
+   "ci": [
+    0.094,
+    0.25
+   ],
+   "crowns_for": 28,
+   "crowns_against": 141,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "three_musketeers-38",
+   "archetype": "control",
+   "source": "generated",
+   "cards": [
+    "three_musketeers",
+    "goblin_cage",
+    "rocket",
+    "tornado",
+    "ice_wizard",
+    "princess",
+    "spear_goblins",
+    "skeletons"
+   ],
+   "games": 87,
+   "win_rate": 0.138,
+   "ci": [
+    0.081,
+    0.226
+   ],
+   "crowns_for": 53,
+   "crowns_against": 192,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "mega_knight-35",
+   "archetype": "graveyard",
+   "source": "generated",
+   "cards": [
+    "mega_knight",
+    "goblin_cage",
+    "poison",
+    "barbarian_barrel",
+    "baby_dragon",
+    "electro_wizard",
+    "ice_golem",
+    "skeletons"
+   ],
+   "games": 82,
+   "win_rate": 0.134,
+   "ci": [
+    0.077,
+    0.224
+   ],
+   "crowns_for": 44,
+   "crowns_against": 162,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "hog_rider-30",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "hog_rider",
+    "tesla",
+    "poison",
+    "log",
+    "mega_minion",
+    "electro_wizard",
+    "heal_spirit",
+    "spear_goblins"
+   ],
+   "games": 90,
+   "win_rate": 0.133,
+   "ci": [
+    0.078,
+    0.219
+   ],
+   "crowns_for": 72,
+   "crowns_against": 175,
+   "avg_elixir": 3.0
+  },
+  {
+   "name": "royal_hogs-38",
+   "archetype": "hybrid",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "goblin_cage",
+    "lightning",
+    "zap",
+    "electro_dragon",
+    "archer_queen",
+    "ice_golem",
+    "spear_goblins"
+   ],
+   "games": 79,
+   "win_rate": 0.127,
+   "ci": [
+    0.07,
+    0.218
+   ],
+   "crowns_for": 52,
+   "crowns_against": 161,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "miner-32",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "miner",
+    "bomb_tower",
+    "fireball",
+    "tornado",
+    "goblin_gang",
+    "electro_dragon",
+    "goblins",
+    "ice_golem"
+   ],
+   "games": 85,
+   "win_rate": 0.106,
+   "ci": [
+    0.057,
+    0.189
+   ],
+   "crowns_for": 32,
+   "crowns_against": 141,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "goblin_barrel-28",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "goblin_barrel",
+    "tombstone",
+    "fireball",
+    "royal_delivery",
+    "princess",
+    "executioner",
+    "skeletons",
+    "heal_spirit"
+   ],
+   "games": 77,
+   "win_rate": 0.104,
+   "ci": [
+    0.054,
+    0.192
+   ],
+   "crowns_for": 11,
+   "crowns_against": 112,
+   "avg_elixir": 2.88
+  },
+  {
+   "name": "electro_giant-38",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "rocket",
+    "tornado",
+    "minion_horde",
+    "archers",
+    "electro_dragon",
+    "skeletons",
+    "heal_spirit"
+   ],
+   "games": 98,
+   "win_rate": 0.102,
+   "ci": [
+    0.056,
+    0.178
+   ],
+   "crowns_for": 55,
+   "crowns_against": 191,
+   "avg_elixir": 3.88
+  },
+  {
+   "name": "lava_hound-37",
+   "archetype": "siege",
+   "source": "generated",
+   "cards": [
+    "lava_hound",
+    "tesla",
+    "rocket",
+    "earthquake",
+    "minions",
+    "night_witch",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 80,
+   "win_rate": 0.1,
+   "ci": [
+    0.052,
+    0.185
+   ],
+   "crowns_for": 43,
+   "crowns_against": 150,
+   "avg_elixir": 3.75
+  },
+  {
+   "name": "wall_breakers-31",
+   "archetype": "pekka_bridge_spam",
+   "source": "generated",
+   "cards": [
+    "wall_breakers",
+    "bomb_tower",
+    "lightning",
+    "zap",
+    "magic_archer",
+    "dark_prince",
+    "spear_goblins",
+    "heal_spirit"
+   ],
+   "games": 79,
+   "win_rate": 0.089,
+   "ci": [
+    0.044,
+    0.172
+   ],
+   "crowns_for": 41,
+   "crowns_against": 164,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "Miner Evo Wall Breakers Bomb Tower",
+   "archetype": "cycle",
+   "source": "meta",
+   "cards": [
+    "miner",
+    "wall_breakers",
+    "valkyrie",
+    "spear_goblins",
+    "skeletons",
+    "bomb_tower",
+    "rocket",
+    "tornado"
+   ],
+   "games": 73,
+   "win_rate": 0.082,
+   "ci": [
+    0.038,
+    0.168
+   ],
+   "crowns_for": 28,
+   "crowns_against": 140,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "goblin_giant-36",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "goblin_giant",
+    "goblin_cage",
+    "lightning",
+    "earthquake",
+    "baby_dragon",
+    "bandit",
+    "heal_spirit",
+    "ice_golem"
+   ],
+   "games": 73,
+   "win_rate": 0.082,
+   "ci": [
+    0.038,
+    0.168
+   ],
+   "crowns_for": 40,
+   "crowns_against": 160,
+   "avg_elixir": 3.62
+  },
+  {
+   "name": "royal_hogs-32",
+   "archetype": "hybrid",
+   "source": "generated",
+   "cards": [
+    "royal_hogs",
+    "tombstone",
+    "lightning",
+    "giant_snowball",
+    "flying_machine",
+    "zappies",
+    "heal_spirit",
+    "skeletons"
+   ],
+   "games": 95,
+   "win_rate": 0.074,
+   "ci": [
+    0.036,
+    0.144
+   ],
+   "crowns_for": 58,
+   "crowns_against": 199,
+   "avg_elixir": 3.25
+  },
+  {
+   "name": "graveyard-33",
+   "archetype": "graveyard",
+   "source": "generated",
+   "cards": [
+    "graveyard",
+    "tombstone",
+    "poison",
+    "earthquake",
+    "witch",
+    "mother_witch",
+    "skeletons",
+    "ice_golem"
+   ],
+   "games": 80,
+   "win_rate": 0.05,
+   "ci": [
+    0.02,
+    0.122
+   ],
+   "crowns_for": 15,
+   "crowns_against": 163,
+   "avg_elixir": 3.38
+  },
+  {
+   "name": "electro_giant-35",
+   "archetype": "beatdown",
+   "source": "generated",
+   "cards": [
+    "electro_giant",
+    "goblin_cage",
+    "poison",
+    "log",
+    "archer_queen",
+    "skeleton_army",
+    "goblins",
+    "heal_spirit"
+   ],
+   "games": 92,
+   "win_rate": 0.043,
+   "ci": [
+    0.017,
+    0.107
+   ],
+   "crowns_for": 35,
+   "crowns_against": 192,
+   "avg_elixir": 3.5
+  },
+  {
+   "name": "miner-31",
+   "archetype": "cycle",
+   "source": "generated",
+   "cards": [
+    "miner",
+    "goblin_cage",
+    "rocket",
+    "earthquake",
+    "electro_dragon",
+    "bats",
+    "heal_spirit",
+    "skeletons"
+   ],
+   "games": 74,
+   "win_rate": 0.041,
+   "ci": [
+    0.014,
+    0.113
+   ],
+   "crowns_for": 12,
+   "crowns_against": 155,
+   "avg_elixir": 3.12
+  },
+  {
+   "name": "goblin_drill-32",
+   "archetype": "goblin_drill",
+   "source": "generated",
+   "cards": [
+    "goblin_drill",
+    "tombstone",
+    "rocket",
+    "giant_snowball",
+    "zappies",
+    "night_witch",
+    "goblins",
+    "skeletons"
+   ],
+   "games": 82,
+   "win_rate": 0.037,
+   "ci": [
+    0.013,
+    0.102
+   ],
+   "crowns_for": 3,
+   "crowns_against": 164,
+   "avg_elixir": 3.25
+  }
+ ],
+ "cards": [
+  {
+   "card": "phoenix",
+   "games": 899,
+   "win_rate": 0.921
+  },
+  {
+   "card": "elixir_golem",
+   "games": 591,
+   "win_rate": 0.797
+  },
+  {
+   "card": "freeze",
+   "games": 82,
+   "win_rate": 0.72
+  },
+  {
+   "card": "inferno_dragon",
+   "games": 1492,
+   "win_rate": 0.686
+  },
+  {
+   "card": "fisherman",
+   "games": 475,
+   "win_rate": 0.672
+  },
+  {
+   "card": "hunter",
+   "games": 1982,
+   "win_rate": 0.664
+  },
+  {
+   "card": "inferno_tower",
+   "games": 1896,
+   "win_rate": 0.633
+  },
+  {
+   "card": "ice_spirit",
+   "games": 3908,
+   "win_rate": 0.626
+  },
+  {
+   "card": "royal_delivery",
+   "games": 2436,
+   "win_rate": 0.626
+  },
+  {
+   "card": "little_prince",
+   "games": 1531,
+   "win_rate": 0.623
+  },
+  {
+   "card": "royal_giant",
+   "games": 1116,
+   "win_rate": 0.621
+  },
+  {
+   "card": "bowler",
+   "games": 795,
+   "win_rate": 0.606
+  },
+  {
+   "card": "mini_pekka",
+   "games": 890,
+   "win_rate": 0.603
+  },
+  {
+   "card": "pekka",
+   "games": 882,
+   "win_rate": 0.6
+  },
+  {
+   "card": "musketeer",
+   "games": 1422,
+   "win_rate": 0.599
+  },
+  {
+   "card": "fire_spirit",
+   "games": 3090,
+   "win_rate": 0.594
+  },
+  {
+   "card": "balloon",
+   "games": 500,
+   "win_rate": 0.59
+  },
+  {
+   "card": "royal_hogs",
+   "games": 1037,
+   "win_rate": 0.59
+  },
+  {
+   "card": "wizard",
+   "games": 1058,
+   "win_rate": 0.582
+  },
+  {
+   "card": "electro_spirit",
+   "games": 3363,
+   "win_rate": 0.576
+  },
+  {
+   "card": "golden_knight",
+   "games": 557,
+   "win_rate": 0.575
+  },
+  {
+   "card": "skeleton_king",
+   "games": 827,
+   "win_rate": 0.57
+  },
+  {
+   "card": "bomber",
+   "games": 232,
+   "win_rate": 0.569
+  },
+  {
+   "card": "fireball",
+   "games": 4668,
+   "win_rate": 0.563
+  },
+  {
+   "card": "elite_barbarians",
+   "games": 233,
+   "win_rate": 0.562
+  },
+  {
+   "card": "cannon",
+   "games": 2601,
+   "win_rate": 0.556
+  },
+  {
+   "card": "rune_giant",
+   "games": 90,
+   "win_rate": 0.556
+  },
+  {
+   "card": "guards",
+   "games": 428,
+   "win_rate": 0.554
+  },
+  {
+   "card": "dart_goblin",
+   "games": 920,
+   "win_rate": 0.554
+  },
+  {
+   "card": "giant",
+   "games": 923,
+   "win_rate": 0.551
+  },
+  {
+   "card": "firecracker",
+   "games": 733,
+   "win_rate": 0.546
+  },
+  {
+   "card": "minion_giant",
+   "games": 163,
+   "win_rate": 0.546
+  },
+  {
+   "card": "prince",
+   "games": 647,
+   "win_rate": 0.541
+  },
+  {
+   "card": "monk",
+   "games": 492,
+   "win_rate": 0.541
+  },
+  {
+   "card": "arrows",
+   "games": 1646,
+   "win_rate": 0.538
+  },
+  {
+   "card": "golem",
+   "games": 641,
+   "win_rate": 0.537
+  },
+  {
+   "card": "knight",
+   "games": 1101,
+   "win_rate": 0.536
+  },
+  {
+   "card": "valkyrie",
+   "games": 480,
+   "win_rate": 0.535
+  },
+  {
+   "card": "sparky",
+   "games": 88,
+   "win_rate": 0.534
+  },
+  {
+   "card": "vines",
+   "games": 88,
+   "win_rate": 0.534
+  },
+  {
+   "card": "mighty_miner",
+   "games": 400,
+   "win_rate": 0.527
+  },
+  {
+   "card": "mirror",
+   "games": 78,
+   "win_rate": 0.526
+  },
+  {
+   "card": "lumberjack",
+   "games": 402,
+   "win_rate": 0.522
+  },
+  {
+   "card": "log",
+   "games": 2767,
+   "win_rate": 0.52
+  },
+  {
+   "card": "giant_snowball",
+   "games": 2421,
+   "win_rate": 0.514
+  },
+  {
+   "card": "hog_rider",
+   "games": 1008,
+   "win_rate": 0.512
+  },
+  {
+   "card": "furnace",
+   "games": 2212,
+   "win_rate": 0.512
+  },
+  {
+   "card": "bats",
+   "games": 4852,
+   "win_rate": 0.51
+  },
+  {
+   "card": "three_musketeers",
+   "games": 608,
+   "win_rate": 0.51
+  },
+  {
+   "card": "minions",
+   "games": 904,
+   "win_rate": 0.508
+  },
+  {
+   "card": "skeleton_barrel",
+   "games": 498,
+   "win_rate": 0.502
+  },
+  {
+   "card": "lava_hound",
+   "games": 1248,
+   "win_rate": 0.502
+  },
+  {
+   "card": "barbarian_barrel",
+   "games": 3007,
+   "win_rate": 0.496
+  },
+  {
+   "card": "lightning",
+   "games": 4861,
+   "win_rate": 0.494
+  },
+  {
+   "card": "tesla",
+   "games": 2249,
+   "win_rate": 0.493
+  },
+  {
+   "card": "rocket",
+   "games": 4524,
+   "win_rate": 0.492
+  },
+  {
+   "card": "battle_ram",
+   "games": 1091,
+   "win_rate": 0.49
+  },
+  {
+   "card": "ram_rider",
+   "games": 573,
+   "win_rate": 0.483
+  },
+  {
+   "card": "flying_machine",
+   "games": 1411,
+   "win_rate": 0.483
+  },
+  {
+   "card": "goblins",
+   "games": 3275,
+   "win_rate": 0.481
+  },
+  {
+   "card": "magic_archer",
+   "games": 2073,
+   "win_rate": 0.481
+  },
+  {
+   "card": "ice_golem",
+   "games": 3935,
+   "win_rate": 0.48
+  },
+  {
+   "card": "executioner",
+   "games": 981,
+   "win_rate": 0.48
+  },
+  {
+   "card": "royal_ghost",
+   "games": 402,
+   "win_rate": 0.478
+  },
+  {
+   "card": "goblin_hut",
+   "games": 324,
+   "win_rate": 0.475
+  },
+  {
+   "card": "baby_dragon",
+   "games": 1738,
+   "win_rate": 0.471
+  },
+  {
+   "card": "graveyard",
+   "games": 1150,
+   "win_rate": 0.47
+  },
+  {
+   "card": "goblin_barrel",
+   "games": 1023,
+   "win_rate": 0.47
+  },
+  {
+   "card": "skeletons",
+   "games": 7252,
+   "win_rate": 0.466
+  },
+  {
+   "card": "berserker",
+   "games": 236,
+   "win_rate": 0.466
+  },
+  {
+   "card": "mortar",
+   "games": 805,
+   "win_rate": 0.46
+  },
+  {
+   "card": "zap",
+   "games": 2435,
+   "win_rate": 0.455
+  },
+  {
+   "card": "archers",
+   "games": 1338,
+   "win_rate": 0.454
+  },
+  {
+   "card": "poison",
+   "games": 3843,
+   "win_rate": 0.449
+  },
+  {
+   "card": "goblin_gang",
+   "games": 1459,
+   "win_rate": 0.442
+  },
+  {
+   "card": "tornado",
+   "games": 2811,
+   "win_rate": 0.438
+  },
+  {
+   "card": "spear_goblins",
+   "games": 3619,
+   "win_rate": 0.433
+  },
+  {
+   "card": "earthquake",
+   "games": 2460,
+   "win_rate": 0.432
+  },
+  {
+   "card": "x_bow",
+   "games": 803,
+   "win_rate": 0.431
+  },
+  {
+   "card": "zappies",
+   "games": 1542,
+   "win_rate": 0.427
+  },
+  {
+   "card": "mega_minion",
+   "games": 1264,
+   "win_rate": 0.426
+  },
+  {
+   "card": "heal_spirit",
+   "games": 3289,
+   "win_rate": 0.425
+  },
+  {
+   "card": "miner",
+   "games": 743,
+   "win_rate": 0.425
+  },
+  {
+   "card": "cannon_cart",
+   "games": 155,
+   "win_rate": 0.419
+  },
+  {
+   "card": "ronin",
+   "games": 161,
+   "win_rate": 0.416
+  },
+  {
+   "card": "witch",
+   "games": 1038,
+   "win_rate": 0.414
+  },
+  {
+   "card": "skeleton_army",
+   "games": 748,
+   "win_rate": 0.412
+  },
+  {
+   "card": "bomb_tower",
+   "games": 1538,
+   "win_rate": 0.412
+  },
+  {
+   "card": "night_witch",
+   "games": 644,
+   "win_rate": 0.408
+  },
+  {
+   "card": "wall_breakers",
+   "games": 1063,
+   "win_rate": 0.4
+  },
+  {
+   "card": "minion_horde",
+   "games": 1077,
+   "win_rate": 0.396
+  },
+  {
+   "card": "barbarians",
+   "games": 177,
+   "win_rate": 0.395
+  },
+  {
+   "card": "electro_giant",
+   "games": 924,
+   "win_rate": 0.394
+  },
+  {
+   "card": "goblin_drill",
+   "games": 1053,
+   "win_rate": 0.393
+  },
+  {
+   "card": "archer_queen",
+   "games": 755,
+   "win_rate": 0.392
+  },
+  {
+   "card": "mother_witch",
+   "games": 548,
+   "win_rate": 0.392
+  },
+  {
+   "card": "tombstone",
+   "games": 1697,
+   "win_rate": 0.391
+  },
+  {
+   "card": "rascals",
+   "games": 78,
+   "win_rate": 0.385
+  },
+  {
+   "card": "ice_wizard",
+   "games": 1646,
+   "win_rate": 0.382
+  },
+  {
+   "card": "princess",
+   "games": 1245,
+   "win_rate": 0.38
+  },
+  {
+   "card": "electro_dragon",
+   "games": 1355,
+   "win_rate": 0.376
+  },
+  {
+   "card": "mega_knight",
+   "games": 470,
+   "win_rate": 0.372
+  },
+  {
+   "card": "dark_prince",
+   "games": 648,
+   "win_rate": 0.35
+  },
+  {
+   "card": "goblin_giant",
+   "games": 725,
+   "win_rate": 0.345
+  },
+  {
+   "card": "electro_wizard",
+   "games": 990,
+   "win_rate": 0.328
+  },
+  {
+   "card": "skeleton_dragons",
+   "games": 172,
+   "win_rate": 0.326
+  },
+  {
+   "card": "rage",
+   "games": 77,
+   "win_rate": 0.325
+  },
+  {
+   "card": "goblin_cage",
+   "games": 1535,
+   "win_rate": 0.313
+  },
+  {
+   "card": "elixir_collector",
+   "games": 80,
+   "win_rate": 0.312
+  },
+  {
+   "card": "bandit",
+   "games": 475,
+   "win_rate": 0.269
+  },
+  {
+   "card": "giant_skeleton",
+   "games": 89,
+   "win_rate": 0.157
+  }
+ ],
+ "archetype_matrix": {
+  "bait": {
+   "bait": 0.5,
+   "beatdown": 0.604,
+   "bridge_spam": 0.532,
+   "control": 0.53,
+   "cycle": 0.52,
+   "evolution_centric": 0.333,
+   "goblin_drill": 0.612,
+   "graveyard": 0.833,
+   "hybrid": 0.781,
+   "lavaloon": 0.5,
+   "mega_knight": 0.615,
+   "pekka_bridge_spam": 0.667,
+   "royal_giant": 0.476,
+   "siege": 0.535,
+   "three_musketeers": 0.459
+  },
+  "beatdown": {
+   "bait": 0.396,
+   "beatdown": 0.5,
+   "bridge_spam": 0.425,
+   "control": 0.459,
+   "cycle": 0.446,
+   "evolution_centric": 0.412,
+   "goblin_drill": 0.436,
+   "graveyard": 0.733,
+   "hybrid": 0.885,
+   "lavaloon": 0.451,
+   "mega_knight": 0.538,
+   "pekka_bridge_spam": 0.509,
+   "royal_giant": 0.333,
+   "siege": 0.487,
+   "three_musketeers": 0.384
+  },
+  "bridge_spam": {
+   "bait": 0.468,
+   "beatdown": 0.575,
+   "bridge_spam": 0.5,
+   "control": 0.547,
+   "cycle": 0.567,
+   "evolution_centric": 0.25,
+   "goblin_drill": 0.514,
+   "graveyard": 0.52,
+   "hybrid": 0.895,
+   "lavaloon": 0.55,
+   "mega_knight": 1.0,
+   "pekka_bridge_spam": 0.737,
+   "royal_giant": 0.357,
+   "siege": 0.624,
+   "three_musketeers": 0.562
+  },
+  "control": {
+   "bait": 0.47,
+   "beatdown": 0.541,
+   "bridge_spam": 0.453,
+   "control": 0.5,
+   "cycle": 0.509,
+   "evolution_centric": 0.333,
+   "goblin_drill": 0.536,
+   "graveyard": 0.776,
+   "hybrid": 0.727,
+   "lavaloon": 0.558,
+   "mega_knight": 0.667,
+   "pekka_bridge_spam": 0.794,
+   "royal_giant": 0.475,
+   "siege": 0.552,
+   "three_musketeers": 0.333
+  },
+  "cycle": {
+   "bait": 0.48,
+   "beatdown": 0.554,
+   "bridge_spam": 0.433,
+   "control": 0.491,
+   "cycle": 0.5,
+   "evolution_centric": 0.4,
+   "goblin_drill": 0.485,
+   "graveyard": 0.731,
+   "hybrid": 0.802,
+   "lavaloon": 0.471,
+   "mega_knight": 0.568,
+   "pekka_bridge_spam": 0.669,
+   "royal_giant": 0.391,
+   "siege": 0.53,
+   "three_musketeers": 0.348
+  },
+  "evolution_centric": {
+   "bait": 0.667,
+   "beatdown": 0.588,
+   "bridge_spam": 0.75,
+   "control": 0.667,
+   "cycle": 0.6,
+   "evolution_centric": null,
+   "goblin_drill": 0.455,
+   "graveyard": 0.875,
+   "hybrid": 1.0,
+   "lavaloon": 0.556,
+   "mega_knight": 1.0,
+   "pekka_bridge_spam": 1.0,
+   "royal_giant": 0.4,
+   "siege": 0.556,
+   "three_musketeers": 0.444
+  },
+  "goblin_drill": {
+   "bait": 0.388,
+   "beatdown": 0.564,
+   "bridge_spam": 0.486,
+   "control": 0.464,
+   "cycle": 0.515,
+   "evolution_centric": 0.545,
+   "goblin_drill": 0.5,
+   "graveyard": 0.735,
+   "hybrid": 0.741,
+   "lavaloon": 0.641,
+   "mega_knight": 0.556,
+   "pekka_bridge_spam": 0.613,
+   "royal_giant": 0.323,
+   "siege": 0.526,
+   "three_musketeers": 0.143
+  },
+  "graveyard": {
+   "bait": 0.167,
+   "beatdown": 0.267,
+   "bridge_spam": 0.48,
+   "control": 0.224,
+   "cycle": 0.269,
+   "evolution_centric": 0.125,
+   "goblin_drill": 0.265,
+   "graveyard": 0.5,
+   "hybrid": 0.522,
+   "lavaloon": 0.333,
+   "mega_knight": 0.167,
+   "pekka_bridge_spam": 0.56,
+   "royal_giant": 0.081,
+   "siege": 0.296,
+   "three_musketeers": 0.233
+  },
+  "hybrid": {
+   "bait": 0.219,
+   "beatdown": 0.115,
+   "bridge_spam": 0.105,
+   "control": 0.273,
+   "cycle": 0.198,
+   "evolution_centric": 0.0,
+   "goblin_drill": 0.259,
+   "graveyard": 0.478,
+   "hybrid": 0.5,
+   "lavaloon": 0.238,
+   "mega_knight": 0.0,
+   "pekka_bridge_spam": 0.364,
+   "royal_giant": 0.2,
+   "siege": 0.286,
+   "three_musketeers": 0.056
+  },
+  "lavaloon": {
+   "bait": 0.5,
+   "beatdown": 0.549,
+   "bridge_spam": 0.45,
+   "control": 0.442,
+   "cycle": 0.529,
+   "evolution_centric": 0.444,
+   "goblin_drill": 0.359,
+   "graveyard": 0.667,
+   "hybrid": 0.762,
+   "lavaloon": 0.5,
+   "mega_knight": 0.4,
+   "pekka_bridge_spam": 0.737,
+   "royal_giant": 0.263,
+   "siege": 0.431,
+   "three_musketeers": 0.28
+  },
+  "mega_knight": {
+   "bait": 0.385,
+   "beatdown": 0.462,
+   "bridge_spam": 0.0,
+   "control": 0.333,
+   "cycle": 0.432,
+   "evolution_centric": 0.0,
+   "goblin_drill": 0.444,
+   "graveyard": 0.833,
+   "hybrid": 1.0,
+   "lavaloon": 0.6,
+   "mega_knight": 0.5,
+   "pekka_bridge_spam": 0.5,
+   "royal_giant": 0.0,
+   "siege": 0.458,
+   "three_musketeers": 0.667
+  },
+  "pekka_bridge_spam": {
+   "bait": 0.333,
+   "beatdown": 0.491,
+   "bridge_spam": 0.263,
+   "control": 0.206,
+   "cycle": 0.331,
+   "evolution_centric": 0.0,
+   "goblin_drill": 0.387,
+   "graveyard": 0.44,
+   "hybrid": 0.636,
+   "lavaloon": 0.263,
+   "mega_knight": 0.5,
+   "pekka_bridge_spam": 0.5,
+   "royal_giant": 0.318,
+   "siege": 0.35,
+   "three_musketeers": 0.4
+  },
+  "royal_giant": {
+   "bait": 0.524,
+   "beatdown": 0.667,
+   "bridge_spam": 0.643,
+   "control": 0.525,
+   "cycle": 0.609,
+   "evolution_centric": 0.6,
+   "goblin_drill": 0.677,
+   "graveyard": 0.919,
+   "hybrid": 0.8,
+   "lavaloon": 0.737,
+   "mega_knight": 1.0,
+   "pekka_bridge_spam": 0.682,
+   "royal_giant": 0.5,
+   "siege": 0.609,
+   "three_musketeers": 0.45
+  },
+  "siege": {
+   "bait": 0.465,
+   "beatdown": 0.513,
+   "bridge_spam": 0.376,
+   "control": 0.448,
+   "cycle": 0.47,
+   "evolution_centric": 0.444,
+   "goblin_drill": 0.474,
+   "graveyard": 0.704,
+   "hybrid": 0.714,
+   "lavaloon": 0.569,
+   "mega_knight": 0.542,
+   "pekka_bridge_spam": 0.65,
+   "royal_giant": 0.391,
+   "siege": 0.5,
+   "three_musketeers": 0.258
+  },
+  "three_musketeers": {
+   "bait": 0.541,
+   "beatdown": 0.616,
+   "bridge_spam": 0.438,
+   "control": 0.667,
+   "cycle": 0.652,
+   "evolution_centric": 0.556,
+   "goblin_drill": 0.857,
+   "graveyard": 0.767,
+   "hybrid": 0.944,
+   "lavaloon": 0.72,
+   "mega_knight": 0.333,
+   "pekka_bridge_spam": 0.6,
+   "royal_giant": 0.55,
+   "siege": 0.742,
+   "three_musketeers": 0.5
+  }
+ },
+ "archetype_counts": {
+  "bait": {
+   "bait": 56,
+   "beatdown": 134,
+   "bridge_spam": 47,
+   "control": 83,
+   "cycle": 254,
+   "evolution_centric": 12,
+   "goblin_drill": 67,
+   "graveyard": 48,
+   "hybrid": 32,
+   "lavaloon": 36,
+   "mega_knight": 13,
+   "pekka_bridge_spam": 27,
+   "royal_giant": 42,
+   "siege": 213,
+   "three_musketeers": 37
+  },
+  "beatdown": {
+   "bait": 134,
+   "beatdown": 306,
+   "bridge_spam": 80,
+   "control": 170,
+   "cycle": 574,
+   "evolution_centric": 17,
+   "goblin_drill": 133,
+   "graveyard": 101,
+   "hybrid": 61,
+   "lavaloon": 71,
+   "mega_knight": 26,
+   "pekka_bridge_spam": 57,
+   "royal_giant": 84,
+   "siege": 429,
+   "three_musketeers": 73
+  },
+  "bridge_spam": {
+   "bait": 47,
+   "beatdown": 80,
+   "bridge_spam": 16,
+   "control": 53,
+   "cycle": 150,
+   "evolution_centric": 8,
+   "goblin_drill": 37,
+   "graveyard": 25,
+   "hybrid": 19,
+   "lavaloon": 20,
+   "mega_knight": 5,
+   "pekka_bridge_spam": 19,
+   "royal_giant": 28,
+   "siege": 133,
+   "three_musketeers": 16
+  },
+  "control": {
+   "bait": 83,
+   "beatdown": 170,
+   "bridge_spam": 53,
+   "control": 78,
+   "cycle": 369,
+   "evolution_centric": 12,
+   "goblin_drill": 56,
+   "graveyard": 67,
+   "hybrid": 33,
+   "lavaloon": 52,
+   "mega_knight": 6,
+   "pekka_bridge_spam": 34,
+   "royal_giant": 40,
+   "siege": 279,
+   "three_musketeers": 36
+  },
+  "cycle": {
+   "bait": 254,
+   "beatdown": 574,
+   "bridge_spam": 150,
+   "control": 369,
+   "cycle": 1112,
+   "evolution_centric": 35,
+   "goblin_drill": 268,
+   "graveyard": 227,
+   "hybrid": 116,
+   "lavaloon": 170,
+   "mega_knight": 37,
+   "pekka_bridge_spam": 124,
+   "royal_giant": 151,
+   "siege": 926,
+   "three_musketeers": 161
+  },
+  "evolution_centric": {
+   "bait": 12,
+   "beatdown": 17,
+   "bridge_spam": 8,
+   "control": 12,
+   "cycle": 35,
+   "evolution_centric": 0,
+   "goblin_drill": 11,
+   "graveyard": 8,
+   "hybrid": 6,
+   "lavaloon": 9,
+   "mega_knight": 1,
+   "pekka_bridge_spam": 1,
+   "royal_giant": 5,
+   "siege": 36,
+   "three_musketeers": 9
+  },
+  "goblin_drill": {
+   "bait": 67,
+   "beatdown": 133,
+   "bridge_spam": 37,
+   "control": 56,
+   "cycle": 268,
+   "evolution_centric": 11,
+   "goblin_drill": 58,
+   "graveyard": 49,
+   "hybrid": 27,
+   "lavaloon": 39,
+   "mega_knight": 9,
+   "pekka_bridge_spam": 31,
+   "royal_giant": 31,
+   "siege": 211,
+   "three_musketeers": 42
+  },
+  "graveyard": {
+   "bait": 48,
+   "beatdown": 101,
+   "bridge_spam": 25,
+   "control": 67,
+   "cycle": 227,
+   "evolution_centric": 8,
+   "goblin_drill": 49,
+   "graveyard": 34,
+   "hybrid": 23,
+   "lavaloon": 33,
+   "mega_knight": 12,
+   "pekka_bridge_spam": 25,
+   "royal_giant": 37,
+   "siege": 186,
+   "three_musketeers": 30
+  },
+  "hybrid": {
+   "bait": 32,
+   "beatdown": 61,
+   "bridge_spam": 19,
+   "control": 33,
+   "cycle": 116,
+   "evolution_centric": 6,
+   "goblin_drill": 27,
+   "graveyard": 23,
+   "hybrid": 14,
+   "lavaloon": 21,
+   "mega_knight": 1,
+   "pekka_bridge_spam": 11,
+   "royal_giant": 20,
+   "siege": 98,
+   "three_musketeers": 18
+  },
+  "lavaloon": {
+   "bait": 36,
+   "beatdown": 71,
+   "bridge_spam": 20,
+   "control": 52,
+   "cycle": 170,
+   "evolution_centric": 9,
+   "goblin_drill": 39,
+   "graveyard": 33,
+   "hybrid": 21,
+   "lavaloon": 22,
+   "mega_knight": 5,
+   "pekka_bridge_spam": 19,
+   "royal_giant": 19,
+   "siege": 123,
+   "three_musketeers": 25
+  },
+  "mega_knight": {
+   "bait": 13,
+   "beatdown": 26,
+   "bridge_spam": 5,
+   "control": 6,
+   "cycle": 37,
+   "evolution_centric": 1,
+   "goblin_drill": 9,
+   "graveyard": 12,
+   "hybrid": 1,
+   "lavaloon": 5,
+   "mega_knight": 4,
+   "pekka_bridge_spam": 2,
+   "royal_giant": 4,
+   "siege": 24,
+   "three_musketeers": 3
+  },
+  "pekka_bridge_spam": {
+   "bait": 27,
+   "beatdown": 57,
+   "bridge_spam": 19,
+   "control": 34,
+   "cycle": 124,
+   "evolution_centric": 1,
+   "goblin_drill": 31,
+   "graveyard": 25,
+   "hybrid": 11,
+   "lavaloon": 19,
+   "mega_knight": 2,
+   "pekka_bridge_spam": 10,
+   "royal_giant": 22,
+   "siege": 80,
+   "three_musketeers": 15
+  },
+  "royal_giant": {
+   "bait": 42,
+   "beatdown": 84,
+   "bridge_spam": 28,
+   "control": 40,
+   "cycle": 151,
+   "evolution_centric": 5,
+   "goblin_drill": 31,
+   "graveyard": 37,
+   "hybrid": 20,
+   "lavaloon": 19,
+   "mega_knight": 4,
+   "pekka_bridge_spam": 22,
+   "royal_giant": 16,
+   "siege": 133,
+   "three_musketeers": 20
+  },
+  "siege": {
+   "bait": 213,
+   "beatdown": 429,
+   "bridge_spam": 133,
+   "control": 279,
+   "cycle": 926,
+   "evolution_centric": 36,
+   "goblin_drill": 211,
+   "graveyard": 186,
+   "hybrid": 98,
+   "lavaloon": 123,
+   "mega_knight": 24,
+   "pekka_bridge_spam": 80,
+   "royal_giant": 133,
+   "siege": 692,
+   "three_musketeers": 120
+  },
+  "three_musketeers": {
+   "bait": 37,
+   "beatdown": 73,
+   "bridge_spam": 16,
+   "control": 36,
+   "cycle": 161,
+   "evolution_centric": 9,
+   "goblin_drill": 42,
+   "graveyard": 30,
+   "hybrid": 18,
+   "lavaloon": 25,
+   "mega_knight": 3,
+   "pekka_bridge_spam": 15,
+   "royal_giant": 20,
+   "siege": 120,
+   "three_musketeers": 18
+  }
+ }
+}

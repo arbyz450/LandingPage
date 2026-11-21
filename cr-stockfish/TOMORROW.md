@@ -101,3 +101,9 @@ Everything below was asked for in the first session or discovered while building
       `cr-stockfish-debug-apk` (zip with app-debug.apk). Sideload it; grant overlay + accessibility + screen capture.
       Embedded Python is 3.8 with numpy 1.19.5 / OpenCV 4.5.1 (the only Android wheels Chaquopy carries). Not yet run on a phone.
 - [ ] On your PC: double-click `cr-stockfish\start.bat` (or `python -m crsf go`) → send calibration_frame.png; then arm autoplay in dry run for one training match. `python -m crsf doctor` explains anything missing.
+
+## 11. Re-run on the corrected simulator (knockback, one-shot rams, stun retarget, death-spawn count fix)
+- Tuning: one promotion (63% vs previous weights, 50/50 puzzles). 9,505 games: engine beats the scripted mid-ladder bot 74%;
+  spammer style 16%, mid-ladder 32%, aggressive 48%, defensive 53%, slow 47% vs the engine; thresholds unchanged (noise ±7%).
+- The 10-Barbarian Battle Ram artifact is gone, but deck rankings are still extreme (top decks ~98%): without pathing,
+  pushback and real tower targeting, decks that stack one strength snowball. Treat `reports/*` as relative only.

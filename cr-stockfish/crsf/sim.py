@@ -101,13 +101,13 @@ class SUnit:
 
     @property
     def alive_count(self) -> int:
-        if self.card.count <= 1:
+        if self.count <= 1:
             return 1 if self.hp > 0 else 0
         return max(0, math.ceil(self.hp / max(1.0, self.card.hp) - 1e-9))
 
     @property
     def hp_frac(self) -> float:
-        return max(0.0, min(1.0, self.hp / max(1.0, self.card.hp * max(1, self.card.count))))
+        return max(0.0, min(1.0, self.hp / max(1.0, self.card.hp * max(1, self.count))))
 
     def forward(self) -> float:
         return 1.0 if self.side == 0 else -1.0
@@ -369,7 +369,7 @@ class Match:
     def _on_death(self, u: SUnit) -> None:
         for key, n in DEATH_SPAWNS.get(u.card.key, []):
             c = self._card(key)
-            self._spawn_unit(u.side, c, u.lane, u.y, count=n * max(1, c.count) if c.count > 1 and n > 1 else (n if c.count <= 1 else c.count))
+            self._spawn_unit(u.side, c, u.lane, u.y, count=n * max(1, c.count))   # one group of n units
         dmg = DEATH_DAMAGE.get(u.card.key, 0)
         if dmg:
             for v in self.units:

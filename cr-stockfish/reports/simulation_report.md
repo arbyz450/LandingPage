@@ -1,6 +1,6 @@
 # Self-play simulation report
 
-9505 engine-vs-engine games over 232 decks in 509.6s on 4 processes. Average game 185.3s, overtime in 26%, draws 0.0%. Engine beat the scripted mid-ladder bot 70% of the time.
+9505 engine-vs-engine games over 232 decks in 589.1s on 4 processes. Average game 161.1s, overtime in 21%, draws 0.0%. Engine beat the scripted mid-ladder bot 73% of the time.
 
 The simulator is a simplified proxy (see crsf/sim.py). Use these numbers to compare decks and weights against each other, not as ladder predictions.
 
@@ -8,113 +8,113 @@ The simulator is a simplified proxy (see crsf/sim.py). Use these numbers to comp
 
 | # | deck | archetype | avg elixir | games | win rate | 95% CI |
 |---|---|---|---|---|---|---|
-| 1 | Giant, Inferno Tower, Rocket, Royal Delivery, Dart Goblin, Inferno Dragon, Heal Spirit, Fire Spirit | bait | 3.5 | 99 | 99.0% | 94%-100% |
-| 2 | Royal Hogs, Inferno Tower, Rocket, Earthquake, Inferno Dragon, Mini P.E.K.K.A, Ice Spirit, Skeletons | siege | 3.62 | 66 | 98.5% | 92%-100% |
-| 3 | Graveyard, Inferno Tower, Rocket, Arrows, Inferno Dragon, Hunter, Bats, Skeletons | siege | 3.75 | 78 | 97.4% | 91%-99% |
-| 4 | Goblin Barrel, Lightning, Zap, Inferno Dragon, Zappies, Knight, Fire Spirit, Heal Spirit | bait | 3.0 | 72 | 97.2% | 90%-99% |
-| 5 | Mortar, Poison, Arrows, Wizard, Inferno Dragon, Flying Machine, Goblins, Skeletons | cycle | 3.38 | 80 | 96.3% | 90%-99% |
-| 6 | Hog Rider, Goblin Cage, Fireball, Earthquake, Inferno Dragon, Magic Archer, Spear Goblins, Ice Spirit | cycle | 3.25 | 84 | 95.2% | 88%-98% |
-| 7 | Three Musketeers, Bomb Tower, Fireball, Arrows, Little Prince, Hunter, Heal Spirit, Electro Spirit | three_musketeers | 3.62 | 92 | 94.6% | 88%-98% |
-| 8 | Graveyard, Lightning, The Log, Inferno Dragon, Archers, Magic Archer, Ice Spirit, Goblins | siege | 3.38 | 89 | 94.4% | 88%-98% |
-| 9 | Balloon, Lumberjack, Bowler, Inferno Dragon, Baby Dragon, Freeze, Tornado, Barbarian Barrel | lavaloon | 3.88 | 82 | 93.9% | 86%-97% |
-| 10 | Royal Giant, Hunter, Monk, Fisherman, Skeletons, Electro Spirit, Fireball, Barbarian Barrel | royal_giant | 3.25 | 79 | 92.4% | 84%-96% |
-| 11 | Royal Giant, Cannon, Fireball, Barbarian Barrel, Baby Dragon, Mini P.E.K.K.A, Ice Spirit, Fire Spirit | cycle | 3.12 | 86 | 91.9% | 84%-96% |
-| 12 | Royal Hogs, Inferno Tower, Lightning, Giant Snowball, Archer Queen, Lumberjack, Fire Spirit, Ice Spirit | goblin_drill | 3.62 | 94 | 91.5% | 84%-96% |
-| 13 | Balloon, Lightning, Tornado, Inferno Dragon, Magic Archer, Monk, Ice Golem, Spear Goblins | beatdown | 3.88 | 88 | 90.9% | 83%-95% |
-| 14 | Battle Ram, Furnace, Rocket, Royal Delivery, Inferno Dragon, Little Prince, Ice Golem, Heal Spirit | bridge_spam | 3.38 | 83 | 90.4% | 82%-95% |
-| 15 | Miner, Poison, Royal Delivery, Princess, Mini P.E.K.K.A, Inferno Dragon, Goblins, Fire Spirit | goblin_drill | 3.0 | 91 | 86.8% | 78%-92% |
-| 16 | Goblin Drill, Rocket, Earthquake, Mega Minion, Inferno Dragon, Bandit, Fire Spirit, Ice Spirit | siege | 3.12 | 75 | 86.7% | 77%-93% |
-| 17 | Ram Rider, Bomb Tower, Poison, Giant Snowball, Minion Horde, Inferno Dragon, Bats, Skeletons | goblin_drill | 3.38 | 82 | 86.6% | 78%-92% |
-| 18 | P.E.K.K.A, Fireball, The Log, Hunter, Knight, Dart Goblin, Skeletons, Bats | siege | 3.25 | 81 | 86.4% | 77%-92% |
-| 19 | Giant, Tesla, Poison, Zap, Hunter, Archers, Spear Goblins, Goblins | evolution_centric | 3.25 | 81 | 86.4% | 77%-92% |
-| 20 | Battle Ram, Lightning, Earthquake, Goblin Gang, Skeleton King, Inferno Dragon, Spear Goblins, Goblins | beatdown | 3.5 | 87 | 86.2% | 77%-92% |
+| 1 | Battle Ram, Furnace, Rocket, Royal Delivery, Inferno Dragon, Little Prince, Ice Golem, Heal Spirit | bridge_spam | 3.38 | 83 | 98.8% | 94%-100% |
+| 2 | Royal Hogs, Furnace, Fireball, Giant Snowball, Phoenix, Bowler, Ice Golem, Electro Spirit | three_musketeers | 3.38 | 78 | 98.7% | 93%-100% |
+| 3 | Battle Ram, Tombstone, Fireball, Barbarian Barrel, Musketeer, Hunter, Ice Spirit, Skeletons | cycle | 2.88 | 100 | 98.0% | 93%-99% |
+| 4 | Battle Ram, Tombstone, Rocket, The Log, Firecracker, Fisherman, Ice Golem, Electro Spirit | siege | 3.0 | 75 | 96.0% | 89%-99% |
+| 5 | Skeleton Barrel, Tombstone, Rocket, Giant Snowball, Electro Wizard, Inferno Dragon, Skeletons, Ice Spirit | siege | 3.0 | 85 | 94.1% | 87%-98% |
+| 6 | Wall Breakers, Tesla, Fireball, Tornado, Executioner, Phoenix, Ice Golem, Skeletons | siege | 3.12 | 92 | 93.5% | 86%-97% |
+| 7 | Elixir Golem, Tesla, Rocket, Royal Delivery, Phoenix, Firecracker, Ice Spirit, Goblins | siege | 3.25 | 92 | 93.5% | 86%-97% |
+| 8 | Battle Ram, Goblin Cage, Rocket, Tornado, Dart Goblin, Bowler, Skeletons, Fire Spirit | control | 3.38 | 71 | 93.0% | 85%-97% |
+| 9 | Battle Ram, Tombstone, Rocket, Tornado, Witch, Wizard, Skeletons, Fire Spirit | siege | 3.5 | 83 | 92.8% | 85%-97% |
+| 10 | Battle Ram, Furnace, Fireball, Zap, Wizard, Minions, Heal Spirit, Skeletons | bridge_spam | 3.0 | 79 | 92.4% | 84%-96% |
+| 11 | Skeleton Barrel, Furnace, Rocket, Royal Delivery, Mega Minion, Bats, Heal Spirit, Ice Spirit | siege | 2.88 | 87 | 92.0% | 84%-96% |
+| 12 | Royal Hogs, Lightning, Barbarian Barrel, Musketeer, Phoenix, Golden Knight, Skeletons, Goblins | cycle | 3.5 | 71 | 91.5% | 83%-96% |
+| 13 | Battle Ram, Tesla, Lightning, The Log, Electro Wizard, Flying Machine, Spear Goblins, Skeletons | siege | 3.38 | 83 | 90.4% | 82%-95% |
+| 14 | Battle Ram, Tesla, Lightning, Arrows, Magic Archer, Musketeer, Spear Goblins, Skeletons | evolution_centric | 3.5 | 89 | 89.9% | 82%-95% |
+| 15 | Battle Ram, Lightning, Earthquake, Goblin Gang, Skeleton King, Inferno Dragon, Spear Goblins, Goblins | beatdown | 3.5 | 87 | 89.7% | 82%-94% |
+| 16 | Golem, Night Witch, Phoenix, Bomber, Mini P.E.K.K.A, Elite Barbarians, Arrows, Zap | beatdown | 4.12 | 76 | 89.5% | 81%-95% |
+| 17 | Elixir Golem, Poison, Arrows, Hunter, Bowler, Bats, Spear Goblins, Ice Spirit | control | 3.0 | 81 | 88.9% | 80%-94% |
+| 18 | Goblin Drill, Furnace, Lightning, Royal Delivery, Musketeer, Skeleton King, Fire Spirit, Heal Spirit | bridge_spam | 3.38 | 80 | 88.7% | 80%-94% |
+| 19 | Ram Rider, Inferno Tower, Poison, The Log, Minions, Phoenix, Skeletons, Ice Golem | cycle | 3.25 | 85 | 88.2% | 80%-94% |
+| 20 | Three Musketeers, Bomb Tower, Fireball, Arrows, Little Prince, Hunter, Heal Spirit, Electro Spirit | three_musketeers | 3.62 | 92 | 88.0% | 80%-93% |
 
 ## Worst decks
 
-- Lava Hound, Tesla, Rocket, Earthquake, Minions, Night Witch, Skeletons, Ice Golem (siege): 5.0% over 80
-- Graveyard, Furnace, Ice Wizard, Knight, Poison, Goblin Hut, Skeletons, Barbarian Barrel (graveyard): 4.8% over 83
-- Graveyard, Tombstone, Poison, Earthquake, Witch, Mother Witch, Skeletons, Ice Golem (graveyard): 2.5% over 80
-- Goblin Drill, Furnace, Lightning, Tornado, Executioner, Ice Wizard, Goblins, Heal Spirit (graveyard): 0.0% over 90
-- Goblin Drill, Tombstone, Rocket, Giant Snowball, Zappies, Night Witch, Goblins, Skeletons (goblin_drill): 0.0% over 82
+- Graveyard, Tombstone, Poison, Earthquake, Witch, Mother Witch, Skeletons, Ice Golem (graveyard): 6.2% over 80
+- Electro Giant, Goblin Cage, Poison, The Log, Archer Queen, Skeleton Army, Goblins, Heal Spirit (beatdown): 5.4% over 92
+- Goblin Giant, Goblin Cage, Lightning, Earthquake, Baby Dragon, Bandit, Heal Spirit, Ice Golem (beatdown): 2.7% over 73
+- X-Bow, Bomb Tower, Lightning, Zap, Electro Wizard, Mighty Miner, Skeletons, Ice Golem (siege): 2.6% over 76
+- Miner, Goblin Cage, Rocket, Earthquake, Electro Dragon, Bats, Heal Spirit, Skeletons (cycle): 0.0% over 74
 
 ## Cards by win rate (in decks that contained them, >=30 games)
 
 | card | games | win rate |
 |---|---|---|
-| Freeze | 82 | 93.9% |
-| Inferno Dragon | 1492 | 88.6% |
-| Fisherman | 475 | 73.9% |
-| Balloon | 500 | 70.8% |
-| Rune Giant | 90 | 68.9% |
-| Royal Giant | 1116 | 68.7% |
-| Hunter | 1982 | 68.6% |
-| Monk | 492 | 68.3% |
-| Little Prince | 1531 | 67.8% |
-| Lumberjack | 402 | 67.4% |
-| P.E.K.K.A | 882 | 67.2% |
-| Minion Giant | 163 | 66.3% |
-| Mighty Miner | 400 | 66.2% |
-| Ice Spirit | 3908 | 64.5% |
-| Giant | 923 | 63.6% |
-| Fire Spirit | 3090 | 63.0% |
-| Mini P.E.K.K.A | 890 | 62.6% |
-| Inferno Tower | 1896 | 62.3% |
-| Royal Hogs | 1037 | 61.6% |
-| Wizard | 1058 | 59.8% |
-| Cannon | 2601 | 59.5% |
-| Guards | 428 | 59.2% |
-| Hog Rider | 1008 | 58.5% |
-| Electro Spirit | 3363 | 57.4% |
-| Three Musketeers | 608 | 57.4% |
+| Battle Ram | 1091 | 90.1% |
+| Phoenix | 899 | 89.1% |
+| Skeleton Barrel | 498 | 84.1% |
+| Giant Skeleton | 89 | 83.1% |
+| Elixir Golem | 591 | 77.2% |
+| Rascals | 78 | 74.4% |
+| Golden Knight | 557 | 69.8% |
+| Skeleton King | 827 | 69.0% |
+| Fisherman | 475 | 67.2% |
+| Royal Ghost | 402 | 67.2% |
+| Inferno Dragon | 1492 | 67.1% |
+| Musketeer | 1422 | 64.8% |
+| Hunter | 1982 | 62.5% |
+| Ice Spirit | 3908 | 62.4% |
+| Wizard | 1058 | 61.4% |
+| Mini P.E.K.K.A | 890 | 60.9% |
+| Fire Spirit | 3090 | 60.4% |
+| Royal Delivery | 2436 | 60.2% |
+| Inferno Tower | 1896 | 60.0% |
+| Bowler | 795 | 59.1% |
+| P.E.K.K.A | 882 | 57.9% |
+| Arrows | 1646 | 57.5% |
+| Dart Goblin | 920 | 57.5% |
+| Little Prince | 1531 | 57.3% |
+| Bomber | 232 | 57.3% |
 
 ...
 
-| Elite Barbarians | 233 | 32.6% |
-| Barbarians | 177 | 32.2% |
-| Cannon Cart | 155 | 31.6% |
-| Electro Wizard | 990 | 30.9% |
-| Elixir Collector | 80 | 28.7% |
-| Tombstone | 1697 | 28.2% |
-| Skeleton Dragons | 172 | 27.3% |
-| Goblin Hut | 324 | 23.5% |
-| Giant Skeleton | 89 | 10.1% |
-| Mirror | 78 | 7.7% |
+| Mega Knight | 470 | 36.4% |
+| Dark Prince | 648 | 34.4% |
+| Electro Giant | 924 | 33.9% |
+| Archer Queen | 755 | 33.6% |
+| Electro Dragon | 1355 | 32.8% |
+| Minion Horde | 1077 | 32.2% |
+| Skeleton Dragons | 172 | 30.2% |
+| Goblin Cage | 1535 | 29.4% |
+| Elixir Collector | 80 | 26.3% |
+| Rage | 77 | 26.0% |
 
 ## Archetype matchup matrix (row's win rate vs column)
 
 | | bait | beatdown | bridge_spam | control | cycle | evolution_centric | goblin_drill | graveyard | hybrid | lavaloon | mega_knight | pekka_bridge_spam | royal_giant | siege | three_musketeers |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| bait | 50% (56) | 74% (134) | 66% (47) | 70% (83) | 59% (254) | 58% (12) | 57% (67) | 81% (48) | 91% (32) | 58% (36) | 54% (13) | 70% (27) | 50% (42) | 66% (213) | 43% (37) |
-| beatdown | 26% (134) | 50% (306) | 52% (80) | 48% (170) | 40% (574) | 29% (17) | 38% (133) | 79% (101) | 79% (61) | 48% (71) | 27% (26) | 53% (57) | 31% (84) | 53% (429) | 40% (73) |
-| bridge_spam | 34% (47) | 48% (80) | 50% (16) | 58% (53) | 43% (150) | 12% (8) | 46% (37) | 68% (25) | 79% (19) | 55% (20) | 80% (5) | 58% (19) | 32% (28) | 56% (133) | 38% (16) |
-| control | 30% (83) | 52% (170) | 42% (53) | 50% (78) | 45% (369) | 25% (12) | 41% (56) | 78% (67) | 82% (33) | 54% (52) | 17% (6) | 74% (34) | 25% (40) | 57% (279) | 28% (36) |
-| cycle | 41% (254) | 60% (574) | 57% (150) | 55% (369) | 50% (1112) | 49% (35) | 44% (268) | 78% (227) | 81% (116) | 58% (170) | 43% (37) | 73% (124) | 34% (151) | 55% (926) | 44% (161) |
-| evolution_centric | 42% (12) | 71% (17) | 88% (8) | 75% (12) | 51% (35) | - | 36% (11) | 88% (8) | 83% (6) | 78% (9) | 100% (1) | 100% (1) | 60% (5) | 72% (36) | 33% (9) |
-| goblin_drill | 43% (67) | 62% (133) | 54% (37) | 59% (56) | 56% (268) | 64% (11) | 50% (58) | 84% (49) | 63% (27) | 62% (39) | 89% (9) | 74% (31) | 52% (31) | 58% (211) | 29% (42) |
-| graveyard | 19% (48) | 21% (101) | 32% (25) | 22% (67) | 22% (227) | 12% (8) | 16% (49) | 50% (34) | 35% (23) | 24% (33) | 8% (12) | 36% (25) | 14% (37) | 27% (186) | 23% (30) |
-| hybrid | 9% (32) | 21% (61) | 21% (19) | 18% (33) | 19% (116) | 17% (6) | 37% (27) | 65% (23) | 50% (14) | 43% (21) | 0% (1) | 27% (11) | 35% (20) | 33% (98) | 6% (18) |
-| lavaloon | 42% (36) | 52% (71) | 45% (20) | 46% (52) | 42% (170) | 22% (9) | 38% (39) | 76% (33) | 57% (21) | 50% (22) | 40% (5) | 63% (19) | 26% (19) | 46% (123) | 32% (25) |
-| mega_knight | 46% (13) | 73% (26) | 20% (5) | 83% (6) | 57% (37) | 0% (1) | 11% (9) | 92% (12) | 100% (1) | 60% (5) | 50% (4) | 100% (2) | 25% (4) | 54% (24) | 67% (3) |
-| pekka_bridge_spam | 30% (27) | 47% (57) | 42% (19) | 26% (34) | 27% (124) | 0% (1) | 26% (31) | 64% (25) | 73% (11) | 37% (19) | 0% (2) | 50% (10) | 18% (22) | 32% (80) | 20% (15) |
-| royal_giant | 50% (42) | 69% (84) | 68% (28) | 75% (40) | 66% (151) | 40% (5) | 48% (31) | 86% (37) | 65% (20) | 74% (19) | 75% (4) | 82% (22) | 50% (16) | 68% (133) | 60% (20) |
-| siege | 34% (213) | 47% (429) | 44% (133) | 43% (279) | 45% (926) | 28% (36) | 42% (211) | 73% (186) | 67% (98) | 55% (123) | 46% (24) | 68% (80) | 32% (133) | 50% (692) | 27% (120) |
-| three_musketeers | 57% (37) | 60% (73) | 62% (16) | 72% (36) | 56% (161) | 67% (9) | 71% (42) | 77% (30) | 94% (18) | 68% (25) | 33% (3) | 80% (15) | 40% (20) | 73% (120) | 50% (18) |
+| bait | 50% (56) | 63% (134) | 36% (47) | 43% (83) | 51% (254) | 25% (12) | 54% (67) | 83% (48) | 88% (32) | 44% (36) | 69% (13) | 67% (27) | 50% (42) | 44% (213) | 49% (37) |
+| beatdown | 37% (134) | 50% (306) | 22% (80) | 35% (170) | 43% (574) | 29% (17) | 45% (133) | 78% (101) | 79% (61) | 44% (71) | 38% (26) | 51% (57) | 36% (84) | 42% (429) | 40% (73) |
+| bridge_spam | 64% (47) | 78% (80) | 50% (16) | 74% (53) | 71% (150) | 50% (8) | 68% (37) | 80% (25) | 90% (19) | 75% (20) | 80% (5) | 68% (19) | 64% (28) | 68% (133) | 56% (16) |
+| control | 57% (83) | 65% (170) | 26% (53) | 50% (78) | 56% (369) | 33% (12) | 64% (56) | 82% (67) | 79% (33) | 56% (52) | 50% (6) | 68% (34) | 60% (40) | 56% (279) | 36% (36) |
+| cycle | 49% (254) | 57% (574) | 29% (150) | 44% (369) | 50% (1112) | 23% (35) | 54% (268) | 74% (227) | 82% (116) | 48% (170) | 54% (37) | 63% (124) | 36% (151) | 45% (926) | 40% (161) |
+| evolution_centric | 75% (12) | 71% (17) | 50% (8) | 67% (12) | 77% (35) | - | 82% (11) | 100% (8) | 100% (6) | 78% (9) | 0% (1) | 100% (1) | 80% (5) | 86% (36) | 78% (9) |
+| goblin_drill | 46% (67) | 55% (133) | 32% (37) | 36% (56) | 46% (268) | 18% (11) | 50% (58) | 74% (49) | 74% (27) | 62% (39) | 67% (9) | 61% (31) | 36% (31) | 43% (211) | 17% (42) |
+| graveyard | 17% (48) | 22% (101) | 20% (25) | 18% (67) | 26% (227) | 0% (8) | 26% (49) | 50% (34) | 39% (23) | 30% (33) | 33% (12) | 48% (25) | 19% (37) | 26% (186) | 23% (30) |
+| hybrid | 12% (32) | 21% (61) | 10% (19) | 21% (33) | 18% (116) | 0% (6) | 26% (27) | 61% (23) | 50% (14) | 19% (21) | 0% (1) | 18% (11) | 5% (20) | 24% (98) | 6% (18) |
+| lavaloon | 56% (36) | 56% (71) | 25% (20) | 44% (52) | 52% (170) | 22% (9) | 38% (39) | 70% (33) | 81% (21) | 50% (22) | 60% (5) | 79% (19) | 32% (19) | 42% (123) | 36% (25) |
+| mega_knight | 31% (13) | 62% (26) | 20% (5) | 50% (6) | 46% (37) | 100% (1) | 33% (9) | 67% (12) | 100% (1) | 40% (5) | 50% (4) | 100% (2) | 0% (4) | 58% (24) | 67% (3) |
+| pekka_bridge_spam | 33% (27) | 49% (57) | 32% (19) | 32% (34) | 37% (124) | 0% (1) | 39% (31) | 52% (25) | 82% (11) | 21% (19) | 0% (2) | 50% (10) | 50% (22) | 36% (80) | 33% (15) |
+| royal_giant | 50% (42) | 64% (84) | 36% (28) | 40% (40) | 64% (151) | 20% (5) | 64% (31) | 81% (37) | 95% (20) | 68% (19) | 100% (4) | 50% (22) | 50% (16) | 49% (133) | 50% (20) |
+| siege | 56% (213) | 58% (429) | 32% (133) | 44% (279) | 55% (926) | 14% (36) | 57% (211) | 74% (186) | 76% (98) | 58% (123) | 42% (24) | 64% (80) | 51% (133) | 50% (692) | 43% (120) |
+| three_musketeers | 51% (37) | 60% (73) | 44% (16) | 64% (36) | 60% (161) | 22% (9) | 83% (42) | 77% (30) | 94% (18) | 64% (25) | 33% (3) | 67% (15) | 50% (20) | 57% (120) | 50% (18) |
 
 ## Engine weights used
 
 ```json
 {
- "defense": 1.2206071245926373,
- "tower_damage_prevented": 1.1579560843847376,
- "offense": 1.028387301095691,
- "support_synergy": 0.8358186588271216,
- "build_push": 0.5845871320239134,
- "cycle": 0.3447687492745849,
- "leak": 2.6715091780992064,
- "reserve": 0.651467217593212,
- "overcommit": 1.2163829047125028,
- "opp_response": 0.6451564721160423,
- "spell_cycle": 0.15382515292923307,
- "wait_bias": 0.002854013173965269
+ "defense": 0.9737299580304896,
+ "tower_damage_prevented": 0.9876903485576395,
+ "offense": 0.9254513428633968,
+ "support_synergy": 1.1650139813481293,
+ "build_push": 0.5274450166477493,
+ "cycle": 0.19329988192724243,
+ "leak": 3.503211212093165,
+ "reserve": 0.6494761057230684,
+ "overcommit": 1.0681406481993625,
+ "opp_response": 0.6672920497893889,
+ "spell_cycle": 0.13119891884383802,
+ "wait_bias": -0.22694871174701312
 }
 ```

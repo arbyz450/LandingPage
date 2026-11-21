@@ -3,7 +3,7 @@
 Everything below was asked for in the first session or discovered while building. Work top-down.
 
 ## 0. Start-of-day sanity (5 min)
-- [ ] `cd cr-stockfish && python -m pytest tests -q` (58 tests) and `python -m crsf bench` (25/25)
+- [ ] `cd cr-stockfish && python -m pytest tests -q` (62 tests) and `python -m crsf bench` (25/25)
 - [ ] `python -m crsf gui --demo` opens the dashboard and shows plays on synthetic frames
 
 ## 1. See the real game (the part that must work first)
@@ -63,3 +63,13 @@ Everything below was asked for in the first session or discovered while building
   (`units_M_480x352.onnx` + class list, in its GitHub repo) can be dropped in with `--onnx ... --onnx-classes ...`
   for the 101 older cards.
 - Supercell bans third-party automation. Secondary account only.
+
+## 8. What tonight's simulation said (reports/simulation_report.md, reports/tuning_log.json)
+- 10 tuning iterations x 6 candidates x 120 games: one weight set promoted (63% vs baseline, still 25/25 puzzles) →
+  `knowledge/weights.json` (slightly more support synergy, less fear of the opponent's reply, a small bias toward acting).
+- 9,505 engine-vs-engine games over 232 decks; engine beat the scripted mid-ladder bot 73%.
+- Simulator artifacts to fix before trusting deck rankings: Battle Ram decks win ~95%+ (charge x2 + death-spawn
+  Barbarians + no pathing/pushback is too strong), Graveyard and "hybrid" decks lose ~75% (skeleton spawn pacing and
+  no splash-at-tower modelling), Inferno Dragon everywhere (ramp helps but it still never gets reset in the sim unless
+  zapped). Add: pushback/knockback, tornado pull, retarget on stun, spell-on-graveyard, deploy delay (~1 s), king-tower
+  activation from splash.

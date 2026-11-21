@@ -31,7 +31,7 @@ cd cr-stockfish
 python -m venv .venv && . .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 pip install pygetwindow pyautogui pytesseract      # window capture, mouse input, OCR (optional)
-python -m pytest tests -q                           # 58 tests
+python -m pytest tests -q                           # 62 tests
 python -m crsf bench                                # 25/25 pro puzzles
 ```
 
@@ -142,6 +142,6 @@ crsf/vision/     capture, layout, elixir, hand, healthbars, unit_classifier, ocr
 crsf/static/     dashboard page
 knowledge/       researched + learned knowledge (JSON)
 benchmarks/      pro puzzles      reports/   simulation + tuning output
-tests/           58 tests          examples/  position files
+tests/           62 tests          examples/  position files
 TOMORROW.md      the live-testing checklist
 ```

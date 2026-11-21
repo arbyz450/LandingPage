@@ -348,6 +348,12 @@ def cmd_simulate(args) -> int:
     return 0
 
 
+def cmd_tournament(args) -> int:
+    from .sim_runner import tournament
+    tournament(procs=args.procs, seeds=args.seeds, style_pairs=args.style_pairs, sweep_pairs=args.sweep_pairs, seed=args.seed, out_dir=Path(args.out))
+    return 0
+
+
 def cmd_tune(args) -> int:
     from .sim_runner import tune, WEIGHTS_PATH
     out = Path(args.out) if args.out else WEIGHTS_PATH
@@ -665,6 +671,15 @@ def main(argv: Optional[List[str]] = None) -> int:
     p.add_argument("--out", default=str(ROOT / "reports"))
     p.add_argument("--scripted-share", type=float, default=0.05, help="fraction of games played against the scripted bot (sanity check)")
     p.set_defaults(fn=cmd_simulate)
+
+    p = sub.add_parser("tournament", help="meta round-robin + player styles + aggression sweep -> reports/strategy_report.md")
+    p.add_argument("--seeds", type=int, default=2)
+    p.add_argument("--style-pairs", type=int, default=150)
+    p.add_argument("--sweep-pairs", type=int, default=150)
+    p.add_argument("--procs", type=int, default=max(1, (os.cpu_count() or 2)))
+    p.add_argument("--seed", type=int, default=11)
+    p.add_argument("--out", default=str(ROOT / "reports"))
+    p.set_defaults(fn=cmd_tournament)
 
     p = sub.add_parser("tune", help="evolve engine weights by self-play (gated by the puzzle benchmark)")
     p.add_argument("--iters", type=int, default=6)

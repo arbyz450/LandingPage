@@ -37,13 +37,20 @@ WEIGHTS_PATH = KNOWLEDGE_DIR / "weights.json"
 # ----------------------------------------------------------------------------
 
 def _play_spec(spec: dict) -> dict:
-    from .sim import play_match
-    w0 = Weights(**spec["w0"]) if spec.get("w0") else None
-    w1 = Weights(**spec["w1"]) if spec.get("w1") else None
-    r = play_match(spec["deck0"], spec["deck1"], w0, w1, seed=spec["seed"], scripted=spec.get("scripted"))
+    from .sim import play_match, play_match_players
+    if "p0" in spec:
+        r = play_match_players(spec["deck0"], spec["deck1"], spec["p0"], spec["p1"], seed=spec["seed"])
+    else:
+        w0 = Weights(**spec["w0"]) if spec.get("w0") else None
+        w1 = Weights(**spec["w1"]) if spec.get("w1") else None
+        r = play_match(spec["deck0"], spec["deck1"], w0, w1, seed=spec["seed"], scripted=spec.get("scripted"))
     r["i0"], r["i1"] = spec.get("i0"), spec.get("i1")
     r["tag"] = spec.get("tag")
     return r
+
+
+def _score0(r: dict) -> float:
+    return 1.0 if r["winner"] == 0 else (0.5 if r["winner"] is None else 0.0)
 
 
 def _run(specs: Sequence[dict], procs: int, progress: Optional[str] = None) -> List[dict]:
@@ -257,6 +264,167 @@ def simulate(games: int = 10000, n_random: int = 200, procs: int = 4, seed: int 
         fh.write(md)
     print(md)
     return report
+
+
+# ----------------------------------------------------------------------------
+# tournament: meta round-robin + player styles + aggression sweep
+# ----------------------------------------------------------------------------
+
+def tournament(procs: int = 4, seeds: int = 2, style_pairs: int = 150, sweep_pairs: int = 150, seed: int = 11,
+               out_dir: Path = Path("reports"), n_random: int = 150) -> dict:
+    from .decks import meta_decks
+    db = default_db()
+    k = default_knowledge()
+    rng = random.Random(seed)
+    meta = meta_decks(db)
+    pool = deck_pool(n_random=n_random, seed=seed)
+    for d in pool:
+        if d["archetype"] in ("", "generated"):
+            a = k.detect_archetype(d["cards"])
+            d["archetype"] = a.id if a else "other"
+    base_w = Weights.load(WEIGHTS_PATH) if WEIGHTS_PATH.exists() else Weights()
+    pro = {"style": "pro", "weights": asdict(base_w)}
+    specs: List[dict] = []
+    # 1. meta round robin, pro vs pro
+    n = len(meta)
+    for a in range(n):
+        for b in range(n):
+            if a == b:
+                continue
+            for s in range(seeds):
+                specs.append({"deck0": meta[a]["cards"], "deck1": meta[b]["cards"], "p0": pro, "p1": pro,
+                              "seed": seed * 1000 + a * 97 + b * 13 + s, "i0": a, "i1": b, "tag": ("rr",)})
+    # 2. styles vs pro (both sides), plus aggressive vs defensive
+    styles = ["aggressive", "defensive", "slow", "spammer", "midladder"]
+    pairs = [(rng.randrange(len(pool)), rng.randrange(len(pool))) for _ in range(style_pairs)]
+    for st in styles:
+        for pi, (a, b) in enumerate(pairs):
+            s = seed * 5000 + pi
+            specs.append({"deck0": pool[a]["cards"], "deck1": pool[b]["cards"], "p0": {"style": st, "weights": asdict(base_w)}, "p1": pro, "seed": s, "tag": ("style", st, 0)})
+            specs.append({"deck0": pool[b]["cards"], "deck1": pool[a]["cards"], "p0": pro, "p1": {"style": st, "weights": asdict(base_w)}, "seed": s + 1, "tag": ("style", st, 1)})
+    for pi, (a, b) in enumerate(pairs[: style_pairs // 2]):
+        s = seed * 7000 + pi
+        specs.append({"deck0": pool[a]["cards"], "deck1": pool[b]["cards"], "p0": {"style": "aggressive", "weights": asdict(base_w)}, "p1": {"style": "defensive", "weights": asdict(base_w)}, "seed": s, "tag": ("avd", 0)})
+        specs.append({"deck0": pool[b]["cards"], "deck1": pool[a]["cards"], "p0": {"style": "defensive", "weights": asdict(base_w)}, "p1": {"style": "aggressive", "weights": asdict(base_w)}, "seed": s + 1, "tag": ("avd", 1)})
+    # 3. aggression sweep: decision thresholds vs the baseline pro
+    sweep = [(0.2, 0.5), (0.4, 0.5), (0.4, 1.0), (0.4, 1.5), (0.6, 1.5), (0.8, 2.0), (0.2, 2.5)]
+    spairs = [(rng.randrange(len(pool)), rng.randrange(len(pool))) for _ in range(sweep_pairs)]
+    for ms, mm in sweep:
+        var = {"style": "pro", "weights": asdict(base_w), "min_score": ms, "min_margin": mm}
+        for pi, (a, b) in enumerate(spairs):
+            s = seed * 9000 + pi
+            specs.append({"deck0": pool[a]["cards"], "deck1": pool[b]["cards"], "p0": var, "p1": pro, "seed": s, "tag": ("sweep", ms, mm, 0)})
+            specs.append({"deck0": pool[b]["cards"], "deck1": pool[a]["cards"], "p0": pro, "p1": var, "seed": s + 1, "tag": ("sweep", ms, mm, 1)})
+    print(f"tournament: {len(specs)} games ({n} meta decks round-robin x{seeds}, {len(styles)} styles x {2 * style_pairs}, sweep {len(sweep)} x {2 * sweep_pairs})", flush=True)
+    t0 = time.time()
+    results = _run(specs, procs, progress="tournament")
+    elapsed = time.time() - t0
+
+    # ---- aggregate
+    rr_deck = [{"w": 0.0, "n": 0} for _ in meta]
+    rr_vs = defaultdict(lambda: {"w": 0.0, "n": 0})          # (deck idx, opp archetype)
+    rr_arch = defaultdict(lambda: {"w": 0.0, "n": 0})
+    style_res = defaultdict(lambda: {"w": 0.0, "n": 0})
+    avd = {"w": 0.0, "n": 0}
+    sweep_res = defaultdict(lambda: {"w": 0.0, "n": 0})
+    for r in results:
+        tag = r["tag"]
+        s0 = _score0(r)
+        if tag[0] == "rr":
+            a, b = r["i0"], r["i1"]
+            rr_deck[a]["w"] += s0; rr_deck[a]["n"] += 1
+            rr_deck[b]["w"] += 1 - s0; rr_deck[b]["n"] += 1
+            aa, ab = meta[a]["archetype"] or "other", meta[b]["archetype"] or "other"
+            rr_vs[(a, ab)]["w"] += s0; rr_vs[(a, ab)]["n"] += 1
+            rr_vs[(b, aa)]["w"] += 1 - s0; rr_vs[(b, aa)]["n"] += 1
+            rr_arch[(aa, ab)]["w"] += s0; rr_arch[(aa, ab)]["n"] += 1
+            rr_arch[(ab, aa)]["w"] += 1 - s0; rr_arch[(ab, aa)]["n"] += 1
+        elif tag[0] == "style":
+            st, side = tag[1], tag[2]
+            sc = s0 if side == 0 else 1 - s0
+            style_res[st]["w"] += sc; style_res[st]["n"] += 1
+        elif tag[0] == "avd":
+            sc = s0 if tag[1] == 0 else 1 - s0
+            avd["w"] += sc; avd["n"] += 1
+        elif tag[0] == "sweep":
+            ms, mm, side = tag[1], tag[2], tag[3]
+            sc = s0 if side == 0 else 1 - s0
+            sweep_res[(ms, mm)]["w"] += sc; sweep_res[(ms, mm)]["n"] += 1
+
+    decks_out = []
+    for i, d in enumerate(meta):
+        st = rr_deck[i]
+        if st["n"]:
+            lo, hi = _wilson(st["w"], st["n"])
+            decks_out.append({"name": d["name"], "archetype": d["archetype"], "cards": d["cards"], "games": st["n"],
+                              "win_rate": round(st["w"] / st["n"], 3), "ci": [round(lo, 3), round(hi, 3)]})
+    decks_out.sort(key=lambda d: -d["win_rate"])
+    archs = sorted({a for a, _ in rr_arch})
+    best_vs = {}
+    for arch in archs:
+        cands = [(rr_vs[(i, arch)]["w"] / rr_vs[(i, arch)]["n"], rr_vs[(i, arch)]["n"], i) for i in range(len(meta)) if rr_vs[(i, arch)]["n"] >= 4]
+        if cands:
+            wr, nn, i = max(cands)
+            best_vs[arch] = {"deck": meta[i]["name"], "cards": meta[i]["cards"], "win_rate": round(wr, 3), "games": nn}
+    matrix = {a: {b: (round(rr_arch[(a, b)]["w"] / rr_arch[(a, b)]["n"], 3) if rr_arch[(a, b)]["n"] else None) for b in archs} for a in archs}
+    counts = {a: {b: int(rr_arch[(a, b)]["n"]) for b in archs} for a in archs}
+    styles_out = {st: {"win_rate_vs_pro": round(v["w"] / v["n"], 3), "games": int(v["n"])} for st, v in style_res.items()}
+    sweep_out = [{"min_score": ms, "min_margin": mm, "win_rate_vs_baseline": round(v["w"] / v["n"], 3), "games": int(v["n"])} for (ms, mm), v in sorted(sweep_res.items())]
+    report = {
+        "summary": {"games": len(results), "elapsed_s": round(elapsed, 1), "meta_decks": n, "seeds": seeds, "weights": asdict(base_w)},
+        "meta_round_robin": decks_out, "best_deck_vs_archetype": best_vs, "archetype_matrix": matrix, "archetype_counts": counts,
+        "styles_vs_pro": styles_out, "aggressive_vs_defensive": (round(avd["w"] / avd["n"], 3) if avd["n"] else None),
+        "aggression_sweep": sweep_out,
+    }
+    out_dir.mkdir(parents=True, exist_ok=True)
+    with open(out_dir / f"tournament_{time.strftime('%Y%m%d_%H%M%S')}.json", "w", encoding="utf-8") as fh:
+        json.dump(report, fh, indent=1)
+    md = render_strategy_report(report, db)
+    with open(out_dir / "strategy_report.md", "w", encoding="utf-8") as fh:
+        fh.write(md)
+    print(md)
+    return report
+
+
+def render_strategy_report(rep: dict, db) -> str:
+    s = rep["summary"]
+    nm = lambda c: (db.get(c).name if db.find(c) else c)
+    L = ["# Strategy report (self-play tournament)", "",
+         f"{s['games']} games in {s['elapsed_s']}s: full round-robin of {s['meta_decks']} meta decks (x{s['seeds']} seeds, both sides), "
+         f"five player styles against the tuned engine, and a sweep of the engine's aggression thresholds.", "",
+         "Simulator caveat: a simplified proxy of the game (see crsf/sim.py). Treat every number as relative, not as a ladder prediction.", "",
+         "## Meta decks, round-robin", "", "| # | deck | archetype | games | win rate | 95% CI |", "|---|---|---|---|---|---|"]
+    for i, d in enumerate(rep["meta_round_robin"], 1):
+        L.append(f"| {i} | {d['name']} — {', '.join(nm(c) for c in d['cards'])} | {d['archetype']} | {d['games']} | {d['win_rate']:.1%} | {d['ci'][0]:.0%}-{d['ci'][1]:.0%} |")
+    L += ["", "## Best meta deck against each archetype", "", "| opponent archetype | best deck | win rate | games |", "|---|---|---|---|"]
+    for arch, b in rep["best_deck_vs_archetype"].items():
+        L.append(f"| {arch} | {b['deck']} | {b['win_rate']:.0%} | {b['games']} |")
+    archs = list(rep["archetype_matrix"])
+    L += ["", "## Archetype matrix (row beats column, meta decks only)", "", "| | " + " | ".join(archs) + " |", "|---|" + "---|" * len(archs)]
+    for a in archs:
+        L.append(f"| {a} | " + " | ".join("-" if rep["archetype_matrix"][a][b] is None else f"{rep['archetype_matrix'][a][b]:.0%} ({rep['archetype_counts'][a][b]})" for b in archs) + " |")
+    L += ["", "## Player styles against the tuned engine", "", "| style | win rate vs engine | games |", "|---|---|---|"]
+    for st, v in rep["styles_vs_pro"].items():
+        L.append(f"| {st} | {v['win_rate_vs_pro']:.1%} | {v['games']} |")
+    if rep.get("aggressive_vs_defensive") is not None:
+        L.append(f"\nAggressive style vs defensive style: aggressive wins {rep['aggressive_vs_defensive']:.1%}.")
+    L += ["", "## Aggression sweep (decision thresholds vs the shipped baseline 0.4 / 1.0)", "", "| play if worth >= | or >= better than waiting | win rate vs baseline | games |", "|---|---|---|---|"]
+    best = None
+    for r in rep["aggression_sweep"]:
+        L.append(f"| {r['min_score']} | {r['min_margin']} | {r['win_rate_vs_baseline']:.1%} | {r['games']} |")
+        if best is None or r["win_rate_vs_baseline"] > best["win_rate_vs_baseline"]:
+            best = r
+    if best:
+        L.append(f"\nBest setting in this sweep: play when worth >= {best['min_score']} or >= {best['min_margin']} better than waiting ({best['win_rate_vs_baseline']:.0%} vs baseline).")
+    L += ["", "## Takeaways (auto-generated from the numbers above)", ""]
+    sv = rep["styles_vs_pro"]
+    for st in ("aggressive", "defensive", "slow", "spammer", "midladder"):
+        if st in sv:
+            wr = sv[st]["win_rate_vs_pro"]
+            L.append(f"- **{st}** style wins {wr:.0%} against the engine" + (": the engine's balance beats it." if wr < 0.45 else ": close; worth studying what it does." if wr < 0.55 else ": it BEATS the engine; the engine should adopt more of it."))
+    if rep["best_deck_vs_archetype"]:
+        L.append("- Counter-picks: " + "; ".join(f"vs {a}: {b['deck']}" for a, b in list(rep["best_deck_vs_archetype"].items())[:6]) + ".")
+    return "\n".join(L) + "\n"
 
 
 def render_report(rep: dict, db) -> str:

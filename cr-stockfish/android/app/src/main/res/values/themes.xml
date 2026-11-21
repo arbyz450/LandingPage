@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CRStockfish" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#F5C542</item>
+        <item name="colorPrimaryVariant">#D4A420</item>
+        <item name="colorOnPrimary">#1A1A1A</item>
+        <item name="colorSecondary">#4AA3FF</item>
+        <item name="android:windowBackground">#0F1218</item>
+        <item name="android:textColorPrimary">#E7ECF3</item>
+    </style>
+</resources>

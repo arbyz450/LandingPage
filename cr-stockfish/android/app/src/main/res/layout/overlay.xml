@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#CC171C26"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/overlayHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CR Stockfish  (drag me)"
+        android:textColor="#F5C542"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/overlayText"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="waiting for frames"
+        android:textColor="#E7ECF3"
+        android:textSize="11sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/overlayCmd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="o hog"
+            android:imeOptions="actionSend"
+            android:inputType="text"
+            android:textColor="#E7ECF3"
+            android:textColorHint="#8B97AB"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/overlaySend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:textSize="11sp" />
+    </LinearLayout>
+</LinearLayout>

@@ -94,6 +94,8 @@ class SUnit:
     last_target: Optional[int] = None
     moved: float = 0.0         # tiles moved since last hit (charge)
     collect_timer: float = 0.0
+    deploy_left: float = 1.0   # deploy time before the unit can act
+    rage: float = 0.0          # seconds of rage left (+35% speed and attack rate)
 
     @property
     def per_unit_hp(self) -> float:
@@ -227,6 +229,19 @@ class Match:
 
     def _cast(self, side: int, card: Card, lane0: str, y0: float) -> None:
         radius = max(1.5, card.range)
+        if card.key == "rage":
+            for u in self.units:
+                if u.side == side and u.lane == lane0 and abs(u.y - y0) <= radius + 1:
+                    u.rage = max(u.rage, card.lifetime or 6.0)
+            return
+        if card.key == "tornado":
+            for u in self.units:
+                if u.side != side and u.lane == lane0 and abs(u.y - y0) <= radius + 2.5 and not u.card.is_building:
+                    u.y = y0                                  # pulled to the centre
+                    u.last_target, u.ramp, u.moved = None, 0.0, 0.0
+                    if card.damage > 0:
+                        u.hp -= card.damage * (min(u.alive_count, 6) if u.card.count > 1 else 1)
+            return
         for u in self.units:
             if u.side == side or u.lane != lane0 or abs(u.y - y0) > radius:
                 continue
@@ -274,6 +289,11 @@ class Match:
         for u in list(self.units):
             if u.hp <= 0:
                 continue
+            if u.deploy_left > 0:                       # still spawning in
+                u.deploy_left -= dt
+                continue
+            if u.rage > 0:
+                u.rage -= dt
             if u.stun > 0:
                 u.stun -= dt
                 u.ramp = 0.0
@@ -310,7 +330,7 @@ class Match:
                     self._hit_tower(u, obj, dt)
                 u.moved = 0.0
             elif not u.card.is_building and u.card.tiles_per_sec > 0:
-                step_len = u.card.tiles_per_sec * dt
+                step_len = u.card.tiles_per_sec * dt * (1.35 if u.rage > 0 else 1.0)
                 u.y += u.forward() * step_len
                 u.y = max(0.5, min(31.5, u.y))
                 u.moved += step_len
@@ -359,7 +379,7 @@ class Match:
         return None
 
     def _dmg_mult(self, u: SUnit) -> float:
-        m = 1.0
+        m = 1.35 if u.rage > 0 else 1.0
         if u.card.key in RAMP_CARDS:
             m = 0.15 + 0.85 * min(1.0, u.ramp / RAMP_CARDS[u.card.key])
         if u.card.key in CHARGE_CARDS and u.moved >= 3.0 and u.ramp <= DT + 1e-6:
@@ -475,6 +495,29 @@ class Match:
 # Players
 # --------------------------------------------------------------------------
 
+# Player styles: engine weight multipliers + decision thresholds. "pro" is the
+# tuned engine as shipped; the others are caricatures of common human styles.
+STYLES: Dict[str, dict] = {
+    "pro":        {"mult": {}, "min_score": 0.4, "min_margin": 1.0, "interval": 1.0},
+    "aggressive": {"mult": {"offense": 1.4, "build_push": 1.3, "reserve": 0.5, "overcommit": 0.4, "wait_bias": -0.6}, "min_score": 0.2, "min_margin": 0.5, "interval": 1.0},
+    "defensive":  {"mult": {"offense": 0.7, "reserve": 1.6, "overcommit": 1.6, "tower_damage_prevented": 1.3, "wait_bias": 0.4}, "min_score": 0.6, "min_margin": 1.6, "interval": 1.0},
+    "slow":       {"mult": {}, "min_score": 0.4, "min_margin": 1.0, "interval": 2.5},     # human-like reaction time
+    "spammer":    None,       # plays any affordable card at the bridge as soon as possible
+    "midladder":  None,       # ScriptedPlayer
+}
+
+
+def style_weights(base: Weights, style: str) -> Weights:
+    spec = STYLES.get(style) or {}
+    w = Weights(**vars(base))
+    for k, m in spec.get("mult", {}).items():
+        if k == "wait_bias":
+            w.wait_bias = w.wait_bias + m
+        else:
+            setattr(w, k, getattr(w, k) * m)
+    return w
+
+
 class EnginePlayer:
     def __init__(self, side: int, engine: Engine, min_score: float = 0.4, interval: float = 1.0, min_margin: float = 1.0):
         self.side = side
@@ -548,17 +591,94 @@ class ScriptedPlayer:
             m.deploy(self.side, c.key, lane, y)
 
 
+class SpammerPlayer:
+    """Plays the first affordable card at the bridge the moment it can (the classic ladder spammer)."""
+
+    def __init__(self, side: int, db: CardDB, rng: random.Random, interval: float = 0.5):
+        self.side = side
+        self.db = db
+        self.rng = rng
+        self.interval = interval
+        self._next_t = 0.0
+
+    def act(self, m: Match) -> None:
+        if m.t < self._next_t:
+            return
+        self._next_t = m.t + self.interval
+        pl = m.p[self.side]
+        hand = [self.db.get(k) for k in pl.hand if self.db.get(k).cost <= pl.elixir]
+        if not hand:
+            return
+        c = self.rng.choice(hand)
+        lane = self.rng.choice(["left", "right"])
+        if c.is_spell:
+            m.deploy(self.side, c.key, lane, 25.5)       # spells straight at the tower
+        else:
+            m.deploy(self.side, c.key, lane, 15.0)
+
+
+def make_player(side: int, style: str, db: CardDB, rng: random.Random, base_w: Optional[Weights], knowledge):
+    if style == "midladder":
+        return ScriptedPlayer(side, db, rng)
+    if style == "spammer":
+        return SpammerPlayer(side, db, rng)
+    spec = STYLES.get(style) or STYLES["pro"]
+    w = style_weights(base_w or Weights.default(), style)
+    return EnginePlayer(side, Engine(db, w, knowledge), min_score=spec["min_score"], interval=spec["interval"], min_margin=spec["min_margin"])
+
+
+def play_match_players(deck0: List[str], deck1: List[str], p0: dict, p1: dict, seed: int = 0,
+                       db: Optional[CardDB] = None, knowledge=None) -> dict:
+    """Like ``play_match`` but each side is described by a player spec:
+    {"style": "pro|aggressive|defensive|slow|spammer|midladder", "weights": dict|None,
+     "min_score": float|None, "min_margin": float|None, "interval": float|None}.
+    """
+    db = db or default_db()
+    from .knowledge import default_knowledge
+    k = knowledge if knowledge is not None else default_knowledge()
+    m = Match(deck0, deck1, db, seed)
+    rng = random.Random(seed + 1)
+    players = []
+    for side, p in ((0, p0), (1, p1)):
+        style = p.get("style", "pro")
+        w = Weights(**p["weights"]) if p.get("weights") else None
+        pl = make_player(side, style, db, rng, w, k)
+        if isinstance(pl, EnginePlayer):
+            if p.get("min_score") is not None:
+                pl.min_score = float(p["min_score"])
+            if p.get("min_margin") is not None:
+                pl.min_margin = float(p["min_margin"])
+            if p.get("interval") is not None:
+                pl.interval = float(p["interval"])
+        players.append(pl)
+    steps = 0
+    while not m.done and steps < int((REG + OT) / DT) + 4:
+        for pl in players:
+            pl.act(m)
+        m.step()
+        steps += 1
+    return {
+        "winner": m.winner, "t": round(m.t, 1), "overtime": m.overtime,
+        "crowns": [m.p[1].crowns(), m.p[0].crowns()],
+        "towers": [dict(m.p[0].towers), dict(m.p[1].towers)],
+        "plays": [len(m.p[0].plays), len(m.p[1].plays)],
+    }
+
+
 def play_match(deck0: List[str], deck1: List[str], w0: Optional[Weights] = None, w1: Optional[Weights] = None,
-               seed: int = 0, db: Optional[CardDB] = None, scripted: Optional[int] = None, knowledge=None) -> dict:
+               seed: int = 0, db: Optional[CardDB] = None, scripted: Optional[int] = None, knowledge=None,
+               style0: str = "pro", style1: str = "pro") -> dict:
     db = db or default_db()
     m = Match(deck0, deck1, db, seed)
     rng = random.Random(seed + 1)
     from .knowledge import default_knowledge
     k = knowledge if knowledge is not None else default_knowledge()
     players = []
-    for side, w in ((0, w0), (1, w1)):
+    for side, w, style in ((0, w0, style0), (1, w1, style1)):
         if scripted == side:
             players.append(ScriptedPlayer(side, db, rng))
+        elif style != "pro" or w is None:
+            players.append(make_player(side, style, db, rng, w, k))
         else:
             players.append(EnginePlayer(side, Engine(db, w, k)))
     steps = 0

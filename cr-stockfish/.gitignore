@@ -8,3 +8,4 @@ recordings/
 templates/units/*/
 data/events/*.jsonl
 reports/run*.log
+reports/tournament_run.log

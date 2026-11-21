@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CR Stockfish</string>
+    <string name="tap_service_label">CR Stockfish taps</string>
+    <string name="tap_service_description">Lets CR Stockfish place cards for you by tapping the screen. Only active while autoplay is armed.</string>
+    <string name="notif_channel">CR Stockfish capture</string>
+    <string name="notif_title">CR Stockfish is watching the screen</string>
+    <string name="notif_text">Recommendations appear in the floating overlay.</string>
+    <string name="btn_overlay">1. Allow overlay</string>
+    <string name="btn_accessibility">2. Enable tap service</string>
+    <string name="btn_start">3. Start capture</string>
+    <string name="btn_stop">Stop</string>
+    <string name="sw_armed">Autoplay armed</string>
+    <string name="sw_dry">Dry run (never tap)</string>
+    <string name="lbl_minscore">Play when worth at least</string>
+    <string name="tos_warning">Automation violates Supercell\'s Terms of Service. Use a secondary account. Keep dry run on until the log looks right for a whole match.</string>
+</resources>

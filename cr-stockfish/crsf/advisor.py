@@ -122,7 +122,7 @@ class Advisor:
     ):
         self.db = db or default_db()
         self.layout = layout or Layout.load()
-        self.matcher = matcher or CardMatcher()
+        self.matcher = matcher if matcher is not None else CardMatcher()
         self.classifier = UnitClassifier(unit_templates) if unit_templates else UnitClassifier()
         if detector is not None:
             self.detector = detector

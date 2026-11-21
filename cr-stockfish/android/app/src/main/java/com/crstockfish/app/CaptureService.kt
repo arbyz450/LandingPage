@@ -108,14 +108,14 @@ class CaptureService : Service() {
             val img = r.acquireLatestImage() ?: return@setOnImageAvailableListener
             try {
                 val now = System.currentTimeMillis()
-                if (now - lastStep < 330L) return@try          // ~3 fps
+                if (now - lastStep < 330L) return@setOnImageAvailableListener          // ~3 fps (finally still closes the image)
                 lastStep = now
                 val plane = img.planes[0]
                 val rowStride = plane.rowStride
                 val buf = plane.buffer
                 val bytes = ByteArray(buf.remaining())
                 buf.get(bytes)
-                val res = Bridge.step(bytes, img.width, img.height, rowStride, AppState.armed) ?: return@try
+                val res = Bridge.step(bytes, img.width, img.height, rowStride, AppState.armed) ?: return@setOnImageAvailableListener
                 AppState.lastText.postValue(res.optString("text"))
                 val play = res.optJSONObject("play")
                 if (play != null) {

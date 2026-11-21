@@ -51,6 +51,12 @@ val syncCrsf by tasks.registering(Sync::class) {
     }
 }
 tasks.named("preBuild") { dependsOn(syncCrsf) }
+// Chaquopy's merge*PythonSources tasks read build/crsf_py; Gradle 8 requires the dependency to be explicit.
+tasks.configureEach {
+    if (name.contains("PythonSources") || name.contains("PythonRequirements")) {
+        dependsOn(syncCrsf)
+    }
+}
 
 chaquopy {
     defaultConfig {

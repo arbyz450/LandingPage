@@ -93,6 +93,11 @@ class Knowledge:
     phase_policy: Dict[str, str] = field(default_factory=dict)
     priors: PlacementPriors = field(default_factory=PlacementPriors)
     loaded: List[str] = field(default_factory=list)
+    champions: Dict[str, dict] = field(default_factory=dict)      # card -> ability entry
+    evolutions: Dict[str, dict] = field(default_factory=dict)     # card -> evolution entry
+    heroes: Dict[str, dict] = field(default_factory=dict)         # card -> hero entry
+    special: Dict[str, List[dict]] = field(default_factory=dict)  # card -> special mechanics
+    deploy_times: Dict[str, float] = field(default_factory=dict)  # card -> seconds (exceptions only)
 
     # ----- loading --------------------------------------------------------
     @classmethod
@@ -154,6 +159,21 @@ class Knowledge:
                         t.get("x"), t.get("y"), str(tm.get("type", "")), str(tm.get("value", "")), int(t.get("priority", 3) or 3)))
                 except (TypeError, ValueError):
                     continue
+        data = _load_json(d / "mechanics_verified.json")
+        if data:
+            k.loaded.append("mechanics_verified.json")
+            k.champions = {e["key"]: e for e in data.get("champions", []) if ok(e.get("key"))}
+            k.evolutions = {e["key"]: e for e in data.get("evolutions", []) if ok(e.get("key"))}
+            k.heroes = {e["key"]: e for e in data.get("heroes", []) if ok(e.get("key"))}
+            for e in data.get("special_mechanics", []):
+                if ok(e.get("key")):
+                    k.special.setdefault(e["key"], []).append(e)
+            for e in (data.get("deploy_times") or {}).get("exceptions", []):
+                if ok(e.get("key")):
+                    try:
+                        k.deploy_times[e["key"]] = float(e.get("deploy_s", 1.0))
+                    except (TypeError, ValueError):
+                        pass
         pri = d / "priors.json"
         if pri.exists():
             k.priors = PlacementPriors.load(pri)
@@ -198,6 +218,25 @@ class Knowledge:
                 hits.append((t.priority, t))
         hits.sort(key=lambda x: -x[0])
         return [t for _, t in hits[:limit]]
+
+    def card_mechanics(self, card: str, flag: Optional[str] = None) -> List[str]:
+        """Short mechanic lines for a card: champion ability, evo/hero effect when flagged, special mechanics."""
+        out: List[str] = []
+        c = self.champions.get(card)
+        if c:
+            out.append(f"{c.get('ability', 'ability')} ({c.get('ability_cost', '?')} elixir{', single-use' if c.get('single_use') else ''}): {c.get('effect', '')}")
+        if flag == "evo" and card in self.evolutions:
+            e = self.evolutions[card]
+            out.append(f"Evolution: {e.get('effect', '')} Play against it: {e.get('counters_change', '')}".strip())
+        if flag == "hero" and card in self.heroes:
+            h = self.heroes[card]
+            out.append(f"{h.get('hero_name', 'Hero')}: {h.get('ability', '')}")
+        for s in self.special.get(card, [])[:2]:
+            out.append(f"{s.get('mechanic', '')}: {s.get('detail', '')}")
+        return [o for o in out if o.strip()]
+
+    def deploy_time(self, card: str) -> float:
+        return self.deploy_times.get(card, 1.0)
 
     def matchup(self, me: Optional[str], opp: Optional[str]) -> Optional[dict]:
         if not me or not opp:

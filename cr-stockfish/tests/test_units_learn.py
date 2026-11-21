@@ -131,3 +131,17 @@ def test_technique_timing_gate_and_hints(tmp_path):
     assert ice_score(near) > ice_score(far) + 0.5
     an = eng.analyse(near)
     assert any(n.startswith("Technique: Ice Spirit on Hog") for n in an.notes)
+
+
+def test_mechanics_file_loads_and_surfaces():
+    from crsf.knowledge import default_knowledge
+    k = default_knowledge()
+    if "mechanics_verified.json" not in k.loaded:
+        pytest.skip("mechanics file not present")
+    assert "archer_queen" in k.champions and k.card_mechanics("archer_queen")
+    assert k.card_mechanics("knight", "evo") and k.card_mechanics("knight", "hero")
+    eng = Engine(db)
+    st = GameState(my_elixir=6, hand=["knight", "zap", "giant", "mini_pekka"],
+                   opp=OpponentInfo(known_deck=["archer_queen", "golem"], predicted_hand=["archer_queen", "golem"], unknown_slots=6))
+    an = eng.analyse(st)
+    assert any(n.startswith("Archer Queen:") for n in an.notes)

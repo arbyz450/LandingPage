@@ -238,7 +238,7 @@ class GuiApp:
         mine = adv.me.known_deck
         if len(opp) >= 4 and len(mine) >= 4:
             try:
-                self.plan = plan_matchup(mine, opp, self.db)
+                self.plan = plan_matchup(mine, opp, self.db, flags=adv.opp.flags)
                 self.plan_text = self.plan.plan_text
             except Exception as exc:
                 self.logmsg(f"matchup plan failed: {exc}")

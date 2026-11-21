@@ -932,6 +932,15 @@ class Engine:
             notes.append("Opponent is at 10 elixir: they are leaking. Expect a big play; keep your counters ready.")
         if o.flags:
             notes.append("Opp upgrades: " + ", ".join(f"{f} {self.db.get(c).name}" for c, f in o.flags.items() if self.db.find(c)) + " (counted as harder to answer)")
+        # Mechanics worth remembering about what is on the board or about to come.
+        shown = 0
+        for key in [u.card for u in state.opp_units()] + list(o.predicted_hand):
+            if shown >= 2 or not self.db.find(key):
+                continue
+            lines = self.k.card_mechanics(key, o.flags.get(key))
+            if lines:
+                notes.append(f"{self.db.get(key).name}: {lines[0][:160]}")
+                shown += 1
         if opp_arch:
             notes.append(f"Opp archetype: {opp_arch.id}. {opp_arch.how_to_beat}".strip())
             mu = self.k.matchup(my_arch.id if my_arch else None, opp_arch.id)

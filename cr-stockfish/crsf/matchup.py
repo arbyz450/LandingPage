@@ -42,6 +42,7 @@ class MatchupPlan:
     plan_text: str
     coverage: float                       # mean best-answer quality vs their deck
     exposure: float                       # mean of their best answers vs my deck
+    mechanics: List[str] = field(default_factory=list)   # champion abilities / special mechanics in their deck
 
     def summary_lines(self, db: CardDB, n: int = 3) -> List[str]:
         lines = []
@@ -70,10 +71,13 @@ class MatchupPlan:
             L += ["", "Reserve rules:"] + [f"  - {r}" for r in self.reserve_rules]
         if self.plan_text:
             L += ["", "Plan: " + self.plan_text]
+        if self.mechanics:
+            L += ["", "Their mechanics to respect:"] + [f"  - {m}" for m in self.mechanics]
         return "\n".join(L)
 
 
-def plan_matchup(my_deck: List[str], opp_deck: List[str], db: Optional[CardDB] = None, k: Optional[Knowledge] = None) -> MatchupPlan:
+def plan_matchup(my_deck: List[str], opp_deck: List[str], db: Optional[CardDB] = None, k: Optional[Knowledge] = None,
+                 flags: Optional[Dict[str, str]] = None) -> MatchupPlan:
     db = db or default_db()
     k = k if k is not None else default_knowledge()
     eng = Engine(db, knowledge=k)
@@ -127,5 +131,9 @@ def plan_matchup(my_deck: List[str], opp_deck: List[str], db: Optional[CardDB] =
         reserve.append(f"No clean answer to {tc.name}: {mitig}; never let it connect with a tank in front")
     coverage = sum(a.best[1] for a in answers) / max(1, len(answers))
     exposure = sum(a.best[1] for a in their) / max(1, len(their))
+    mech = []
+    for c in opp:
+        for line in k.card_mechanics(c, (flags or {}).get(c))[:1]:
+            mech.append(f"{db.get(c).name}: {line[:140]}")
     return MatchupPlan(my, opp, my_arch.id if my_arch else None, opp_arch.id if opp_arch else None, answers, their,
-                       danger, win_paths, spell_targets, reserve[:6], plan_text, round(coverage, 3), round(exposure, 3))
+                       danger, win_paths, spell_targets, reserve[:6], plan_text, round(coverage, 3), round(exposure, 3), mech[:6])

@@ -29,7 +29,7 @@ from .cards import CardDB, default_db
 from .engine import Analysis, Engine
 from .state import GameState, Tower, Unit, default_towers, KING_TOWER_HP, PRINCESS_TOWER_HP
 from .tracker import CycleTracker, OpponentTracker, TradeLedger
-from .vision.capture import crop_game_frame, find_game_frame
+from .vision.capture import crop_game_frame, find_game_frame, find_game_frame_by_anchors
 from .vision.elixir import read_elixir
 from .vision.hand import CardMatcher, read_hand
 from .vision.layout import TOWER_REGIONS, Layout
@@ -161,13 +161,23 @@ class Advisor:
     # ----- vision ---------------------------------------------------------
     def read(self, raw: np.ndarray) -> Tuple[np.ndarray, VisionReport]:
         if self.auto_frame:
-            if self.frame_bbox is None:
-                self.frame_bbox = find_game_frame(raw)
+            now = time.time()
+            stale = now - getattr(self, "_frame_detect_t", 0.0) > 30.0
+            if self.frame_bbox is None or not getattr(self, "_frame_ok", False) or stale:
+                # Re-detect until the HUD is actually readable (loading screens and menus
+                # give a wrong frame), then re-check every 30 s in case the window moved.
+                anchored = find_game_frame_by_anchors(raw)
+                if anchored is not None:
+                    self.frame_bbox = anchored
+                elif self.frame_bbox is None:
+                    self.frame_bbox = find_game_frame(raw)
+                self._frame_detect_t = now
             frame = crop_game_frame(raw, self.frame_bbox)
         else:
             frame = raw
         rep = VisionReport(frame_bbox=self.frame_bbox)
         rep.elixir = read_elixir(frame, self.layout)
+        self._frame_ok = rep.elixir is not None
         if len(self.matcher):
             rep.hand, rep.next_card = read_hand(frame, self.layout, self.matcher)
         if self.use_ocr:

@@ -133,3 +133,19 @@ def test_video_source_and_learn_clock(tmp_path):
     assert abs((180 - st.time_left) - src2.pos_seconds) < 0.6     # clock follows the video
     assert adv.me.history and adv.me.history[-1][1] == "hog_rider"  # the deploy was logged with video time
     assert 2.5 <= adv.me.history[-1][0] <= 3.6
+
+
+def test_frame_redetected_after_loading_screen():
+    """A loading screen gives a wrong frame; once the HUD appears the frame must be re-detected."""
+    adv = Advisor(layout=layout, matcher=_matcher(), use_ocr=False)
+    loading = np.full((1032, 624, 3), (30, 30, 30), dtype=np.uint8)          # dark splash, no arena, no elixir bar
+    loading[200:400, 100:500] = (200, 180, 160)
+    st, _ = adv.step(loading)
+    first = adv.frame_bbox
+    assert first is not None and st.my_elixir == 5.0                            # default, nothing readable
+    live = make_frame(layout, elixir=6.0, hand=["hog_rider", "zap", "giant", "log"], desktop=120)
+    st, _ = adv.step(live)
+    assert adv.frame_bbox != first
+    assert abs(adv.frame_bbox[0] - 240) <= 6 and abs(adv.frame_bbox[2] - 540) <= 8
+    assert abs(st.my_elixir - 6.0) <= 0.3
+    assert st.hand == ["hog_rider", "zap", "giant", "log"]

@@ -493,16 +493,25 @@ def cmd_go(args) -> int:
         try:
             raw = src.grab()
             src.close()
+        except Exception as exc:
+            print(f"window capture failed ({exc}); falling back to monitor 1", flush=True)
+            source = "monitor"
+            raw = None
+        if raw is not None:
             bbox = find_game_frame(raw)
             frame = crop_game_frame(raw, bbox)
             el = read_elixir(frame, Layout.load())
             print(f"window '{args.window}': {raw.shape[1]}x{raw.shape[0]}, game frame {bbox}, elixir read {el}", flush=True)
             if el is None:
-                print("  (no elixir bar seen yet: open a battle or Training Camp and the readings will start)", flush=True)
-            cv2.imwrite(str(Path(args.out)), frame)
-        except Exception as exc:
-            print(f"window capture failed ({exc}); falling back to monitor 1", flush=True)
-            source = "monitor"
+                print("  (no elixir bar seen yet: the frame is re-detected automatically once a battle or Training Camp is on screen)", flush=True)
+            out = Path(args.out)
+            if out.suffix.lower() not in (".png", ".jpg", ".jpeg", ".bmp"):
+                out = out.with_suffix(".png")
+            try:
+                cv2.imwrite(str(out), frame)
+                print(f"calibration frame saved to {out}", flush=True)
+            except Exception as exc:   # saving is a convenience, never a reason to change the source
+                print(f"could not save {out}: {exc}", flush=True)
     else:
         print("falling back to capturing monitor 1 (works if the game is on your main screen)", flush=True)
         source = "monitor"

@@ -6,16 +6,17 @@ setlocal
 cd /d "%~dp0"
 
 set PY=
-for %%V in (3.12 3.11 3.10) do (
+REM Any Python 3.10+ works (numpy/OpenCV wheels exist up to 3.15). Prefer the newest that actually runs.
+for %%V in (3.13 3.12 3.14 3.15 3.11 3.10) do (
     if not defined PY (
         py -%%V -c "import sys" >nul 2>&1 && set PY=py -%%V
     )
 )
 if not defined PY (
-    python -c "import sys; raise SystemExit(0 if (3,10) <= sys.version_info[:2] <= (3,12) else 1)" >nul 2>&1 && set PY=python
+    python -c "import sys; raise SystemExit(0 if sys.version_info[:2] >= (3,10) else 1)" >nul 2>&1 && set PY=python
 )
 if not defined PY (
-    echo Python 3.10-3.12 was not found. Installing Python 3.12 with winget...
+    echo Python 3.10+ was not found. Installing Python 3.12 with winget...
     winget install -e --id Python.Python.3.12 --accept-package-agreements --accept-source-agreements
     set PY=py -3.12
 )

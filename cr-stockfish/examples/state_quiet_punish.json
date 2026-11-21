@@ -1,0 +1,14 @@
+{
+  "time_left": 95,
+  "my_elixir": 10,
+  "hand": ["hog_rider", "ice_spirit", "fireball", "skeleton_army"],
+  "my_deck": ["skeleton_army", "log", "inferno_tower", "hog_rider", "musketeer", "ice_spirit", "fireball", "cannon"],
+  "opp": {
+    "elixir": 3,
+    "known_deck": ["giant", "witch", "zap", "skeleton_army", "musketeer", "mini_pekka", "fireball", "minions"],
+    "predicted_hand": ["giant", "witch", "fireball", "musketeer"],
+    "out_of_hand": ["zap", "skeleton_army", "minions", "mini_pekka"],
+    "unknown_slots": 0
+  },
+  "towers": {"opp_left": 1400}
+}

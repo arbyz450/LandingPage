@@ -1,0 +1,7 @@
+numpy>=1.24
+opencv-python>=4.8
+mss>=9.0
+# optional:
+# pytesseract>=0.3.10     # tower HP + clock OCR (also install the Tesseract binary)
+# pygetwindow>=0.0.9      # --window "BlueStacks" capture by title (Windows/macOS)
+# ultralytics>=8.0        # --yolo unit detection

@@ -54,7 +54,9 @@ tasks.named("preBuild") { dependsOn(syncCrsf) }
 
 chaquopy {
     defaultConfig {
-        version = "3.11"
+        // 3.8: the only Python for which Chaquopy's index carries an opencv-python wheel
+        // (3.11 reports "from versions: none"). The engine code stays 3.8-compatible.
+        version = "3.8"
         pip {
             // Only prebuilt Android wheels from Chaquopy's index: source tarballs cannot
             // be compiled for Android in the build. Unpinned, pip picks the newest

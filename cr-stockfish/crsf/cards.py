@@ -103,6 +103,13 @@ class Card:
         return self.targets in ("ground", "both", "buildings")
 
 
+UNKNOWN_CARD = Card(
+    key="unknown", name="Unknown unit", cost=4, rarity="common", kind="troop", transport="ground",
+    targets="both", hp=1200, damage=150, hit_speed=1.1, range=1.5, speed="medium", count=1, splash=False,
+    roles=("support",), notes="placeholder for a detected but unidentified unit",
+)
+
+
 def _normalise(name: str) -> str:
     name = name.lower().strip()
     name = name.replace("p.e.k.k.a", "pekka").replace("x-bow", "x_bow")
@@ -127,7 +134,7 @@ class CardDB:
         path = Path(path) if path else DATA_DIR / "cards.json"
         with open(path, "r", encoding="utf-8") as fh:
             raw = json.load(fh)
-        cards = []
+        cards = [UNKNOWN_CARD]
         for entry in raw["cards"]:
             entry = dict(entry)
             entry["roles"] = tuple(entry.get("roles", ()))

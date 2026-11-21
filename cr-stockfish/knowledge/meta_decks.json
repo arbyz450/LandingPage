@@ -1,0 +1,845 @@
+{
+  "as_of": "2026-11",
+  "season": {
+    "number": 89,
+    "name": "King vs King",
+    "start": "2026-11-02",
+    "end": "2026-12-07",
+    "new_evolutions": [
+      "giant",
+      "mirror"
+    ],
+    "balance_changes_at_start": false,
+    "notes": "No balance pass at season start (Supercell moved November balance to Oct 19; may adjust after CRL World Finals Nov 6-8 Shanghai). Giant and Mirror boosted to level 16 all season; King of Cards event (Nov 9-Dec 7) boosts rotating win conditions weekly. Only Nov change found: Goblin Hut spawn speed nerf (Nov 3)."
+  },
+  "deck_slot_system": "Modern decks have 8 cards plus: evolution slots (two evolutions typical), one Hero slot (a Hero variant of an existing card with a single-use ability since Aug 4 2026) and a Wild slot (second hero, a Champion, or an evolution). 'heroes' lists which base cards are run as their Hero form.",
+  "decks": [
+    {
+      "name": "Hog 2.6 Cycle (Evo Skeletons / Evo Cannon / Hero Musketeer)",
+      "archetype": "cycle",
+      "cards": [
+        "hog_rider",
+        "musketeer",
+        "cannon",
+        "ice_golem",
+        "ice_spirit",
+        "skeletons",
+        "fireball",
+        "log"
+      ],
+      "evolutions": [
+        "skeletons",
+        "cannon"
+      ],
+      "heroes": [
+        "musketeer"
+      ],
+      "tower_troop": null,
+      "win_rate": 58.8,
+      "usage": 11.53,
+      "source": "https://timesaver.gg/blog/2-6-hog-cycle-deck-clash-royale",
+      "notes": "Most-played deck in 4 of 6 trophy bands (TrophyCoach, Nov 2026). 58.8% over 13.7k ladder battles on RoyaleTracker (Oct 2026); 50.3% at 9K+ ranked. Usage = 9K+ share."
+    },
+    {
+      "name": "Classic Log Bait",
+      "archetype": "bait",
+      "cards": [
+        "goblin_barrel",
+        "ice_spirit",
+        "log",
+        "princess",
+        "goblin_gang",
+        "knight",
+        "inferno_tower",
+        "rocket"
+      ],
+      "evolutions": [
+        "goblin_barrel",
+        "princess"
+      ],
+      "heroes": [
+        "knight"
+      ],
+      "tower_troop": null,
+      "win_rate": 51.6,
+      "usage": 6.7,
+      "source": "https://www.elixirdeck.org/en/decks/log-bait.html",
+      "notes": "Best win rate among the ten most-played 9K+ decks (TrophyCoach, Oct 28-Nov 4 2026). Deckshop variant runs Evo Goblin Barrel + Hero Knight."
+    },
+    {
+      "name": "Battle Ram Bridge Spam (Giant Skeleton)",
+      "archetype": "bridge_spam",
+      "cards": [
+        "battle_ram",
+        "royal_ghost",
+        "electro_wizard",
+        "giant_skeleton",
+        "bandit",
+        "furnace",
+        "arrows",
+        "heal_spirit"
+      ],
+      "evolutions": [
+        "battle_ram",
+        "royal_ghost"
+      ],
+      "heroes": [
+        "electro_wizard"
+      ],
+      "tower_troop": null,
+      "win_rate": 59.4,
+      "usage": null,
+      "source": "https://boostingmarket.com/blogs/clash-royale-best-decks/",
+      "notes": "Boosting Market: 59.4% over 13.6K battles, most-played in top league. RoyaleDeck (Nov 15): Battle Ram Bridge Spam 53.8% over 31,493 ranked battles. Top Evo Mirror variant swaps a slot for Evo Mirror (55.6%, 615 battles)."
+    },
+    {
+      "name": "PEKKA Bridge Spam (Golden Knight)",
+      "archetype": "pekka_bridge_spam",
+      "cards": [
+        "battle_ram",
+        "royal_ghost",
+        "golden_knight",
+        "pekka",
+        "electro_wizard",
+        "bandit",
+        "furnace",
+        "arrows"
+      ],
+      "evolutions": [
+        "battle_ram",
+        "royal_ghost"
+      ],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/pekka-bridge-spam-deck-clash-royale",
+      "notes": "RoyaleTracker 2026 guide: top-1000 PEKKA BS variants above 60% WR (small samples). Golden Knight dash reworked Oct 2026 (5.5 -> 5.0 tiles)."
+    },
+    {
+      "name": "Golem Night Witch",
+      "archetype": "beatdown",
+      "cards": [
+        "golem",
+        "night_witch",
+        "phoenix",
+        "bomber",
+        "mini_pekka",
+        "elite_barbarians",
+        "arrows",
+        "zap"
+      ],
+      "evolutions": [
+        "elite_barbarians",
+        "zap"
+      ],
+      "heroes": [
+        "mini_pekka"
+      ],
+      "tower_troop": null,
+      "win_rate": 50.8,
+      "usage": 2.7,
+      "source": "https://timesaver.gg/blog/golem-deck-clash-royale",
+      "notes": "RoyaleDeck ranked #2 meta deck (50.8%, 22.5k battles). Golem S-tier at 51.9% on Timesaver tier list (Nov 14)."
+    },
+    {
+      "name": "Golem Elixir Collector",
+      "archetype": "beatdown",
+      "cards": [
+        "golem",
+        "electro_dragon",
+        "skeleton_dragons",
+        "elite_barbarians",
+        "berserker",
+        "elixir_collector",
+        "tornado",
+        "barbarian_barrel"
+      ],
+      "evolutions": [
+        "electro_dragon",
+        "elite_barbarians"
+      ],
+      "heroes": [
+        "berserker"
+      ],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/golem-deck-clash-royale",
+      "notes": "Elixir Collector was reworked (nerf) in Oct 2026 Season 88 balance."
+    },
+    {
+      "name": "Golem Hero Electro Wizard",
+      "archetype": "beatdown",
+      "cards": [
+        "golem",
+        "electro_wizard",
+        "elite_barbarians",
+        "cannon_cart",
+        "berserker",
+        "furnace",
+        "zap",
+        "barbarian_barrel"
+      ],
+      "evolutions": [
+        "elite_barbarians",
+        "zap"
+      ],
+      "heroes": [
+        "electro_wizard"
+      ],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/golem-deck-clash-royale"
+    },
+    {
+      "name": "Graveyard Control (Evo Furnace / Hero Ice Wizard)",
+      "archetype": "graveyard",
+      "cards": [
+        "graveyard",
+        "furnace",
+        "ice_wizard",
+        "knight",
+        "poison",
+        "goblin_hut",
+        "skeletons",
+        "barbarian_barrel"
+      ],
+      "evolutions": [
+        "furnace",
+        "knight"
+      ],
+      "heroes": [
+        "ice_wizard"
+      ],
+      "tower_troop": null,
+      "win_rate": 53.6,
+      "usage": 2.2,
+      "source": "https://royaledeck.app/meta",
+      "notes": "RoyaleDeck #3 ranked deck (53.6%, 17.8k battles). Tracker Royale: 52.7% over 27,105 battles. RoyaleAPI lists as 'GY GobHut Evo Furnace', 3.3 avg elixir."
+    },
+    {
+      "name": "Splashyard (Hero Ice Wizard)",
+      "archetype": "graveyard",
+      "cards": [
+        "graveyard",
+        "valkyrie",
+        "baby_dragon",
+        "ice_wizard",
+        "tombstone",
+        "poison",
+        "tornado",
+        "barbarian_barrel"
+      ],
+      "evolutions": [
+        "valkyrie",
+        "baby_dragon"
+      ],
+      "heroes": [
+        "ice_wizard"
+      ],
+      "tower_troop": null,
+      "win_rate": 58.9,
+      "usage": null,
+      "source": "https://deckmelon.com/best-decks/with/graveyard",
+      "notes": "Deckmelon: 58.9% over 2.4k battles."
+    },
+    {
+      "name": "Evo Giant Graveyard (Evo Witch / Hero Bowler)",
+      "archetype": "graveyard",
+      "cards": [
+        "giant",
+        "graveyard",
+        "witch",
+        "bowler",
+        "giant_snowball",
+        "guards",
+        "zappies",
+        "arrows"
+      ],
+      "evolutions": [
+        "giant",
+        "witch"
+      ],
+      "heroes": [
+        "bowler"
+      ],
+      "tower_troop": null,
+      "win_rate": 57.6,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/clash-royale-evo-giant",
+      "notes": "57.6% over 879 battles (Timesaver, Season 89). Clashdeckster lists the same 8 cards at 55.3% over 480 players."
+    },
+    {
+      "name": "Evo Giant Sparky",
+      "archetype": "beatdown",
+      "cards": [
+        "giant",
+        "wizard",
+        "mini_pekka",
+        "sparky",
+        "zap",
+        "tornado",
+        "heal_spirit",
+        "vines"
+      ],
+      "evolutions": [
+        "giant",
+        "wizard"
+      ],
+      "heroes": [
+        "mini_pekka"
+      ],
+      "tower_troop": null,
+      "win_rate": 60.0,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/clash-royale-evo-giant",
+      "notes": "Most-played Evo Giant list in Season 89 (~60% over ~1,300 battles). Evo Giant enrages at half HP: faster attack + rage zone behind him."
+    },
+    {
+      "name": "Evo Giant Double Prince",
+      "archetype": "beatdown",
+      "cards": [
+        "giant",
+        "zap",
+        "mega_minion",
+        "bomber",
+        "prince",
+        "dark_prince",
+        "rage",
+        "lightning"
+      ],
+      "evolutions": [
+        "giant",
+        "zap"
+      ],
+      "heroes": [
+        "mega_minion"
+      ],
+      "tower_troop": null,
+      "win_rate": 68.7,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/clash-royale-evo-giant",
+      "notes": "68.7% but only 150 battles; treat as small sample."
+    },
+    {
+      "name": "LavaLoon (Hero Balloon / Hero Mega Minion)",
+      "archetype": "lavaloon",
+      "cards": [
+        "lava_hound",
+        "balloon",
+        "mega_minion",
+        "zap",
+        "barbarians",
+        "skeleton_dragons",
+        "tombstone",
+        "fireball"
+      ],
+      "evolutions": [
+        "zap"
+      ],
+      "heroes": [
+        "balloon",
+        "mega_minion"
+      ],
+      "tower_troop": null,
+      "win_rate": 54.5,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/lava-hound-deck-clash-royale",
+      "notes": "Tracker Royale: 54.5% over 1,807 battles. Lava Hound is the best win condition by WR in Nov 2026 (53.1%, Timesaver tier list) after the Oct 6 damage buff (53 -> 71)."
+    },
+    {
+      "name": "Lava Hound Hero Mega Minion (Flying Machine)",
+      "archetype": "lavaloon",
+      "cards": [
+        "lava_hound",
+        "mega_minion",
+        "baby_dragon",
+        "zap",
+        "barbarians",
+        "flying_machine",
+        "tombstone",
+        "fireball"
+      ],
+      "evolutions": [
+        "baby_dragon",
+        "zap"
+      ],
+      "heroes": [
+        "mega_minion"
+      ],
+      "tower_troop": null,
+      "win_rate": 59.6,
+      "usage": null,
+      "source": "https://boostingmarket.com/blogs/clash-royale-best-decks/",
+      "notes": "Boosting Market Season 89: 4.0 avg elixir, 59.6% over 3.4K battles."
+    },
+    {
+      "name": "Evo Royal Hogs Hut Cycle (Hero Berserker)",
+      "archetype": "cycle",
+      "cards": [
+        "royal_hogs",
+        "royal_ghost",
+        "berserker",
+        "goblin_hut",
+        "furnace",
+        "electro_spirit",
+        "fireball",
+        "barbarian_barrel"
+      ],
+      "evolutions": [
+        "royal_hogs",
+        "royal_ghost"
+      ],
+      "heroes": [
+        "berserker"
+      ],
+      "tower_troop": null,
+      "win_rate": 64.9,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/royal-hogs-deck-clash-royale",
+      "notes": "Timesaver (Nov 16): 64.9% over 2,985 battles on RoyaleTracker. RoyaleDeck homepage names Royal Hogs Cycle the best ranked deck (50.5%, 22,685 battles). Goblin Hut spawn speed nerfed Nov 3 (1.9 -> 2.1s)."
+    },
+    {
+      "name": "Royal Hogs Archer Queen Earthquake",
+      "archetype": "cycle",
+      "cards": [
+        "royal_hogs",
+        "cannon",
+        "archer_queen",
+        "skeletons",
+        "electro_spirit",
+        "log",
+        "earthquake",
+        "royal_delivery"
+      ],
+      "evolutions": [
+        "royal_hogs",
+        "cannon"
+      ],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": 56.9,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/royal-hogs-deck-clash-royale",
+      "notes": "2.9 avg elixir, 56.9% over 2,008 battles."
+    },
+    {
+      "name": "Royal Hogs Three Musketeers",
+      "archetype": "three_musketeers",
+      "cards": [
+        "three_musketeers",
+        "royal_hogs",
+        "royal_ghost",
+        "barbarian_barrel",
+        "ice_golem",
+        "hunter",
+        "fireball",
+        "heal_spirit"
+      ],
+      "evolutions": [
+        "royal_hogs",
+        "royal_ghost"
+      ],
+      "heroes": [
+        "barbarian_barrel"
+      ],
+      "tower_troop": null,
+      "win_rate": 63.3,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/three-musketeers-deck-clash-royale",
+      "notes": "63.3% over 166 battles (small). Deckshop variant with Skeletons instead of Heal Spirit: 58.3% over 6K battles. 3M buffed Oct 2026."
+    },
+    {
+      "name": "X-Bow 3.0 (Evo Tesla / Evo Archers / Hero Knight)",
+      "archetype": "siege",
+      "cards": [
+        "x_bow",
+        "tesla",
+        "archers",
+        "knight",
+        "skeletons",
+        "ice_spirit",
+        "fireball",
+        "log"
+      ],
+      "evolutions": [
+        "tesla",
+        "archers"
+      ],
+      "heroes": [
+        "knight"
+      ],
+      "tower_troop": null,
+      "win_rate": 59.9,
+      "usage": 1.9,
+      "source": "https://timesaver.gg/blog/xbow-deck-clash-royale",
+      "notes": "59.9% over 5.5K battles (RoyaleTracker, Oct 31). X-Bow card overall 49.5% WR / 1.9% usage in ranked. X-Bow damage buffed 58 -> 61 (Oct 2026)."
+    },
+    {
+      "name": "Evo Mortar Bait (Rascals / Cannon Cart)",
+      "archetype": "siege",
+      "cards": [
+        "mortar",
+        "skeleton_barrel",
+        "ice_wizard",
+        "goblin_gang",
+        "rascals",
+        "cannon_cart",
+        "fireball",
+        "barbarian_barrel"
+      ],
+      "evolutions": [
+        "skeleton_barrel",
+        "mortar"
+      ],
+      "heroes": [
+        "ice_wizard"
+      ],
+      "tower_troop": null,
+      "win_rate": 60.1,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/best-evo-mortar-deck-clash-royale",
+      "notes": "Deckmelon 30-day: 60.1% over 3.1k battles. Cannon Cart (53.9%) and Rascals (53.6%) are the top two cards by WR in Nov 2026 (Timesaver tier list)."
+    },
+    {
+      "name": "Evo Royal Giant Hunter Monk",
+      "archetype": "royal_giant",
+      "cards": [
+        "royal_giant",
+        "hunter",
+        "monk",
+        "fisherman",
+        "skeletons",
+        "electro_spirit",
+        "fireball",
+        "barbarian_barrel"
+      ],
+      "evolutions": [
+        "royal_giant",
+        "hunter"
+      ],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": 62.4,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/royal-giant-deck-clash-royale",
+      "notes": "62.4% over 1.0K battles as of Nov 1 (Timesaver). RoyaleDeck (Nov 15) has Royal Giant Cycle at only 49.6% over 8.5k battles; RG data thin this month."
+    },
+    {
+      "name": "Royal Giant 3.0 Ghost Cycle",
+      "archetype": "royal_giant",
+      "cards": [
+        "royal_giant",
+        "hunter",
+        "royal_ghost",
+        "fisherman",
+        "skeletons",
+        "electro_spirit",
+        "fireball",
+        "log"
+      ],
+      "evolutions": [
+        "royal_giant",
+        "hunter"
+      ],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": 54.8,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/royal-giant-deck-clash-royale",
+      "notes": "54.8% over 301 battles (Timesaver King of Cards post)."
+    },
+    {
+      "name": "Electro Giant Bowler Lightning",
+      "archetype": "beatdown",
+      "cards": [
+        "electro_giant",
+        "bowler",
+        "baby_dragon",
+        "goblin_hut",
+        "lightning",
+        "tornado",
+        "barbarian_barrel",
+        "knight"
+      ],
+      "evolutions": [],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": 55.6,
+      "usage": null,
+      "source": "https://clashroyaledeck.com/en/decks/archetype/electro-giant",
+      "notes": "Electro Giant is the top archetype in the 7,000-8,000 trophy band (TrophyCoach). Most-played EG 4.3 only 48.6% over 1,069 games (RoyaleTrack, Oct 2026)."
+    },
+    {
+      "name": "Mega Knight Witch Valkyrie (mid-ladder)",
+      "archetype": "mega_knight",
+      "cards": [
+        "mega_knight",
+        "witch",
+        "valkyrie",
+        "mini_pekka",
+        "baby_dragon",
+        "skeleton_army",
+        "skeleton_barrel",
+        "arrows"
+      ],
+      "evolutions": [],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": 53.4,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/mega-knight-deck-clash-royale",
+      "notes": "53.4% over 822 battles (RoyaleTracker, Oct 31). Mega Knight is D-tier in ranked (47.2%; Evo MK 48.3%) - a ladder/mid-ladder deck, not a top-ladder one."
+    },
+    {
+      "name": "Miner Evo Wall Breakers Bomb Tower",
+      "archetype": "cycle",
+      "cards": [
+        "miner",
+        "wall_breakers",
+        "valkyrie",
+        "spear_goblins",
+        "skeletons",
+        "bomb_tower",
+        "rocket",
+        "tornado"
+      ],
+      "evolutions": [
+        "wall_breakers",
+        "valkyrie"
+      ],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://www.deckshop.pro/deck/detail/evo-wall-breakers,miner,evo-valkyrie,spear-goblins,skeletons,bomb-tower,rocket,tornado",
+      "notes": "3.1 avg elixir. Wall Breakers +7% damage (Oct 6 2026). Not tracked as its own archetype by TrophyCoach; no reliable Nov WR."
+    },
+    {
+      "name": "Goblin Drill Cycle 2.5 (Hero Knight / Evo Cannon)",
+      "archetype": "goblin_drill",
+      "cards": [
+        "goblin_drill",
+        "giant_snowball",
+        "knight",
+        "cannon",
+        "poison",
+        "bomber",
+        "fire_spirit",
+        "skeletons"
+      ],
+      "evolutions": [
+        "cannon"
+      ],
+      "heroes": [
+        "knight"
+      ],
+      "tower_troop": null,
+      "win_rate": 50.0,
+      "usage": null,
+      "source": "https://royaledeck.app/decks/goblin-drill-cycle-2sjjhe",
+      "notes": "Goblin Drill buffed Oct 2026. Clash Deckster (Oct 2026): most-played drill deck 51.9%, best 55.1%."
+    },
+    {
+      "name": "Evo Goblin Drill Evo Mirror (Hero Bowler)",
+      "archetype": "goblin_drill",
+      "cards": [
+        "goblin_drill",
+        "mirror",
+        "bowler",
+        "knight",
+        "goblin_hut",
+        "furnace",
+        "barbarian_barrel",
+        "giant_snowball"
+      ],
+      "evolutions": [
+        "goblin_drill",
+        "mirror"
+      ],
+      "heroes": [
+        "bowler"
+      ],
+      "tower_troop": null,
+      "win_rate": 68.9,
+      "usage": null,
+      "source": "https://timesaver.gg/blog/clash-royale-evo-mirror",
+      "notes": "68.9% over only 132 battles. Evo Mirror overall is the worst-rated evolution (43.5% WR, 0.73% use over 105k ranked battles) but works in double-Evo Drill and Goblin Barrel bait."
+    },
+    {
+      "name": "Minion Giant Lightning 3.1",
+      "archetype": "control",
+      "cards": [
+        "minion_giant",
+        "archers",
+        "ice_wizard",
+        "cannon",
+        "skeletons",
+        "lightning",
+        "barbarian_barrel",
+        "knight"
+      ],
+      "evolutions": [],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": 64.9,
+      "usage": null,
+      "source": "https://royaletrack.com/en/decks/minion-giant",
+      "notes": "64.9% over 97 battles (small; RoyaleTrack, Nov 13). Lightning 3.0 variant with Bats: 52.2% over 152,981 battles (RoyaleBuddy, 7d). Minion Giant: 4-elixir Rare flying win condition (Sept 2026), damage nerfed 189 -> 168 on Sept 16, hit speed nerfed Oct 19."
+    },
+    {
+      "name": "Minion Giant Rune Giant Little Prince",
+      "archetype": "control",
+      "cards": [
+        "minion_giant",
+        "rune_giant",
+        "little_prince",
+        "cannon",
+        "bats",
+        "skeletons",
+        "poison",
+        "barbarian_barrel"
+      ],
+      "evolutions": [],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://esportsguides.co.uk/2026/10/22/clash-royale-minion-giant-deck/",
+      "notes": "Lighter control option; Rune Giant enchantment linger nerfed Oct 19 2026."
+    },
+    {
+      "name": "Hog Ronin Cycle 2.9",
+      "archetype": "cycle",
+      "cards": [
+        "hog_rider",
+        "ronin",
+        "firecracker",
+        "earthquake",
+        "barbarian_barrel",
+        "tesla",
+        "ice_spirit",
+        "skeletons"
+      ],
+      "evolutions": [],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://trophycoach.com/guides/ronin-guide",
+      "notes": "TrophyCoach list from Season 85 (July 2026); Ronin buffed Sept 2026 (hit speed 1.4 -> 1.3s). Ronin: 5-elixir Legendary, Parry blocks one ground melee hit every 3.5s and reflects it."
+    },
+    {
+      "name": "Log Bait Ronin 2.5",
+      "archetype": "bait",
+      "cards": [
+        "goblin_barrel",
+        "ronin",
+        "magic_archer",
+        "wall_breakers",
+        "cannon",
+        "fire_spirit",
+        "ice_spirit",
+        "skeletons"
+      ],
+      "evolutions": [
+        "wall_breakers"
+      ],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://trophycoach.com/guides/ronin-guide",
+      "notes": "TrophyCoach called it the strongest all-round Ronin list in Season 85; dated relative to Nov 2026."
+    },
+    {
+      "name": "Hog Earthquake Firecracker (Evo Tesla / Hero Knight)",
+      "archetype": "cycle",
+      "cards": [
+        "hog_rider",
+        "firecracker",
+        "knight",
+        "tesla",
+        "log",
+        "electro_spirit",
+        "skeletons",
+        "earthquake"
+      ],
+      "evolutions": [
+        "firecracker",
+        "tesla"
+      ],
+      "heroes": [
+        "knight"
+      ],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://gamerant.com/clash-royale-best-decks-king-of-cards-event-crown-token/",
+      "notes": "Listed for the King of Cards event (Nov 9 - Dec 7 2026). Knight + Skeletons rated the top 2-evolution pairing for Season 89 by TrophyCoach."
+    },
+    {
+      "name": "LumberLoon Freeze (Bowler)",
+      "archetype": "lavaloon",
+      "cards": [
+        "balloon",
+        "lumberjack",
+        "bowler",
+        "inferno_dragon",
+        "baby_dragon",
+        "freeze",
+        "tornado",
+        "barbarian_barrel"
+      ],
+      "evolutions": [],
+      "heroes": [],
+      "tower_troop": null,
+      "win_rate": null,
+      "usage": null,
+      "source": "https://royaletracker.gg/guides/lumberloon-deck-clash-royale",
+      "notes": "Core: Lumberjack dies on defense, dropping Rage; Balloon flies in under it. Hero Balloon was nerfed Sept 2026, Freeze -0.5s duration Sept 2026. Deckmelon Hero-Balloon/Evo-LJ variants post 61-66% over 2.6-3.4k battles."
+    }
+  ],
+  "unknown_cards": [
+    "minion_giant",
+    "ronin",
+    "vines"
+  ],
+  "sources": [
+    "https://boostingmarket.com/blogs/clash-royale-best-decks/",
+    "https://clashroyaledeck.com/en/decks/archetype/electro-giant",
+    "https://deckmelon.com/best-decks/with/graveyard",
+    "https://esportsguides.co.uk/2026/10/22/clash-royale-minion-giant-deck/",
+    "https://gamerant.com/clash-royale-best-decks-king-of-cards-event-crown-token/",
+    "https://riggedroyale.com/blog/clash-royale-new-cards-november-2026",
+    "https://royaleapi.com/blog/season-88-balance-final-october-2026",
+    "https://royaledeck.app/decks/goblin-drill-cycle-2sjjhe",
+    "https://royaledeck.app/meta",
+    "https://royaletrack.com/en/decks/minion-giant",
+    "https://royaletracker.gg/guides/lumberloon-deck-clash-royale",
+    "https://royaletracker.gg/news/clash-royale-update-november-2026",
+    "https://timesaver.gg/blog/2-6-hog-cycle-deck-clash-royale",
+    "https://timesaver.gg/blog/best-evo-mortar-deck-clash-royale",
+    "https://timesaver.gg/blog/clash-royale-evo-giant",
+    "https://timesaver.gg/blog/clash-royale-evo-mirror",
+    "https://timesaver.gg/blog/clash-royale-season-89-king-vs-king",
+    "https://timesaver.gg/blog/clash-royale-tier-list",
+    "https://timesaver.gg/blog/golem-deck-clash-royale",
+    "https://timesaver.gg/blog/lava-hound-deck-clash-royale",
+    "https://timesaver.gg/blog/mega-knight-deck-clash-royale",
+    "https://timesaver.gg/blog/pekka-bridge-spam-deck-clash-royale",
+    "https://timesaver.gg/blog/royal-giant-deck-clash-royale",
+    "https://timesaver.gg/blog/royal-hogs-deck-clash-royale",
+    "https://timesaver.gg/blog/three-musketeers-deck-clash-royale",
+    "https://timesaver.gg/blog/xbow-deck-clash-royale",
+    "https://trophycoach.com/guides/clash-royale-meta-decks-2026",
+    "https://trophycoach.com/guides/clash-royale-meta-movers",
+    "https://trophycoach.com/guides/hero-cards-guide",
+    "https://trophycoach.com/guides/ronin-guide",
+    "https://trophycoach.com/guides/single-use-abilities-explained",
+    "https://www.deckshop.pro/deck/detail/evo-wall-breakers,miner,evo-valkyrie,spear-goblins,skeletons,bomb-tower,rocket,tornado",
+    "https://www.elixirdeck.org/en/decks/log-bait.html"
+  ]
+}

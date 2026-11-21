@@ -99,7 +99,7 @@ def test_keeps_counter_in_reserve():
     # Opponent has Balloon in hand with elixir; our only answer is Musketeer (4).
     st = GameState(my_elixir=6, hand=["musketeer", "giant", "knight", "zap"],
                    opp=OpponentInfo(elixir=7, known_deck=["balloon"], predicted_hand=["balloon"], unknown_slots=7))
-    an = eng.analyse(st, top_n=20)
+    an = eng.analyse(st, top_n=60)
     giant_moves = [r for r in an.recommendations if r.move.card == "giant"]
     assert giant_moves and any("Balloon" in x for x in giant_moves[0].reasons)
 
@@ -122,3 +122,26 @@ def test_state_roundtrip():
     assert back.my_elixir == 7.3 and back.hand == st.hand
     assert back.towers["my_left"].hp == 1000
     assert back.units[0].card == "giant" and back.units[0].hp_frac == 0.5
+
+
+def test_opening_does_not_hog_at_bridge():
+    st = GameState(time_left=178, my_elixir=5, hand=["hog_rider", "ice_spirit", "fireball", "musketeer"])
+    best = eng.analyse(st).best
+    assert best.move.card != "hog_rider"
+
+
+def test_punish_opposite_lane_when_golem_in_back():
+    st = GameState(my_elixir=8, hand=["hog_rider", "ice_spirit", "fireball", "musketeer"],
+                   opp=OpponentInfo(elixir=1), units=[Unit("golem", "opp", 3.5, 29)])
+    best = eng.analyse(st).best
+    assert best.move.card == "hog_rider" and best.move.lane == "right"
+    assert any("punish" in r for r in best.reasons)
+
+
+def test_overtime_behind_on_tiebreak_is_aggressive():
+    st = GameState(time_left=60, overtime=True, my_elixir=9, hand=["fireball", "ice_spirit", "knight", "skeletons"], opp=OpponentInfo(elixir=9))
+    st.towers["my_left"].hp = 800
+    st.towers["opp_left"].hp = 1500
+    an = eng.analyse(st, top_n=10)
+    fire = next(r for r in an.recommendations if r.move.card == "fireball" and r.move.zone == "tower:left")
+    assert fire.score > 0

@@ -35,6 +35,8 @@ from .vision.hand import CardMatcher, read_hand
 from .vision.layout import TOWER_REGIONS, Layout
 from .vision.ocr import has_tesseract, read_clock, read_digits
 from .vision.units import NullDetector, UnitDetector
+from .vision.healthbars import HealthbarDetector
+from .vision.unit_classifier import UnitClassifier
 
 REGULATION = 180
 OVERTIME = 120
@@ -115,12 +117,24 @@ class Advisor:
         engine: Optional[Engine] = None,
         auto_frame: bool = True,
         use_ocr: Optional[bool] = None,
+        unit_templates: Optional[Path] = None,
+        detect_units: bool = True,
     ):
         self.db = db or default_db()
         self.layout = layout or Layout.load()
         self.matcher = matcher or CardMatcher()
-        self.detector = detector or NullDetector()
+        self.classifier = UnitClassifier(unit_templates) if unit_templates else UnitClassifier()
+        if detector is not None:
+            self.detector = detector
+        elif detect_units:
+            self.detector = HealthbarDetector(self.classifier)
+        else:
+            self.detector = NullDetector()
         self.engine = engine or Engine(self.db)
+        self.tracked: List[dict] = []          # units seen last frame: {unit, crop, first_seen, labelled}
+        self.pending_my_deploy: List[Tuple[str, float]] = []   # (card, deadline) awaiting a new friendly bar
+        self.events: List[dict] = []           # deploy events (for `learn`)
+        self.last_play_t: float = 0.0
         self.auto_frame = auto_frame
         self.use_ocr = has_tesseract() if use_ocr is None else use_ocr
         self.opp = OpponentTracker(self.db)
@@ -176,6 +190,8 @@ class Advisor:
             new = hand[i] or None
             if old and new and old != new and old not in hand:
                 self.me.record_play(old, self.clock.elapsed())
+                self.pending_my_deploy.append((old, time.time() + 2.0))
+                self.last_play_t = time.time()
             self.last_hand[i] = new
         for k in hand:
             if k and k not in self.me.known_deck:
@@ -198,11 +214,79 @@ class Advisor:
         st.towers = towers
 
         units = list(self.detector.detect(frame, self.layout))
+        self._track_units(units, st)
         units += self.manual_units
         st.units = units
         self.last_state = st
         self.last_report = rep
         return st
+
+    # ----- unit tracking + auto-labelling --------------------------------
+    def _track_units(self, units: List[Unit], st: GameState) -> None:
+        """Match detected units to last frame's, flag new ones, auto-label deploys."""
+        now = time.time()
+        crops = getattr(self.detector, "last_crops", [None] * len(units))
+        prev = self.tracked
+        new_tracked: List[dict] = []
+        for u, crop in zip(units, crops):
+            match = None
+            for t in prev:
+                pu = t["unit"]
+                if pu.side == u.side and abs(pu.x - u.x) < 2.0 and abs(pu.y - u.y) < 3.0 and not t.get("taken"):
+                    match = t
+                    break
+            if match is not None:
+                match["taken"] = True
+                entry = {"unit": u, "crop": crop, "first_seen": match["first_seen"], "label": match.get("label")}
+                if entry["label"] and u.card == "unknown":
+                    u.card = entry["label"]             # keep an identity once assigned
+            else:
+                entry = {"unit": u, "crop": crop, "first_seen": now, "label": None if u.card == "unknown" else u.card}
+                self._on_new_unit(entry, st)
+            new_tracked.append(entry)
+        self.tracked = new_tracked
+        self.pending_my_deploy = [(c, d) for c, d in self.pending_my_deploy if d > now]
+
+    def _on_new_unit(self, entry: dict, st: GameState) -> None:
+        u: Unit = entry["unit"]
+        if u.side == "me" and self.pending_my_deploy:
+            card, _ = self.pending_my_deploy[0]
+            ok = u.y <= 17.0 or any(not st.towers[k].alive for k in ("opp_left", "opp_right"))
+            if ok:
+                self.pending_my_deploy.pop(0)
+                self._label(entry, card)
+                self.events.append(self._event(card, u, st))
+
+    def _label(self, entry: dict, card: str) -> None:
+        entry["label"] = card
+        entry["unit"].card = card
+        if entry.get("crop") is not None and getattr(entry["crop"], "size", 0):
+            self.classifier.add(card, entry["crop"], save=bool(self.classifier.root))
+
+    def label_recent_enemy(self, card: str, window: float = 3.0) -> int:
+        """Called when the user reports an opponent play: label enemy units that just appeared."""
+        now = time.time()
+        n = 0
+        for t in self.tracked:
+            u = t["unit"]
+            if u.side == "opp" and t.get("label") is None and now - t["first_seen"] <= window:
+                self._label(t, card)
+                if self.last_state is not None:
+                    self.events.append(self._event(card, u, self.last_state))
+                n += 1
+        return n
+
+    def _event(self, card: str, u: Unit, st: GameState) -> dict:
+        enemies = [e for e in st.units if e.side != u.side]
+        same_lane = [e for e in enemies if e.lane == u.lane]
+        return {
+            "t": round(self.clock.elapsed(), 1), "card": card, "side": u.side, "x": round(u.x, 1), "y": round(u.y, 1),
+            "lane": u.lane, "my_elixir": st.my_elixir if u.side == "me" else st.opp.elixir, "phase": st.phase,
+            "enemy_units": len(enemies), "enemy_same_lane": len(same_lane),
+            "enemy_on_my_side": sum(1 for e in enemies if (e.y < 16) == (u.side == "me")),
+            "nearest_enemy_y": round(min((abs(e.y - u.y) for e in same_lane), default=99.0), 1),
+            "enemy_cards": sorted({e.card for e in same_lane if e.card != "unknown"}),
+        }
 
     def step(self, raw: np.ndarray, top_n: int = 5) -> Tuple[GameState, Analysis]:
         frame, rep = self.read(raw)
@@ -221,7 +305,9 @@ class Advisor:
             if op in ("o", "opp"):
                 card = self._resolve(rest)
                 self.opp.record_play(card, self.clock.elapsed())
-                return f"opponent played {self.db.get(card).name} (elixir ~{self.opp.elixir.elixir:.1f})"
+                n = self.label_recent_enemy(card)
+                tag = f", labelled {n} unit crop(s)" if n else ""
+                return f"opponent played {self.db.get(card).name} (elixir ~{self.opp.elixir.elixir:.1f}){tag}"
             if op in ("u", "undo"):
                 c = self.opp.undo_last()
                 return f"undid {self.db.get(c).name}" if c else "nothing to undo"
@@ -244,6 +330,8 @@ class Advisor:
                 self.last_state = None
                 self.last_hand = [None] * 4
                 self.frame_bbox = None
+                self.tracked.clear()
+                self.pending_my_deploy.clear()
                 return "reset for a new match"
             if op in ("t", "time"):
                 mm, _, ss = rest.partition(":")
@@ -291,7 +379,10 @@ def render_text(db: CardDB, st: GameState, an: Analysis, rep: Optional[VisionRep
     lines.append(f"you {st.my_elixir:.1f}  |  opp ~{st.opp.elixir:.1f}  |  {int(st.time_left) // 60}:{int(st.time_left) % 60:02d} {'OT ' if st.overtime else ''}{st.phase}")
     lines.append(f"hand: {hand}" + (f"   next: {db.get(st.next_card).name}" if st.next_card and db.find(st.next_card) else ""))
     if an.threats:
-        lines.append("threats: " + ", ".join(f"{db.get(u.card).name} ({u.lane}, {w:.1f})" for u, w in an.threats[:4]))
+        lines.append("threats: " + ", ".join(f"{db.get(u.card).name} ({u.lane}, y{u.y:.0f}, {w:.1f})" for u, w in an.threats[:4]))
+    mine = st.my_units()
+    if mine:
+        lines.append("yours: " + ", ".join(f"{db.get(u.card).name} ({u.lane}, y{u.y:.0f})" for u in mine[:4]))
     lines.append("")
     for i, r in enumerate(an.recommendations, 1):
         lines.append(f"{i}. {r.text(db, st)}")

@@ -5,3 +5,5 @@ templates/cards/*.png
 templates/unlabeled/*.png
 calibration_preview*.png
 recordings/
+templates/units/*/
+data/events/*.jsonl

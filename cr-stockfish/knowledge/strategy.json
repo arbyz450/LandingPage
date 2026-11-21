@@ -1,0 +1,1177 @@
+{
+  "as_of": "2026-11",
+  "principles": [
+    {
+      "id": "elixir_counting",
+      "rule": "Track opponent elixir continuously: assume 1 elixir per 2.8s (1.4s in double, ~0.93s in triple), cap 10, subtract each card played. Start by logging every card costing 4+.",
+      "weight_hint": "Core state variable. Every evaluation should condition on estimated opponent elixir; treat the estimate as a range (+-1) that narrows after each opponent play.",
+      "sources": [
+        "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+        "https://trophycoach.com/guides/elixir-management-mastery-guide",
+        "https://support.clashroyale.com/hc/en-us/articles/49484904683803-1v1-Battle"
+      ]
+    },
+    {
+      "id": "elixir_leak_penalty",
+      "rule": "Sitting at 10 elixir wastes income. Treat each second at 10/10 as losing ~0.36 elixir (0.71 in double). Prefer a cheap cycle card in the back over leaking.",
+      "weight_hint": "Strong negative term in move evaluation when own elixir is 10 and no threat is on board.",
+      "sources": [
+        "https://www.148apps.com/news/clash-royale-guide-how-to-use-elixir-effectively",
+        "https://trophycoach.com/guides/elixir-management-mastery-guide"
+      ]
+    },
+    {
+      "id": "positive_trades",
+      "rule": "A defense is good if it costs less than the attack it stops while conceding little tower damage. Count surviving defenders as recovered value; count tower damage taken as a cost.",
+      "weight_hint": "Primary scoring rule for defensive moves: value = opp_spent - my_spent + surviving_value - tower_damage_cost.",
+      "sources": [
+        "https://support.clashroyale.com/hc/en-us/articles/49484904683803-1v1-Battle",
+        "https://sportskeeda.com/esports/how-maintain-positive-elixir-trades-clash-royale",
+        "https://chess.com/article/view/chess-players-guide-to-clash-royale"
+      ]
+    },
+    {
+      "id": "trade_compounding",
+      "rule": "After a +2 or better trade, convert immediately: counterpush with the survivors or punish the opposite lane while the opponent is behind. Advantage decays as elixir refills.",
+      "weight_hint": "Increase aggression weight proportionally to estimated elixir lead; a lead unused for ~6s is mostly gone.",
+      "sources": [
+        "https://sportskeeda.com/esports/how-maintain-positive-elixir-trades-clash-royale",
+        "https://www.148apps.com/news/how-to-defend-effectively-in-clash-royale"
+      ]
+    },
+    {
+      "id": "wait_vs_act",
+      "rule": "Default to waiting when the opponent is idle and you are below 10 elixir; act when you are at 9-10, when the opponent just overcommitted, or when their key counter is out of cycle.",
+      "weight_hint": "Model 'pass' as a legal move with value ~0 at <9 elixir; its value turns negative near 10 elixir or when a punish window exists.",
+      "sources": [
+        "https://148apps.com/news/how-to-open-any-given-match-in-clash-royale",
+        "https://www.redbull.com/int-en/clash-royale-league-player-interviews",
+        "https://trophycoach.com/guides/elixir-management-mastery-guide"
+      ]
+    },
+    {
+      "id": "opening_play",
+      "rule": "Do not open before ~9.5 elixir. Open with a cheap or defensive card at the back (behind the King Tower) to scout; never open with the win condition unsupported or with a spell on an empty lane.",
+      "weight_hint": "At t<10s, heavily penalize win-condition and spell plays; small bonus for cheap back-plays that reveal information.",
+      "sources": [
+        "https://148apps.com/news/how-to-open-any-given-match-in-clash-royale",
+        "https://www.sportskeeda.com/esports/how-use-hog-rider-clash-royale",
+        "https://chess.com/article/view/chess-players-guide-to-clash-royale"
+      ]
+    },
+    {
+      "id": "opening_building_rocket_bait",
+      "rule": "Do not place a building touching your Princess Tower at the start; a Rocket or Lightning then hits both. Place spawners/pumps one tile away from towers.",
+      "weight_hint": "Placement penalty for buildings in splash range of a tower when the opponent may run Rocket/Lightning/Fireball.",
+      "sources": [
+        "https://148apps.com/news/how-to-open-any-given-match-in-clash-royale"
+      ]
+    },
+    {
+      "id": "cycle_tracking",
+      "rule": "A played card returns after the opponent plays four more cards. Track their last four cards; a threat is 'safe' to send when its hard counter was among them.",
+      "weight_hint": "Maintain opponent hand estimate (4 in hand, 4 in queue); boost attack value when the counter is in their queue, lower it when the counter is likely in hand.",
+      "sources": [
+        "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+        "https://trophycoach.com/guides/elixir-management-mastery-guide",
+        "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale"
+      ]
+    },
+    {
+      "id": "cycle_to_win_condition",
+      "rule": "In cycle decks, spend cheap cards (1-2 elixir) to reach the win condition faster than the opponent reaches its counter; outcycle their building or key defender.",
+      "weight_hint": "For cycle archetypes, value cheap cards partly by how much they accelerate the win condition's return.",
+      "sources": [
+        "https://timesaver.gg/blog/2-6-hog-cycle-deck-clash-royale",
+        "https://trophycoach.com/guides/elixir-management-mastery-guide",
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes"
+      ]
+    },
+    {
+      "id": "defend_in_pocket",
+      "rule": "Pull building-targeting troops (Hog, Giant, Ram, Royal Hogs) with buildings placed 4-5 tiles from the river in the middle, or defend in the 'pocket' between towers so both towers and the King can hit.",
+      "weight_hint": "Placement evaluator should prefer defensive placements that draw the attacker toward the center and give multi-tower coverage.",
+      "sources": [
+        "https://www.redbull.com/gb-en/how-to-build-a-winning-clash-royale-deck",
+        "https://sportskeeda.com/esports/how-defend-different-win-conditions-clash-royale",
+        "https://www.148apps.com/news/how-to-defend-effectively-in-clash-royale"
+      ]
+    },
+    {
+      "id": "defend_in_front_vs_behind",
+      "rule": "Place melee defenders in front of the tower to tank; place ranged/splash defenders behind or beside the tower so the attacker reaches them last. Kite with cheap troops across lanes.",
+      "weight_hint": "Placement priority: distraction/tank nearest the threat, damage dealers protected by tower range.",
+      "sources": [
+        "https://www.148apps.com/news/how-to-defend-effectively-in-clash-royale",
+        "https://sportskeeda.com/esports/how-defend-different-win-conditions-clash-royale"
+      ]
+    },
+    {
+      "id": "king_tower_activation",
+      "rule": "Activating your own King Tower early (Tornado, or pulling a Miner/Drill/Royal Ghost onto it) is a lasting defensive upgrade. Never activate the opponent's King with careless spells or deep placements.",
+      "weight_hint": "Big one-time bonus for safe self-activation; equal penalty for moves that hit the enemy King unnecessarily.",
+      "sources": [
+        "https://www.sportskeeda.com/esports/how-use-tornado-effectively-clash-royale",
+        "https://simplegameguide.co.uk/how-to-activate-king-tower-clash-royale",
+        "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/",
+        "https://chess.com/article/view/chess-players-guide-to-clash-royale"
+      ]
+    },
+    {
+      "id": "split_lane_pressure",
+      "rule": "Split pushes (Three Musketeers, Royal Hogs, Recruits) force the opponent to divide elixir. Defend the lane with the larger threat fully and chip the other; do not overspend in one lane.",
+      "weight_hint": "When both lanes are threatened, allocate defense by threat DPS to tower, then compare remaining elixir.",
+      "sources": [
+        "https://sportskeeda.com/esports/how-handle-split-lane-pushes-clash-royale",
+        "https://timesaver.gg/blog/three-musketeers-deck-clash-royale",
+        "https://timesaver.gg/blog/royal-hogs-deck-clash-royale"
+      ]
+    },
+    {
+      "id": "opposite_lane_punish",
+      "rule": "When the opponent drops a tank (Golem/Giant/Hound/Pump) in the back, immediately pressure the other lane with the win condition to force a tower trade or elixir split.",
+      "weight_hint": "Punish bonus scales with opponent spend in back (>=5) and own elixir >=6.",
+      "sources": [
+        "https://timesaver.gg/blog/golem-deck-clash-royale",
+        "https://timesaver.gg/blog/lava-hound-deck-clash-royale",
+        "https://sportskeeda.com/esports/how-handle-split-lane-pushes-clash-royale"
+      ]
+    },
+    {
+      "id": "counterpush",
+      "rule": "After a successful defense, support surviving troops instead of letting them walk alone; a counterpush costs less than a fresh push and arrives while the opponent is low.",
+      "weight_hint": "Add survivor value to attack evaluation; prefer attacks that chain off existing troops.",
+      "sources": [
+        "https://www.148apps.com/news/how-to-defend-effectively-in-clash-royale",
+        "https://sportskeeda.com/esports/how-maintain-positive-elixir-trades-clash-royale"
+      ]
+    },
+    {
+      "id": "spell_on_tower_thresholds",
+      "rule": "Spell the tower only when (a) it finishes the tower, (b) spell cycling wins the race in double elixir, or (c) the spell also hits a troop. Otherwise hold spells for defense/value.",
+      "weight_hint": "Value tower-spell = tower damage only if it crosses a finish or tiebreaker threshold; otherwise subtract defensive opportunity cost.",
+      "sources": [
+        "https://chess.com/article/view/chess-players-guide-to-clash-royale",
+        "https://trophycoach.com/guides/elixir-management-mastery-guide"
+      ]
+    },
+    {
+      "id": "rocket_cycle_endgame",
+      "rule": "If a tower is within ~2-3 Rockets/Fireballs and you can defend with the rest of the deck, cycle the spell every rotation in double/triple elixir. Decide the race by comparing their counters and your defensive leftover.",
+      "weight_hint": "Trigger a 'spell-cycle mode' when tower_hp <= k*spell_damage and own defense cost per rotation < elixir income per rotation.",
+      "sources": [
+        "https://chess.com/article/view/chess-players-guide-to-clash-royale",
+        "https://www.148apps.com/news/clash-royale-guide-how-to-use-elixir-effectively"
+      ]
+    },
+    {
+      "id": "bait_mechanics",
+      "rule": "Bait decks present several targets for one spell (Barrel, Gang, Princess, Skeleton Barrel). Save the small spell for the highest-value target (usually Goblin Barrel) and answer the rest with troops.",
+      "weight_hint": "Against bait, raise the opportunity cost of using Log/Zap/Arrows on anything but the primary target; track whether their Barrel is in hand.",
+      "sources": [
+        "https://trophycoach.com/guides/how-to-counter-logbait-deck",
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes"
+      ]
+    },
+    {
+      "id": "spell_bait_and_prediction",
+      "rule": "Predict spells only when the opponent has repeated the same response in the same spot and the gain outweighs a miss. After they spell, push for ~10s while that spell is out of cycle.",
+      "weight_hint": "Prediction-spell value = P(repeat)*value - (1-P)*cost; P rises with observed repetitions.",
+      "sources": [
+        "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+        "https://trophycoach.com/guides/how-to-counter-logbait-deck"
+      ]
+    },
+    {
+      "id": "vary_defense",
+      "rule": "Do not repeat the same defensive placement three times against the same push; good opponents will pre-spell or re-route it.",
+      "weight_hint": "Small penalty for identical placements vs identical attacks after two repetitions.",
+      "sources": [
+        "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale"
+      ]
+    },
+    {
+      "id": "hog_ice_spirit_timing",
+      "rule": "Send Ice Spirit/Skeletons ~0.5s before or alongside Hog at the bridge so they tank the building/defender's first hits; pre-place Hog at the bridge, support at the river edge.",
+      "weight_hint": "Combo evaluator rewards Hog + 1-elixir support when the opponent likely has a building; penalize naked Hog into a known building.",
+      "sources": [
+        "https://www.sportskeeda.com/esports/how-use-hog-rider-clash-royale",
+        "https://timesaver.gg/blog/2-6-hog-cycle-deck-clash-royale"
+      ]
+    },
+    {
+      "id": "tank_support_timing",
+      "rule": "Drop a tank (Giant/Golem/Hound) behind the King at ~8-10 elixir; add support behind it when it crosses the bridge, not before, so support survives the opponent's spell.",
+      "weight_hint": "Penalize support placed before the tank reaches the river; bonus for support placed after opponent's spell is spent.",
+      "sources": [
+        "https://timesaver.gg/blog/golem-deck-clash-royale",
+        "https://timesaver.gg/blog/clash-royale-evo-giant",
+        "https://timesaver.gg/blog/lava-hound-deck-clash-royale"
+      ]
+    },
+    {
+      "id": "bridge_spam_timing",
+      "rule": "Bridge spam succeeds when the opponent has just spent 4+ elixir elsewhere or their hard counter (Mini PEKKA, Mega Knight, building) is out of cycle. Spam into a full-elixir opponent loses.",
+      "weight_hint": "Attack-timing weight tied to opponent elixir estimate <=5 and counter-out-of-cycle flag.",
+      "sources": [
+        "https://royaletracker.gg/guides/pekka-bridge-spam-deck-clash-royale",
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes"
+      ]
+    },
+    {
+      "id": "elixir_disadvantage",
+      "rule": "When behind on elixir, stop attacking: make cheapest-possible defenses, accept chip damage over overspending, and cycle cheap cards to re-sync. Recover before pushing.",
+      "weight_hint": "When estimated deficit >= 3, scale down attack values and reward minimum-cost defense.",
+      "sources": [
+        "https://trophycoach.com/guides/elixir-management-mastery-guide",
+        "https://www.148apps.com/news/clash-royale-guide-how-to-use-elixir-effectively"
+      ]
+    },
+    {
+      "id": "single_elixir_policy",
+      "rule": "Single elixir (0:00-2:00) is for information, chip and positive trades. Avoid committing >7 elixir unless punishing; aim to enter double elixir with a tower-HP or elixir edge.",
+      "weight_hint": "Lower variance preference: cap push commitment in single elixir unless opponent made a large mistake.",
+      "sources": [
+        "https://chess.com/article/view/chess-players-guide-to-clash-royale",
+        "https://148apps.com/news/how-to-open-any-given-match-in-clash-royale"
+      ]
+    },
+    {
+      "id": "double_elixir_policy",
+      "rule": "In double elixir (final 60s of regulation and all of overtime) commit to full pushes; beatdown and spell-cycle decks peak here, cycle decks must defend with towers and chip.",
+      "weight_hint": "Archetype-specific: beatdown aggression up, cycle defense up; opponent elixir cap matters less, counter-availability matters more.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Clash_Royale",
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes",
+        "https://timesaver.gg/blog/golem-deck-clash-royale"
+      ]
+    },
+    {
+      "id": "triple_elixir_policy",
+      "rule": "Triple elixir (final minute of overtime) makes defense nearly free: spam counters, never stay below 5 elixir, and prefer splash plus buildings because swarms are constant.",
+      "weight_hint": "Collapse elixir-cost penalties; evaluate mostly on tower-HP delta and tiebreaker position.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Clash_Royale",
+        "https://en.namu.wiki/w/%ED%81%B4%EB%9E%98%EC%8B%9C%20%EB%A1%9C%EC%96%84/%ED%94%8C%EB%A0%88%EC%9D%B4%20%EB%B0%A9%EC%8B%9D"
+      ]
+    },
+    {
+      "id": "overtime_tiebreaker",
+      "rule": "If regulation ends tied on crowns, overtime: first tower kill wins. If overtime ends with no kill, the player whose lowest-HP tower is lower loses (identical HP = draw outside duels). Protect your weakest tower; chip theirs.",
+      "weight_hint": "In overtime, objective becomes max(min(my_tower_hp)) - max(min(opp_tower_hp)); single tower kill is decisive.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Clash_Royale",
+        "https://clashroyale.fandom.com/wiki/Basics_of_Battle",
+        "https://en.namu.wiki/w/%ED%81%B4%EB%9E%98%EC%8B%9C%20%EB%A1%9C%EC%96%84/%ED%94%8C%EB%A0%88%EC%9D%B4%20%EB%B0%A9%EC%8B%9D"
+      ]
+    },
+    {
+      "id": "last_30s_regulation",
+      "rule": "In the last 30s of regulation, do not start a slow push that cannot connect; instead hold defense if ahead, or send fast win conditions/spells if behind on tower HP to force overtime or a lead.",
+      "weight_hint": "Time-aware: discount pushes whose expected arrival is after the clock unless overtime is likely.",
+      "sources": [
+        "https://chess.com/article/view/chess-players-guide-to-clash-royale",
+        "https://en.wikipedia.org/wiki/Clash_Royale"
+      ]
+    },
+    {
+      "id": "three_crown_discipline",
+      "rule": "After taking one tower, play for the clock and defend the other side: the enemy King Tower is active and the opponent must come to you. Only go for three crowns when far ahead on elixir.",
+      "weight_hint": "Once ahead 1-0 in crowns, set aggression low and risk-aversion high.",
+      "sources": [
+        "https://chess.com/article/view/chess-players-guide-to-clash-royale",
+        "https://sportskeeda.com/esports/how-defend-different-win-conditions-clash-royale"
+      ]
+    },
+    {
+      "id": "archetype_identification",
+      "rule": "Identify the opponent's archetype from their first 3-4 cards and switch matchup plan: tank in back = beatdown, cheap card at bridge = cycle/bridge spam, building at river = siege.",
+      "weight_hint": "Maintain archetype posterior; feed into matchup plan selection.",
+      "sources": [
+        "https://148apps.com/news/how-to-open-any-given-match-in-clash-royale",
+        "https://gamingonphone.com/guides/clash-royale-deck-archetypes/",
+        "https://gamerant.com/clash-royale-all-deck-types/"
+      ]
+    },
+    {
+      "id": "hero_ability_single_use",
+      "rule": "Since Aug 2026 every Hero and Champion ability (except Boss Bandit) is single-use per deployment. Expect it on first deploy; after it is used, that unit is a normal troop.",
+      "weight_hint": "Track ability_used flag per deployed hero; value their deployment higher when ability is available.",
+      "sources": [
+        "https://trophycoach.com/guides/single-use-abilities-explained",
+        "https://trophycoach.com/guides/hero-cards-guide",
+        "https://royaletracker.gg/news/clash-royale-august-2026-balance-changes"
+      ]
+    },
+    {
+      "id": "evolution_tracking",
+      "rule": "Count the opponent's evolution cycles: an evolution fires every N plays of that card (1-3). Hold the best counter for the evolved deploy, use cheaper answers for normal ones.",
+      "weight_hint": "Track evo counters per card; raise threat value of the deploy that will be evolved.",
+      "sources": [
+        "https://trophycoach.com/guides/clash-royale-meta-decks-2026",
+        "https://timesaver.gg/blog/clash-royale-evo-giant"
+      ]
+    },
+    {
+      "id": "spells_vs_spirits",
+      "rule": "Since the Aug 2026 Spirit HP nerf, Archers, Musketeer, Tesla, Bomber and Archer Queen one-shot Spirits and Spirits no longer connect to towers alone; do not spell them.",
+      "weight_hint": "Lower threat value of lone spirits; raise defensive value of one-shot troops against them.",
+      "sources": [
+        "https://royaletracker.gg/news/clash-royale-august-2026-balance-changes"
+      ]
+    },
+    {
+      "id": "ronin_parry",
+      "rule": "Ronin blocks one ground melee hit every 3.5s and reflects it. Counter him with ranged, air, swarms or spells; do not trade single melee units into him.",
+      "weight_hint": "Melee-vs-Ronin matchup penalty; ranged/air bonus.",
+      "sources": [
+        "https://trophycoach.com/guides/ronin-guide"
+      ]
+    },
+    {
+      "id": "minion_giant_flying_wincon",
+      "rule": "Minion Giant is a 4-elixir flying building-targeter immune to spell knockback; it needs air-targeting DPS (Musketeer, Mega Minion, Inferno, Hunter) not buildings alone.",
+      "weight_hint": "Treat ground-only defenses (Cannon, Cannoneer tower) as non-answers.",
+      "sources": [
+        "https://royaletrack.com/en/decks/minion-giant",
+        "https://timesaver.gg/blog/clash-royale-september-2026-balance-changes-explained"
+      ]
+    },
+    {
+      "id": "tower_troop_awareness",
+      "rule": "Adjust chip math to the tower troop: Dagger Duchess shreds swarms but runs dry under sustained pressure; Cannoneer cannot hit air; Royal Chef buffs allied troops; Tower Princess has the most HP.",
+      "weight_hint": "Tower troop should be an input to every threat/defense estimate.",
+      "sources": [
+        "https://trophycoach.com/tools/tower-troop-compare",
+        "https://mobilematters.gg/guides/clash-royale/tower-troops-listed",
+        "https://timesaver.gg/blog/best-clash-royale-tower-troop-september-2026"
+      ]
+    }
+  ],
+  "archetypes": [
+    {
+      "id": "beatdown",
+      "signature_cards": [
+        "golem",
+        "lava_hound",
+        "giant",
+        "electro_giant",
+        "elixir_golem",
+        "goblin_giant",
+        "night_witch",
+        "baby_dragon",
+        "lightning",
+        "elixir_collector"
+      ],
+      "gameplan": "Build one large push behind a tank in double elixir; defend minimally in single elixir and accept chip. Peak in double/triple elixir where support can be layered.",
+      "beats": [
+        "siege",
+        "control",
+        "cycle"
+      ],
+      "loses_to": [
+        "bridge_spam",
+        "bait",
+        "hybrid"
+      ],
+      "how_to_beat": "Punish the opposite lane the moment the tank drops; kill support with spells before it crosses; use Inferno/building to melt the tank; never let a push accumulate uncontested.",
+      "sources": [
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes",
+        "https://gamingonphone.com/guides/clash-royale-deck-archetypes/",
+        "https://timesaver.gg/blog/golem-deck-clash-royale"
+      ]
+    },
+    {
+      "id": "cycle",
+      "signature_cards": [
+        "hog_rider",
+        "miner",
+        "mortar",
+        "musketeer",
+        "ice_spirit",
+        "skeletons",
+        "cannon",
+        "fireball",
+        "log"
+      ],
+      "gameplan": "Fast rotation (2.6-3.0 avg) to out-cycle counters; repeated cheap win-condition hits plus spell chip. Defend with buildings and cheap units, win on chip and spell cycle.",
+      "beats": [
+        "beatdown",
+        "mega_knight",
+        "three_musketeers"
+      ],
+      "loses_to": [
+        "siege",
+        "control",
+        "bait"
+      ],
+      "how_to_beat": "Keep a building in cycle, defend cheaply, and build a slow elixir lead; punish with heavy pushes in double elixir. Control decks that stop every Hog for 2-3 elixir grind cycle down.",
+      "sources": [
+        "https://timesaver.gg/blog/2-6-hog-cycle-deck-clash-royale",
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes",
+        "https://trophycoach.com/guides/clash-royale-meta-decks-2026"
+      ]
+    },
+    {
+      "id": "control",
+      "signature_cards": [
+        "pekka",
+        "knight",
+        "ice_wizard",
+        "tornado",
+        "poison",
+        "tesla",
+        "bowler",
+        "valkyrie"
+      ],
+      "gameplan": "Defend efficiently for positive trades, then counterpush with survivors; wins on accumulated small advantages and spell value in double elixir.",
+      "beats": [
+        "cycle",
+        "bridge_spam",
+        "mega_knight"
+      ],
+      "loses_to": [
+        "beatdown",
+        "siege",
+        "bait"
+      ],
+      "how_to_beat": "Avoid feeding the counterpush: use small chip pushes and spells rather than big commits. Siege and heavy beatdown force control to spend elixir it would rather bank.",
+      "sources": [
+        "https://gamingonphone.com/guides/clash-royale-deck-archetypes/",
+        "https://gamerant.com/clash-royale-all-deck-types/",
+        "https://gladiatorboost.com/news/clash-royale-deck-archetypes-guide-every-playstyle-explained/"
+      ]
+    },
+    {
+      "id": "siege",
+      "signature_cards": [
+        "x_bow",
+        "mortar",
+        "tesla",
+        "archers",
+        "knight",
+        "skeletons",
+        "ice_spirit",
+        "fireball",
+        "log",
+        "rocket"
+      ],
+      "gameplan": "Lock the building on the enemy tower from your side, defend it with cheap troops and buildings, and win on chip plus Rocket/Fireball cycle.",
+      "beats": [
+        "beatdown",
+        "control"
+      ],
+      "loses_to": [
+        "bridge_spam",
+        "cycle",
+        "hog_rider_cycle",
+        "mega_knight"
+      ],
+      "how_to_beat": "Tank the siege building with a mini-tank or pressure the other lane the moment it is placed; Earthquake, Royal Giant and pressure from bridge spam beat it. Keep a building in hand.",
+      "sources": [
+        "https://timesaver.gg/blog/xbow-deck-clash-royale",
+        "https://timesaver.gg/blog/best-evo-mortar-deck-clash-royale",
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes"
+      ]
+    },
+    {
+      "id": "bait",
+      "signature_cards": [
+        "goblin_barrel",
+        "goblin_gang",
+        "princess",
+        "skeleton_barrel",
+        "rascals",
+        "dart_goblin",
+        "inferno_tower",
+        "rocket",
+        "knight",
+        "log"
+      ],
+      "gameplan": "Overload the opponent's small spell: when Log/Zap is spent on one swarm, land the Barrel or Princess for free. Defend with cheap swarms, win on chip and Rocket.",
+      "beats": [
+        "beatdown",
+        "control",
+        "three_musketeers"
+      ],
+      "loses_to": [
+        "cycle",
+        "siege",
+        "splash_heavy_control"
+      ],
+      "how_to_beat": "Save the small spell for Goblin Barrel; kill Princess with troops/Log only when safe; run two spells or a splash tower troop. Rocket their Princess+tower only when it also pressures.",
+      "sources": [
+        "https://trophycoach.com/guides/how-to-counter-logbait-deck",
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes"
+      ]
+    },
+    {
+      "id": "bridge_spam",
+      "signature_cards": [
+        "battle_ram",
+        "bandit",
+        "royal_ghost",
+        "electro_wizard",
+        "giant_skeleton",
+        "furnace",
+        "arrows",
+        "heal_spirit",
+        "golden_knight"
+      ],
+      "gameplan": "Send fast units at the bridge whenever the opponent spends elixir elsewhere; force awkward defenses and keep tempo. Best deck family in ranked, Nov 2026.",
+      "beats": [
+        "siege",
+        "beatdown",
+        "three_musketeers"
+      ],
+      "loses_to": [
+        "control",
+        "mega_knight",
+        "cycle"
+      ],
+      "how_to_beat": "Keep 4-5 elixir of cheap answers (Mini PEKKA, Cannon, Tesla, Mega Knight) when they are near 4+ elixir; never drop a tank in back against an idle opponent; punish overcommits.",
+      "sources": [
+        "https://royaletracker.gg/guides/pekka-bridge-spam-deck-clash-royale",
+        "https://trophycoach.com/guides/clash-royale-meta-movers",
+        "https://riggedroyale.com/blog/clash-royale-deck-archetypes"
+      ]
+    },
+    {
+      "id": "pekka_bridge_spam",
+      "signature_cards": [
+        "pekka",
+        "battle_ram",
+        "bandit",
+        "royal_ghost",
+        "electro_wizard",
+        "magic_archer",
+        "poison",
+        "zap"
+      ],
+      "gameplan": "PEKKA as the defensive anchor; convert every PEKKA defense into a Ram/Bandit/Ghost counterpush; Poison supports.",
+      "beats": [
+        "beatdown",
+        "golem",
+        "mega_knight"
+      ],
+      "loses_to": [
+        "bait",
+        "cycle",
+        "graveyard"
+      ],
+      "how_to_beat": "Avoid feeding PEKKA; use swarms and chip, outcycle the Ram counters, and pressure where PEKKA is not. Graveyard and bait dodge PEKKA's value.",
+      "sources": [
+        "https://royaletracker.gg/guides/pekka-bridge-spam-deck-clash-royale",
+        "https://gladiatorboost.com/news/clash-royale-deck-archetypes-guide-every-playstyle-explained/"
+      ]
+    },
+    {
+      "id": "hybrid",
+      "signature_cards": [
+        "royal_hogs",
+        "three_musketeers",
+        "royal_recruits",
+        "miner",
+        "wall_breakers",
+        "goblin_cage",
+        "flying_machine",
+        "zappies"
+      ],
+      "gameplan": "Mix of two plans (e.g. split-lane beatdown + cycle). Splits pressure across both lanes to overload a single-lane defender.",
+      "beats": [
+        "beatdown",
+        "control"
+      ],
+      "loses_to": [
+        "spell_heavy_control",
+        "bridge_spam"
+      ],
+      "how_to_beat": "Commit defense to the lane with more tower DPS, chip the other; punish splits with a heavy single-lane push when they split elixir.",
+      "sources": [
+        "https://sportskeeda.com/esports/how-handle-split-lane-pushes-clash-royale",
+        "https://timesaver.gg/blog/royal-hogs-deck-clash-royale",
+        "https://gamingonphone.com/guides/clash-royale-deck-archetypes/"
+      ]
+    },
+    {
+      "id": "graveyard",
+      "signature_cards": [
+        "graveyard",
+        "poison",
+        "knight",
+        "ice_wizard",
+        "furnace",
+        "tornado",
+        "baby_dragon",
+        "tombstone",
+        "barbarian_barrel"
+      ],
+      "gameplan": "Control with Graveyard as the finisher: tank with a cheap troop, cast Graveyard on the far side of the tower with Poison on the counter. Strong in ranked (53.6%, Nov 2026).",
+      "beats": [
+        "beatdown",
+        "pekka_bridge_spam",
+        "mega_knight"
+      ],
+      "loses_to": [
+        "bait",
+        "swarm_cycle",
+        "siege"
+      ],
+      "how_to_beat": "Keep a cheap swarm or splash (Goblin Gang, Valkyrie, Bowler, Archers) for the Graveyard; kill the tank first; do not let Poison find two targets.",
+      "sources": [
+        "https://deckmelon.com/best-decks/with/graveyard",
+        "https://trophycoach.com/guides/clash-royale-meta-decks-2026"
+      ]
+    },
+    {
+      "id": "lavaloon",
+      "signature_cards": [
+        "lava_hound",
+        "balloon",
+        "mega_minion",
+        "tombstone",
+        "barbarians",
+        "skeleton_dragons",
+        "fireball",
+        "zap",
+        "flying_machine"
+      ],
+      "gameplan": "Hound in back at 9-10 elixir, Balloon behind it when the Hound crosses; Fireball/Zap for the air counters. Lava Hound is the best win condition by WR in Nov 2026.",
+      "beats": [
+        "siege",
+        "ground_control",
+        "cannoneer_users"
+      ],
+      "loses_to": [
+        "cycle_with_inferno",
+        "bait_with_rocket",
+        "heavy_air_dps"
+      ],
+      "how_to_beat": "Pressure the other lane as the Hound drops; save Inferno Dragon/Tower or Musketeer for the Balloon not the Hound; split pups with splash; never use Cannoneer.",
+      "sources": [
+        "https://trophycoach.com/guides/how-to-counter-lavaloon-deck",
+        "https://trophycoach.com/guides/how-to-counter-balloon-deck",
+        "https://timesaver.gg/blog/lava-hound-deck-clash-royale"
+      ]
+    },
+    {
+      "id": "three_musketeers",
+      "signature_cards": [
+        "three_musketeers",
+        "royal_hogs",
+        "ice_golem",
+        "hunter",
+        "heal_spirit",
+        "fireball",
+        "barbarian_barrel",
+        "elixir_collector"
+      ],
+      "gameplan": "Split 3M behind the King (2/1) so one spell cannot hit all; pair with split Royal Hogs/Ice Golem for simultaneous two-lane pressure.",
+      "beats": [
+        "beatdown",
+        "control"
+      ],
+      "loses_to": [
+        "spell_heavy",
+        "bridge_spam",
+        "pekka"
+      ],
+      "how_to_beat": "Fireball/Poison the two-Musketeer side, defend the single side with a cheap unit; punish the 9-elixir commitment on the opposite lane instantly.",
+      "sources": [
+        "https://timesaver.gg/blog/three-musketeers-deck-clash-royale",
+        "https://sportskeeda.com/esports/how-handle-split-lane-pushes-clash-royale"
+      ]
+    },
+    {
+      "id": "royal_giant",
+      "signature_cards": [
+        "royal_giant",
+        "hunter",
+        "fisherman",
+        "monk",
+        "royal_ghost",
+        "skeletons",
+        "electro_spirit",
+        "fireball"
+      ],
+      "gameplan": "Mid-range tank that outranges buildings; cycle RG with Fisherman/Hunter defense and Fireball support.",
+      "beats": [
+        "siege",
+        "cycle"
+      ],
+      "loses_to": [
+        "pekka",
+        "inferno_control",
+        "mega_knight"
+      ],
+      "how_to_beat": "Pull RG into the center with a building or Fisherman, kill it with PEKKA/Inferno/Mini PEKKA, then counterpush; its support is fragile to Fireball.",
+      "sources": [
+        "https://timesaver.gg/blog/royal-giant-deck-clash-royale"
+      ]
+    },
+    {
+      "id": "mega_knight",
+      "signature_cards": [
+        "mega_knight",
+        "witch",
+        "valkyrie",
+        "mini_pekka",
+        "baby_dragon",
+        "skeleton_army",
+        "skeleton_barrel",
+        "arrows"
+      ],
+      "gameplan": "Mid-ladder control: defend with Mega Knight's jump splash and counterpush behind it. Weak at top ranked (47.2% WR, D tier, Nov 2026).",
+      "beats": [
+        "swarm_bait",
+        "bridge_spam_misplays"
+      ],
+      "loses_to": [
+        "pekka",
+        "inferno_control",
+        "air_decks",
+        "cycle"
+      ],
+      "how_to_beat": "Do not drop swarms near it; use PEKKA/Inferno/Mini PEKKA plus kiting; play air win conditions; expect the jump and place bait a tile away.",
+      "sources": [
+        "https://timesaver.gg/blog/mega-knight-deck-clash-royale",
+        "https://timesaver.gg/blog/clash-royale-tier-list"
+      ]
+    },
+    {
+      "id": "goblin_drill",
+      "signature_cards": [
+        "goblin_drill",
+        "knight",
+        "skeletons",
+        "giant_snowball",
+        "cannon",
+        "poison",
+        "fire_spirit",
+        "bomber",
+        "mirror"
+      ],
+      "gameplan": "Drill the tower from unexpected tiles (behind/side) to pull defenders out, often with Mirror for double drills; cheap cycle defense.",
+      "beats": [
+        "beatdown",
+        "slow_control"
+      ],
+      "loses_to": [
+        "splash_cycle",
+        "log_bait_with_rocket"
+      ],
+      "how_to_beat": "Hold a 2-3 elixir splash (Log, Bomber, Goblin Gang) for the drill's spawn point; place the counter on the drill side the moment it surfaces; do not panic-spell.",
+      "sources": [
+        "https://royaledeck.app/decks/goblin-drill-cycle-2sjjhe",
+        "https://timesaver.gg/blog/clash-royale-evo-mirror"
+      ]
+    },
+    {
+      "id": "evolution_centric",
+      "signature_cards": [
+        "skeletons",
+        "knight",
+        "tesla",
+        "archers",
+        "battle_ram",
+        "royal_ghost",
+        "mortar",
+        "skeleton_barrel",
+        "elite_barbarians",
+        "giant"
+      ],
+      "gameplan": "Decks built around strong evolution pairs (Knight+Skeletons rated the top pair, Season 89; Evo Battle Ram/Royal Ghost in bridge spam; Evo Mortar/Skeleton Barrel bait; Evo Elite Barbarians in Golem).",
+      "beats": [
+        "decks_without_evo_answers"
+      ],
+      "loses_to": [
+        "well_timed_hard_counters"
+      ],
+      "how_to_beat": "Count evolution cycles and save the hard counter for the evolved deploy; evolutions are 1 of every 1-3 plays, so the non-evolved copies can be answered cheaply.",
+      "sources": [
+        "https://trophycoach.com/guides/clash-royale-meta-decks-2026",
+        "https://timesaver.gg/blog/clash-royale-season-89-king-vs-king",
+        "https://timesaver.gg/blog/clash-royale-evo-giant"
+      ]
+    }
+  ],
+  "matchups": [
+    {
+      "me": "cycle",
+      "opp": "beatdown",
+      "plan": "Punish every back tank with Hog/Miner on the other lane; kite the tank with the building, Musketeer the support, never overspend on the tank itself. Aim to win regulation before their double-elixir push.",
+      "key_moments": [
+        "Tank dropped in back -> immediate opposite-lane push",
+        "Keep Cannon in hand for the bridge",
+        "Fireball their support before it reaches the bridge"
+      ]
+    },
+    {
+      "me": "beatdown",
+      "opp": "cycle",
+      "plan": "Accept early chip, defend Hog cheaply (building + 1 troop), bank elixir, and build the layered push in double elixir; one connected push wins the tower race.",
+      "key_moments": [
+        "Do not drop tank before 1:30 unless opponent leaks",
+        "Spell the Musketeer when it is in Hog support",
+        "In double elixir stack support only after the tank crosses"
+      ]
+    },
+    {
+      "me": "cycle",
+      "opp": "siege",
+      "plan": "Hog the opposite lane whenever X-Bow/Mortar is placed; otherwise tank the building with Ice Golem/Knight and let the tower work. Out-cycle their Tesla.",
+      "key_moments": [
+        "X-Bow placed -> count their elixir; if <4 push the other lane",
+        "Never Fireball a defended X-Bow unless it finishes it"
+      ]
+    },
+    {
+      "me": "siege",
+      "opp": "cycle",
+      "plan": "Place the building defensively first (pull Hog), then offensively only when they have just used their mini-tank; win on Rocket/Fireball chip in double elixir.",
+      "key_moments": [
+        "Hog at bridge -> X-Bow/Mortar in the center as the building",
+        "Rocket cycle once tower <= 2 Rockets"
+      ]
+    },
+    {
+      "me": "bait",
+      "opp": "beatdown",
+      "plan": "Chip early with Barrel/Princess while they are passive; in double elixir Inferno the tank and swarm the support; Rocket the push when it stacks.",
+      "key_moments": [
+        "Tank in back -> Barrel immediately",
+        "Hold Inferno Tower for the tank, Goblin Gang for support"
+      ]
+    },
+    {
+      "me": "beatdown",
+      "opp": "bait",
+      "plan": "Use splash (Baby Dragon/Bomber/Arrows) to defend cheaply, keep Log/Arrows for Barrel, and run one unanswerable push; do not let Princess chip for free.",
+      "key_moments": [
+        "Count their Rocket: push when it is out of cycle",
+        "Arrows the Princess+Gang together"
+      ]
+    },
+    {
+      "me": "bridge_spam",
+      "opp": "beatdown",
+      "plan": "Spam the opposite lane the instant the tank drops; make them defend with support elixir so the push never forms. Keep Electro Wizard/PEKKA for the tank.",
+      "key_moments": [
+        "Golem/Hound placed -> Ram + Bandit other lane",
+        "Never trade elixir on the tank until it crosses the bridge"
+      ]
+    },
+    {
+      "me": "beatdown",
+      "opp": "bridge_spam",
+      "plan": "Hold defense: do not drop the tank while they have >=5 elixir; defend bridge units with a building and mini-tank, then counterpush with the surviving defenders behind the tank.",
+      "key_moments": [
+        "Ram at bridge -> Cannon/Mini PEKKA, not splash",
+        "Only commit the tank after a successful defense"
+      ]
+    },
+    {
+      "me": "control",
+      "opp": "cycle",
+      "plan": "Defend every Hog for 2-3 elixir with a building and a cheap troop; build an elixir lead and win on spell cycle plus counterpushes in double elixir.",
+      "key_moments": [
+        "Never overspend on a Hog",
+        "Rocket/Poison their support when it stacks on the bridge"
+      ]
+    },
+    {
+      "me": "cycle",
+      "opp": "control",
+      "plan": "Avoid feeding; chip with naked Hog only when their building is out of cycle; otherwise defend and spell-cycle in the last minute.",
+      "key_moments": [
+        "Count their building cycle",
+        "Fireball tower only when it ends the race"
+      ]
+    },
+    {
+      "me": "control",
+      "opp": "beatdown",
+      "plan": "Opposite-lane pressure on their tank drop, Inferno/PEKKA on the tank, spells on support; aim to be a tower up before double elixir.",
+      "key_moments": [
+        "Tank in back -> punish",
+        "Save reset cards for the Inferno zap"
+      ]
+    },
+    {
+      "me": "siege",
+      "opp": "beatdown",
+      "plan": "Siege the building offensively when they commit a tank behind the King; otherwise defend and chip; X-Bow becomes a defensive building against the big push.",
+      "key_moments": [
+        "Tank dropped -> X-Bow at bridge immediately",
+        "Rocket the support cluster"
+      ]
+    },
+    {
+      "me": "bait",
+      "opp": "cycle",
+      "plan": "Chip relentlessly; they lack splash. Inferno Tower pulls Hog; Rocket cycle in double elixir usually wins the race against a 2.6 deck.",
+      "key_moments": [
+        "Hog at bridge -> Inferno Tower or Knight+Gang",
+        "Start Rocket cycle when tower <= 3 Rockets"
+      ]
+    },
+    {
+      "me": "cycle",
+      "opp": "bait",
+      "plan": "Keep Log for Barrel always; Musketeer kills Princess; defend Gang with Ice Spirit/Skeletons; chip with Hog whenever their Knight is out of hand.",
+      "key_moments": [
+        "Never Log the Gang if Barrel is in their hand",
+        "Fireball Princess + Goblin Gang stacks"
+      ]
+    },
+    {
+      "me": "graveyard",
+      "opp": "pekka_bridge_spam",
+      "plan": "Do not feed PEKKA; defend Ram/Bandit with cheap troops, Poison their support, cast Graveyard when PEKKA is on the other lane or out of cycle.",
+      "key_moments": [
+        "PEKKA deployed -> Graveyard opposite lane",
+        "Tornado Bandit into Knight/King tower"
+      ]
+    },
+    {
+      "me": "pekka_bridge_spam",
+      "opp": "graveyard",
+      "plan": "Pressure constantly so they cannot afford Graveyard; keep Poison/Zap for the Graveyard and a cheap troop to kill the tank.",
+      "key_moments": [
+        "Graveyard cast -> Poison on tower + Zap/Ghost on skeletons",
+        "Punish Ice Wizard back placements with a Ram"
+      ]
+    },
+    {
+      "me": "lavaloon",
+      "opp": "siege",
+      "plan": "Siege buildings cannot hit air; Hound tanks the siege building, Balloon follows; Fireball Tesla/Archers.",
+      "key_moments": [
+        "X-Bow placed -> Hound on that lane",
+        "Balloon only when their Tesla is down"
+      ]
+    },
+    {
+      "me": "siege",
+      "opp": "lavaloon",
+      "plan": "Lock X-Bow/Mortar in single elixir while the Hound is slow; defend air with Musketeer/Archers/Tesla; Rocket the Balloon+Hound stack if needed.",
+      "key_moments": [
+        "Hound dropped -> siege building offensively",
+        "Rocket when Balloon and Hound overlap"
+      ]
+    },
+    {
+      "me": "cycle",
+      "opp": "lavaloon",
+      "plan": "Pressure the opposite lane every time the Hound drops; save Musketeer/Inferno for the Balloon, use the tower on the Hound; Fireball pups.",
+      "key_moments": [
+        "Hound in back -> Hog other lane",
+        "Balloon placed -> Musketeer at range, Ice Spirit freeze"
+      ]
+    },
+    {
+      "me": "lavaloon",
+      "opp": "cycle",
+      "plan": "Defend Hog cheaply with Tombstone/Barbarians, build the Hound push when they have no Inferno card, Fireball their Musketeer, Balloon behind the Hound at the bridge.",
+      "key_moments": [
+        "Musketeer out of cycle -> go",
+        "Zap the Inferno Tower when it locks Balloon"
+      ]
+    },
+    {
+      "me": "three_musketeers",
+      "opp": "beatdown",
+      "plan": "Punish tank drops with a 3M split; defend their push with Hunter/Ice Golem; the split forces the beatdown player to defend two lanes with slow units.",
+      "key_moments": [
+        "Tank dropped -> pump or 3M behind King",
+        "Split 2/1 so Lightning cannot hit all three"
+      ]
+    },
+    {
+      "me": "beatdown",
+      "opp": "three_musketeers",
+      "plan": "Fireball/Lightning the two-Musketeer side, counterpush with the tank on the single side; let them overcommit 9 elixir.",
+      "key_moments": [
+        "3M placed -> spell the pair, tank the single",
+        "Never pump-race; punish pumps with the win condition"
+      ]
+    },
+    {
+      "me": "royal_giant",
+      "opp": "mega_knight",
+      "plan": "Keep RG out of the jump: place Fisherman/Hunter behind, pull Mega Knight into the center and melt it; Fireball the Witch/support.",
+      "key_moments": [
+        "Mega Knight on RG -> Fisherman hook into King",
+        "RG only when MK is out of cycle"
+      ]
+    },
+    {
+      "me": "mega_knight",
+      "opp": "cycle",
+      "plan": "Defend Hog with Mini PEKKA/Valkyrie not Mega Knight; use MK only on stacked support; counterpush behind MK once they are low.",
+      "key_moments": [
+        "Never drop MK on a lone Hog",
+        "Baby Dragon on Skeletons/Spirits"
+      ]
+    },
+    {
+      "me": "goblin_drill",
+      "opp": "control",
+      "plan": "Drill behind the tower when their Knight/Ice Wizard is on the other lane; cheap defense; mirror the drill in double elixir for overload.",
+      "key_moments": [
+        "Count their splash cycle",
+        "Double drill when both splash cards were just used"
+      ]
+    },
+    {
+      "me": "hybrid",
+      "opp": "bridge_spam",
+      "plan": "Hold split elixir until their bridge units are answered; Royal Hogs opposite lane when they overcommit; Fireball Bandit+Ghost stacks.",
+      "key_moments": [
+        "Ram at bridge -> Cannon/Cage",
+        "Spam defended -> Royal Hogs other lane"
+      ]
+    },
+    {
+      "me": "bait",
+      "opp": "siege",
+      "plan": "Chip with Barrel while the siege building is defensive; Inferno Tower melts an offensive X-Bow; Rocket the X-Bow plus tower when overlapped.",
+      "key_moments": [
+        "X-Bow offensive -> Inferno Tower + Knight",
+        "Rocket X-Bow + tower only if it also hits support"
+      ]
+    },
+    {
+      "me": "evolution_centric",
+      "opp": "any",
+      "plan": "Track evolution counters; save hard counters for the evolved cycle; exploit the non-evolved copies with cheap answers.",
+      "key_moments": [
+        "Evo deploy imminent -> hold the counter",
+        "After evo used -> pressure that lane"
+      ]
+    }
+  ],
+  "phase_policy": {
+    "single": "0:00-2:00 at 1 elixir/2.8s. Information and small edges: open late (~9.5 elixir) with a cheap back card, scout the archetype from their first 3-4 cards, make only positive trades, punish back tanks on the opposite lane, keep <=7 elixir committed unless the opponent blundered. Goal: enter double elixir with a tower-HP or elixir lead and the opponent's key counters known.",
+    "double": "Final 60s of regulation and all of overtime at 1 elixir/1.4s. Beatdown/bridge spam commit layered pushes; cycle/control defend with towers plus buildings and switch to spell cycling if the race is winnable; bait and siege chip hard. Counter-availability matters more than raw elixir. If ahead in crowns, defend and run the clock; if behind on tower HP, create a forcing push before 0:30.",
+    "triple": "Final minute of overtime (and triple-elixir modes): defense is almost free, so spam counters, keep splash and buildings in rotation, never sit below 5 elixir, and spell towers whenever the spell cannot be out-valued defensively. Towers die fast: protect the weakest tower before chasing a kill.",
+    "overtime": "Entered if crowns are tied after 3:00; up to 2:00 long; first tower kill ends it. If no kill, the lowest-HP tower loses the tiebreak (identical HP = draw except in duels). Objective shifts to tower-HP differential: chip the weakest enemy tower, shield your own weakest with buildings/kiting, and value any tower kill as game-ending.",
+    "last_30s_regulation": "If ahead in crowns or tower HP: play purely defensive, do not start pushes, bank elixir for the final enemy push. If behind: send fast win conditions and spells that can connect before 0:00 to equalize crowns or HP; slow tanks dropped now arrive in overtime, which is acceptable only if you expect overtime."
+  },
+  "tower_troops": [
+    {
+      "key": "tower_princess",
+      "notes": "Default troop. Highest HP of the four (~4,424 at L15), 0.8s hit speed, moderate DPS (~197), hits air and ground. Best all-round consistency; strong versus siege and chip because of the HP pool. Nothing special to play around; standard chip math applies.",
+      "sources": [
+        "https://mobilematters.gg/guides/clash-royale/tower-troops-listed",
+        "https://gamerant.com/clash-royale-all-tower-troops/",
+        "https://timesaver.gg/blog/best-clash-royale-tower-troop-september-2026"
+      ]
+    },
+    {
+      "key": "cannoneer",
+      "notes": "Epic (Arena 8). Lowest HP (~3,792 L15), highest single-hit damage (~223 DPS) with a slow cannon shot; GROUND ONLY. Excellent versus Giant/Royal Giant/Mega Knight/Goblin Giant pushes and swarms die slowly to it, but it cannot touch Lava Hound, Balloon, Minion Giant, Minions or Bats. Against a Cannoneer user: play air win conditions and air chip; as a Cannoneer user, your deck must carry all anti-air itself. Pick rate ~1% at top ladder; F/bottom tier in 2026 lists.",
+      "sources": [
+        "https://mobilematters.gg/guides/clash-royale/tower-troops-listed",
+        "https://trophycoach.com/tools/tower-troop-compare",
+        "https://mobilematters.gg/guides/clash-royale/tower-troop-tier-list",
+        "https://en.namu.wiki/w/%EB%8B%A8%EA%B2%80%20%EA%B3%B5%EC%9E%91%EB%B6%80%EC%9D%B8"
+      ]
+    },
+    {
+      "key": "dagger_duchess",
+      "notes": "Legendary (Arena 11). ~4,013 HP, stockpiles up to 8 daggers (one every ~0.9s) while idle and throws them in a burst, giving the highest DPS when charged (~312) but low per-hit damage once empty. Shreds swarms, Skeletons, Goblin Gang, Graveyard and bait pushes; weak once drained by sustained pressure (tank + continuous troops) and against high-HP single targets. The usual pick for cycle and bait decks; ~12% pick rate at top 200 (Jan 2026), top tier in 2026 lists. Against a Duchess: pressure continuously so she never recharges, lead with a tank to absorb the burst, then send the real threat.",
+      "sources": [
+        "https://liquipedia.net/clashroyale/Dagger_Duchess",
+        "https://mobilematters.gg/guides/clash-royale/tower-troops-listed",
+        "https://trophycoach.com/tools/tower-troop-compare",
+        "https://1v9.gg/blog/clash-royale-cr-all-tower-troops",
+        "https://en.namu.wiki/w/%EB%8B%A8%EA%B2%80%20%EA%B3%B5%EC%9E%91%EB%B6%80%EC%9D%B8"
+      ]
+    },
+    {
+      "key": "royal_chef",
+      "notes": "Legendary (Arena 13). ~4,234 HP, lowest DPS (~158). Instead of raw damage she cooks pancakes that level up a nearby allied troop by one level (she does not heal towers). Value is conditional: pays off with high-HP win conditions and support that stays near the tower (beatdown, Royal Giant, Graveyard tanks); wasted in cycle, siege and bait. Against a Chef: her low DPS makes chip and swarm pressure cheaper; kill the buffed unit first, and she is the easiest tower to out-DPS in a Rocket race.",
+      "sources": [
+        "https://mobilematters.gg/guides/clash-royale/tower-troops-listed",
+        "https://supercell.com/en/games/clashroyale/blog/release-notes/game-update-new-tower-troop-royal-chef/",
+        "https://trophycoach.com/tools/tower-troop-compare",
+        "https://mobilematters.gg/guides/clash-royale/tower-troop-tier-list"
+      ]
+    }
+  ],
+  "meta_context": {
+    "as_of": "2026-11-21",
+    "season": "Season 89 'King vs King' (Nov 2 - Dec 7 2026): Evo Giant, Evo Mirror (shop week 2), Deck Wizard, Daily Puzzles, King of Cards event Nov 9 - Dec 7 (Giant + Mirror boosted all season, rotating boosted win conditions weekly), CRL World Finals Shanghai Nov 6-8.",
+    "balance": "No balance pass at Season 89 start; current stats come from the Oct 19 2026 (Season 88 mid-season/final) changes: nerfs to Hero Ice Wizard ability (-48%), Barbarian Barrel, Skeletons spawn radius, Evo Cannon, Royal Ghost HP, Minion Giant hit speed, Elixir Collector rework; buffs to Lava Hound damage (53->71), Goblin Barrel, X-Bow, Wall Breakers, Ram Rider, Goblin Drill, Three Musketeers, Monk; Golden Knight rework (dash 5.5->5.0). Only November change seen: Goblin Hut spawn 1.9->2.1s (Nov 3). Earlier 2026: Aug 4 Spirit HP nerf + all Hero/Champion abilities single-use (except Boss Bandit); Sept 8/16 nerfs to Evo Battle Ram, Hero Balloon, Hero Ice Wizard freeze (7->5s), Minion Giant damage, Goblinstein; Ronin buffed.",
+    "meta_summary": "Hog 2.6 cycle is the most-played deck (11.5% at 9K+, ~50% WR). Best-performing families: Battle Ram / PEKKA bridge spam (53.8% ranked), Graveyard control (53.6%), Royal Hogs cycle, LavaLoon (Lava Hound is the best win condition at 53.1%), Evo Mortar bait, Golem/Evo Giant beatdown rising with the Giant boost. Top cards by WR: Cannon Cart 53.9%, Rascals 53.6%, Lava Hound 53.1%. Hog Rider is 17.3% usage but 48.4% WR; Mega Knight 47.2% in ranked; Evo Mirror is the worst evolution (43.5%). Knight + Skeletons rated the strongest evolution pair.",
+    "new_cards_2026": "Ronin (July 2026, 5-elixir Legendary, Parry), Minion Giant (Sept 2026, 4-elixir Rare flying win condition), Vines (Sept 2025, 3-elixir Epic immobilizing spell). Heroes (Hero forms of existing cards with single-use abilities) added through 2026: Knight, Giant, Wizard, Mini PEKKA, Magic Archer, Musketeer, Mega Minion, Goblins, Ice Golem, Barbarian Barrel, Balloon, Dark Prince, Bowler, Tombstone, Berserker, Ice Wizard, Electro Wizard, Valkyrie, among others."
+  },
+  "sources": [
+    "https://148apps.com/news/how-to-open-any-given-match-in-clash-royale",
+    "https://1v9.gg/blog/clash-royale-cr-all-tower-troops",
+    "https://chess.com/article/view/chess-players-guide-to-clash-royale",
+    "https://clashroyale.fandom.com/wiki/Basics_of_Battle",
+    "https://clashroyaledeck.com/en/decks/archetype/electro-giant",
+    "https://deckmelon.com/best-decks/with/graveyard",
+    "https://en.namu.wiki/w/%EB%8B%A8%EA%B2%80%20%EA%B3%B5%EC%9E%91%EB%B6%80%EC%9D%B8",
+    "https://en.namu.wiki/w/%ED%81%B4%EB%9E%98%EC%8B%9C%20%EB%A1%9C%EC%96%84/%ED%94%8C%EB%A0%88%EC%9D%B4%20%EB%B0%A9%EC%8B%9D",
+    "https://en.namu.wiki/w/Clash%20Royale%20League%202026%20World%20Finals",
+    "https://en.wikipedia.org/wiki/Clash_Royale",
+    "https://gamerant.com/clash-royale-all-deck-types/",
+    "https://gamerant.com/clash-royale-all-tower-troops/",
+    "https://gamingonphone.com/guides/clash-royale-deck-archetypes/",
+    "https://gladiatorboost.com/news/clash-royale-deck-archetypes-guide-every-playstyle-explained/",
+    "https://liquipedia.net/clashroyale/Dagger_Duchess",
+    "https://mobilematters.gg/guides/clash-royale/tower-troop-tier-list",
+    "https://mobilematters.gg/guides/clash-royale/tower-troops-listed",
+    "https://riggedroyale.com/blog/clash-royale-deck-archetypes",
+    "https://royaleapi.com/blog/season-88-balance-final-october-2026",
+    "https://royaledeck.app/decks/goblin-drill-cycle-2sjjhe",
+    "https://royaletrack.com/en/decks/minion-giant",
+    "https://royaletracker.gg/guides/lumberloon-deck-clash-royale",
+    "https://royaletracker.gg/guides/pekka-bridge-spam-deck-clash-royale",
+    "https://royaletracker.gg/news/clash-royale-august-2026-balance-changes",
+    "https://simplegameguide.co.uk/how-to-activate-king-tower-clash-royale",
+    "https://sportskeeda.com/esports/how-defend-different-win-conditions-clash-royale",
+    "https://sportskeeda.com/esports/how-handle-split-lane-pushes-clash-royale",
+    "https://sportskeeda.com/esports/how-maintain-positive-elixir-trades-clash-royale",
+    "https://sportskeeda.com/esports/how-make-predictive-plays-clash-royale",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/game-update-new-tower-troop-royal-chef/",
+    "https://supercell.com/en/games/clashroyale/blog/release-notes/new-season-king-vs-king",
+    "https://support.clashroyale.com/hc/en-us/articles/49484904683803-1v1-Battle",
+    "https://timesaver.gg/blog/2-6-hog-cycle-deck-clash-royale",
+    "https://timesaver.gg/blog/best-clash-royale-tower-troop-september-2026",
+    "https://timesaver.gg/blog/best-evo-mortar-deck-clash-royale",
+    "https://timesaver.gg/blog/clash-royale-evo-giant",
+    "https://timesaver.gg/blog/clash-royale-evo-mirror",
+    "https://timesaver.gg/blog/clash-royale-season-89-king-vs-king",
+    "https://timesaver.gg/blog/clash-royale-september-2026-balance-changes-explained",
+    "https://timesaver.gg/blog/clash-royale-tier-list",
+    "https://timesaver.gg/blog/golem-deck-clash-royale",
+    "https://timesaver.gg/blog/lava-hound-deck-clash-royale",
+    "https://timesaver.gg/blog/mega-knight-deck-clash-royale",
+    "https://timesaver.gg/blog/royal-giant-deck-clash-royale",
+    "https://timesaver.gg/blog/royal-hogs-deck-clash-royale",
+    "https://timesaver.gg/blog/three-musketeers-deck-clash-royale",
+    "https://timesaver.gg/blog/xbow-deck-clash-royale",
+    "https://trophycoach.com/guides/clash-royale-meta-decks-2026",
+    "https://trophycoach.com/guides/clash-royale-meta-movers",
+    "https://trophycoach.com/guides/elixir-management-mastery-guide",
+    "https://trophycoach.com/guides/hero-cards-guide",
+    "https://trophycoach.com/guides/how-to-counter-balloon-deck",
+    "https://trophycoach.com/guides/how-to-counter-lavaloon-deck",
+    "https://trophycoach.com/guides/how-to-counter-logbait-deck",
+    "https://trophycoach.com/guides/ronin-guide",
+    "https://trophycoach.com/guides/single-use-abilities-explained",
+    "https://trophycoach.com/tools/tower-troop-compare",
+    "https://www.148apps.com/news/clash-royale-guide-how-to-use-elixir-effectively",
+    "https://www.148apps.com/news/how-to-defend-effectively-in-clash-royale",
+    "https://www.redbull.com/gb-en/how-to-build-a-winning-clash-royale-deck",
+    "https://www.redbull.com/int-en/clash-royale-league-player-interviews",
+    "https://www.sportskeeda.com/esports/how-count-elixir-clash-royale-efficiently",
+    "https://www.sportskeeda.com/esports/how-use-hog-rider-clash-royale",
+    "https://www.sportskeeda.com/esports/how-use-tornado-effectively-clash-royale",
+    "https://www.touchtapplay.com/best-ways-to-activate-king-tower-in-clash-royale/"
+  ]
+}

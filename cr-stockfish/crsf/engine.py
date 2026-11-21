@@ -22,6 +22,7 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Sequence, Tuple
 
 from .cards import Card, CardDB, default_db
+from .knowledge import Knowledge, default_knowledge
 from .state import (MY_TOWER_POS, OPP_TOWER_POS, RIVER_Y, GameState, Tower, Unit, lane_of_x)
 
 # --------------------------------------------------------------------------
@@ -82,9 +83,11 @@ class Weights:
 @dataclass
 class Move:
     card: Optional[str]              # None => wait
-    zone: Optional[str]              # zone key, or "unit:<idx>" / "tower:<name>" for spells
+    zone: Optional[str]              # zone key, "unit:<idx>" / "tower:<name>" for spells, "kp:<label>" / "pr:<n>" for knowledge/prior placements
     x: float = 9.0
     y: float = 8.0
+    label: str = ""                  # human label for knowledge / prior placements
+    source: str = "zone"             # zone | knowledge | prior | spell
 
     @property
     def is_wait(self) -> bool:
@@ -94,12 +97,33 @@ class Move:
     def lane(self) -> str:
         return lane_of_x(self.x)
 
+    @property
+    def cls(self) -> str:
+        """Coarse placement class: back | def | bridge | kite | spell."""
+        if self.zone in BACK_ZONES:
+            return "back"
+        if self.zone in BRIDGE_ZONES:
+            return "bridge"
+        if self.zone in KITE_ZONES:
+            return "kite"
+        if self.zone in DEF_ZONES:
+            return "def"
+        if self.zone and (self.zone.startswith("unit:") or self.zone.startswith("tower:")):
+            return "spell"
+        if self.y >= 13.5:
+            return "bridge"
+        if self.y <= 4.5:
+            return "back"
+        return "def"
+
     def describe(self, db: CardDB, state: Optional[GameState] = None) -> str:
         if self.is_wait:
             return "Wait (hold elixir)"
         name = db.get(self.card).name
         if self.zone in ZONES:
             return f"{name} -> {ZONES[self.zone].label}"
+        if self.label:
+            return f"{name} -> {self.label} ({self.x:.1f}, {self.y:.1f})"
         if self.zone and self.zone.startswith("tower:"):
             return f"{name} on opponent's {self.zone.split(':', 1)[1]} tower"
         if self.zone and self.zone.startswith("unit:") and state is not None:
@@ -162,7 +186,8 @@ def threat_weight(db: CardDB, u: Unit) -> float:
     else:
         base = 1.0
     if u.y >= RIVER_Y:
-        prox = 0.35 if u.y < RIVER_Y + 6 else 0.2    # still on their side: a building push
+        # Still on their side: 0.7 at the bridge, falling to 0.2 at their king tower.
+        prox = max(0.2, 0.7 - (u.y - RIVER_Y) * 0.0625)
     else:
         prox = 0.7 + 0.8 * (RIVER_Y - u.y) / RIVER_Y   # 0.7 at the river, 1.5 at my king
     if c.is_building:
@@ -295,26 +320,56 @@ def _lane_factor(zone_lane: str, unit_lane: str) -> float:
 # Move generation
 # --------------------------------------------------------------------------
 
-def generate_moves(db: CardDB, state: GameState) -> List[Move]:
+def _situation(state: GameState, lane: str) -> str:
+    enemies = state.opp_units()
+    if any(u.on_my_side and (u.lane == lane or lane == "center") for u in enemies):
+        return "defense"
+    if enemies:
+        return "counter_push"
+    return "offense"
+
+
+def generate_moves(db: CardDB, state: GameState, knowledge: Optional[Knowledge] = None) -> List[Move]:
     moves: List[Move] = [Move(None, None)]
     enemies = [(i, u) for i, u in enumerate(state.units) if u.side == "opp"]
+    pockets_open = {"left": not state.towers["opp_left"].alive, "right": not state.towers["opp_right"].alive}
     for key in state.playable_hand():
         card = db.find(key)
         if card is None or card.cost > state.my_elixir + 1e-6:
             continue
         if card.is_spell:
             for i, u in enemies:
-                moves.append(Move(key, f"unit:{i}", u.x, u.y))
+                moves.append(Move(key, f"unit:{i}", u.x, u.y, source="spell"))
             for tname, (tx, ty) in OPP_TOWER_POS.items():
                 tw = state.towers[f"opp_{tname}"]
                 if tw.alive and card.targets != "none":
-                    moves.append(Move(key, f"tower:{tname}", tx, ty))
+                    moves.append(Move(key, f"tower:{tname}", tx, ty, source="spell"))
             if not enemies and card.targets == "none":
                 moves.append(Move(key, "def_center", 9.0, 12.0))
+            if knowledge:
+                for p in knowledge.placements_for(key, "prediction"):
+                    moves.append(Move(key, f"kp:{p.label}", p.x, p.y, label=p.label, source="knowledge"))
             continue
         for z in ZONES.values():
             if card.kind in z.kinds:
                 moves.append(Move(key, z.key, z.x, z.y))
+        if knowledge:
+            seen = set()
+            for p in knowledge.placements_for(key):
+                if p.y > 15.5 and not pockets_open.get(p.lane if p.lane in pockets_open else lane_of_x(p.x), False):
+                    continue                        # enemy half: only when that tower is down
+                k = (round(p.x * 2), round(p.y * 2))
+                if k in seen:
+                    continue
+                seen.add(k)
+                moves.append(Move(key, f"kp:{p.label}", p.x, p.y, label=p.label, source="knowledge"))
+            for lane in ("left", "right"):
+                for n, c in enumerate(knowledge.priors.candidates(key, _situation(state, lane), lane)):
+                    k = (round(c["x"] * 2), round(c["y"] * 2))
+                    if k in seen or c["y"] > 15.5:
+                        continue
+                    seen.add(k)
+                    moves.append(Move(key, f"pr:{lane}:{n}", c["x"], c["y"], label=f"learned {lane} placement", source="prior"))
     return moves
 
 
@@ -323,9 +378,18 @@ def generate_moves(db: CardDB, state: GameState) -> List[Move]:
 # --------------------------------------------------------------------------
 
 class Engine:
-    def __init__(self, db: Optional[CardDB] = None, weights: Optional[Weights] = None):
+    def __init__(self, db: Optional[CardDB] = None, weights: Optional[Weights] = None, knowledge: Optional[Knowledge] = None):
         self.db = db or default_db()
         self.w = weights or Weights()
+        self.k = knowledge if knowledge is not None else default_knowledge()
+
+    def cs(self, defender: Card, u: Unit) -> float:
+        """Counter score with curated knowledge blended over the duel model."""
+        model = counter_score(self.db, defender, u)
+        cur = self.k.curated_counter(defender.key, u.card)
+        if cur is None:
+            return model
+        return max(0.0, min(1.0, 0.35 * model + 0.65 * cur[0]))
 
     # ----- public ---------------------------------------------------------
     def analyse(self, state: GameState, top_n: int = 5) -> Analysis:
@@ -333,13 +397,71 @@ class Engine:
         threats = [(u, threat_weight(db, u)) for u in state.opp_units()]
         threats.sort(key=lambda t: -t[1])
         recs: List[Recommendation] = []
-        for mv in generate_moves(db, state):
-            score, comps, reasons = self.score_move(state, mv, threats)
-            recs.append(Recommendation(mv, score, reasons, comps))
+        base_w = self.w
+        self.w = self._matchup_weights(state)
+        try:
+            for mv in generate_moves(db, state, self.k):
+                score, comps, reasons = self.score_move(state, mv, threats)
+                recs.append(Recommendation(mv, score, reasons, comps))
+        finally:
+            self.w = base_w
         recs.sort(key=lambda r: -r.score)
+        recs = self._dedupe(recs)
         ev, breakdown = self.evaluate_position(state)
         notes = self._notes(state, threats)
         return Analysis(recs[:top_n], ev, breakdown, threats, notes)
+
+    @staticmethod
+    def _dedupe(recs: List[Recommendation]) -> List[Recommendation]:
+        """Collapse near-identical placements of the same card (keep the best)."""
+        out: List[Recommendation] = []
+        for r in recs:
+            dup = False
+            for o in out:
+                if o.move.card == r.move.card and abs(o.move.x - r.move.x) < 1.6 and abs(o.move.y - r.move.y) < 2.1 and o.move.cls == r.move.cls:
+                    dup = True
+                    break
+            if not dup:
+                out.append(r)
+        return out
+
+    def _lowest_tower(self, state: GameState, prefix: str) -> float:
+        vals = [state.towers[f"{prefix}_{n}"].hp_or_max for n in ("left", "right") if state.towers[f"{prefix}_{n}"].alive]
+        return min(vals) if vals else 0.0
+
+    def _matchup_weights(self, state: GameState) -> Weights:
+        """Archetype- and phase-aware weight adjustments."""
+        w = Weights(**vars(self.w))
+        # Overtime / last seconds: the lowest tower decides the tiebreak.
+        if state.overtime or state.time_left <= 20:
+            mine, theirs = self._lowest_tower(state, "my"), self._lowest_tower(state, "opp")
+            if mine < theirs - 150:
+                w.offense *= 1.35          # behind on tiebreak: must deal damage
+                w.spell_cycle *= 2.0
+                w.wait_bias -= 0.3
+            elif mine > theirs + 150:
+                w.wait_bias += 0.4         # ahead: defend, don't gamble
+                w.tower_damage_prevented *= 1.3
+                w.overcommit *= 1.5
+        opp_arch = self.k.detect_archetype(state.opp.known_deck)
+        if opp_arch is None:
+            return w
+        if opp_arch.id in ("beatdown", "lavaloon", "golem", "three_musketeers"):
+            w.build_push *= 0.6          # don't race a beatdown deck with your own slow push
+            w.reserve *= 1.4             # keep the inferno / counters ready
+            w.offense *= 1.1             # punish opposite lane when they commit
+        elif opp_arch.id in ("cycle", "hog_cycle", "miner_cycle", "mortar_cycle"):
+            w.overcommit *= 1.4          # they punish every over-commit
+            w.spell_cycle *= 1.3
+        elif opp_arch.id in ("siege", "x_bow", "mortar"):
+            w.offense *= 1.25            # constant pressure beats siege
+            w.wait_bias -= 0.2
+        elif opp_arch.id in ("bait", "log_bait", "spell_bait"):
+            w.reserve *= 1.3             # hold the log / small spell
+        elif opp_arch.id in ("bridge_spam", "pekka_bridge_spam"):
+            w.wait_bias += 0.1
+            w.tower_damage_prevented *= 1.15
+        return w
 
     def evaluate_position(self, state: GameState) -> Tuple[float, Dict[str, float]]:
         db = self.db
@@ -387,24 +509,34 @@ class Engine:
                     dist = math.hypot(u.x - mv.x, u.y - mv.y)
                     if dist > max(1.5, card.range):
                         continue
-                cs = counter_score(db, card, u)
+                cs = self.cs(card, u)
                 lf = 1.0
             else:
-                cs = counter_score(db, card, u)
+                cs = self.cs(card, u)
                 lf = _lane_factor(mv.lane, u.lane)
-                if mv.zone in BRIDGE_ZONES:
+                if mv.lane == "center" and card.is_building and db.get(u.card).targets == "buildings":
+                    lf = 1.0       # a centre building pulls building-targeters from either lane
+                if mv.source == "knowledge" and self._kp_targets(card.key, mv, u.card):
+                    lf = 1.0       # the pro placement was designed for exactly this attacker
+                if mv.cls == "bridge":
                     lf *= 0.5      # placing at the bridge is not how you defend
-                if mv.zone in BACK_ZONES and u.on_my_side and u.y > 6:
+                if mv.cls == "back" and u.on_my_side and u.y > 6:
                     lf *= 0.4
-            gain = cs * lf * elixir_value(db, u)
+            urgency = min(1.0, tw / max(0.3, elixir_value(db, u)))   # ~proximity: far-away units are not defence yet
+            gain = cs * lf * elixir_value(db, u) * urgency
             defense += gain
-            prevented += cs * lf * expected_tower_damage(db, u)
+            prevented += cs * lf * expected_tower_damage(db, u) * urgency
             if gain >= 0.8:
                 reasons.append(f"counters {db.get(u.card).name} ({cs:.0%})")
         if card.is_spell and defense == 0 and mv.zone and mv.zone.startswith("unit:"):
             reasons.append("does nothing useful to that unit")
         comps["defense"] = w.defense * defense
         comps["prevented"] = w.tower_damage_prevented * prevented
+
+        # 1b. Knowledge / learned placement bonus -------------------------------
+        kb, kb_reasons = self._placement_bonus(state, mv, card, threats)
+        comps["placement"] = kb
+        reasons += kb_reasons
 
         # 2. Offense ----------------------------------------------------------
         offense, off_reasons = self._offense(state, mv, card, total_threat)
@@ -428,7 +560,7 @@ class Engine:
         resp = 0.0
         if not card.is_spell:
             best_counter, counter_card = self._opp_best_counter(state, card, mv)
-            if best_counter > 0.5 and mv.zone in BRIDGE_ZONES + BACK_ZONES:
+            if best_counter > 0.5 and mv.cls in ("bridge", "back"):
                 resp = w.opp_response * best_counter * card.cost * 0.5
                 reasons.append(f"opponent likely has {db.get(counter_card).name} in hand")
         comps["response"] = -resp
@@ -465,6 +597,9 @@ class Engine:
         if state.my_elixir < 4 and total_threat < 1.0:
             s += 0.3
             reasons.append("build elixir")
+        if state.time_left > 165 and not state.overtime and not state.units and state.my_elixir < 9:
+            s += 0.6
+            reasons.append("opening: build to 9-10 elixir or cycle a cheap card at the back")
         if not reasons:
             reasons.append("nothing urgent")
         comps["wait"] = s
@@ -496,12 +631,21 @@ class Engine:
         openness = 1.0 - opp_counter
         low_opp = max(0.0, (6.0 - opp_el) / 6.0)     # 1.0 when opp has 0, 0 at 6+
 
-        if mv.zone in BRIDGE_ZONES:
+        opening = state.time_left > 165 and not state.overtime and not state.units
+        if mv.cls == "bridge" and mv.lane != "center":
             lane = mv.lane
             tower = state.towers[f"opp_{lane}"]
             lane_bonus = 1.0 + 0.5 * (1.0 - tower.frac) if tower.alive else 0.6
+            other = "right" if lane == "left" else "left"
+            committed = [u for u in state.opp_units() if u.lane == other and not u.on_my_side and db.get(u.card).cost >= 5]
             if card.is_win_condition or card.has_role("charge"):
                 score += card.cost * (0.35 + 0.5 * openness + 0.4 * low_opp) * lane_bonus
+                if opening:
+                    score -= 0.6 * card.cost
+                    reasons.append("never open with your win condition")
+                if committed:
+                    score += 0.35 * card.cost
+                    reasons.append(f"punish the opposite lane while their {db.get(committed[0].card).name} walks")
                 if openness > 0.6:
                     reasons.append("opponent has no good counter in hand")
                 if low_opp > 0.4:
@@ -521,8 +665,10 @@ class Engine:
                 score += 0.3 * card.cost
                 reasons.append("counter-push with your surviving units")
 
-        if mv.zone in BACK_ZONES:
-            slow_push_ok = state.phase == "single" and state.time_left > 75 and state.my_elixir >= 7 and total_threat < 1.0
+        if mv.cls == "back":
+            slow_push_ok = total_threat < 1.0 and (
+                (state.phase == "single" and state.time_left > 75 and state.my_elixir >= 7)
+                or (state.phase != "single" and state.my_elixir >= 6 and not state.overtime))
             if card.is_tank and card.cost >= 5:
                 if slow_push_ok or state.my_elixir >= 9:
                     score += self.w.build_push * card.cost
@@ -548,11 +694,11 @@ class Engine:
             elif card.is_win_condition:
                 score -= 0.4 * card.cost   # win conditions belong at the bridge
 
-        if mv.zone in KITE_ZONES:
+        if mv.cls == "kite":
             # Only useful as a defensive placement; no offensive value.
             if total_threat < 1.0:
                 score -= 0.3 * card.cost
-        if mv.zone in DEF_ZONES and total_threat < 1.0 and card.is_troop:
+        if mv.cls == "def" and total_threat < 1.0 and card.is_troop:
             score -= 0.25 * card.cost
         return score, reasons
 
@@ -575,9 +721,15 @@ class Engine:
             return score, reasons
         frac = tower_dmg / tower.max_hp
         endgame = state.overtime or state.time_left <= 30
+        behind = endgame and self._lowest_tower(state, "my") < self._lowest_tower(state, "opp") - 150
         if endgame and state.my_elixir >= 7:
-            score += frac * TOWER_VALUE_PRINCESS * 1.2 + 0.3
+            score += frac * TOWER_VALUE_PRINCESS * 1.5 + 0.3
             reasons.append("chip damage in the endgame")
+            if behind:
+                score += 0.8 * card.cost
+                reasons.append("behind on the tiebreak: tower damage wins the game")
+            if state.my_elixir >= 9:
+                score += 0.5 * card.cost
         elif state.my_elixir >= 9:
             score += self.w.spell_cycle * card.cost + frac * TOWER_VALUE_PRINCESS
             reasons.append("spell cycle instead of leaking")
@@ -597,7 +749,7 @@ class Engine:
             oc = db.find(key)
             if not oc or oc.cost > state.opp.elixir + 0.5:
                 continue
-            cs = counter_score(db, oc, probe)
+            cs = self.cs(oc, probe)
             if cs > best:
                 best, best_card = cs, oc.key
         if unknown > 0 and state.opp.elixir >= 3:
@@ -622,8 +774,8 @@ class Engine:
             if oc.cost > state.opp.elixir + 1.0:
                 continue
             probe = Unit(oc.key, "opp", 3.5, 14.0)
-            answers_before = [k for k in remaining + [card.key] if db.find(k) and db.get(k).cost <= state.my_elixir and counter_score(db, db.get(k), probe) >= 0.55]
-            answers_after = [k for k in remaining if db.find(k) and db.get(k).cost <= after and counter_score(db, db.get(k), probe) >= 0.55]
+            answers_before = [k for k in remaining + [card.key] if db.find(k) and db.get(k).cost <= state.my_elixir and self.cs(db.get(k), probe) >= 0.55]
+            answers_after = [k for k in remaining if db.find(k) and db.get(k).cost <= after and self.cs(db.get(k), probe) >= 0.55]
             if answers_before and not answers_after:
                 pen = 0.5 * oc.cost
                 if pen > worst:
@@ -631,9 +783,62 @@ class Engine:
                     reason = f"you could no longer answer {oc.name}"
         return worst, reason
 
+    def _kp(self, card_key: str, mv: Move):
+        label = mv.zone.split(":", 1)[1] if mv.zone else ""
+        return next((p for p in self.k.placements_for(card_key) if p.label == label), None)
+
+    def _kp_targets(self, card_key: str, mv: Move, attacker: str) -> bool:
+        p = self._kp(card_key, mv)
+        return bool(p and attacker in p.vs)
+
+    def _placement_bonus(self, state: GameState, mv: Move, card: Card, threats) -> Tuple[float, List[str]]:
+        reasons: List[str] = []
+        if mv.source == "knowledge":
+            pl = self._kp(card.key, mv)
+            if pl is None:
+                return 0.0, reasons
+            sit = _situation(state, mv.lane)
+            bonus = 0.0
+            if pl.situation == sit or (pl.situation == "counter_push" and sit == "offense") or (pl.situation == "offense" and sit == "counter_push"):
+                bonus += 0.12 * card.cost
+            elif pl.situation == "prediction":
+                bonus += 0.05 * card.cost
+            else:
+                bonus -= 0.1 * card.cost        # right spot, wrong moment
+            if pl.vs:
+                hits = [u for u, _ in threats if u.card in pl.vs and (u.lane == mv.lane or mv.lane == "center")]
+                if hits:
+                    bonus += 0.3 * card.cost
+                    reasons.append(f"pro placement vs {self.db.get(hits[0].card).name}: {pl.label}")
+                elif card.is_troop or card.is_building:
+                    bonus -= 0.05 * card.cost
+            if bonus > 0 and not reasons:
+                reasons.append(f"pro placement: {pl.label}")
+            return bonus, reasons
+        if mv.source == "prior":
+            lane = mv.zone.split(":")[1]
+            n = int(mv.zone.split(":")[2])
+            cands = self.k.priors.candidates(card.key, _situation(state, lane), lane)
+            strength = cands[n]["strength"] if n < len(cands) else 0.0
+            if strength > 0:
+                reasons.append("placement learned from pro games")
+            return 0.2 * card.cost * strength, reasons
+        return 0.0, reasons
+
     def _notes(self, state: GameState, threats) -> List[str]:
         notes = []
         o = state.opp
+        opp_arch = self.k.detect_archetype(o.known_deck) if o.known_deck else None
+        my_arch = self.k.detect_archetype(state.my_deck) if state.my_deck else None
+        if opp_arch:
+            notes.append(f"Opp archetype: {opp_arch.id}. {opp_arch.how_to_beat}".strip())
+            mu = self.k.matchup(my_arch.id if my_arch else None, opp_arch.id)
+            if mu:
+                notes.append(f"Matchup plan ({my_arch.id} vs {opp_arch.id}): {mu.get('plan', '')}")
+        pol = self.k.phase_policy.get("overtime" if state.overtime else state.phase)
+        if pol:
+            first = pol.split(". ")[0]
+            notes.append(f"{'Overtime' if state.overtime else state.phase.title() + ' elixir'}: {first[:140]}")
         if o.predicted_hand:
             notes.append("Opp hand: " + ", ".join(self.db.get(k).name for k in o.predicted_hand))
         if o.out_of_hand:

@@ -16,7 +16,10 @@ from .state import GameState
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_TEMPLATES = ROOT / "templates" / "cards"
+UNIT_TEMPLATES = ROOT / "templates" / "units"
 UNLABELED = ROOT / "templates" / "unlabeled"
+EVENTS_DIR = ROOT / "data" / "events"
+KNOWLEDGE_DIR = ROOT / "knowledge"
 
 
 def _parse_bbox(s: Optional[str]):
@@ -28,10 +31,32 @@ def _parse_bbox(s: Optional[str]):
     return tuple(parts)
 
 
+def _adb_device(args):
+    from .act.adb import AdbDevice, EMULATOR_PORTS
+    dev = AdbDevice(serial=getattr(args, "serial", None))
+    target = getattr(args, "connect", None)
+    emu = getattr(args, "emulator", None)
+    if not target and emu and emu != "phone":
+        target = f"127.0.0.1:{EMULATOR_PORTS[emu]}"
+    if target:
+        print(dev.connect(target), file=sys.stderr)
+    devs = [d for d in AdbDevice.devices() if len(d) > 1 and d[1] == "device"]
+    if not devs:
+        raise SystemExit("no ADB device online. Enable ADB in the emulator (or USB debugging on the phone) and run `adb devices`.")
+    if dev.serial is None and len(devs) == 1:
+        dev.serial = devs[0][0]
+    print(f"using device {dev.serial or devs[0][0]} ({dev.wm_size()[0]}x{dev.wm_size()[1]})", file=sys.stderr)
+    return dev
+
+
 def _source(args):
     from .vision.capture import ImageSource, ScreenSource, WindowSource
     if getattr(args, "images", None):
         return ImageSource([Path(p) for p in args.images])
+    if getattr(args, "adb", False) or getattr(args, "connect", None) or getattr(args, "emulator", None):
+        from .act.adb import AdbSource
+        args._device = _adb_device(args)
+        return AdbSource(args._device)
     if getattr(args, "window", None):
         return WindowSource(args.window)
     return ScreenSource(monitor=args.monitor, bbox=_parse_bbox(args.bbox))
@@ -47,10 +72,28 @@ def _advisor(args) -> Advisor:
         from .vision.units import YoloDetector
         detector = YoloDetector(Path(args.yolo), Path(args.yolo_classes))
     adv = Advisor(layout=layout, matcher=matcher, detector=detector, auto_frame=not args.no_auto_frame,
-                  use_ocr=None if not args.no_ocr else False)
+                  use_ocr=None if not getattr(args, "no_ocr", False) else False,
+                  unit_templates=Path(getattr(args, "unit_templates", UNIT_TEMPLATES)),
+                  detect_units=not getattr(args, "no_units", False))
     if not len(matcher):
         adv.messages.append(f"no card templates in {args.templates}; hand reading disabled (run learn-cards)")
+    from .knowledge import default_knowledge
+    k = default_knowledge()
+    adv.messages.append("knowledge loaded: " + (", ".join(k.loaded) if k.loaded else "none (duel model only)")
+                        + f"; unit classifier knows {len(adv.classifier.classes())} units")
     return adv
+
+
+def _save_events(adv: Advisor, path: Path) -> int:
+    if not adv.events:
+        return 0
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "a", encoding="utf-8") as fh:
+        for ev in adv.events:
+            fh.write(json.dumps(ev) + "\n")
+    n = len(adv.events)
+    adv.events.clear()
+    return n
 
 
 # --------------------------------------------------------------------------
@@ -144,6 +187,150 @@ def cmd_advise(args) -> int:
         ov.run()
     finally:
         src.close()
+    return 0
+
+
+def cmd_play(args) -> int:
+    """Autoplay: ADB frames in, engine decides, ADB taps out."""
+    from .act.adb import AdbActuator
+    from .autoplay import AutoPlayer, AutoplayConfig
+    args.adb = True
+    adv = _advisor(args)
+    src = _source(args)
+    device = args._device
+    act = AdbActuator(device, adv.layout, dry_run=args.dry_run)
+    cfg = AutoplayConfig(min_score=args.min_score, urgent_score=args.urgent_score)
+    bot = AutoPlayer(cfg)
+    db = adv.db
+    for m in adv.messages:
+        print(m, file=sys.stderr)
+    print(("DRY RUN: " if args.dry_run else "") + "autoplay armed. Commands: p pause/resume, o <card>, r reset, q quit", file=sys.stderr)
+    if not args.dry_run:
+        print("Reminder: automation violates Supercell's Terms of Service. Use a secondary account.", file=sys.stderr)
+    events_path = EVENTS_DIR / f"play_{int(time.time())}.jsonl"
+    frames = src.frames(fps=args.fps)
+
+    def on_command(line: str) -> str:
+        l = line.strip().lower()
+        if l in ("p", "pause"):
+            bot.paused = not bot.paused
+            return "paused" if bot.paused else "resumed"
+        if l in ("q", "quit"):
+            raise KeyboardInterrupt
+        return adv.command(line)
+
+    def produce() -> Optional[str]:
+        try:
+            raw = next(frames)
+        except StopIteration:
+            return None
+        st, an = adv.step(raw, top_n=args.top)
+        rec = bot.decide(st, an)
+        action = ""
+        if rec is not None:
+            slot = st.hand.index(rec.move.card)
+            entry = act.play(slot, rec.move.x, rec.move.y, raw.shape, adv.frame_bbox, label=rec.move.describe(db, st))
+            bot.record(rec, entry)
+            action = f"PLAYED {rec.move.describe(db, st)} [{rec.score:+.1f}] via slot {slot + 1} -> px {entry['tile_px']}"
+            print(action, file=sys.stderr, flush=True)
+        txt = render_text(db, st, an, adv.last_report)
+        status = "PAUSED" if bot.paused else ("DRY RUN" if args.dry_run else "AUTOPLAY ON")
+        last = bot.history[-1] if bot.history else None
+        tail = f"\nlast: {db.get(last['card']).name} @ {last['zone']} ({time.time() - last['t']:.0f}s ago)" if last else ""
+        return f"[{status}] plays: {len(bot.history)}{tail}\n\n{txt}"
+
+    try:
+        if args.no_overlay:
+            stop = threading.Event()
+
+            def reader():
+                for line in sys.stdin:
+                    if stop.is_set():
+                        break
+                    try:
+                        print("> " + on_command(line), flush=True)
+                    except KeyboardInterrupt:
+                        stop.set()
+                        break
+            threading.Thread(target=reader, daemon=True).start()
+            while not stop.is_set():
+                txt = produce()
+                if txt is None:
+                    break
+                print("\033[2J\033[H" + txt, flush=True)
+        else:
+            from .overlay import Overlay
+            Overlay(produce, on_command, title="CR Stockfish - autoplay").run()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        n = _save_events(adv, events_path)
+        src.close()
+        print(f"{len(bot.history)} plays; {n} deploy events saved to {events_path}" if n else f"{len(bot.history)} plays", file=sys.stderr)
+    return 0
+
+
+def cmd_learn(args) -> int:
+    """Watch gameplay (yours or a pro's video) and log deploy events."""
+    adv = _advisor(args)
+    src = _source(args)
+    db = adv.db
+    for m in adv.messages:
+        print(m, file=sys.stderr)
+    out = Path(args.out) if args.out else EVENTS_DIR / f"learn_{int(time.time())}.jsonl"
+    print(f"learning: deploy events -> {out}. Type `o <card>` when the opponent plays so enemy units get labelled too.", file=sys.stderr)
+    total = 0
+    frames = src.frames(fps=args.fps)
+
+    def produce() -> Optional[str]:
+        nonlocal total
+        try:
+            raw = next(frames)
+        except StopIteration:
+            return None
+        st, an = adv.step(raw, top_n=3)
+        if len(adv.events) >= 10:
+            total += _save_events(adv, out)
+        recent = adv.events[-3:]
+        lines = [f"events logged: {total + len(adv.events)}  | classifier classes: {len(adv.classifier.classes())}"]
+        lines += [f"  {e['card']} @ ({e['x']}, {e['y']}) {e['lane']} [{e['phase']}, {e['side']}]" for e in recent]
+        return "\n".join(lines) + "\n\n" + render_text(db, st, an, adv.last_report)
+
+    try:
+        if args.no_overlay:
+            stop = threading.Event()
+            threading.Thread(target=_stdin_commands, args=(adv, stop), daemon=True).start()
+            while True:
+                txt = produce()
+                if txt is None:
+                    break
+                print("\033[2J\033[H" + txt, flush=True)
+        else:
+            from .overlay import Overlay
+            Overlay(produce, adv.command, title="CR Stockfish - learning").run()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        total += _save_events(adv, out)
+        src.close()
+    print(f"{total} deploy events in {out}. Build priors with: python -m crsf priors", file=sys.stderr)
+    return 0
+
+
+def cmd_priors(args) -> int:
+    from .learn import build_priors, load_events
+    paths = [Path(p) for p in (args.events or [EVENTS_DIR])]
+    events = load_events(paths)
+    data = build_priors(events, min_count=args.min_count)
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with open(out, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, indent=1)
+    print(f"{len(events)} events -> priors for {len(data['cards'])} cards written to {out}")
+    db = default_db()
+    for card, e in sorted(data["cards"].items(), key=lambda kv: -kv[1]["n"])[:15]:
+        sits = "; ".join(f"{s}: " + ", ".join(f"({c['x']:.0f},{c['y']:.0f})x{c['count']}" for c in v["clusters"][:3]) for s, v in e["situations"].items())
+        print(f"  {db.get(card).name if db.find(card) else card:<18} n={e['n']:<4} {sits}")
     return 0
 
 
@@ -271,6 +458,12 @@ def _add_capture_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--layout", help="layout JSON (default: crsf/data/layout.json)")
     p.add_argument("--templates", default=str(DEFAULT_TEMPLATES), help="card template directory")
     p.add_argument("--fps", type=float, default=4.0)
+    p.add_argument("--adb", action="store_true", help="capture frames via ADB screencap instead of the screen")
+    p.add_argument("--emulator", choices=["bluestacks", "ldplayer", "memu", "nox", "mumu", "phone"], help="connect to this emulator's default ADB port (implies --adb)")
+    p.add_argument("--connect", help="adb connect to host:port (e.g. 127.0.0.1:5555 or a phone's Wi-Fi ADB address)")
+    p.add_argument("--serial", help="ADB device serial when several are attached")
+    p.add_argument("--unit-templates", default=str(UNIT_TEMPLATES), help="labelled unit crops directory")
+    p.add_argument("--no-units", action="store_true", help="disable health-bar unit detection")
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -296,6 +489,31 @@ def main(argv: Optional[List[str]] = None) -> int:
     p.add_argument("--yolo", help="Ultralytics YOLO weights for unit detection")
     p.add_argument("--yolo-classes", help="class map JSON for --yolo")
     p.set_defaults(fn=cmd_advise)
+
+    p = sub.add_parser("play", help="AUTOPLAY over ADB: the engine plays the match for you (emulator or phone)")
+    _add_capture_args(p)
+    p.add_argument("--dry-run", action="store_true", help="decide and log, but never tap")
+    p.add_argument("--min-score", type=float, default=0.6)
+    p.add_argument("--urgent-score", type=float, default=2.5)
+    p.add_argument("--top", type=int, default=3)
+    p.add_argument("--no-overlay", action="store_true")
+    p.add_argument("--no-ocr", action="store_true")
+    p.add_argument("--yolo")
+    p.add_argument("--yolo-classes")
+    p.set_defaults(fn=cmd_play)
+
+    p = sub.add_parser("learn", help="log deploy events from gameplay on screen (yours or a pro's video)")
+    _add_capture_args(p)
+    p.add_argument("--out", help="events JSONL (default data/events/learn_<ts>.jsonl)")
+    p.add_argument("--no-overlay", action="store_true")
+    p.add_argument("--no-ocr", action="store_true")
+    p.set_defaults(fn=cmd_learn)
+
+    p = sub.add_parser("priors", help="aggregate logged events into knowledge/priors.json")
+    p.add_argument("events", nargs="*", help="event files or directories (default data/events)")
+    p.add_argument("--out", default=str(KNOWLEDGE_DIR / "priors.json"))
+    p.add_argument("--min-count", type=int, default=2)
+    p.set_defaults(fn=cmd_priors)
 
     p = sub.add_parser("replay", help="run the pipeline over saved screenshots")
     p.add_argument("images", nargs="+")
